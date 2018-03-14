@@ -1,1 +1,1 @@
-<?php echo "Ceci fut rédigé sous Visual Studio Code et c'est de la balle !"; ?>
+<?php echo "Ceci fut rédigé sous Visual Studio Code et c'est de la balle !"; ?> couille
