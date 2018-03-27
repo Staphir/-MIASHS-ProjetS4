@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* commentaires */
 h1, h2 {
     color:#000000;
@@ -114,4 +115,122 @@ a:active {color:lime; background-color:#ff0000}
     .menu {
         flex-flow: row;
     }
+=======
+/* commentaires */
+h1, h2 {
+    color:#000000;
+    text-align:center;
+    background-color:#AACCCC
+}
+
+.loremipsum {
+    font-style:italic;
+    text-align:left;
+}
+
+#prefere {
+    color:rgb(255, 58, 58);
+    /*background-color: rgb(165, 156, 156);*/
+}
+
+#coteacote {
+    display: flex;
+}
+
+#tout {
+    width: 1000px;
+    margin: 0 auto;
+}
+
+section {
+    width: 70%;
+    background-color: white;
+}
+
+aside {
+    width: 30%;
+    background-color: beige;
+}
+
+li:nth-child(2n) {background-color:#AACCCC}
+
+.classement {display:inline-block}
+
+header {background-color:#AACCCC; border:2px solid rgb(134, 184, 184)}
+
+section, aside, header, footer {
+    border: 4px solid #aaaaaa;
+    padding: 10px;
+}
+
+header, footer {
+    background-color: #888888
+}
+
+body {
+    font-family: Verdana;
+    background-color: #666666;
+}
+
+article {
+    margin:20px;
+    padding:10px;
+    border:1px solid rgb(99, 194, 199);
+    background-color:rgb(241, 241, 241);
+}
+
+ul.menu {
+    list-style-type: none;
+    padding: 5px;
+
+    display: flex;
+    flex-flow: row;
+    justify-content: flex-start;
+
+    background-color: #AACCCC;
+    border: 2px solid rgb(134, 184, 184);
+}
+
+ul.menu li a {
+    transition: background .30s ease-in-out;
+    text-decoration: none;
+    padding: .75em 1.25em;
+
+    display: block;
+    
+    color: black;
+    background-color: #aacccc;
+}
+
+ul.menu li a:hover {
+    background-color: rgb(192, 223, 223)
+}
+
+a:link {color:red}  
+a:visited {color:blue}
+a:hover {color:yellow}
+a:active {color:lime; background-color:#ff0000}
+
+@media screen and (max-width: 640px) {
+    .loremipsum {
+        background-color: #FFFFFF;
+    }
+    #coteacote {
+        display: block;
+    }
+    section, aside {
+        width: auto;
+    }
+    .menu {
+        flex-flow: column;
+    }
+}
+@media screen and (min-width: 641px) {
+    .loremipsum {
+        background-color: #CCCCCC
+    }
+    .menu {
+        flex-flow: row;
+    }
+>>>>>>> d3a92b3a5d55def4bd45b7dc2dba729edb19e845
 }
