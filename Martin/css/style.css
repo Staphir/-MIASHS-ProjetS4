@@ -1,9 +1,90 @@
-<<<<<<< HEAD
 /* commentaires */
-h1, h2 {
+
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+h1 {
+    color:#000000;
+    text-align:center;
+}
+
+h2 {
     color:#000000;
     text-align:center;
     background-color:#AACCCC
+}
+
+.top_header {
+    background-color: rgb(255, 60, 60);
+    padding: 0px
+}
+
+.container {
+    padding: .75em 1.25em;
+    font-size: 16px;
+    font-family: Verdana;
+}
+
+.log_b {
+    transition: background .10s ease-in-out;
+    padding: .75em 1.25em;
+    border: none;
+    background-color: #aacccc;
+    text-align: center;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+.log_b:hover { background-color: rgb(192, 223, 223)}
+
+.log_b:active {
+    background-color: rgb(136, 157, 157)
 }
 
 .loremipsum {
@@ -39,14 +120,17 @@ li:nth-child(2n) {background-color:#AACCCC}
 
 .classement {display:inline-block}
 
-header {background-color:#AACCCC; border:2px solid rgb(134, 184, 184)}
+/* header {
+    background-color:rgb(134, 184, 184);
+    border:2px solid rgb(134, 184, 184); */
+}
 
-section, aside, header, footer {
+section, aside, footer {
     border: 4px solid #aaaaaa;
     padding: 10px;
 }
 
-header, footer {
+footer {
     background-color: #888888
 }
 
@@ -64,29 +148,33 @@ article {
 
 ul.menu {
     list-style-type: none;
-    padding: 5px;
+    padding: 10px;
 
     display: flex;
     flex-flow: row;
     justify-content: flex-start;
 
-    background-color: #AACCCC;
-    border: 2px solid rgb(134, 184, 184);
+    background-color: rgb(213, 255, 255);
+    border: 2px solid rgb(213, 255, 255);
+    border-radius: 10px;
 }
 
 ul.menu li a {
-    transition: background .30s ease-in-out;
+    transition: background .10s ease-in-out;
     text-decoration: none;
     padding: .75em 1.25em;
-
+    border-radius: 5px;
     display: block;
-    
     color: black;
     background-color: #aacccc;
 }
 
 ul.menu li a:hover {
     background-color: rgb(192, 223, 223)
+}
+
+ul.menu li a:active {
+    background-color: rgb(136, 157, 157)
 }
 
 a:link {color:red}  
@@ -115,122 +203,4 @@ a:active {color:lime; background-color:#ff0000}
     .menu {
         flex-flow: row;
     }
-=======
-/* commentaires */
-h1, h2 {
-    color:#000000;
-    text-align:center;
-    background-color:#AACCCC
-}
-
-.loremipsum {
-    font-style:italic;
-    text-align:left;
-}
-
-#prefere {
-    color:rgb(255, 58, 58);
-    /*background-color: rgb(165, 156, 156);*/
-}
-
-#coteacote {
-    display: flex;
-}
-
-#tout {
-    width: 1000px;
-    margin: 0 auto;
-}
-
-section {
-    width: 70%;
-    background-color: white;
-}
-
-aside {
-    width: 30%;
-    background-color: beige;
-}
-
-li:nth-child(2n) {background-color:#AACCCC}
-
-.classement {display:inline-block}
-
-header {background-color:#AACCCC; border:2px solid rgb(134, 184, 184)}
-
-section, aside, header, footer {
-    border: 4px solid #aaaaaa;
-    padding: 10px;
-}
-
-header, footer {
-    background-color: #888888
-}
-
-body {
-    font-family: Verdana;
-    background-color: #666666;
-}
-
-article {
-    margin:20px;
-    padding:10px;
-    border:1px solid rgb(99, 194, 199);
-    background-color:rgb(241, 241, 241);
-}
-
-ul.menu {
-    list-style-type: none;
-    padding: 5px;
-
-    display: flex;
-    flex-flow: row;
-    justify-content: flex-start;
-
-    background-color: #AACCCC;
-    border: 2px solid rgb(134, 184, 184);
-}
-
-ul.menu li a {
-    transition: background .30s ease-in-out;
-    text-decoration: none;
-    padding: .75em 1.25em;
-
-    display: block;
-    
-    color: black;
-    background-color: #aacccc;
-}
-
-ul.menu li a:hover {
-    background-color: rgb(192, 223, 223)
-}
-
-a:link {color:red}  
-a:visited {color:blue}
-a:hover {color:yellow}
-a:active {color:lime; background-color:#ff0000}
-
-@media screen and (max-width: 640px) {
-    .loremipsum {
-        background-color: #FFFFFF;
-    }
-    #coteacote {
-        display: block;
-    }
-    section, aside {
-        width: auto;
-    }
-    .menu {
-        flex-flow: column;
-    }
-}
-@media screen and (min-width: 641px) {
-    .loremipsum {
-        background-color: #CCCCCC
-    }
-    .menu {
-        flex-flow: row;
-    }
->>>>>>> d3a92b3a5d55def4bd45b7dc2dba729edb19e845
 }
