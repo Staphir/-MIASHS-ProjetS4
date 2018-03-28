@@ -10,3 +10,11 @@ Pages du site :
   .Page de choix d'histoire
   .Page nous contacter
   .Adresse du site : https://pedagovic.uf-mi.u-bordeaux.fr/~mdevreese/cswd/projet2018
+
+Afin de se connecter à la base de donnée :
+  •	nom de la base : mdevreese
+  •	login : mdevreese
+  •	mot de passe : riEa#U%0
+  •	hote : 127.0.0.1 (accessible en local seulement)
+  •	port : 3306
+  •	interface de configuration PHPMyAdmin : https://pedagovic.uf-mi.u-bordeaux.fr/phpmyadmin
