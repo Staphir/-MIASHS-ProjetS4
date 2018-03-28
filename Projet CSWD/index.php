@@ -26,17 +26,14 @@
                     <!-- <li class="menuitem"><a href="connexion3.php">Se connecter</a></li> -->
                     <li class="menuitem"><a href="#">Rechercher</a></li>
                     <li class="menuitem"><a href="#">Contacts</a></li>
-                    <li class="menuitem"><!-- Button to open the modal login form -->
+                    <!-- <li class="menuitem">
                         <button class="log_b" onclick="if (document.getElementById('id01').style.display==='block') {document.getElementById('id01').style.display='none';}
                         else {document.getElementById('id01').style.display='block';}">Se connecter</button>
-                    </li>
+                    </li> -->
+                    <li class="menuitem"><a href="connexion.php">Se connecter</a></li>
                     <li>
                         <div id="id01" class="modal">
-                            <!-- <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span> -->
-
-                            <!-- Modal Content -->
-                            <form class="modal-content animate" action="index.php" style="">
-
+                            <form class="modal-content animate" action="index.php">
                                 <div class="container">
                                     <label for="uname"><b>Identifiant</b></label>
                                     <input type="text" placeholder="Saisir l'identifiant..." name="uname" required>

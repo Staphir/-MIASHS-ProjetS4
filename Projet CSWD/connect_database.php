@@ -1,16 +1,16 @@
 <?php //Code de connexion à la base de données du prof
 
-// definition des parametres de connexion a la base de donnees
-//$config_base['hote']        = "127.0.0.1";
-//$config_base['utilisateur'] = "mdevreese";
-//$config_base['motdepasse']  = "riEa#U%0";
-//$config_base['nom_base']    = "mdevreese";
+//Quand martin bosse en local
+$config_base['hote']        = "127.0.0.1";
+$config_base['utilisateur'] = "mdevreese";
+$config_base['motdepasse']  = "riEa#U%0";
+$config_base['nom_base']    = "mdevreese";
 
 //Quand maxime bosse en local
-$config_base['hote']        = "localhost";
-$config_base['utilisateur'] = "root";
-$config_base['motdepasse']  = "";
-$config_base['nom_base']    = "conception";
+// $config_base['hote']        = "localhost";
+// $config_base['utilisateur'] = "root";
+// $config_base['motdepasse']  = "";
+// $config_base['nom_base']    = "conception";
 
 // connexion a la base de donnees
 try

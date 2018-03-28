@@ -3,31 +3,39 @@
     <head>
         <meta charset="utf-8"/>
         <title>Connexion</title>
-        <link href="css/formulaire.css" rel="stylesheet" type="text/css" media="all"/>
+        <link href="css/style.css" rel="stylesheet" type="text/css" media="all"/>
+        <?php require_once("connect_database.php") ?>
     </head>
     <body>
-<?php
+
+<?php 
+$requete = "SELECT Password FROM user WHERE user.Email= ? ";
+$reponse = $pdo->prepare($requete);
+$reponse->execute($_POST["email"]);
+
 $displayForm = true;
 if (isset($_POST["email"])) {
     $email = $_POST["email"];
-    $pass = $_POST["pass"];
-    //echo "Votre email est : ".$email;
-    if ($email=="mail@monmail.fr" && $pass=="f2aL+RSw") {
+    $pass = $_POST["psw"];
+    if ($pass==$reponse) {
         echo "Bienvenue, vous êtes désormais connecté !";
         $displayForm = false;
     }
 }
 if ($displayForm) {
 ?>
-    <h2 style="font-size : 25px">Connexion</h2>
-        <form action="connexion.php" method="post">
-            <fieldset>
-                <label class="email">Adresse email :</label><br/><input type="email" name="email"/><br/>
-                <label class="nombre">Mot de passe :</label><br/><input type="password" name="pass"/><br/>
-                <input type="checkbox" name="rememberme"/><label>Se souvenir de moi</label><br/>
-                <input type="submit" class="submit" value="Envoyer"/>
-            </fieldset>
-        </form>
+<div style="margin-top:100px">
+    <form action="connexion.php" method="post">
+        <h1>Connexion</h1>
+        <label>Adresse Email</label>
+        <input type="email" name="email" placeholder="Adresse email...">
+
+        <label>Mot de passe</label>
+        <input type="password" name="psw" placeholder="Mot de passe...">
+    
+        <input type="submit" value="Submit">
+  </form>
+</div>
 <?php } ?>
     </body>
 </html>

@@ -8,6 +8,7 @@
     --nav-but-hover: rgba(186, 0, 0, 0.857);
     --nav-but-hover-fg: white;
     --nav-but-active: rgb(172, 172, 172);
+    --hover-but-shadow: rgb(82, 22, 22)
 
 }
 
@@ -21,7 +22,7 @@ html, body, div {
     background-color: white;
 }
 
-h1 {
+header h1 {
     color:white;
     text-align:center;
     margin:0;
@@ -30,9 +31,8 @@ h1 {
 }
 
 h2 {
-    color:#000000;
     text-align:center;
-    background-color:#AACCCC
+    font-family: inherit;
 }
 
 .top_header {
@@ -44,6 +44,7 @@ h2 {
 
 .navbar {
     padding: 10px;
+    
     /* line-height: 24px */
     /* margin: 10px;
     margin-top: 10px;
@@ -61,7 +62,7 @@ ul.menu {
     list-style-type: none;
     padding: 10px;
     margin: 10px ;
-
+    box-shadow: 3px 3px 10px var(--hover-but-shadow);
     display: flex;
     flex-flow: row;
     justify-content: flex-start;
@@ -84,6 +85,7 @@ ul.menu li a {
 ul.menu li a:hover {
     background-color: var(--nav-but-hover);
     color: var(--nav-but-hover-fg);
+    box-shadow: 1px 1px 5px rgb(47, 12, 12);
 
 }
 
@@ -110,9 +112,68 @@ ul.menu li a:active {
 .log_b:hover {
     background-color: var(--nav-but-hover);
     color: var(--nav-but-hover-fg);
+    box-shadow: 1px 1px 5px var(--hover-but-shadow);
 }
 
 .log_b:active {background-color: var(--nav-but-active)}
+
+.connexion {
+    background-color: rgb(165, 3, 3);
+    border-radius: 10px;
+    margin: 5% auto;
+    width: 25%;
+    padding: 5px;
+}
+
+input[type=email], input[type=password], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type=submit] {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type=submit]:hover {
+    background-color: #45a049;
+}
+
+div form {
+    margin: auto;
+    border-radius: 10px;
+    background-color: #f2f2f2;
+    padding: 20px;
+    width: 50%;
+}
+
+form h1 {
+    margin:0;
+    color: #45a049;
+    margin-bottom: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
 
 .loremipsum {
     font-style:italic;
