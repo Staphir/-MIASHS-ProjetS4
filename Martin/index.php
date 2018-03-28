@@ -12,11 +12,11 @@
     <body>
         <div class="top_header">
             <header><h1>Bienvenue sur Storystoire</h1></header>
-            <nav>
+            <nav class="navbar">
                 <ul class="menu">
                     <!-- <li class="menuitem"><a href="connexion3.php">Se connecter</a></li> -->
-                    <li class="menuitem"><a href="#classement">Rechercher</a></li>
-                    <li class="menuitem"><a href="#contact">Contacts</a></li>
+                    <li class="menuitem"><a href="#">Rechercher</a></li>
+                    <li class="menuitem"><a href="#">Contacts</a></li>
                     <li class="menuitem"><!-- Button to open the modal login form -->
                         <button class="log_b" onclick="if (document.getElementById('id01').style.display=='block') {document.getElementById('id01').style.display='none';} 
                         else {document.getElementById('id01').style.display='block';}">Se connecter</button>
@@ -26,7 +26,7 @@
                             <!-- <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span> -->
 
                             <!-- Modal Content -->
-                            <form class="modal-content animate" action="/index.php" style="">
+                            <form class="modal-content animate" action="index.php" style="">
 
                                 <div class="container">
                                     <label for="uname"><b>Identifiant</b></label>
