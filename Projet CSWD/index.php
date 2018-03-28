@@ -1,8 +1,5 @@
-<?php require_once("connect_database.php") ?>
-
 <!DOCTYPE html>
 <html lang="fr">
-
     <head>
         <meta charset="utf-8"/>
         <title>
@@ -11,6 +8,7 @@
         <link href="css/style.css" rel="stylesheet" type="text/css" media="all"/>
         <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,300i" rel="stylesheet">
         <link rel="shortcut icon" href="images/icon.png">
+        <?php require_once("connect_database.php") ?>
     </head>
     <body>
         <div class="top_header">
