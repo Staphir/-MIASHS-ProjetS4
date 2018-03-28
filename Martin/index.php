@@ -7,13 +7,22 @@
             Storystoire - Accueil
         </title>
         <link href="css/style.css" rel="stylesheet" type="text/css" media="all"/>
+        <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,300i" rel="stylesheet">
+        <link rel="shortcut icon" href="images\icon.png">
     </head>
-
     <body>
         <div class="top_header">
             <header><h1>Bienvenue sur Storystoire</h1></header>
             <nav class="navbar">
                 <ul class="menu">
+                    <li><img id="mainicon" src="images\icon.png"
+                    width=40 height=40/></li>
+                    <!-- <li>
+                        <form action="/action_page.php">
+                            <input type="text" placeholder="Search.." name="search">
+                            <button type="submit"><i class="fa fa-search"></i></button>
+                        </form>
+                    </li> -->
                     <!-- <li class="menuitem"><a href="connexion3.php">Se connecter</a></li> -->
                     <li class="menuitem"><a href="#">Rechercher</a></li>
                     <li class="menuitem"><a href="#">Contacts</a></li>
@@ -45,7 +54,8 @@
                 </ul>            
             </nav>
         </div>
-        <div id="coteacote">
+        <!-- END OF TOP HEADER -->
+        <div id="maincontent">
             <section>
                 <article>
                     <h2 id="intro">Présentation</h2>
