@@ -1,53 +1,106 @@
+<?php require_once("connect_database.php") ?>
+
 <!DOCTYPE html>
-<html lang=fr>
-	
-	<head>
-		<meta charset="utf-8" />
-		<title>
-			Ressources pour les maths
-		</title>
-	</head>
-	
-	<body>
-		<h1 id="hautdepage">Ressources pédagogiques pour les maths</h1>
-		<img src="images/symba.png" alt="Crochet X" width=209 heigth=200>
-		<ul >
-			<li>Acueil</li>
-			<li><a href=apropos.html>A propos</a></li>
-			<li>Ressources
-				<ul>
-				<li><a href=addition.html>Addition</a></li>
-				<li><a href=multiplication.html>Multiplication</a></li>
-				<li><a href=fractions.html>Fractions</a></li>
-				</ul>
-			</li>
-			<li><a href=contact.html>Contact</a></li>
-		</ul>
+<html lang="fr">
 
-		<h2>Introduction</h2>
+    <head>
+        <meta charset="utf-8"/>
+        <title>
+            Storystoire - Accueil
+        </title>
+        <link href="css/style.css" rel="stylesheet" type="text/css" media="all"/>
+        <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,300i" rel="stylesheet">
+        <link rel="shortcut icon" href="images/icon.png">
+    </head>
+    <body>
+        <div class="top_header">
+            <header><h1>Bienvenue sur Storystoire</h1></header>
+            <nav class="navbar">
+                <ul class="menu">
+                    <li><img id="mainicon" src="images/icon.png"
+                    width=40 height=40></li>
+                    <!-- <li>
+                        <form action="/action_page.php">
+                            <input type="text" placeholder="Search.." name="search">
+                            <button type="submit"><i class="fa fa-search"></i></button>
+                        </form>
+                    </li> -->
+                    <!-- <li class="menuitem"><a href="connexion3.php">Se connecter</a></li> -->
+                    <li class="menuitem"><a href="#">Rechercher</a></li>
+                    <li class="menuitem"><a href="#">Contacts</a></li>
+                    <li class="menuitem"><!-- Button to open the modal login form -->
+                        <button class="log_b" onclick="if (document.getElementById('id01').style.display==='block') {document.getElementById('id01').style.display='none';}
+                        else {document.getElementById('id01').style.display='block';}">Se connecter</button>
+                    </li>
+                    <li>
+                        <div id="id01" class="modal">
+                            <!-- <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span> -->
 
-		<p><em>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi. Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum diam nisl sit amet erat. Duis semper. Duis arcu massa, scelerisque vitae, consequat in, pretium a, enim. Pellentesque congue. Ut in risus volutpat libero pharetra tempor. Cras vestibulum bibendum augue. Praesent egestas leo in pede. Praesent blandit odio eu enim. Pellentesque sed dui ut augue blandit sodales. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aliquam nibh. Mauris ac mauris sed pede pellentesque fermentum. Maecenas adipiscing ante non diam sodales hendrerit.</em></p>
-		<p><em>Ut velit mauris, egestas sed, gravida nec, ornare ut, mi. Aenean ut orci vel massa suscipit pulvinar. Nulla sollicitudin. Fusce varius, ligula non tempus aliquam, nunc turpis ullamcorper nibh, in tempus sapien eros vitae ligula. Pellentesque rhoncus nunc et augue. Integer id felis. Curabitur aliquet pellentesque diam. Integer quis metus vitae elit lobortis egestas. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi vel erat non mauris convallis vehicula. Nulla et sapien. Integer tortor tellus, aliquam faucibus, convallis id, congue eu, quam. Mauris ullamcorper felis vitae erat. Proin feugiat, augue non elementum posuere, metus purus iaculis lectus, et tristique ligula justo vitae magna.</em></p>
-		<p><em>Aliquam convallis sollicitudin purus. Praesent aliquam, enim at fermentum mollis, ligula massa adipiscing nisl, ac euismod nibh nisl eu lectus. Fusce vulputate sem at sapien. Vivamus leo. Aliquam euismod libero eu enim. Nulla nec felis sed leo placerat imperdiet. Aenean suscipit nulla in justo. Suspendisse cursus rutrum augue. Nulla tincidunt tincidunt mi. Curabitur iaculis, lorem vel rhoncus faucibus, felis magna fermentum augue, et ultricies lacus lorem varius purus. Curabitur eu amet.</em></p>
-		<p>L'utilisation de faux texte a plusieurs avantages :</p>
-		<ul>
-			<li>Le faux texte "Lorem Ipsum" a pour avantage d'utiliser des mots de longueur variable, essayant de simuler une occupation normale.</li>
-			<li>Le faux latin traditionnel a l'avantage d'être neutre.</li>
-			<li>Par rapport à du vrai texte de substitution, le faux-texte permet de s'apercevoir rapidement qu'il n'est pas définitif.</li>
-		</ul>
+                            <!-- Modal Content -->
+                            <form class="modal-content animate" action="index.php" style="">
 
-		<h2>Liens utiles</h2>
-			<a href=https://fr.wikipedia.org/>Wikipedia</a>
-			<br/>
-			<a href=https://fr.wikipedia.org/wiki/Faux-texte>Lorem Ipsum sur Wikipedia</a>
+                                <div class="container">
+                                    <label for="uname"><b>Identifiant</b></label>
+                                    <input type="text" placeholder="Saisir l'identifiant..." name="uname" required>
 
-		<h2>Contact</h2>
-			<a href=contact.html>Lien vers la page contacts</a>
-		<br/>
-		<br/>
-		<a href="#hautdepage">Revenir en haut</a>
-		<br/>
-		<a href="https://www.u-bordeaux.fr/"><img src="../ressources/images/ub-logo_fr.svg" alt="Logo Université de Bordeaux" width=200></a>
-	</body>
-	
+                                    <label for="psw"><b>Mot de passe</b></label>
+                                    <input type="password" placeholder="Saisir le mot de passe..." name="psw" required>
+
+                                    <button type="submit">Connexion</button>
+                                </div>
+
+                            </form>
+                        </div>
+                        <script type="text/javascript">document.getElementById('id01').style.display='none'</script>
+                    </li>
+                </ul>            
+            </nav>
+        </div>
+        <!-- END OF TOP HEADER -->
+        <div id="maincontent">
+            <section>
+                <article>
+                    <h2 id="intro">Présentation</h2>
+                        <p class="loremipsum">Bonjour et bienvenue sur Storystoire, l'histoire dont VOUS êtes le héros !</p>
+                        <p class="loremipsum">Storystoire est un projet de CSWD (Conception de Sites Web Dynamiques) proposé en L2 de License MIASHS. Il a pour but de vous laisser créer des histoires à choix que vous pourrez ensuite publier sur ce site. Une fois votre histoire construite, vous pouvez décider de la publier et elle deviendra alors accesible à n'importe qui d'intéressé par votre travail. Ces personnes pourront consulter votre histoire à choix et la vivre ! (Je suis pas bon pour réduger les description wesh)</p>
+                    </article>
+
+                <article>
+                    <h2 id="classement">En ce moment</h2>
+                    <div class="classement">
+                        <h3>Top10 des histoires les plus vues</h3>
+                        <ol>
+                            <!-- FAIRE LA REQUETE PHP MYSQL DES HISTOIRES LES PLUS LIKE ET EN FAIRE UNE LISTE ORDONEE -->
+                        </ol>
+                    </div>
+                    <!-- <div class="classement">
+                        <h3>Top10 des classements des joueurs de tennis féminins</h3>
+                        <ol>
+                            <li>WOZNIACKI Caroline</li>
+                            <li>HALEP Simona</li>
+                            <li>SVITOLINA Elina</li>
+                            <li>MUGURUZA Garbine</li>
+                            <li>PLISKOVA Karolina</li>
+                            <li>OSTAPENKO Jelena</li>
+                            <li>GARCIA Caroline</li>
+                            <li id="prefere">WILLIAMS Venus</li>
+                            <li>KERBER Angelique</li>
+                            <li>MLADENOVIC Kristina</li>
+                        </ol>
+                    </div> -->
+                </article>
+
+                <article>
+                    <h2 id="contact">Contacts</h2>
+                </article>
+            </section>
+        
+            <aside>
+                <h2>Top 10 des histoires</h2>
+                    <a href="https://www.lequipe.fr/Tennis/atp-classement.html">Classement joueurs masculins - L'Equipe.fr</a>
+                    <br/><a href="https://www.lequipe.fr/Tennis/wta-classement.html">Classement joueurs féminins - L'Equipe.fr</a>
+            </aside>
+        </div>
+        <footer>Ce site a été créé par Maxime Dulieudit, Fannie Notaire et Martin Defraises</footer>
+    </body>
 </html>
