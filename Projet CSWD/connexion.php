@@ -8,7 +8,7 @@
     </head>
     <body>
 
-<?php 
+<?php
 $requete = "SELECT Password FROM user WHERE user.Email= ? ";
 $reponse = $pdo->prepare($requete);
 $reponse->execute($_POST["email"]);
@@ -24,18 +24,18 @@ if (isset($_POST["email"])) {
 }
 if ($displayForm) {
 ?>
-<div style="margin-top:100px">
-    <form action="connexion.php" method="post">
-        <h1>Connexion</h1>
-        <label>Adresse Email</label>
-        <input type="email" name="email" placeholder="Adresse email...">
+        <div style="margin-top:100px">
+            <form action="connexion.php" method="post">
+                <h1>Connexion</h1>
+                <label>Adresse Email</label>
+                <input type="email" name="email" placeholder="Adresse email...">
 
-        <label>Mot de passe</label>
-        <input type="password" name="psw" placeholder="Mot de passe...">
-    
-        <input type="submit" value="Submit">
-  </form>
-</div>
+                <label>Mot de passe</label>
+                <input type="password" name="psw" placeholder="Mot de passe...">
+            
+                <input type="submit" value="Submit">
+        </form>
+        </div>
 <?php } ?>
     </body>
 </html>
