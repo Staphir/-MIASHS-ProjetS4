@@ -9,17 +9,19 @@
     <body>
 
 <?php
-$requete = "SELECT Password FROM user WHERE user.Email= ? ";
-$reponse = $pdo->prepare($requete);
-$reponse->execute($_POST["email"]);
 
 $displayForm = true;
 if (isset($_POST["email"])) {
-    $email = $_POST["email"];
-    $pass = $_POST["psw"];
-    if ($pass==$reponse) {
-        echo "Bienvenue, vous êtes désormais connecté !";
-        $displayForm = false;
+    $query = "SELECT Username, Password, Email, Firstname, Lastname FROM user WHERE user.Email= ? ";
+    $answer = $pdo->prepare($query);
+    $answer->execute(array($_POST["email"]));
+    $data = $answer->fetchAll(PDO::FETCH_ASSOC);
+    if (!empty($data)) {
+        $pass = $_POST["psw"];
+        if ($pass==$data[0]["Password"]) {
+            header('Location: index.php');
+            exit();
+        }
     }
 }
 if ($displayForm) {
@@ -27,13 +29,15 @@ if ($displayForm) {
         <div style="margin-top:100px">
             <form action="connexion.php" method="post">
                 <h1>Connexion</h1>
-                <label>Adresse Email</label>
-                <input type="email" name="email" placeholder="Adresse email...">
-
-                <label>Mot de passe</label>
-                <input type="password" name="psw" placeholder="Mot de passe...">
-            
-                <input type="submit" value="Submit">
+                <?php 
+                if (isset($_POST["email"])) {
+                    $default_value = !empty($_POST["email"])?$_POST["email"]:'';
+                    $value = "value = ".$default_value;
+                } else {$value = '';}
+                ?>
+                Adresse Email :<input <?php echo $value ?> type="email" name="email" placeholder="Adresse email.." required>
+                Mot de passe :<input type="password" name="psw" placeholder="Mot de passe.." required>
+                <input type="submit" value="Valider">
         </form>
         </div>
 <?php } ?>

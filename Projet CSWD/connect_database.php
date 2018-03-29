@@ -2,9 +2,9 @@
 
 //Quand martin bosse en local
 $config_base['hote']        = "127.0.0.1";
-$config_base['utilisateur'] = "mdevreese";
-$config_base['motdepasse']  = "riEa#U%0";
-$config_base['nom_base']    = "mdevreese";
+$config_base['utilisateur'] = "root";
+$config_base['motdepasse']  = "";
+$config_base['nom_base']    = "projet_cswd";
 
 //Quand maxime bosse en local
 // $config_base['hote']        = "localhost";
