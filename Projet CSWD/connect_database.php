@@ -6,12 +6,6 @@ $config_base['utilisateur'] = "root";
 $config_base['motdepasse']  = "";
 $config_base['nom_base']    = "projet_cswd";
 
-//Quand maxime bosse en local
-// $config_base['hote']        = "localhost";
-// $config_base['utilisateur'] = "root";
-// $config_base['motdepasse']  = "";
-// $config_base['nom_base']    = "conception";
-
 // connexion a la base de donnees
 try
 {
