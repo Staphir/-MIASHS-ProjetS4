@@ -1,0 +1,13 @@
+ul{
+    list-style-type: none;
+}
+
+#btn_ajout_champs{
+    background-color:#4CAF50;
+    text-align: center;
+    width:15px;
+    border-radius:5px;
+    border-style:solid;
+    border-color:green;
+    cursor: pointer;
+}
