@@ -6,5 +6,5 @@ function ajout_champs() {
     newInput.id = "choix"+nbChoix;
     newInput.placeholder = "Nouveau choix";
     newLi.appendChild(newInput);
-    document.getElementById("choix").appendChild(newInput);
+    document.getElementById("choix").appendChild(newLi);
 }

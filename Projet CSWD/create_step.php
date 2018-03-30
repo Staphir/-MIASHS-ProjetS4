@@ -14,8 +14,9 @@
     <textarea name="step" placeholder="Nouvelle étape"></textarea>
     <input type="submit" name="end" value="Fin de l'histoire">
     <ul id="choix">
-        <li><p id="btn_ajout_champs" onclick="ajout_champs()">+</p></li>
+        <li></li>
     </ul>
+    <button type="button" id="btn_ajout_champs" onclick="ajout_champs()"/>
 </form>
 <script type="text/javascript" src="script.js"></script>
 </body>
