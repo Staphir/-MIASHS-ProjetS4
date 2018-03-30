@@ -2,12 +2,21 @@ ul{
     list-style-type: none;
 }
 
-#btn_ajout_champs{
-    background-color:rgb(255, 174, 0);
+#btn_supp_champs, #btn_ajout_champs{
     text-align: center;
-    width:15px;
-    border-radius:5px;
+    color: #eeeeee;
+    font-size: 1em;
+    border-radius:3px;
     border-style:solid;
-    border-color:green;
     cursor: pointer;
+}
+
+#btn_ajout_champs{
+    background-color: #1fc500;
+    border-color:#1fc500;
+}
+
+#btn_supp_champs{
+    background-color: red;
+    border-color:red;
 }
