@@ -8,7 +8,7 @@
         <link href="css/style.css" rel="stylesheet" type="text/css" media="all"/>
         <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,300i" rel="stylesheet">
         <link rel="shortcut icon" href="images/icon.png">
-        <?php require_once("connect_database.php") ?>
+        <?php require_once("user_handling/config.php"); require_once('user_handling/session.php'); error_reporting(0);?>
     </head>
     <body>
         <div class="top_header">
@@ -17,37 +17,28 @@
                 <ul class="menu">
                     <li><img id="mainicon" src="images/icon.png"
                     width=40 height=40></li>
-                    <!-- <li>
-                        <form action="/action_page.php">
-                            <input type="text" placeholder="Search.." name="search">
-                            <button type="submit"><i class="fa fa-search"></i></button>
-                        </form>
-                    </li> -->
-                    <!-- <li class="menuitem"><a href="connexion3.php">Se connecter</a></li> -->
+
                     <li class="menuitem"><a href="#">Rechercher</a></li>
                     <li class="menuitem"><a href="#">Contacts</a></li>
-                    <!-- <li class="menuitem">
-                        <button class="log_b" onclick="if (document.getElementById('id01').style.display==='block') {document.getElementById('id01').style.display='none';}
-                        else {document.getElementById('id01').style.display='block';}">Se connecter</button>
-                    </li> -->
-                    <li class="menuitem"><a href="connexion1.php">Se connecter</a></li>
-                    <!-- <li>
-                        <div id="id01" class="modal">
-                            <form class="modal-content animate" action="index.php">
-                                <div class="container">
-                                    <label for="uname"><b>Identifiant</b></label>
-                                    <input type="text" placeholder="Saisir l'identifiant..." name="uname" required>
 
-                                    <label for="psw"><b>Mot de passe</b></label>
-                                    <input type="password" placeholder="Saisir le mot de passe..." name="psw" required>
-
-                                    <button type="submit">Connexion</button>
-                                </div>
-
-                            </form>
+                    <?php
+                    
+                    if(!isset($_SESSION['login_user'])){
+                        echo "<li class='menuitem'><a href='user_handling/login.php'>Se connecter</a></li>";
+                    } else { ?>
+                    <li>
+                        <div class="dropdown">
+                            <a class="userbtn" href="#"><?php echo $login_session; ?></a>
+                            <div class="dropdown-content">
+                                <a href="#">Mon compte</a>
+                                <a href="user_handling/logout.php">Se déconnecter</a>
+                            </div>
                         </div>
-                        <script type="text/javascript">document.getElementById('id01').style.display='none'</script>
-                    </li> -->
+
+                    </li>
+                    <?php } ?>
+                    
+
                 </ul>            
             </nav>
         </div>

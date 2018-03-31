@@ -5,40 +5,49 @@
         <title>
             Storystoire - Accueil
         </title>
-        <link href="../css/style.css" rel="stylesheet" type="text/css" media="all"/>
+        <link href="css/style.css" rel="stylesheet" type="text/css" media="all"/>
         <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,300i" rel="stylesheet">
         <link rel="shortcut icon" href="images/icon.png">
-        <?php require_once("config.php"); include('session.php'); error_reporting(0);?>
+        <?php require_once("connect_database.php") ?>
     </head>
     <body>
         <div class="top_header">
             <header><h1>Bienvenue sur Storystoire</h1></header>
             <nav class="navbar">
                 <ul class="menu">
-                    <li><img id="mainicon" src="../images/icon.png"
+                    <li><img id="mainicon" src="images/icon.png"
                     width=40 height=40></li>
-
+                    <!-- <li>
+                        <form action="/action_page.php">
+                            <input type="text" placeholder="Search.." name="search">
+                            <button type="submit"><i class="fa fa-search"></i></button>
+                        </form>
+                    </li> -->
+                    <!-- <li class="menuitem"><a href="connexion3.php">Se connecter</a></li> -->
                     <li class="menuitem"><a href="#">Rechercher</a></li>
                     <li class="menuitem"><a href="#">Contacts</a></li>
+                    <!-- <li class="menuitem">
+                        <button class="log_b" onclick="if (document.getElementById('id01').style.display==='block') {document.getElementById('id01').style.display='none';}
+                        else {document.getElementById('id01').style.display='block';}">Se connecter</button>
+                    </li> -->
+                    <li class="menuitem"><a href="connexion1.php">Se connecter</a></li>
+                    <!-- <li>
+                        <div id="id01" class="modal">
+                            <form class="modal-content animate" action="index.php">
+                                <div class="container">
+                                    <label for="uname"><b>Identifiant</b></label>
+                                    <input type="text" placeholder="Saisir l'identifiant..." name="uname" required>
 
-                    <?php
-                    
-                    if(!isset($_SESSION['login_user'])){
-                        echo "<li class='menuitem'><a href='login.php'>Se connecter</a></li>";
-                    } else { ?>
-                    <li>
-                        <div class="dropdown">
-                            <a class="userbtn" href="#"><?php echo $login_session; ?></a>
-                            <div class="dropdown-content">
-                                <a href="#">Paramètres</a>
-                                <a href="logout.php">Se déconnecter</a>
-                            </div>
+                                    <label for="psw"><b>Mot de passe</b></label>
+                                    <input type="password" placeholder="Saisir le mot de passe..." name="psw" required>
+
+                                    <button type="submit">Connexion</button>
+                                </div>
+
+                            </form>
                         </div>
-
-                    </li>
-                    <?php } ?>
-                    
-
+                        <script type="text/javascript">document.getElementById('id01').style.display='none'</script>
+                    </li> -->
                 </ul>            
             </nav>
         </div>
