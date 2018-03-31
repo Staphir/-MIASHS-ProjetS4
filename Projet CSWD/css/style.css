@@ -71,7 +71,7 @@ ul.menu {
     border-radius: 10px;
 }
 
-ul.menu li a {
+ul.menu li.menuitem a, .userbtn {
     transition: background .10s ease-in-out;
     text-decoration: none;
     padding: .75em 1.25em;
@@ -82,14 +82,14 @@ ul.menu li a {
     background-color: var(--nav-but-bg);
 }
 
-ul.menu li a:hover {
+ul.menu li.menuitem a:hover, .userbtn:hover {
     background-color: var(--nav-but-hover);
     color: var(--nav-but-hover-fg);
     box-shadow: 1px 1px 5px rgb(47, 12, 12);
 
 }
 
-ul.menu li a:active {
+ul.menu li.menuitem a:active, .userbtn:active {
     background-color: var(--nav-but-active)
 }
 
@@ -233,10 +233,10 @@ article {
     background-color:rgb(241, 241, 241);
 }
 
-a:link {color:red}
+/* a:link {color:rgb(131, 98, 184)}
 a:visited {color:blue}
 a:hover {color:yellow}
-a:active {color:lime; background-color:#ff0000}
+a:active {color:lime; background-color:#ff0000} */
 
 @media screen and (max-width: 640px) {
     .loremipsum {
@@ -261,46 +261,29 @@ a:active {color:lime; background-color:#ff0000}
     }
 }
 
-.topnav .search-container {
-    float: right;
-  }
-  
-  .topnav input[type=text] {
-    padding: 6px;
-    margin-top: 8px;
-    font-size: 17px;
-    border: none;
-  }
-  
-  .topnav .search-container button {
-    float: right;
-    padding: 6px 10px;
-    margin-top: 8px;
-    margin-right: 16px;
-    background: #ddd;
-    font-size: 17px;
-    border: none;
-    cursor: pointer;
-  }
-  
-  .topnav .search-container button:hover {
-    background: #ccc;
-  }
-  
-  @media screen and (max-width: 600px) {
-    .topnav .search-container {
-      float: none;
-    }
-    .topnav a, .topnav input[type=text], .topnav .search-container button {
-      float: none;
-      display: block;
-      text-align: left;
-      width: 100%;
-      margin: 0;
-      padding: 14px;
-    }
-    .topnav input[type=text] {
-      border: 1px solid #ccc;  
-    }
-  }
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
 
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
