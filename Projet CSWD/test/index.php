@@ -5,17 +5,17 @@
         <title>
             Storystoire - Accueil
         </title>
-        <link href="css/style.css" rel="stylesheet" type="text/css" media="all"/>
+        <link href="../css/style.css" rel="stylesheet" type="text/css" media="all"/>
         <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,300i" rel="stylesheet">
         <link rel="shortcut icon" href="images/icon.png">
-        <?php require_once("connect_database.php") ?>
+        <?php require_once("config.php") ?>
     </head>
     <body>
         <div class="top_header">
             <header><h1>Bienvenue sur Storystoire</h1></header>
             <nav class="navbar">
                 <ul class="menu">
-                    <li><img id="mainicon" src="images/icon.png"
+                    <li><img id="mainicon" src="../images/icon.png"
                     width=40 height=40></li>
                     <!-- <li>
                         <form action="/action_page.php">
@@ -30,7 +30,7 @@
                         <button class="log_b" onclick="if (document.getElementById('id01').style.display==='block') {document.getElementById('id01').style.display='none';}
                         else {document.getElementById('id01').style.display='block';}">Se connecter</button>
                     </li> -->
-                    <li class="menuitem"><a href="connexion1.php">Se connecter</a></li>
+                    <li class="menuitem"><a href="login.php">Se connecter</a></li>
                     <!-- <li>
                         <div id="id01" class="modal">
                             <form class="modal-content animate" action="index.php">
