@@ -17,12 +17,11 @@
                 <ul class="menu">
                     <li><img id="mainicon" src="images/icon.png"
                     width=40 height=40></li>
-
-                    <li class="menuitem"><a href="#">Rechercher</a></li>
-                    <li class="menuitem"><a href="#">Contacts</a></li>
-
+                    <form action="search.php">
+                        <li class="menuitem"><input type="search" name="search" placeholder="Rechercher"></li>
+                    </form>
+                    <!-- <li class="menuitem"><a href="#">Contacts</a></li> -->
                     <?php
-                    
                     if(!isset($_SESSION['login_user'])){
                         echo "<li class='menuitem'><a href='user_handling/login.php'>Se connecter</a></li>";
                     } else { ?>
@@ -34,11 +33,8 @@
                                 <a href="user_handling/logout.php">Se déconnecter</a>
                             </div>
                         </div>
-
                     </li>
                     <?php } ?>
-                    
-
                 </ul>            
             </nav>
         </div>

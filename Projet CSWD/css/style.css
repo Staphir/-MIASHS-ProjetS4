@@ -4,6 +4,7 @@
     --header-color:rgb(186, 0, 0);
     /*--accent-color: ;
     --bg-color: ;*/
+    --nav-search-accent: rgba(194, 3, 3, 0.815);
     --nav-but-bg: rgb(255, 255, 255);
     --nav-but-hover: rgba(238, 238, 238, 0.857);
     --nav-but-hover-fg: rgb(0, 0, 0);
@@ -138,31 +139,6 @@ input[type=submit]:hover {
     background-color: #45a049;
 }
 
-div form {
-    margin: auto;
-    border-radius: 10px;
-    background-color: #f2f2f2;
-    padding: 20px;
-    width: 50%;
-}
-
-form h1 {
-    margin:0;
-    color: #45a049;
-    margin-bottom: 10px;
-}
-
-
-
-
-
-
-
-
-
-
-
-
 .loremipsum {
     font-style:italic;
     text-align:left;
@@ -275,4 +251,15 @@ a:active {color:lime; background-color:#ff0000} */
 
 .dropdown:hover .dropdown-content {
     display: block;
+}
+
+input[type="search"] {
+    border: 2px solid rgb(212, 212, 212);
+    border-radius: 5px;
+    padding: .75em 1.25em;
+    margin: 0px 7px 0px 7px; /*H D B G*/
+}
+
+input[type="search"]:focus {
+    border: 2px solid var(--header-color);
 }
