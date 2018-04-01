@@ -1,9 +1,39 @@
+:root {
+    --header-color:rgb(186, 0, 0);
+    --opposit-color: white; 
+}
 
+html, body, div {
+	margin: 0;
+	padding: 0;
+	border: 0;
+    font-size: 100%;
+    font-family: 'Roboto', sans-serif;
+    vertical-align: baseline;
+    background-color: white;
+}
 
+header h1 {
+    color:var(--opposit-color);
+    text-align:center;
+    margin: auto;
+    padding:15px 0 15px 0;
+    font-weight:normal;
+}
 
+.top_header {
+    background-color: var(--header-color);
+    padding: 1px;
+    position: fixed;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: inline-block;
+}
 
 .connexion {
-    background-color: rgb(165, 3, 3);
+    background-color: var(--header-color);
     border-radius: 10px;
     margin: 5% auto;
     width: 25%;
@@ -45,6 +75,28 @@ div form {
 
 form h1 {
     margin:0;
-    color: rgb(186, 0, 0) ;
+    color: var(--header-color);
     margin-bottom: 10px;
+}
+
+.back_to_main {
+    border-radius: 5px;
+    border: white 1px solid;
+    color: var(--header-color);
+    background-color: rgb(255, 255, 255);
+    text-decoration: none;
+    position: absolute;
+    padding: 6px 14px;
+    margin: 16px;
+    /* float:left; */
+}
+
+.back_to_main:hover {
+    background-color: var(--header-color);
+    color: white;
+}
+
+.back_to_main:active {
+    background-color: var(--header-color);
+    color: white;
 }

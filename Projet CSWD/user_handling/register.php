@@ -63,6 +63,10 @@ if ($valid) {
         <link href="connect.css" rel="stylesheet" type="text/css" media="all"/>
     </head>
     <body style="font-family:'Roboto', sans-serif;">	
+        <div class="top_header">
+            <a class="back_to_main" href="../index.php">Accueil</a>
+            <header><h1>Storystoire</h1></header>
+        </div>
         <div style = "margin-top:100px">
             <form action = "" method = "post">
                 <h1>Inscription</h1>

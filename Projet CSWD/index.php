@@ -8,7 +8,7 @@
         <link href="css/style.css" rel="stylesheet" type="text/css" media="all"/>
         <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,300i" rel="stylesheet">
         <link rel="shortcut icon" href="images/icon.png">
-        <?php require_once("user_handling/config.php"); require_once('user_handling/session.php'); error_reporting(0);?>
+        <?php require_once("user_handling/config.php"); require_once('user_handling/session.php');?>
     </head>
     <body>
         <div class="top_header">
@@ -43,7 +43,7 @@
             </nav>
         </div>
         <!-- END OF TOP HEADER -->
-        <div id="maincontent">
+        <div id="maincontent" style="margin-top:130px">
             <section>
                 <article>
                     <h2 id="intro">Présentation</h2>
@@ -87,6 +87,6 @@
                     <br/><a href="https://www.lequipe.fr/Tennis/wta-classement.html">Classement joueurs féminins - L'Equipe.fr</a>
             </aside>
         </div>
-        <footer>Ce site a été créé par Maxime Dulieudit, Fannie Notaire et Martin Defraises</footer>
+        <footer style="font-size:12px">Ce site a été créé par Maxime Dulieu, Fannie Lothaire et Martin Devreese</footer>
     </body>
 </html>
