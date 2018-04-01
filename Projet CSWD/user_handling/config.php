@@ -1,3 +1,5 @@
+<!-- https://www.tutorialspoint.com/php/php_mysql_login.htm -->
+
 <?php
    define('DB_SERVER', '127.0.0.1');
    define('DB_USERNAME', 'root');

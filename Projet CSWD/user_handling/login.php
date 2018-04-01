@@ -9,16 +9,12 @@
       
         $sql = "SELECT id, username FROM user WHERE email = '$myemail' and password = '$mypassword'";
         $result = mysqli_query($db,$sql);
-        $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
-        print_r($row);
-        $active = $row['id']; 
+        $row = mysqli_fetch_array($result,MYSQLI_ASSOC); 
         $count = mysqli_num_rows($result);
-    
-        $myusername = $row["username"];
-        // If result matched $myusername and $mypassword, table row must be 1 row
 		
         if($count == 1) {
-            $_SESSION['login_user'] = $myusername;
+            $_SESSION['login_user'] = $row["username"];
+            $_SESSION['user_id'] = $row["id"];
          
             header("location: ../index.php");
         }else {
@@ -32,7 +28,6 @@
         <meta charset="utf-8"/>
         <title>Connexion</title>
         <link href="connect.css" rel="stylesheet" type="text/css" media="all"/>
-        <?php require_once("config.php") ?>
     </head>
     <body style="font-family:'Roboto', sans-serif;">	
         <div style = "margin-top:100px">
