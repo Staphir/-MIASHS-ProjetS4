@@ -23,14 +23,23 @@ if (isset($_POST) && (!empty($_POST))) {
 
         if ($count == 1 && $key == "Email") {
             $error = "Cette adresse mail est déjà utilisée !";
+            $newuser["Email"] = "";
             $valid = false; break;
         } elseif ($count == 1 && $key == "Username") {
             $error = "Ce pseudo est déjà utilisé !";
+            $newuser["Username"] = "";
+            $valid = false; break;
+        } elseif ($_POST["password"] != $_POST["c_password"]) {
+            $error = "Les mots de passe ne correspondent pas !";
             $valid = false; break;
         } else {$valid = true;}
-    }
+    }   
+} else {
+    $newuser = array();
+    $newuser["Password"] = "";
+    $newuser["Email"] = "";
+    $newuser["Username"] = "";
 }
-
 if ($valid) {
     $username = $newuser['Username']; $password = $newuser['Password'];
     $email = $newuser['Email']; $firstname = $newuser['Firstname'];
@@ -57,12 +66,14 @@ if ($valid) {
         <div style = "margin-top:100px">
             <form action = "" method = "post">
                 <h1>Inscription</h1>
-                Pseudo :<input type="text" name="username" placeholder="Pseudo..." required>
-                Adresse Email :<input type="text" name="email" placeholder="Adresse email..." required>
-                Mot de passe :<input type="password" name="password" placeholder="Mot de passe..." required>
-                Prénom :<input type="text" name="firstname" placeholder="Prénom...">
-                Nom :<input type="text" name="lastname" placeholder="Nom...">
-                <input type="submit" value="Valider">
+                * Nom d'utilisateur :<input type="text" name="username" placeholder="..." required <?php echo 'value='.$newuser['Username']; ?>>
+                * Adresse Email :<input type="email" name="email" placeholder="..." required <?php echo "value=".$newuser["Email"]; ?>>
+                * Mot de passe :<input type="password" name="password" placeholder="..." required>
+                * Confirmation de mot de passe :<input type="password" name="c_password" placeholder="..." required>
+                <hr style="margin:30px;">
+                Prénom :<input type="text" name="firstname" placeholder="...">
+                Nom :<input type="text" name="lastname" placeholder="...">
+                <p style="font-size:11px;">Les champs précédés d'une étoile * sont indispensables.</p><input type="submit" value="Valider">
                 <p style="color: red;"><?php echo $error ?></p>
             </form>
         </div>

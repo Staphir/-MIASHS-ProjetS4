@@ -18,7 +18,7 @@
          
             header("location: ../index.php");
         }else {
-            $error = "Your login or password is invalid";
+            $error = "Votre adresse mail ou mot de passe est invalide !";
         }
     } else {$error = "";}
     ?>
@@ -33,8 +33,8 @@
         <div style = "margin-top:100px">
             <form action = "" method = "post">
                 <h1>Connexion</h1>
-                Adresse Email :<input type="text" name="email" placeholder="Adresse email.." required>
-                Mot de passe :<input type="password" name="password" placeholder="Mot de passe.." required>
+                Adresse Email :<input type="text" name="email" placeholder="..." required>
+                Mot de passe :<input type="password" name="password" placeholder="..." required>
                 <input type="submit" value="Connexion">
                 Vous n'êtes toujours pas inscrit ? <a href="register.php">S'inscrire</a>
                 <p style="color: red;"><?php echo $error ?></p>

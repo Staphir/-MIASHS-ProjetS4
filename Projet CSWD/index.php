@@ -47,9 +47,9 @@
             <section>
                 <article>
                     <h2 id="intro">Présentation</h2>
-                        <p class="loremipsum">Bonjour et bienvenue sur Storystoire, l'histoire dont VOUS êtes le héros !</p>
-                        <p class="loremipsum">Storystoire est un projet de CSWD (Conception de Sites Web Dynamiques) proposé en L2 de License MIASHS. Il a pour but de vous laisser créer des histoires à choix que vous pourrez ensuite publier sur ce site. Une fois votre histoire construite, vous pouvez décider de la publier et elle deviendra alors accesible à n'importe qui d'intéressé par votre travail. Ces personnes pourront consulter votre histoire à choix et la vivre ! (Je suis pas bon pour réduger les description wesh)</p>
-                    </article>
+                    <p class="loremipsum">Bonjour et bienvenue sur Storystoire, l'histoire dont VOUS êtes le héros !</p>
+                    <p class="loremipsum">Storystoire est un projet de CSWD (Conception de Sites Web Dynamiques) proposé en L2 de License MIASHS. Il a pour but de vous laisser créer des histoires à choix que vous pourrez ensuite publier sur ce site. Une fois votre histoire construite, vous pouvez décider de la publier et elle deviendra alors accesible à n'importe qui d'intéressé par votre travail. Ces personnes pourront consulter votre histoire à choix et la vivre ! (Je suis pas bon pour rédiger les descriptions)</p>
+                </article>
 
                 <article>
                     <h2 id="classement">En ce moment</h2>

@@ -6,8 +6,8 @@
     --bg-color: ;*/
     --nav-but-bg: rgb(255, 255, 255);
     --nav-but-hover: rgba(186, 0, 0, 0.857);
-    --nav-but-hover-fg: white;
-    --nav-but-active: rgb(172, 172, 172);
+    --nav-but-hover-fg: rgb(255, 255, 255);
+    --nav-but-active: rgba(172, 172, 172, 0);
     --hover-but-shadow: rgb(82, 22, 22)
 
 }
@@ -28,6 +28,7 @@ header h1 {
     margin:0;
     padding:30px 0 0 0;
     font-weight:normal;
+
 }
 
 h2 {
@@ -38,8 +39,8 @@ h2 {
 .top_header {
     background-color: var(--header-color);
     padding: 1px;
-    border-bottom-left-radius: 15px;
-    border-bottom-right-radius: 15px;
+    /* border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px; */
 }
 
 .navbar {
@@ -62,7 +63,7 @@ ul.menu {
     list-style-type: none;
     padding: 10px;
     margin: 10px ;
-    box-shadow: 3px 3px 10px var(--hover-but-shadow);
+    box-shadow: 1px 1px 1px 1px 10px var(--hover-but-shadow);
     display: flex;
     flex-flow: row;
     justify-content: flex-start;
@@ -71,25 +72,25 @@ ul.menu {
     border-radius: 10px;
 }
 
-ul.menu li.menuitem a, .userbtn {
+ul.menu li.menuitem a, .userbtn, .log_b {
     transition: background .10s ease-in-out;
     text-decoration: none;
     padding: .75em 1.25em;
     border-radius: 5px;
     display: block;
     color: black;
-    margin: 0 5px 0 5px; /*H D B G*/
+    margin: 0px 10px 0px 10px; /*H D B G*/
     background-color: var(--nav-but-bg);
 }
 
-ul.menu li.menuitem a:hover, .userbtn:hover {
+ul.menu li.menuitem a:hover, .userbtn:hover, .log_b:hover {
     background-color: var(--nav-but-hover);
     color: var(--nav-but-hover-fg);
-    box-shadow: 1px 1px 5px rgb(47, 12, 12);
+    /* box-shadow:  1px 1px 5px 1px rgba(47, 12, 12, 0.33), 0 6px 20px 0 rgba(0,0,0,0.19); */
 
 }
 
-ul.menu li.menuitem a:active, .userbtn:active {
+ul.menu li.menuitem a:active, .userbtn:active, .log_b:active {
     background-color: var(--nav-but-active)
 }
 
@@ -97,25 +98,6 @@ ul.menu li.menuitem a:active, .userbtn:active {
     padding: .75em 1.25em;
     /* font-size: 16px; */
 }
-
-.log_b {
-    transition: background .10s ease-in-out;
-    padding: .75em 1.25em;
-    border: none;
-    background-color: var(--nav-but-bg);
-    text-align: center;
-    font-size: 16px;
-    border-radius: 5px;
-    font-family: inherit;
-}
-
-.log_b:hover {
-    background-color: var(--nav-but-hover);
-    color: var(--nav-but-hover-fg);
-    box-shadow: 1px 1px 5px var(--hover-but-shadow);
-}
-
-.log_b:active {background-color: var(--nav-but-active)}
 
 .connexion {
     background-color: rgb(165, 3, 3);
