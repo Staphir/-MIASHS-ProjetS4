@@ -2,9 +2,13 @@
 require_once("../user_handling/config.php");
 require_once("../user_handling/session.php");
 require_once("../connect_database.php");
-
-if(isset($_GET["story"])) {
-    $storie_choosed = $_GET["story"];
+if(isset($_POST["story_name"]) && isset($_POST["story_description"])){
+    $name = $_POST["story_name"];
+    $description = $_POST["story_description"];
+    $requete="INSERT INTO story (Title, Description, CreatedOn, Likes, LastModifiedOn, CreatedBy) VALUES (?,?,NOW(),0,NOW(),?)";
+    $reponse=$pdo->prepare($requete);
+    $reponse->execute(array($name, $description, $login_session));
+    header("location: ../my_stories.php");
 }
 ?>
 
@@ -14,9 +18,9 @@ if(isset($_GET["story"])) {
 <head>
     <meta charset="utf-8"/>
     <title>
-        Storystoire - Affichage histoire
+        Storystoire - Accueil
     </title>
-    <!--    <link href="css/style.css" rel="stylesheet" type="text/css" media="all"/>-->
+<!--    <link href="../css/style.css" rel="stylesheet" type="text/css" media="all"/>-->
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,300i" rel="stylesheet">
     <link rel="shortcut icon" href="../images/icon.png">
 </head>
@@ -53,9 +57,14 @@ if(isset($_GET["story"])) {
 <!--    </nav>-->
 <!--</div>-->
 
-    <?php
-    echo "<h1 style='text-align: center'>".$storie_choosed."</h1>";
-    ?>
+<div>
+    <form action="" method="post">
+        Nom de l'histoire :<input type="text" name="story_name" required>
+        <br>
+        Description :<textarea name="story_description" cols="85" rows="10" required></textarea>
+        <input type="submit" name="create" value="Créer">
+    </form>
+</div>
 
 <footer style="font-size:12px">Ce site a été créé par Maxime Dulieu, Fannie Lothaire et Martin Devreese</footer>
 </body>
