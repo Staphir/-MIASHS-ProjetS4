@@ -43,50 +43,35 @@
             </nav>
         </div>
         <!-- END OF TOP HEADER -->
-        <div id="maincontent" style="margin-top:130px">
+        <div id="maincontent">
             <section>
                 <article>
-                    <h2 id="intro">Présentation</h2>
-                    <p class="loremipsum">Bonjour et bienvenue sur Storystoire, l'histoire dont VOUS êtes le héros !</p>
-                    <p class="loremipsum">Storystoire est un projet de CSWD (Conception de Sites Web Dynamiques) proposé en L2 de License MIASHS. Il a pour but de vous laisser créer des histoires à choix que vous pourrez ensuite publier sur ce site. Une fois votre histoire construite, vous pouvez décider de la publier et elle deviendra alors accesible à n'importe qui d'intéressé par votre travail. Ces personnes pourront consulter votre histoire à choix et la vivre ! (Je suis pas bon pour rédiger les descriptions)</p>
-                </article>
-
-                <article>
-                    <h2 id="classement">En ce moment</h2>
-                    <div class="classement">
-                        <h3>Top10 des histoires les plus vues</h3>
-                        <ol>
-                            <!-- FAIRE LA REQUETE PHP MYSQL DES HISTOIRES LES PLUS LIKE ET EN FAIRE UNE LISTE ORDONEE -->
-                        </ol>
-                    </div>
-                    <!-- <div class="classement">
-                        <h3>Top10 des classements des joueurs de tennis féminins</h3>
-                        <ol>
-                            <li>WOZNIACKI Caroline</li>
-                            <li>HALEP Simona</li>
-                            <li>SVITOLINA Elina</li>
-                            <li>MUGURUZA Garbine</li>
-                            <li>PLISKOVA Karolina</li>
-                            <li>OSTAPENKO Jelena</li>
-                            <li>GARCIA Caroline</li>
-                            <li id="prefere">WILLIAMS Venus</li>
-                            <li>KERBER Angelique</li>
-                            <li>MLADENOVIC Kristina</li>
-                        </ol>
-                    </div> -->
-                </article>
-
-                <article>
-                    <h2 id="contact">Contacts</h2>
+                    <img src="images/main_pic_redim.jpg" width=100% height=100%/>
+                    <h2>Présentation</h2>
+                    <p>Bonjour et bienvenue sur Storystoire, l'histoire dont VOUS êtes le héros !</p>
+                    <p>Storystoire est un projet de CSWD (Conception de Sites Web Dynamiques) proposé en L2 de License MIASHS. Il a pour but de vous laisser créer des histoires à choix que vous pourrez ensuite publier sur ce site. Une fois votre histoire construite, vous pouvez décider de la publier et elle deviendra alors accesible à n'importe qui d'intéressé par votre travail. Ces personnes pourront consulter votre histoire à choix et la vivre ! (Je suis pas bon pour rédiger les descriptions)</p>
                 </article>
             </section>
         
             <aside>
                 <h2>Top 10 des histoires</h2>
-                    <a href="https://www.lequipe.fr/Tennis/atp-classement.html">Classement joueurs masculins - L'Equipe.fr</a>
-                    <br/><a href="https://www.lequipe.fr/Tennis/wta-classement.html">Classement joueurs féminins - L'Equipe.fr</a>
+                    <?php
+                    // $sql = "SELECT Title, story.Likes, user.Username FROM story, user WHERE story.User_id = user.Id ORDER BY `story`.`Likes` DESC LIMIT 10 ";
+                    // $result = mysqli_query($db,$sql);
+                    // if (!$result) {
+                    //     printf("Error: %s\n", mysqli_error($db));
+                    //     exit();
+                    // }
+                    // $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
+                    // print_r($row);
+                    // $count = mysqli_num_rows($result);
+                    // ?> <ul> <?php
+                    // for ($i=0; $i<$count; $i++) {
+                    //     echo "<li><a href=''>".$row["Title"]."</a></li>";
+                    // } ?> </ul> <?php
+
+                    ?>
             </aside>
         </div>
-        <footer style="font-size:12px">Ce site a été créé par Maxime Dulieu, Fannie Lothaire et Martin Devreese</footer>
     </body>
 </html>
