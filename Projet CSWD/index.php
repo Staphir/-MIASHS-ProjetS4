@@ -30,8 +30,8 @@
                             <a class="userbtn" href="#"><?php echo $login_session; ?></a>
                             <div class="dropdown-content">
                                 <a href="#">Mon compte</a>
-                                <a href="#">Mes histoires</a>
-                                <a href="#">Créer une histoire</a>
+                                <a href="my_stories.php">Mes histoires</a>
+                                <a href="story_handling/create_story.php">Créer une histoire</a>
                                 <a href="#">Favoris</a>
                                 <hr style="margin:10px; margin-top:1px; margin-bottom:1px;">
                                 <a href="user_handling/logout.php">Se déconnecter</a>

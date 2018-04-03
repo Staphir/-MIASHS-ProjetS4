@@ -1,11 +1,12 @@
 <?php
-require_once("../user_handling/config.php");
-require_once("../user_handling/session.php");
-require_once("../connect_database.php");
+require_once("user_handling/config.php");
+require_once("user_handling/session.php");
+require_once("connect_database.php");
 
-if(isset($_GET["story"])) {
-    $storie_choosed = $_GET["story"];
-}
+$requete="SELECT Title FROM story WHERE CreatedBy = '$login_session'";
+$reponse=$pdo->prepare($requete);
+$reponse->execute();
+$array_stories = $reponse->fetchAll();
 ?>
 
 
@@ -14,11 +15,11 @@ if(isset($_GET["story"])) {
 <head>
     <meta charset="utf-8"/>
     <title>
-        Storystoire - Affichage histoire
+        Storystoire - Mes histoires
     </title>
     <!--    <link href="css/style.css" rel="stylesheet" type="text/css" media="all"/>-->
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,300i" rel="stylesheet">
-    <link rel="shortcut icon" href="../images/icon.png">
+    <link rel="shortcut icon" href="images/icon.png">
 </head>
 <body>
 <!--<div class="top_header">-->
@@ -53,9 +54,15 @@ if(isset($_GET["story"])) {
 <!--    </nav>-->
 <!--</div>-->
 
-    <?php
-    echo "<h1 style='text-align: center'>".$storie_choosed."</h1>";
-    ?>
+<div>
+    <ul>
+        <?php
+        for($i=0; $i<count($array_stories); $i++){
+            echo "<li><a href='story_handling/story_display.php?story=".$array_stories[$i][0]."'>".$array_stories[$i][0]."</a></li>";
+        }
+        ?>
+    </ul>
+</div>
 
 <footer style="font-size:12px">Ce site a été créé par Maxime Dulieu, Fannie Lothaire et Martin Devreese</footer>
 </body>
