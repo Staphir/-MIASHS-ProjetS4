@@ -1,7 +1,7 @@
 <?php
 require_once("../user_handling/config.php");
 require_once("../user_handling/session.php");
-require_once("../connect_database.php");
+// require_once("../connect_database.php");
 if(isset($_POST["story_name"]) && isset($_POST["story_description"])){
     $name = $_POST["story_name"];
     $description = $_POST["story_description"];

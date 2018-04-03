@@ -17,15 +17,17 @@ if (isset($_POST) && (!empty($_POST))) {
     } else {$newuser["Lastname"] = "";}
 
     foreach ($newuser as $key => $value) {
-        $sql = "SELECT id FROM user WHERE $key = '$value'";
-        $result = mysqli_query($db,$sql);
-        $count = mysqli_num_rows($result);
-
-        if ($count == 1 && $key == "Email") {
+        if ($key == "Email" or $key == "Username") {
+            $result = $pdo->prepare("SELECT id FROM user WHERE ".$key." = ?");
+            $result->execute(array($value));
+            $row = $result->fetchAll(PDO::FETCH_ASSOC); 
+            $count = count($row);
+        }
+        if ($key == "Email" && $count > 0) { // > 0 ou ==1 mais ici on travaille avec un accès direct à la base de données alors bon...
             $error = "Cette adresse mail est déjà utilisée !";
             $newuser["Email"] = "";
             $valid = false; break;
-        } elseif ($count == 1 && $key == "Username") {
+        } elseif ($key == "Username" && $count > 0) {
             $error = "Ce pseudo est déjà utilisé !";
             $newuser["Username"] = "";
             $valid = false; break;
@@ -44,29 +46,20 @@ if ($valid) {
     $username = $newuser['Username']; $password = $newuser['Password'];
     $email = $newuser['Email']; $firstname = $newuser['Firstname'];
     $lastname = $newuser['Lastname'];
-    $sql_create = "INSERT INTO user (Id, Username, Password, Email, Firstname, Lastname, Likes)
-            VALUES (NULL, '$username', '$password', '$email', '$firstname', '$lastname', '0')";
-    $result = mysqli_query($db,$sql_create);
+    $query_create = "INSERT INTO user (Id, Username, Password, Email, Firstname, Lastname, Likes)
+            VALUES (NULL, '$username', MD5('$password'), '$email', '$firstname', '$lastname', '0')";
+    $result = $pdo->prepare($query_create);
+    $result->execute();
 
-    $sql_retrieve = "SELECT id, username FROM user WHERE email = '$email' and password = '$password'";
-    $result = mysqli_query($db,$sql_retrieve); $row = mysqli_fetch_array($result,MYSQLI_ASSOC); 
-    $_SESSION['user_id'] = $row['id'];
-    $_SESSION['login_user'] = $row['username'];
+    $query_retrieve = "SELECT id, username FROM user WHERE Email = ? and Password = MD5(?)";
+    $result = $pdo->prepare($query_retrieve);
+    $result->execute(array($email, $password));
+    $row = $result->fetchAll(PDO::FETCH_ASSOC);
+    $_SESSION['user_id'] = $row[0]['id'];
+    $_SESSION['login_user'] = $row[0]['username'];
     header("location: ../index.php");
 }
-?>
-<!DOCTYPE html>
-<html lang="fr">
-    <head>
-        <meta charset="utf-8"/>
-        <title>S'inscrire</title>
-        <link href="connect.css" rel="stylesheet" type="text/css" media="all"/>
-    </head>
-    <body style="font-family:'Roboto', sans-serif;">	
-        <div class="top_header">
-            <a class="back_to_main" href="../index.php">Accueil</a>
-            <header><h1>Storystoire</h1></header>
-        </div>
+include("../secondary_header.php"); ?>
         <div style = "margin-top:100px">
             <form action = "" method = "post">
                 <h1>Inscription</h1>

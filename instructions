@@ -23,3 +23,6 @@ Requête insertion histoire :
 
 INSERT INTO `projet_cswd`.`story` (`Id`, `Title`, `User_id`, `Description`, `CreatedOn`, `Likes`, `PublishedOn`, `LastModifiedOn`) 
 VALUES (NULL, 'La première des histoires', '1', 'Il était une fois la première des histoires.', CURRENT_DATE(), '', CURRENT_TIME(), CURRENT_TIME());
+
+
+htmlentities
