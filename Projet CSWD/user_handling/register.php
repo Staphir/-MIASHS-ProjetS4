@@ -59,7 +59,9 @@ if ($valid) {
     $_SESSION['login_user'] = $row[0]['username'];
     header("location: ../index.php");
 }
-include("../secondary_header.php"); ?>
+include("../secondary_header.php");
+?>
+
         <div style = "margin-top:100px">
             <form action = "" method = "post">
                 <h1>Inscription</h1>

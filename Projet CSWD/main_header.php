@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8"/>
         <title>
-            Storystoire - Accueil
+            Storystoire - <?php echo $menu["title"]; ?>
         </title>
         <link href="css/style.css" rel="stylesheet" type="text/css" media="all"/>
         <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,300i" rel="stylesheet">
@@ -20,7 +20,6 @@
                     <form action="search.php">
                         <li class="menuitem"><input type="search" name="search" placeholder="Rechercher"></li>
                     </form>
-                    <!-- <li class="menuitem"><a href="#">Contacts</a></li> -->
                     <?php
                     if(!isset($_SESSION['login_user'])){
                         echo "<li class='menuitem'><a href='user_handling/login.php'>Se connecter</a></li>";
@@ -42,3 +41,4 @@
                 </ul>            
             </nav>
         </div>
+        <div id="maincontent">
