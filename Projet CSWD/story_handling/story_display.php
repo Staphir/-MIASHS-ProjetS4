@@ -1,7 +1,7 @@
 <?php
 require_once("../user_handling/config.php");
 require_once("../user_handling/session.php");
-require_once("../connect_database.php");
+// require_once("../connect_database.php");
 
 if(isset($_GET["story"])) {
     $storie_choosed = $_GET["story"];
