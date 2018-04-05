@@ -5,9 +5,9 @@ require_once("../user_handling/session.php");
 if(isset($_POST["story_name"]) && isset($_POST["story_description"])){
     $name = $_POST["story_name"];
     $description = $_POST["story_description"];
-    $requete="INSERT INTO story (Title, Description, CreatedOn, Likes, LastModifiedOn, CreatedBy) VALUES (?,?,NOW(),0,NOW(),?)";
+    $requete="INSERT INTO story (Title, Description, CreatedOn, Likes, LastModifiedOn, User_id) VALUES (?,?,NOW(),0,NOW(),?)";
     $reponse=$pdo->prepare($requete);
-    $reponse->execute(array($name, $description, $login_session));
+    $reponse->execute(array($name, $description, $_SESSION["user_id"]));
     header("location: ../my_stories.php");
 }
 ?>

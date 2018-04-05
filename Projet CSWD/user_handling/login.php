@@ -1,6 +1,11 @@
 <?php
 require_once("config.php");
-session_start(); $error = "";
+require_once("session.php");
+
+if (count($_SESSION) != 0) {
+    header("location: ../index.php");
+}
+$error = "";
 
 if($_SERVER["REQUEST_METHOD"] == "POST") {
     // username and password sent from form 
@@ -25,7 +30,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 include("../secondary_header.php");
 ?>
 
-        <div style = "margin-top:100px">
             <form action = "" method = "post">
                 <h1>Connexion</h1>
                 Adresse Email :<input type="email" name="email" placeholder="..." required>
@@ -34,6 +38,4 @@ include("../secondary_header.php");
                 Vous n'êtes toujours pas inscrit ? <a href="register.php">S'inscrire</a>
                 <p style="color: red;"><?php echo $error ?></p>
             </form>
-        </div>
-    </body>
-</html>
+<?php include("../footer.php"); ?>

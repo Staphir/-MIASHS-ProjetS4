@@ -8,7 +8,10 @@
         <link href="css/style.css" rel="stylesheet" type="text/css" media="all"/>
         <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,300i" rel="stylesheet">
         <link rel="shortcut icon" href="images/icon.png">
-        <?php require_once("user_handling/config.php"); require_once('user_handling/session.php');?>
+        <?php 
+        require_once("user_handling/config.php");
+        require_once('user_handling/session.php');
+        ?>
     </head>
     <body>
         <div class="top_header">
@@ -29,7 +32,7 @@
                             <a class="userbtn" href="#"><?php echo $login_session; ?></a>
                             <div class="dropdown-content">
                                 <a href="#">Mon compte</a>
-                                <a href="my_stories.php">Mes histoires</a>
+                                <a href="story_handling/my_stories.php">Mes histoires</a>
                                 <a href="story_handling/create_story.php">Créer une histoire</a>
                                 <a href="#">Favoris</a>
                                 <hr style="margin:10px; margin-top:1px; margin-bottom:1px;">

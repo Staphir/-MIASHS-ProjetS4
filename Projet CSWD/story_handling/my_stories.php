@@ -1,8 +1,10 @@
 <?php
-require_once("user_handling/config.php");
-require_once("user_handling/session.php");
-$menu["title"] = "Mes histoires";
-include("main_header.php");
+require_once("../user_handling/config.php");
+require_once("../user_handling/session.php");
+
+$menu["title"] = "Mes histoires"; $dir = "../user_handling/";
+
+include("../secondary_header.php");
 // require_once("connect_database.php");
 
 // je t'ai corrigé ta requête et intégré le main_header.php
@@ -58,12 +60,11 @@ $array_stories = $reponse->fetchAll();
     <ul>
         <?php
         for($i=0; $i<count($array_stories); $i++){
-            echo "<li><a href='story_handling/story_display.php?story=".$array_stories[$i][0]."'>".$array_stories[$i][0]."</a></li>";
+            echo "<li><a href='../story_handling/story_display.php?story=".$array_stories[$i][0]."'>".$array_stories[$i][0]."</a></li>";
         }
         ?>
     </ul>
 </div>
 
 <footer style="font-size:12px">Ce site a été créé par Maxime Dulieu, Fannie Lothaire et Martin Devreese</footer>
-</body>
-</html>
+<?php include("../footer.php"); ?>
