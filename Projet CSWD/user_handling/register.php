@@ -1,6 +1,11 @@
 <?php
 require_once("config.php");
-session_start();
+require_once("session.php");
+
+if (count($_SESSION) != 0) {
+    header("location: ../index.php");
+} else {session_start();}
+
 $valid = false; $error = "";
 
 if (isset($_POST) && (!empty($_POST))) {
@@ -75,6 +80,4 @@ include("../secondary_header.php");
                 <p style="font-size:11px;">Les champs précédés d'une étoile * sont indispensables.</p><input type="submit" value="Valider">
                 <p style="color: red;"><?php echo $error ?></p>
             </form>
-        </div>
-    </body>
-</html>
+<?php include("../footer.php"); ?>

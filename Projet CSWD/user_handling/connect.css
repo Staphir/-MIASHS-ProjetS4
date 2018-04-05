@@ -79,7 +79,7 @@ form h1 {
     margin-bottom: 10px;
 }
 
-.back_to_main {
+.s_header_btn {
     border-radius: 5px;
     border: white 1px solid;
     color: var(--header-color);
@@ -87,16 +87,44 @@ form h1 {
     text-decoration: none;
     position: absolute;
     padding: 6px 14px;
-    margin: 16px;
+    margin: 16px 16px 16px 16px;
     /* float:left; */
 }
 
-.back_to_main:hover {
+.s_header_btn:hover {
     background-color: var(--header-color);
     color: white;
 }
 
-.back_to_main:active {
+.s_header_btn:active {
     background-color: var(--header-color);
     color: white;
 }
+
+.dropdown {
+    position: absolute;
+    left:85%;
+    display: inline-block;
+    background-color: var(--nav-but-bg);
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    overflow: active;
+    z-index: auto;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {background-color: var(--nav-but-hover)}
+
+.dropdown:hover .dropdown-content {display: block;}
