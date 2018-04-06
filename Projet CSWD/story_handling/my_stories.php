@@ -27,7 +27,7 @@ $array_stories = $reponse->fetchAll();
     <ul>
         <?php
         for($i=0; $i<count($array_stories); $i++){
-            echo "<li><a href='../story_handling/story_display.php?story=".$array_stories[$i][0]."'>".$array_stories[$i][0]."</a></li>";
+            echo "<li><a href='../story_handling/story_display.php?story=".htmlspecialchars($array_stories[$i][0], ENT_QUOTES, "UTF-8")."'>".$array_stories[$i][0]."</a></li>";
         }
         ?>
     </ul>
