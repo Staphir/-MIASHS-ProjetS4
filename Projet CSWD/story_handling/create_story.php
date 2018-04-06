@@ -8,7 +8,7 @@ if(isset($_POST["story_name"]) && isset($_POST["story_description"])){
     $requete="INSERT INTO story (Title, Description, CreatedOn, Likes, LastModifiedOn, User_id) VALUES (?,?,NOW(),0,NOW(),?)";
     $reponse=$pdo->prepare($requete);
     $reponse->execute(array($name, $description, $_SESSION["user_id"]));
-    header("location: ../my_stories.php");
+    header("location: ../story_handling/my_stories.php");
 }
 $menu["title"] = "Mes histoires"; $dir = "../user_handling/";
 
