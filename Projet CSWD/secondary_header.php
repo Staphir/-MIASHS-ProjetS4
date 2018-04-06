@@ -11,12 +11,12 @@
     </head>
     <body style="font-family:'Roboto', sans-serif;">
         <div class="top_header">
-            <a href="../index.php" class="s_header_btn">Accueil</a>
+            <a href="../index.php" class="s_header_btn" id="home">Accueil</a>
             <?php
             if(isset($_SESSION['login_user'])){
             ?>
             <div class="dropdown">
-                <a class="s_header_btn" style="margin: 16px 16px 16px 100px" href="#"><?php echo $_SESSION['login_user']; ?></a>
+                <a class="s_header_btn" id="user" href="#"><?php echo $_SESSION['login_user']; ?></a>
                 <div class="dropdown-content">
                     <a href="#">Mon compte</a>
                     <a href="my_stories.php">Mes histoires</a>
@@ -28,6 +28,6 @@
             </div>
             <?php } ?>
 
-            <header><h1>Storystoire</h1></header>
+            <header class="noselect" style="margin-top:-25px; z-index:0;"><h1>Storystoire</h1></header>
         </div>
         <div style="margin-top:100px;">

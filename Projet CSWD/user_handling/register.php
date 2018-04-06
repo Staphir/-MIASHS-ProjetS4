@@ -4,7 +4,7 @@ require_once("session.php");
 
 if (count($_SESSION) != 0) {
     header("location: ../index.php");
-} else {session_start();}
+}
 
 $valid = false; $error = "";
 

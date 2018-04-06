@@ -14,9 +14,20 @@
     --card-bg: white;
     --main-bg: #f1f1f1;
     /*--card-border-color: ;*/
-    --card-border-radius : 5px;
+    --card-border-radius : 7px;
 
 }
+
+.noselect {
+    -webkit-touch-callout: none; /* iOS Safari */
+      -webkit-user-select: none; /* Safari */
+       -khtml-user-select: none; /* Konqueror HTML */
+         -moz-user-select: none; /* Firefox */
+          -ms-user-select: none; /* Internet Explorer/Edge */
+              user-select: none; /* Non-prefixed version, currently
+                                    supported by Chrome and Opera */
+} /*From https://stackoverflow.com/questions/826782/how-to-disable-text-selection-highlighting */
+
 
 html, body, div {
 	margin: 0;

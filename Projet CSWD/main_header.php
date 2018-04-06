@@ -15,7 +15,7 @@
     </head>
     <body>
         <div class="top_header">
-            <header><h1>Bienvenue sur Storystoire</h1></header>
+            <header class="noselect"><h1>Bienvenue sur Storystoire</h1></header>
             <nav class="navbar">
                 <ul class="menu">
                     <li><img id="mainicon" src="images/icon.png"

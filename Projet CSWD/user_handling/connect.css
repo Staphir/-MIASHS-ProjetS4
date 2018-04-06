@@ -3,6 +3,16 @@
     --opposit-color: white; 
 }
 
+.noselect {
+    -webkit-touch-callout: none; /* iOS Safari */
+      -webkit-user-select: none; /* Safari */
+       -khtml-user-select: none; /* Konqueror HTML */
+         -moz-user-select: none; /* Firefox */
+          -ms-user-select: none; /* Internet Explorer/Edge */
+              user-select: none; /* Non-prefixed version, currently
+                                    supported by Chrome and Opera */
+} /*From https://stackoverflow.com/questions/826782/how-to-disable-text-selection-highlighting */
+
 html, body, div {
 	margin: 0;
 	padding: 0;
@@ -16,7 +26,8 @@ html, body, div {
 header h1 {
     color:var(--opposit-color);
     text-align:center;
-    margin: auto;
+    position: relative;
+    margin: 0px;
     padding:15px 0 15px 0;
     font-weight:normal;
 }
@@ -30,6 +41,7 @@ header h1 {
     width: 100%;
     display: inline-block;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 0;
 }
 
 .connexion {
@@ -87,9 +99,12 @@ form h1 {
     text-decoration: none;
     position: absolute;
     padding: 6px 14px;
-    margin: 16px 16px 16px 16px;
-    /* float:left; */
+    z-index:10;
 }
+
+#user {right: 16px; Top:16px;}
+
+#home {left: 16px; Top:16px;}
 
 .s_header_btn:hover {
     background-color: var(--header-color);
@@ -102,10 +117,9 @@ form h1 {
 }
 
 .dropdown {
-    position: absolute;
-    left:85%;
     display: inline-block;
     background-color: var(--nav-but-bg);
+    z-index:20;
 }
 
 .dropdown-content {
@@ -115,7 +129,7 @@ form h1 {
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     overflow: active;
-    z-index: auto;
+    z-index: 20;
 }
 
 .dropdown-content a {
@@ -123,6 +137,7 @@ form h1 {
     padding: 12px 16px;
     text-decoration: none;
     display: block;
+    z-index: 10;
 }
 
 .dropdown-content a:hover {background-color: var(--nav-but-hover)}
