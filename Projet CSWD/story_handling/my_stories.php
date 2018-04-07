@@ -17,7 +17,7 @@ include("../secondary_header.php");
 // Il faudrait rajouter un footer général qui ferme cette balise div.
 
 
-$requete="SELECT Title FROM story INNER JOIN user ON story.User_id = user.id WHERE user.Username = ?";
+$requete="SELECT story.Id,Title FROM story INNER JOIN user ON story.User_id = user.id WHERE user.Username = ?";
 $reponse=$pdo->prepare($requete);
 $reponse->execute(array($login_session));
 $array_stories = $reponse->fetchAll();
@@ -27,7 +27,7 @@ $array_stories = $reponse->fetchAll();
     <ul>
         <?php
         for($i=0; $i<count($array_stories); $i++){
-            echo "<li><a style='z-index:0;' href='../story_handling/story_display.php?story=".htmlspecialchars($array_stories[$i][0], ENT_QUOTES)."'>".$array_stories[$i][0]."</a></li>";
+            echo "<li><a style='z-index:0;' href='../story_handling/story_display.php?story_id=".$array_stories[$i][0]."&&story_title=".htmlspecialchars($array_stories[$i][1], ENT_QUOTES)."'>".$array_stories[$i][1]."</a></li>";
         }
         ?>
     </ul>
