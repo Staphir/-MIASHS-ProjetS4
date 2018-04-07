@@ -1,6 +1,8 @@
 :root {
     --header-color:rgb(186, 0, 0);
     --opposit-color: white; 
+    --header-btn-pos : 19px;
+    --nav-but-hover: rgba(238, 238, 238, 0.857);
 }
 
 .noselect {
@@ -36,7 +38,7 @@ header h1 {
     background-color: var(--header-color);
     padding: 1px;
     position: fixed;
-    overflow: hidden;
+    overflow: visible;
     top: 0;
     width: 100%;
     display: inline-block;
@@ -93,21 +95,31 @@ form h1 {
 
 .s_header_btn {
     border-radius: 5px;
-    border: white 1px solid;
     color: var(--header-color);
     background-color: rgb(255, 255, 255);
     text-decoration: none;
-    position: absolute;
     padding: 6px 14px;
     z-index:10;
+    border: white 1px solid;
 }
 
-#user {right: 16px; Top:16px;}
+#user {
+    right: var(--header-btn-pos);
+    Top:var(--header-btn-pos);
+    position: absolute;
+    padding: 6px ;
+}
 
-#home {left: 16px; Top:16px;}
+#home {
+    left: var(--header-btn-pos);
+    Top: var(--header-btn-pos);
+    position: absolute;
+    padding: 6px 14px;
+}
 
 .s_header_btn:hover {
     background-color: var(--header-color);
+    border: white 1px solid;
     color: white;
 }
 
@@ -120,15 +132,17 @@ form h1 {
     display: inline-block;
     background-color: var(--nav-but-bg);
     z-index:20;
+    
 }
 
 .dropdown-content {
     display: none;
-    position: absolute;
+    position: relative;
+    top: 5px; 
+    /* right:100px; */
     background-color: #f9f9f9;
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    overflow: active;
     z-index: 20;
 }
 

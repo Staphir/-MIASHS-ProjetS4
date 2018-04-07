@@ -1,3 +1,8 @@
+<?php 
+if (isset($_GET) && !empty($_GET)) {
+    $search = $_GET["search"];
+} else {$search = "";}
+?>
 <!DOCTYPE html>
 <html lang="fr">
     <head>
@@ -20,8 +25,9 @@
                 <ul class="menu">
                     <li><img id="mainicon" src="images/icon.png"
                     width=40 height=40></li>
-                    <form action="search.php">
-                        <li class="menuitem"><input type="search" name="search" placeholder="Rechercher"></li>
+                    <form action="search.php" method="get">
+                        <?php $search_value = "value=".$search; ?>
+                        <li class="menuitem"><input type="search" name="search" placeholder="Rechercher" <?php echo $search_value; ?>></li>
                     </form>
                     <?php
                     if(!isset($_SESSION['login_user'])){
