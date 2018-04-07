@@ -51,8 +51,8 @@ if ($valid) {
     $username = $newuser['Username']; $password = $newuser['Password'];
     $email = $newuser['Email']; $firstname = $newuser['Firstname'];
     $lastname = $newuser['Lastname'];
-    $query_create = "INSERT INTO user (Id, Username, Password, Email, Firstname, Lastname, Likes)
-            VALUES (NULL, '$username', MD5('$password'), '$email', '$firstname', '$lastname', '0')";
+    $query_create = "INSERT INTO user (Id, Username, Password, Email, Firstname, Lastname, Likes, JoinedOn)
+            VALUES (NULL, '$username', MD5('$password'), '$email', '$firstname', '$lastname', '0', NOW())";
     $result = $pdo->prepare($query_create);
     $result->execute();
 
