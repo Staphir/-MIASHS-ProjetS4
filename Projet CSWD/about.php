@@ -14,3 +14,4 @@ include("main_header.php");
         </div>
     </article>
 </section>
+<?php include("footer.php"); ?>
