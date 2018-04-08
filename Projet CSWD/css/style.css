@@ -85,7 +85,7 @@ ul.menu {
     border-radius: 10px;
 }
 
-ul.menu li.menuitem a, .userbtn, .log_b {
+ul.menu li.menuitem a, ul.menu li.menuitem p, .userbtn, .log_b {
     transition: background .10s ease-in-out;
     text-decoration: none;
     padding: .75em 1.25em;
@@ -146,10 +146,6 @@ input[type=submit]:hover {
 
 }
 
-section {
-    width: 80%;
-}
-
 footer {
     background-color: var(--header-color);
     padding:2px;
@@ -183,11 +179,12 @@ article.card div {
 article.card div h2 {
     text-align: left;
     margin-top:10px;
+    margin-bottom:10px;
 }
 
-article div hr {
+/* article div hr {
     width:95%
-}
+} */
 
 article img {
     border-top-left-radius: var(--card-border-radius);

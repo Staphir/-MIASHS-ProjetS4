@@ -2,6 +2,8 @@
 if (isset($_GET) && !empty($_GET)) {
     $search = $_GET["search"];
 } else {$search = "";}
+
+$search_value = "value=".$search;
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -23,16 +25,36 @@ if (isset($_GET) && !empty($_GET)) {
             <header class="noselect"><h1>Bienvenue sur Storystoire</h1></header>
             <nav class="navbar">
                 <ul class="menu">
-                    <li><img id="mainicon" src="images/icon.png"
-                    width=40 height=40></li>
-                    <form action="search.php" method="get">
-                        <?php $search_value = "value=".$search; ?>
-                        <li class="menuitem"><input type="search" name="search" placeholder="Rechercher" <?php echo $search_value; ?>></li>
-                    </form>
-                    <?php
-                    if(!isset($_SESSION['login_user'])){
-                        echo "<li class='menuitem'><a href='user_handling/login.php'>Se connecter</a></li>";
-                    } else { ?>
+                    <li>
+                        <a href="index.php"><img id="mainicon" src="images/icon.png"
+                        width=40 height=40></a>
+                    </li>
+                        <form action="search.php" method="get">
+                            <li class="menuitem"><input type="search" name="search" placeholder="Rechercher" <?php echo $search_value; ?>></li>
+                        </form>
+                    <li class="menuitem">
+                        <?php 
+                        if ($menu["title"] == "À propos") {
+                            ?><p class="noselect">À propos</p><?php
+                        } else {
+                            ?><a href="about.php">À propos</a><?php
+                        }
+                        ?>
+                    </li>
+                    <li class="menuitem">
+                        <?php 
+                        if ($menu["title"] == "Contact") {
+                            ?><p class="noselect">Contact</p><?php
+                        } else {
+                            ?><a href="contact.php">Contact</a><?php
+                        }
+                        ?>
+                    </li>
+
+                        <?php
+                        if(!isset($_SESSION['login_user'])){
+                            echo "<li class='menuitem'><a href='user_handling/login.php'>Se connecter</a></li>";
+                        } else { ?>
                     <li>
                         <div class="dropdown">
                             <a class="userbtn" href="#"><?php echo $login_session; ?></a>
