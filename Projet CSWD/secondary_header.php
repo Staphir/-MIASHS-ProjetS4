@@ -4,7 +4,7 @@
 <html lang="fr">
     <head>
         <meta charset="utf-8"/>
-        <title>Connexion</title>
+        <title>Storystoire - <?php echo $menu["title"]; ?></title>
         <link href=<?php echo $dir."connect.css" ?> rel="stylesheet" type="text/css" media="all"/>
         <?php 
         ?>

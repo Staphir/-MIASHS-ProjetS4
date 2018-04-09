@@ -2,6 +2,7 @@
 
 :root {
     --header-color:rgb(186, 0, 0);
+    --header-color-hover:rgb(145, 0, 0);
     /*--accent-color: ;
     --bg-color: ;*/
     --nav-search-accent: rgba(194, 3, 3, 0.815);
@@ -47,9 +48,11 @@ header h1 {
 
 }
 
-h2 {
+h2 a {
+    text-decoration:none;
     text-align:center;
     font-family: inherit;
+    color: var(--header-color);
 }
 
 .top_header {
@@ -108,7 +111,11 @@ ul.menu li.menuitem a:active, .userbtn:active, .log_b:active {
     color: var(--nav-but-active-fg);
 }
 
-input[type=email], input[type=password], select {
+hr {
+    color: red
+}
+
+input[type=email], input[type=password], input[type=text], textarea[type=comment] {
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
@@ -120,7 +127,7 @@ input[type=email], input[type=password], select {
 
 input[type=submit] {
     width: 100%;
-    background-color: #4CAF50;
+    background-color: var(--header-color);
     color: white;
     padding: 14px 20px;
     margin: 8px 0;
@@ -130,7 +137,7 @@ input[type=submit] {
 }
 
 input[type=submit]:hover {
-    background-color: #45a049;
+    background-color: var(--header-color-hover);
 }
 
 .loremipsum {

@@ -6,7 +6,12 @@ if (count($_SESSION) != 0) {
     header("location: ../index.php");
 }
 
-$valid = false; $error = "";
+include("../vendor/phpmailer/phpmailer/PHPMailerAutoload.php");
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+$valid = false; $error = ""; $menu["title"] = "S'inscrire";
 
 if (isset($_POST) && (!empty($_POST))) {
     $newuser = array();
@@ -28,7 +33,7 @@ if (isset($_POST) && (!empty($_POST))) {
             $row = $result->fetchAll(PDO::FETCH_ASSOC); 
             $count = count($row);
         }
-        if ($key == "Email" && $count > 0) { // > 0 ou ==1 mais ici on travaille avec un accès direct à la base de données alors bon...
+        if ($key == "Email" && $count > 0) { // > 0 ou ==1 mais ici on travaille avec un accès direct à la base de données alors les erreurs arrivent facilement
             $error = "Cette adresse mail est déjà utilisée !";
             $newuser["Email"] = "";
             $valid = false; break;
@@ -51,10 +56,47 @@ if ($valid) {
     $username = $newuser['Username']; $password = $newuser['Password'];
     $email = $newuser['Email']; $firstname = $newuser['Firstname'];
     $lastname = $newuser['Lastname'];
-    $query_create = "INSERT INTO user (Id, Username, Password, Email, Firstname, Lastname, Likes, JoinedOn)
-            VALUES (NULL, '$username', MD5('$password'), '$email', '$firstname', '$lastname', '0', NOW())";
+    $query_create = "INSERT INTO user (Id, Username, Password, Email, Verified, Firstname, Lastname, Likes, JoinedOn)
+            VALUES (NULL, '$username', MD5('$password'), '$email', '1', '$firstname', '$lastname', '0', NOW())";
     $result = $pdo->prepare($query_create);
     $result->execute();
+
+    // try {
+    //     $mail = new \PHPMailer(true);
+
+    //     //Server settings
+    //     $mail->isSMTP();
+    //     $mail->Host = 'smtp.gmail.com';
+    //     $mail->SMTPAuth = true;
+    //     $mail->Username = 'storystoire@gmail.com';
+    //     $mail->Password = 'labichusdragibus';
+    //     $mail->SMTPSecure = 'tls';
+    //     $mail->Port = 587;
+    
+    //     //Recipients
+    //     $mail->setFrom('storystoire@gmail.com', 'Storystoire - Inscription');
+    //     $mail->addAddress($email);
+    
+    //     //Content
+    //     $mail->isHTML(true);
+    //     $mail->Subject = 'Votre inscription à Storystoire a bien été prise en compte !';
+        
+    //     $body = file_get_contents('../emails/email_confirmation.html');
+    //     $body = str_replace('%username%', $username, $body); 
+    //     $body = str_replace('%password%', $password, $body);
+    //     $body = str_replace('%email%', $email, $body);
+    //     $firstname = (empty($firstname))?"Non renseigné":$firstname;
+    //     $lastname = (empty($lastname))?"Non renseigné":$lastname;
+    //     $body = str_replace('%firstname%', $firstname, $body);
+    //     $body = str_replace('%lastname%', $lastname, $body); 
+
+    //     $mail->Body = $body;
+    //     $mail->send();
+        
+    //     $result = "Un mail de confirmation vous a été envoyé !";
+    // } catch (Exception $e) {
+    //     $result = "Une erreur s'est produite à l'envoie du mail de confirmation";
+    // }
 
     $query_retrieve = "SELECT id, username FROM user WHERE Email = ? and Password = MD5(?)";
     $result = $pdo->prepare($query_retrieve);
@@ -62,22 +104,21 @@ if ($valid) {
     $row = $result->fetchAll(PDO::FETCH_ASSOC);
     $_SESSION['user_id'] = $row[0]['id'];
     $_SESSION['login_user'] = $row[0]['username'];
-    header("location: ../index.php");
+    header("location: register_confirmation.php?reg=1");
 }
 include("../secondary_header.php");
 ?>
-
-        <div style = "margin-top:100px">
-            <form action = "" method = "post">
-                <h1>Inscription</h1>
-                * Nom d'utilisateur :<input type="text" name="username" placeholder="..." required <?php echo 'value='.$newuser['Username']; ?>>
-                * Adresse Email :<input type="email" name="email" placeholder="..." required <?php echo "value=".$newuser["Email"]; ?>>
-                * Mot de passe :<input type="password" name="password" placeholder="..." required>
-                * Confirmation de mot de passe :<input type="password" name="c_password" placeholder="..." required>
-                <hr style="margin:30px;">
-                Prénom :<input type="text" name="firstname" placeholder="...">
-                Nom :<input type="text" name="lastname" placeholder="...">
-                <p style="font-size:11px;">Les champs précédés d'une étoile * sont indispensables.</p><input type="submit" value="Valider">
-                <p style="color: red;"><?php echo $error ?></p>
-            </form>
+<div style = "margin-top:100px">
+    <form action = "" method = "post">
+        <h1>Inscription</h1>
+        * Nom d'utilisateur :<input type="text" name="username" placeholder="..." required <?php echo 'value='.$newuser['Username']; ?>>
+        * Adresse Email :<input type="email" name="email" placeholder="..." required <?php echo "value=".$newuser["Email"]; ?>>
+        * Mot de passe :<input type="password" name="password" placeholder="..." required>
+        * Confirmation de mot de passe :<input type="password" name="c_password" placeholder="..." required>
+        <hr style="margin:30px;">
+        Prénom :<input type="text" name="firstname" placeholder="...">
+        Nom :<input type="text" name="lastname" placeholder="...">
+        <p style="font-size:11px;">Les champs précédés d'une étoile * sont indispensables.</p><input type="submit" value="Valider">
+        <p style="color: red;"><?php echo $error ?></p>
+    </form>
 <?php include("../footer.php"); ?>

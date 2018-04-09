@@ -1,6 +1,8 @@
 <?php 
 if (isset($_GET) && !empty($_GET)) {
-    $search = $_GET["search"];
+    if (isset($_GET["search"])) {
+        $search = $_GET["search"];
+    } else {$search = "";}
 } else {$search = "";}
 
 $search_value = "value=".$search;
@@ -30,7 +32,7 @@ $search_value = "value=".$search;
                         width=40 height=40></a>
                     </li>
                         <form action="search.php" method="get">
-                            <li class="menuitem"><input type="search" name="search" placeholder="Rechercher" <?php echo $search_value; ?>></li>
+                            <li class="menuitem"><input type="search" name="search" placeholder="Rechercher un titre..." <?php echo $search_value; ?>></li>
                         </form>
                     <li class="menuitem">
                         <?php 
