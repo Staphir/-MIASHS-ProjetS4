@@ -21,3 +21,5 @@ function supp_champ() {
     var nbChilds = ul.childNodes.length;
     ul.removeChild(ul.childNodes[nbChilds-1]);
 }
+
+ajout_champ();
