@@ -2,7 +2,7 @@
     --header-color:rgb(186, 0, 0);
     --opposit-color: white; 
     --header-btn-pos : 19px;
-    --nav-but-hover: rgba(238, 238, 238, 0.857);
+    --nav-but-hover: rgba(168, 168, 168, 0.857);
 }
 
 .noselect {
@@ -54,7 +54,7 @@ header h1 {
     padding: 5px;
 }
 
-input[type=text], input[type=password], input[type=email], textarea[type=comment] {
+input[type=text], button[type=button], input[type=password], input[type=email], textarea[type=comment] {
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
@@ -63,6 +63,10 @@ input[type=text], input[type=password], input[type=email], textarea[type=comment
     border-radius: 4px;
     box-sizing: border-box;
     resize:vertical;
+}
+
+button[type=button] {
+    background-color: white;
 }
 
 input[type=submit] {
@@ -76,8 +80,41 @@ input[type=submit] {
     cursor: pointer;
 }
 
+input[name=end] {
+    border:1px;
+    color: black;
+    text-decoration: var(--header-color);
+    background-color: transparent;
+    padding:0px 10px 2px 10px;
+    text-align: left;
+    width:auto;
+    margin-top:0px;
+}
+
+.btn_champs {
+    width:100%;
+    text-align: left;
+    background-color: transparent;
+}
+
+.inner {
+    background-color: inherit;
+    display: inline-block;
+}
+
 input[type=submit]:hover {
     background-color: rgb(143, 1, 1);
+}
+
+button[type=button]:hover {
+    background-color: var(--nav-but-hover);
+}
+
+input[name=end]:hover {
+    background-color: transparent;
+    text-decoration: underline;
+    color: var(--nav-but-hover);
+
 }
 
 div form, div.confirm div, div.confirm form {

@@ -11,7 +11,7 @@ if (!empty($row) && count($row[0])>0) {
     ?><section style="margin-right:100px;"><?php
     for ($i=0; $i<count($row); $i++) {
         $story = $row[$i];
-        $story["short_Description"] = (strlen($story["Description"])>=100)?substr($story["Description"], 0, 200)."...":$story["Description"];
+        $story["short_Description"] = (strlen($story["Description"])>=200)?substr($story["Description"], 0, 200)."...":$story["Description"];
         $story["FormalDate"] = date('M j Y g:i A', strtotime($story["PublishedOn"]));
 
         ?><article class="card">
