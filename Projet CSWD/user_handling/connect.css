@@ -205,3 +205,7 @@ form h1, div.confirm form h1 {
 .dropdown-content a:hover {background-color: var(--nav-but-hover)}
 
 .dropdown:hover .dropdown-content {display: block;}
+
+#choix{
+    list-style-type: none;
+}
