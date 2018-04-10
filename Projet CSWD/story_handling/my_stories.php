@@ -32,6 +32,4 @@ $array_stories = $reponse->fetchAll();
         ?>
     </ul>
 </div>
-
-<footer style="font-size:12px">Ce site a été créé par Maxime Dulieu, Fannie Lothaire et Martin Devreese</footer>
 <?php include("../footer.php"); ?>

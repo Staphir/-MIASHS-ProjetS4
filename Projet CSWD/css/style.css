@@ -16,7 +16,6 @@
     --main-bg: #f1f1f1;
     /*--card-border-color: ;*/
     --card-border-radius : 7px;
-
 }
 
 .noselect {
@@ -38,6 +37,16 @@ html, body, div {
     vertical-align: baseline;
     background-color: var(--main-bg);
 }
+
+/* footer {
+    background-color: orange;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    /* height: 100px;
+    width: 100%;
+    overflow: hidden;
+} */
 
 header h1 {
     color:white;
@@ -153,14 +162,14 @@ input[type=submit]:hover {
 
 }
 
-footer {
-    background-color: var(--header-color);
+/* footer {
+    background-color: ;
     padding:2px;
     margin:15px 50px 10px 50px;
     width:80%;
     color: white;
     border-radius: var(--card-border-radius);
-}
+} */
 
 article {
     margin: 30px 0px 30px 100px;

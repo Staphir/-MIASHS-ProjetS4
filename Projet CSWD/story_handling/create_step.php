@@ -1,6 +1,7 @@
 <?php
 $menu["title"] = "Mes histoires"; $dir = "../user_handling/";
-
+require_once("../user_handling/config.php");
+require_once("../user_handling/session.php");
 include("../secondary_header.php");
 ?>
 
