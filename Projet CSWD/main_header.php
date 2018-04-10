@@ -55,7 +55,7 @@ $search_value = "value=".$search;
 
                         <?php
                         if(!isset($_SESSION['login_user'])){
-                            echo "<li class='menuitem'><a href='user_handling/login.php'>Se connecter</a></li>";
+                            echo "<li class='menuitem'><a href=user_handling/login.php>Se connecter</a></li>";
                         } else { ?>
                     <li>
                         <div class="dropdown">

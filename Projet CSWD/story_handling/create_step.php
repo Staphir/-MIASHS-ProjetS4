@@ -10,13 +10,10 @@ include("../secondary_header.php");
         <input type="hidden" name="id_story" value="<?php echo $_POST["id_story"] ?>">
         <textarea name="step" type="comment" id="step_area" cols="100" rows="20" placeholder="Nouvelle étape" required></textarea>
         <input type="submit" name="end" value="Déclarer cette étape comme la dernière de l'histoire">
-        <ul id="choix">
-        </ul>
-        <div class="btn_champs">
-            <div class="inner"><button type="button" id="btn_ajout_champs" onclick="ajout_champ()">Ajouter un choix</button></div>
-            <div class="inner"><button type="button" id="btn_supp_champs" onclick="supp_champ()">Retirer le dernier choix</button></div>
+        <hr class="choice"><div id="choix" style="background-color:transparent;">
         </div>
-        <hr style="margin:20px"><input type="submit" name="valid_step" value="Créer">
+        <button type="button" id="btn_ajout_champs" onclick="ajout_champ()">Ajouter un choix</button>
+        <hr class="choice"><input type="submit" name="valid_step" value="Créer">
     </form>
 </div>
 
