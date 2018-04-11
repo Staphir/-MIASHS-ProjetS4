@@ -61,7 +61,7 @@ $search_value = "value=".$search;
                         <div class="dropdown">
                             <a class="userbtn" href="#"><?php echo $login_session; ?></a>
                             <div class="dropdown-content">
-                                <a href="#">Mon compte</a>
+                                <a href="myaccount.php">Mon compte</a>
                                 <a href="story_handling/my_stories.php">Mes histoires</a>
                                 <a href="story_handling/create_story.php">Créer une histoire</a>
                                 <a href="#">Favoris</a>

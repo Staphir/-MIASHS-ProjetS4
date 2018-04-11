@@ -38,7 +38,7 @@ include("main_header.php");
             <aside class="top10">
                     <h2 class="top10">Top 10 des histoires</h2>
                     <?php
-                    $query = "SELECT Title, story.Likes, user.Username FROM story, user WHERE story.User_id = user.Id AND Published = 1 ORDER BY `story`.`Likes` DESC LIMIT 10 ";
+                    $query = "SELECT title, story.likes, user.username FROM story, user WHERE story.user_id = user.id AND published = 1 ORDER BY story.likes DESC LIMIT 10 ";
                     $result = $pdo->prepare($query);
                     $result->execute();
                     $row = $result->fetchAll(PDO::FETCH_ASSOC);

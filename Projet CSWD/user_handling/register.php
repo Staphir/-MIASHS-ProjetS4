@@ -56,7 +56,7 @@ if ($valid) {
     $username = $newuser['Username']; $password = $newuser['Password'];
     $email = $newuser['Email']; $firstname = $newuser['Firstname'];
     $lastname = $newuser['Lastname'];
-    $query_create = "INSERT INTO user (Id, Username, Password, Email, Verified, Firstname, Lastname, Likes, JoinedOn)
+    $query_create = "INSERT INTO user (id, username, password, email, verified, firstname, lastname, likes, joinedon)
             VALUES (NULL, '$username', MD5('$password'), '$email', '1', '$firstname', '$lastname', '0', NOW())";
     $result = $pdo->prepare($query_create);
     $result->execute();
@@ -98,7 +98,7 @@ if ($valid) {
     //     $result = "Une erreur s'est produite à l'envoie du mail de confirmation";
     // }
 
-    $query_retrieve = "SELECT id, username FROM user WHERE Email = ? and Password = MD5(?)";
+    $query_retrieve = "SELECT id, username FROM user WHERE email = ? and password = MD5(?)";
     $result = $pdo->prepare($query_retrieve);
     $result->execute(array($email, $password));
     $row = $result->fetchAll(PDO::FETCH_ASSOC);

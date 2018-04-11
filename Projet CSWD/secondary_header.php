@@ -18,7 +18,7 @@
             <div class="dropdown" id="user">
                 <a class="s_header_btn" href="#"><?php echo $_SESSION['login_user']; ?></a>
                 <div class="dropdown-content">
-                    <a href="#">Mon compte</a>
+                    <a href="../myaccount.php">Mon compte</a>
                     <a href="my_stories.php">Mes histoires</a>
                     <a href="create_story.php">Créer une histoire</a>
                     <a href="#">Favoris</a>
