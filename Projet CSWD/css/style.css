@@ -14,6 +14,7 @@
     --hover-but-shadow: rgb(82, 22, 22);
     --card-bg: white;
     --main-bg: #f1f1f1;
+    --bg-accent: #c5c5c5;
     /*--card-border-color: ;*/
     --card-border-radius : 7px;
 }
@@ -38,15 +39,6 @@ html, body, div {
     background-color: var(--main-bg);
 }
 
-/* footer {
-    background-color: orange;
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    /* height: 100px;
-    width: 100%;
-    overflow: hidden;
-} */
 
 header h1 {
     color:white;
@@ -134,7 +126,7 @@ input[type=email], input[type=password], input[type=text], textarea[type=comment
     box-sizing: border-box;
 }
 
-input[type=submit] {
+input[type=submit], button[type=read] {
     width: 100%;
     background-color: var(--header-color);
     color: white;
@@ -145,7 +137,7 @@ input[type=submit] {
     cursor: pointer;
 }
 
-input[type=submit]:hover {
+input[type=submit]:hover, button[type=read]:hover {
     background-color: var(--header-color-hover);
 }
 
@@ -162,14 +154,13 @@ input[type=submit]:hover {
 
 }
 
-/* footer {
-    background-color: ;
-    padding:2px;
-    margin:15px 50px 10px 50px;
-    width:80%;
-    color: white;
-    border-radius: var(--card-border-radius);
-} */
+footer {
+    font-size:12px;
+    text-align:center;
+    color: var(--bg-accent);
+    margin-bottom:20px;
+    /* text-shadow: -0px -1px 2px rgba(0, 0, 0, 0.199); */
+}
 
 section {
     width: 100%;

@@ -36,6 +36,15 @@ $search_value = "value=".$search;
                         </form>
                     <li class="menuitem">
                         <?php 
+                        if ($menu["title"] == "Accueil") {
+                            ?><p class="noselect">Accueil</p><?php
+                        } else {
+                            ?><a href="index.php">Accueil</a><?php
+                        }
+                        ?>
+                    </li>
+                    <li class="menuitem">
+                        <?php 
                         if ($menu["title"] == "À propos") {
                             ?><p class="noselect">À propos</p><?php
                         } else {
@@ -59,7 +68,7 @@ $search_value = "value=".$search;
                         } else { ?>
                     <li>
                         <div class="dropdown">
-                            <a class="userbtn" href="#"><?php echo $login_session; ?></a>
+                            <a class="userbtn" href="myaccount.php"><?php echo $login_session; ?></a>
                             <div class="dropdown-content">
                                 <a href="myaccount.php">Mon compte</a>
                                 <a href="story_handling/my_stories.php">Mes histoires</a>

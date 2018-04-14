@@ -13,7 +13,7 @@ $menu["title"] = "Mes histoires"; $dir = "../user_handling/";
 
 include("../secondary_header.php");
 
-$query_first_step="SELECT * FROM step LEFT JOIN story ON step.Id_story = story.Id WHERE story.Id='$Id_story_choosed' AND step.Id_choice IS NULL ";
+$query_first_step="SELECT * FROM step LEFT JOIN story ON step.id_story = story.id WHERE story.id='$Id_story_choosed' AND step.id_choice IS NULL ";
 $response_first_step=$pdo->prepare($query_first_step);
 $response_first_step->execute();
 $first_step = $response_first_step->fetchall();
@@ -32,6 +32,4 @@ if($first_step == NULL){
     <?php
 }
     ?>
-
-<footer style="font-size:12px">Ce site a été créé par Maxime Dulieu, Fannie Lothaire et Martin Devreese</footer>
 <?php include("../footer.php"); ?>

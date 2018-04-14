@@ -12,7 +12,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     $mypassword = $_POST['password'];
     $myemail = $_POST['email'];
     
-    $query = "SELECT id, username, verified, email FROM user WHERE Email = ? and Password = MD5(?)";
+    $query = "SELECT id, username, verified, email FROM user WHERE email = ? and password = MD5(?)";
     $result=$pdo->prepare($query);
     $result->execute(array($myemail, $mypassword));
     $row = $result->fetchAll(PDO::FETCH_ASSOC);

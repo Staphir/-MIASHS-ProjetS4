@@ -11,8 +11,4 @@ if (isset($_SESSION['login_user'])) {
     $row = $result->fetchAll(PDO::FETCH_ASSOC);
     $login_session = $row[0]['username'];
 }
-
-//    if(!isset($_SESSION['login_user'])){
-//       header("location:login.php");
-//    }
 ?>

@@ -2,7 +2,7 @@
 $menu["title"] = "Rechercher";
 include("main_header.php");
 
-$query = "SELECT title, story.likes, username, description, publishedon FROM story INNER JOIN user ON story.user_id = user.id WHERE title like '%".$search."%' ORDER BY `story`.`likes` DESC";
+$query = "SELECT title, story.likes, username, story.id, description, publishedon FROM story INNER JOIN user ON story.user_id = user.id WHERE title like '%".$search."%' AND published = 1 ORDER BY `story`.`likes` DESC";
 $result = $pdo->prepare($query);
 $result->execute(array($search));
 $row = $result->fetchAll(PDO::FETCH_ASSOC);
@@ -16,9 +16,9 @@ if (!empty($row) && count($row[0])>0) {
 
         ?><article class="card">
             <div>
-                <h2><a href="read.php"><?php echo $story["title"] ?></a></h2><hr>
+                <h2><a href=<?php echo "read.php?id=".$story["id"]; ?>><?php echo $story["title"] ?></a></h2><hr>
                 <p><?php echo $story["short_Description"] ?></p>
-                <p style="margin-top:0px;color:grey;font-size:11px;"><?php echo "Publiée par ".$story["username"]." le ".$story["FormalDate"]." - Likes : ".$story["likes"] ?></p>
+                <p style="margin-top:0px;color:grey;font-size:11px;"><?php echo "Publiée par ".$story["username"]." le ".$story["FormalDate"]." - ".$story["likes"]." Likes" ?></p>
             </div>
         </article><?php
     }

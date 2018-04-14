@@ -12,7 +12,7 @@ use PHPMailer\PHPMailer\Exception;
 
 if (!empty($_POST)) {
     $myemail = $_POST['email'];
-    $query = "SELECT id FROM user WHERE Email = ? and Verified = '0'";
+    $query = "SELECT id FROM user WHERE email = ? and verified = '0'";
     $result=$pdo->prepare($query);
     $result->execute(array($myemail));
     $row = $result->fetchAll(PDO::FETCH_ASSOC);

@@ -1,6 +1,13 @@
 <?php
 $menu["title"] = "Contact";
 include("main_header.php");
+if (!empty($_SESSION)) {
+    $email = "value=".$_SESSION["user_email"];
+    $username = "value=".$_SESSION["login_user"];
+} else {
+    $email = "";
+    $username = "";
+}
 ?>
 <section style="margin-right:100px;">
     <article class="card">
@@ -14,8 +21,8 @@ include("main_header.php");
         <div>
             <form method="post" action="contact_send.php">
                 <h2>Remplir le formulaire</h2><hr>
-                <p>Nom d'utilisateur : </p><input type="text" name="username" placeholder="..." required></br>
-                <p>Adresse Email : </p><input type="email" name="email" placeholder="..." required></br>
+                <p>Nom d'utilisateur : </p><input type="text" name="username" placeholder="..." required <?php echo $username; ?>></br>
+                <p>Adresse Email : </p><input type="email" name="email" placeholder="..." required <?php echo $email; ?>></br>
                 <p>Votre commentaire ici : </p><textarea type="comment" name="comment" placeholder="..." required></textarea></br>
                 <input type="submit" value="Envoyer">
             </form>

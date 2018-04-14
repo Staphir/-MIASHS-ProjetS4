@@ -38,7 +38,7 @@ include("main_header.php");
             <aside class="top10">
                     <h2 class="top10">Top 10 des histoires</h2>
                     <?php
-                    $query = "SELECT title, story.likes, user.username FROM story, user WHERE story.user_id = user.id AND published = 1 ORDER BY story.likes DESC LIMIT 10 ";
+                    $query = "SELECT story.id, title, story.likes, user.username FROM story, user WHERE story.user_id = user.id AND published = 1 ORDER BY story.likes DESC LIMIT 10 ";
                     $result = $pdo->prepare($query);
                     $result->execute();
                     $row = $result->fetchAll(PDO::FETCH_ASSOC);
@@ -46,7 +46,7 @@ include("main_header.php");
                     $count = count($row);
                     ?> <ol> <?php
                     for ($i=0; $i<$count; $i++) {
-                        echo "<li><a href=''>".$row[$i]["Title"]."</a></li>";
+                        echo "<li><a href='read.php?id=".$row[$i]["id"]."'>".$row[$i]["title"]."</a></li>";
                     } ?> </ol> <?php
 
                     ?>
