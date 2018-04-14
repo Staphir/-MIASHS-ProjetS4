@@ -10,8 +10,9 @@ if(isset($_POST["story_name"]) && isset($_POST["story_description"])){
     $reponse->execute(array($name, $description, $_SESSION["user_id"]));
     header("location: ../story_handling/my_stories.php");
 }
-$menu["title"] = "Mes histoires"; $dir = "../user_handling/";
 
+$menu["title"] = "Mes histoires";
+$dir2 = "../user_handling/";
 include("../secondary_header.php");
 
 ?>

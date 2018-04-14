@@ -1,11 +1,18 @@
-<?php if (!isset($dir)) {$dir = "";} ?>
+<?php 
+if (!isset($dir1)) {
+    $dir1 = "";
+} 
+if (!isset($dir2)) {
+    $dir2 = "";
+}
+?>
 
 <!DOCTYPE html>
 <html lang="fr">
     <head>
         <meta charset="utf-8"/>
         <title>Storystoire - <?php echo $menu["title"]; ?></title>
-        <link href=<?php echo $dir."connect.css" ?> rel="stylesheet" type="text/css" media="all"/>
+        <link href=<?php echo $dir2."connect.css" ?> rel="stylesheet" type="text/css" media="all"/>
         <?php 
         ?>
     </head>
@@ -19,11 +26,11 @@
                 <a class="s_header_btn" href="#"><?php echo $_SESSION['login_user']; ?></a>
                 <div class="dropdown-content">
                     <a href="../myaccount.php">Mon compte</a>
-                    <a href="my_stories.php">Mes histoires</a>
-                    <a href="create_story.php">Créer une histoire</a>
+                    <a href=<?php echo $dir1."my_stories.php" ?>>Mes histoires</a>
+                    <a href=<?php echo $dir1."create_story.php"?>>Créer une histoire</a>
                     <a href="#">Favoris</a>
                     <hr style="margin:10px; margin-top:1px; margin-bottom:1px;">
-                    <a href="user_handling/logout.php">Se déconnecter</a>
+                    <a href=<?php echo $dir2."logout.php"?>>Se déconnecter</a>
                 </div>
             </div>
             <?php } ?>

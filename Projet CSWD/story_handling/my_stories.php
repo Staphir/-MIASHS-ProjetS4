@@ -2,8 +2,8 @@
 require_once("../user_handling/config.php");
 require_once("../user_handling/session.php");
 
-$menu["title"] = "Mes histoires"; $dir = "../user_handling/";
-
+$menu["title"] = "Mes histoires";
+$dir2 = "../user_handling/";
 include("../secondary_header.php");
 
 $requete="SELECT story.id,title FROM story INNER JOIN user ON story.User_id = user.id WHERE user.username = ?";

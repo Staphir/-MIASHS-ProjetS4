@@ -31,6 +31,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         $error = "Votre adresse mail ou mot de passe est invalide !";
     }
 }
+$dir1 = "../story_handling";
 include("../secondary_header.php");
 ?>
 <form action = "" method = "post">

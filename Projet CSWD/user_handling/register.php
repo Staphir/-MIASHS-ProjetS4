@@ -106,6 +106,7 @@ if ($valid) {
     $_SESSION['login_user'] = $row[0]['username'];
     header("location: register_confirmation.php?reg=1");
 }
+$dir1 = "../story_handling";
 include("../secondary_header.php");
 ?>
 <div style = "margin-top:100px">

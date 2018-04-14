@@ -2,6 +2,7 @@
 $menu["title"] = "S'inscrire";
 require_once("config.php");
 require_once("session.php");
+$dir1 = "../story_handling";
 include("../secondary_header.php");
 $error = "";
 

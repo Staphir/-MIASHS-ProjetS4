@@ -3,6 +3,7 @@
     --opposit-color: white; 
     --header-btn-pos : 19px;
     --nav-but-hover: rgba(168, 168, 168, 0.857);
+    --bg-accent: #c5c5c5;
 }
 
 .noselect {
@@ -25,15 +26,13 @@ html, body, div {
     background-color: white;
 }
 
-/* footer {
-    background-color: orange;
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    height: 100px;
-    width: 100%;
-    overflow: hidden;
-} */
+footer {
+    font-size:12px;
+    text-align:center;
+    color: var(--bg-accent);
+    margin-bottom:20px;
+    margin-top:20px;
+}
 
 header h1 {
     color:var(--opposit-color);
