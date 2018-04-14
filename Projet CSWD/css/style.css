@@ -124,6 +124,7 @@ input[type=email], input[type=password], input[type=text], textarea[type=comment
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
+    resize:vertical;
 }
 
 input[type=submit], button[type=read] {
@@ -139,6 +140,10 @@ input[type=submit], button[type=read] {
 
 input[type=submit]:hover, button[type=read]:hover {
     background-color: var(--header-color-hover);
+}
+
+div.accountInfo ul li {
+    margin:10px 0px 10px 0px;
 }
 
 .loremipsum {
@@ -185,8 +190,6 @@ article.card div {
     padding-top: 10px;
     padding-bottom: 10px;
 }
-
-
 
 article.card div h2 {
     text-align: left;

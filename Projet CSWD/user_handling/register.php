@@ -104,7 +104,8 @@ if ($valid) {
     $row = $result->fetchAll(PDO::FETCH_ASSOC);
     $_SESSION['user_id'] = $row[0]['id'];
     $_SESSION['login_user'] = $row[0]['username'];
-    header("location: register_confirmation.php?reg=1");
+    header("location: ../index.php");
+    // header("location: register_confirmation.php?reg=1");
 }
 $dir1 = "../story_handling";
 include("../secondary_header.php");

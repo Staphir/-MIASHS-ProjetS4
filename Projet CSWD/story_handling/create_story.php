@@ -19,8 +19,8 @@ include("../secondary_header.php");
 
 <div>
     <form action="" method="post">
-        Nom de l'histoire :<input type="text" name="story_name" required><br>
-        Description :<textarea name="story_description" type="comment" cols="85" rows="10" required></textarea>
+        Nom de l'histoire :<input type="text" name="story_name" placeholder="..." required><br>
+        Description :<textarea name="story_description" type="comment" placeholder="..." cols="85" rows="15" required></textarea>
         <input type="submit" value="Créer">
     </form>
 </div>

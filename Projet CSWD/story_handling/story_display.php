@@ -5,7 +5,7 @@ require_once("../user_handling/session.php");
 
 // ATTENTION :
 // Je pense retirer le $_GET["story_title"] et uniquement se servir de l'id
-// de l'histoire pour aussi récupérer le titre. Avec la méthode GET tu a
+// de l'histoire pour aussi récupérer le titre. Avec la méthode GET tu as
 // introduit une faille de sécurité.
 // Es-tu un agent double ? -_-
 // J'ai corrigé la faille et mis la condition suivante : si le user_id

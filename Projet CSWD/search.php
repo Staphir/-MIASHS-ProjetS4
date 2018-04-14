@@ -23,7 +23,15 @@ if (!empty($row) && count($row[0])>0) {
         </article><?php
     }
     ?></section><?php
+} else {
+    ?><section style="margin-right:100px;">
+        <article class="card">
+            <div>
+                <h2>Aucun résultats...</h2><hr>
+                <p>La recherche n'a retourné aucun résultats !</p>
+            </div>
+        </article>
+    </section><?php
 }
-
 include("footer.php");
 ?>
