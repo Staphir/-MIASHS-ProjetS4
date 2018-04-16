@@ -15,7 +15,7 @@ if (!empty($row) && count($row[0])>0) {
             <h2 style="margin-left:20px;">Résultats de la recherche pour  '<?php echo $search; ?>' ...</h2>
         </div>
     </div>
-        <section style="margin-right:100px;">
+        <section>
         <hr style="margin-bottom:130px; border:0px;">
     <?php
     for ($i=0; $i<count($row); $i++) {
@@ -33,7 +33,7 @@ if (!empty($row) && count($row[0])>0) {
     }
     ?></section><?php
 } else {
-    ?><section style="margin-right:100px;">
+    ?><section>
         <article class="card">
             <div>
                 <h2>Aucun résultat...</h2><hr>

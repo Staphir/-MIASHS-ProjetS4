@@ -34,7 +34,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 
 ?>
-<section style="margin-right:100px;">
+<section>
     <article class="card">
         <div>
             <form action="" method="post">

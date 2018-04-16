@@ -2,7 +2,7 @@
 $menu["title"] = "À propos";
 include("main_header.php");
 ?>
-<section style="margin-right:100px;" class="noselect">
+<section class="noselect">
     <article class="card">
         <div>
             <h2>À propos</h2><hr>

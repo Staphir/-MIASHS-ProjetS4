@@ -9,7 +9,7 @@ if (!empty($_SESSION)) {
     $username = "";
 }
 ?>
-<section style="margin-right:100px;">
+<section>
     <article class="card">
         <div>
             <h2>Nous contacter</h2><hr>

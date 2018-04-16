@@ -11,7 +11,7 @@ $reponse=$pdo->prepare($requete);
 $reponse->execute(array($login_session));
 $array_stories = $reponse->fetchAll();
 ?>
-<section style="margin-right:100px;">
+<section>
     <article class="card">
         <div>
             <h2>Vos histoires</h2><hr>

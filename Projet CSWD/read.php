@@ -15,7 +15,7 @@ if (!empty($row) && count($row[0])>0) {
     $story = $row[0];
     $story["FormalDate"] = date('M j Y g:i A', strtotime($story["publishedon"]));
     ?>
-    <section style="margin-right:100px;">
+    <section>
         <article class="card">
             <div>
                 <h1 style="text-align:center; font-size:2em">

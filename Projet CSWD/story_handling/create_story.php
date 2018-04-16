@@ -16,7 +16,7 @@ $dir1 = "../"; $dir2 = "../";
 include("../main_header.php");
 
 ?>
-<section style="margin-right:100px;">
+<section>
     <article class="card">
         <div>
             <h2>Créer une histoire</h2><hr>

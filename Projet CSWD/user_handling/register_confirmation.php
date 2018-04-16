@@ -74,7 +74,7 @@ if (!empty($_POST)) {
         }
     } else {$error = "Cette adresse mail est déjà validé ou n'existe pas dans notre base de données !";}
 }
-?><section style="margin-right:100px;"><article class="card"><?php
+?><section><article class="card"><?php
 if ($_GET["reg"] == 0) {
     ?>
     <!-- <div class="confirm"> -->

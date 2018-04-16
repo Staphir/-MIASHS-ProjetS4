@@ -110,7 +110,7 @@ if ($valid) {
 $dir1 = "../";
 include("../main_header.php");
 ?>
-<section style="margin-right:100px;">
+<section style="margin-right:-150px;">
     <article class="card">
         <div>
             <form action="" method="post">
@@ -119,7 +119,12 @@ include("../main_header.php");
                 <p>* Adresse Email :</p><input type="email" name="email" placeholder="..." required <?php echo "value=".$newuser["Email"]; ?>>
                 <p>* Mot de passe :</p><input type="password" name="password" placeholder="..." required>
                 <p>* Confirmation de mot de passe :</p><input type="password" name="c_password" placeholder="..." required>
-                <hr style="margin:30px;">
+        </div>
+    </article>
+</section>
+<section>
+    <article class="card">
+        <div>
                 <p>Prénom :</p><input type="text" name="firstname" placeholder="...">
                 <p>Nom :</p><input type="text" name="lastname" placeholder="...">
                 <p style="font-size:11px;">Les champs précédés d'une étoile * sont indispensables.</p><input type="submit" value="Valider">

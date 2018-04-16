@@ -75,7 +75,7 @@ if (isset($_POST) && (!empty($_POST))) {
     }
 } else {header("location: contact.php");}
 ?>
-<section style="margin-right:100px;">
+<section>
     <article class="card">
         <div>
             <h2>Nous contacter</h2><hr>

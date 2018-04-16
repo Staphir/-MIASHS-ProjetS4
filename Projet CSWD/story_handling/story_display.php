@@ -40,7 +40,7 @@ if (empty($row)) {
     $first_step = $response_first_step->fetchall(PDO::FETCH_ASSOC);
     // print_r($first_step);
 ?>
-<section style="margin-right:100px;">
+<section>
     <article class="card">
         <div>
             <?php echo "<h2 style='text_align:center;'>".$row[0]["title"]."</h2><hr>";

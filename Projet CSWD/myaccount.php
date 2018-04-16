@@ -18,7 +18,7 @@ if (!$isConnected) {
     echo "<script type='text/javascript'>alert('Vous n'êtes pas connecté !');</script>";
     header("location: user_handling/login.php");
 } else { ?>
-<section style="margin-right:100px;">
+<section>
     <article class="card">
         <div>
             <h2>Mon compte</h2><hr>

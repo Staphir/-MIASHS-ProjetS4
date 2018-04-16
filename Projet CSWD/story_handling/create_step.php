@@ -6,7 +6,7 @@ $menu["title"] = "Mes histoires";
 $dir1 = "../"; $dir2 = "../";
 include("../main_header.php");
 ?>
-<section style="margin-right:-40px;">
+<section style="margin-right:-150px;">
     <article class="card">
         <div>
             <h2>Rédiger une étape</h2><hr>
@@ -17,7 +17,7 @@ include("../main_header.php");
         </div>
     </article>
 </section>
-<section style="margin-right:100px;">
+<section>
     <article class="card">
         <div>   
                 <h2>Ajouter des choix</h2><hr>             
