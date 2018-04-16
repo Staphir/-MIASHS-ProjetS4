@@ -23,7 +23,7 @@ if (!empty($_SESSION)) {
                 <h2>Remplir le formulaire</h2><hr>
                 <p>Nom d'utilisateur : </p><input type="text" name="username" placeholder="..." required <?php echo $username; ?>></br>
                 <p>Adresse Email : </p><input type="email" name="email" placeholder="..." required <?php echo $email; ?>></br>
-                <p>Votre commentaire ici : </p><textarea type="comment" name="comment" placeholder="..." required></textarea></br>
+                <p>Votre commentaire ici : </p><textarea type="comment" id="contact" name="comment" placeholder="..." required></textarea></br>
                 <input type="submit" value="Envoyer">
             </form>
         </div>

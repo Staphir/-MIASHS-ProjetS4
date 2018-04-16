@@ -104,23 +104,28 @@ if ($valid) {
     $row = $result->fetchAll(PDO::FETCH_ASSOC);
     $_SESSION['user_id'] = $row[0]['id'];
     $_SESSION['login_user'] = $row[0]['username'];
-    header("location: ../index.php");
-    // header("location: register_confirmation.php?reg=1");
+    // header("location: ../index.php");
+    header("location: register_confirmation.php?reg=1");
 }
-$dir1 = "../story_handling";
-include("../secondary_header.php");
+$dir1 = "../";
+include("../main_header.php");
 ?>
-<div style = "margin-top:100px">
-    <form action = "" method = "post">
-        <h1>Inscription</h1>
-        * Nom d'utilisateur :<input type="text" name="username" placeholder="..." required <?php echo 'value='.$newuser['Username']; ?>>
-        * Adresse Email :<input type="email" name="email" placeholder="..." required <?php echo "value=".$newuser["Email"]; ?>>
-        * Mot de passe :<input type="password" name="password" placeholder="..." required>
-        * Confirmation de mot de passe :<input type="password" name="c_password" placeholder="..." required>
-        <hr style="margin:30px;">
-        Prénom :<input type="text" name="firstname" placeholder="...">
-        Nom :<input type="text" name="lastname" placeholder="...">
-        <p style="font-size:11px;">Les champs précédés d'une étoile * sont indispensables.</p><input type="submit" value="Valider">
-        <p style="color: red;"><?php echo $error ?></p>
-    </form>
+<section style="margin-right:100px;">
+    <article class="card">
+        <div>
+            <form action="" method="post">
+                <h2>Inscription</h2><hr>
+                <p>* Nom d'utilisateur :</p><input type="text" name="username" placeholder="..." required <?php echo 'value='.$newuser['Username']; ?>>
+                <p>* Adresse Email :</p><input type="email" name="email" placeholder="..." required <?php echo "value=".$newuser["Email"]; ?>>
+                <p>* Mot de passe :</p><input type="password" name="password" placeholder="..." required>
+                <p>* Confirmation de mot de passe :</p><input type="password" name="c_password" placeholder="..." required>
+                <hr style="margin:30px;">
+                <p>Prénom :</p><input type="text" name="firstname" placeholder="...">
+                <p>Nom :</p><input type="text" name="lastname" placeholder="...">
+                <p style="font-size:11px;">Les champs précédés d'une étoile * sont indispensables.</p><input type="submit" value="Valider">
+                <p style="color: red;"><?php echo $error ?></p>
+            </form>
+        </div>
+    </article>
+</section>
 <?php include("../footer.php"); ?>

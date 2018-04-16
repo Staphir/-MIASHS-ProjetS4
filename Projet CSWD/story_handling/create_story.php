@@ -12,16 +12,20 @@ if(isset($_POST["story_name"]) && isset($_POST["story_description"])){
 }
 
 $menu["title"] = "Mes histoires";
-$dir2 = "../user_handling/";
-include("../secondary_header.php");
+$dir1 = "../"; $dir2 = "../";
+include("../main_header.php");
 
 ?>
-
-<div>
-    <form action="" method="post">
-        Nom de l'histoire :<input type="text" name="story_name" placeholder="..." required><br>
-        Description :<textarea name="story_description" type="comment" placeholder="..." cols="85" rows="15" required></textarea>
-        <input type="submit" value="Créer">
-    </form>
-</div>
+<section style="margin-right:100px;">
+    <article class="card">
+        <div>
+            <h2>Créer une histoire</h2><hr>
+            <form action="" method="post">
+                <p>Nom de l'histoire :</p><input type="text" name="story_name" placeholder="..." required><br>
+                <p>Description :</p><textarea name="story_description" type="comment" placeholder="..." rows="5" required></textarea>
+                <input type="submit" value="Créer">
+            </form>
+        </div>
+    </article>
+</section>
 <?php include("../footer.php"); ?>

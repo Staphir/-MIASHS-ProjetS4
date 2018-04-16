@@ -1,9 +1,7 @@
 <?php
 $menu["title"] = "S'inscrire";
-require_once("config.php");
-require_once("session.php");
-$dir1 = "../story_handling";
-include("../secondary_header.php");
+$dir1 = "../";
+include("../main_header.php");
 $error = "";
 
 include("../vendor/phpmailer/phpmailer/PHPMailerAutoload.php");
@@ -19,7 +17,8 @@ if (!empty($_POST)) {
     $row = $result->fetchAll(PDO::FETCH_ASSOC);
     $count = count($row);
 
-    if ($count == 1) {
+    if (false) {
+    // ($count == 1) {
         try {
             $fp = stream_socket_client("tcp://smtp.gmail.com:587", $errno, $errstr, 30);
             if (!$fp) {
@@ -75,26 +74,25 @@ if (!empty($_POST)) {
         }
     } else {$error = "Cette adresse mail est déjà validé ou n'existe pas dans notre base de données !";}
 }
-
+?><section style="margin-right:100px;"><article class="card"><?php
 if ($_GET["reg"] == 0) {
     ?>
-    <div class="confirm">
+    <!-- <div class="confirm"> -->
         <div>
-            <h1>Activez votre compte grâce à votre email</h1><hr>
+            <h2>Activez votre compte grâce à votre email</h2><hr>
             <p>Votre compte n'est pas activé et vous ne pouvez pas vous connecter ? Avant de pouvoir vous connecter, vous devez valider votre inscription depuis le mail qui vous a été envoyé.</p>
             <p>Si le mail ne vous est toujours pas parvenu, vous pouvez renvoyer le mail ci-dessous en entrant votre adresse mail :</p>
+            <form method="post" action="">
+                <input type="email" name="email" placeholder="..." required>
+                <input type="submit" value="Renvoyer">
+                <p style="color:red"><?php echo $error; ?></p>
+            </form>
         </div>
-        <form method="post" action="">
-            <input type="email" name="email" placeholder="..." required>
-            <input type="submit" value="Renvoyer">
-            <p style="color:red"><?php echo $error; ?></p>
-        </form>
-    </div>
     <?php
 } elseif ($_GET["reg"] == 1) {
     ?>
-    <div class="confirm">
-        <h1>Confirmation d'inscritpion</h1><hr>
+    <div>
+        <h2>Confirmation d'inscritpion</h2><hr>
         <p>Votre demande d'inscription a bien été prise en compte. Afin de valider et de terminer votre inscription à Storystoire merci de valider votre adresse email depuis le mail qui vous a été envoyé.</p>
         <p>Si le mail ne vous est pas parvenu, tentez de vous connecter avec vos identifiants renseignés précédemment, vous aurez alors la possibilité de renvoyer le mail.</p>
         <p>À bientôt !</p>
@@ -102,13 +100,13 @@ if ($_GET["reg"] == 0) {
     <?php
 } elseif ($_GET["reg"] == 2) {
     ?>
-    <div class="confirm">
-        <h1>Confirmation d'inscritpion</h1><hr>
+    <div>
+        <h2>Confirmation d'inscritpion</h2><hr>
         <p>Votre compte est vérifié vous pouvez vous connecter !</p>
         <p>À bientôt !</p>
     </div>
     <?php
-} else {header("location: user_handling/register.php");}
-
+} else {header("location: register.php");}
+?></article></section><?php
 include("../footer.php");
 ?>

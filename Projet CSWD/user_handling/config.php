@@ -3,16 +3,16 @@
 <?php //Codes de connexion à la base de données
 
 //Connexion Locale
-$config_base['hote']        = "127.0.0.1";
-$config_base['utilisateur'] = "root";
-$config_base['motdepasse']  = "";
-$config_base['nom_base']    = "projet_cswd";
+// $config_base['hote']        = "127.0.0.1";
+// $config_base['utilisateur'] = "root";
+// $config_base['motdepasse']  = "";
+// $config_base['nom_base']    = "projet_cswd";
 
 //Connexion Pedago
-// $config_base['hote']        = "127.0.0.1";
-// $config_base['utilisateur'] = "mdevreese";
-// $config_base['motdepasse']  = "riEa#U%0";
-// $config_base['nom_base']    = "mdevreese";
+$config_base['hote']        = "127.0.0.1";
+$config_base['utilisateur'] = "mdevreese";
+$config_base['motdepasse']  = "riEa#U%0";
+$config_base['nom_base']    = "mdevreese";
 
 // connexion a la base de donnees
 try

@@ -17,16 +17,13 @@ function ajout_champ() {
     //insertion dans le html
     document.getElementById("choix").appendChild(newLi);
 
-    var newImg = document.createElement("img");
-    newImg.src = "../images/trash.png";
-
-    newImg.id = "supp"+nbChoix;
-    newImg.classList = "inner";
-    newImg.setAttribute("onclick", "supp_champ("+nbChoix+")");
-    newImg.setAttribute("onmouseover", "this.src='../images/trash_hover.png'");
-    newImg.setAttribute("onmouseout", "this.src='../images/trash.png'");
-    newImg.setAttribute("onmousedown", "this.src='../images/trash_down.png'");
-    newLi.appendChild(newImg);
+    var newButton = document.createElement("button");
+    newButton.type = "button";
+    newButton.id = "supp"+nbChoix;
+    newButton.textContent = "Supprimer";
+    newButton.classList = "inner";
+    newButton.setAttribute("onclick", "supp_champ("+nbChoix+")");
+    newLi.appendChild(newButton);
 
     document.getElementById("nb_choix").value++;
 

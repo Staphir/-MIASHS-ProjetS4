@@ -12,6 +12,9 @@ require_once("../user_handling/session.php");
 // associé à l'id de l'histoire n'est pas celui de la session ouverte
 // alors on renvoit vers my_stories.php
 
+// Et j'ai remplacé le secondary_header.php par le main_header.php
+// C'est mieux
+
 if(isset($_GET["story_id"]) && isset($_GET["story_title"])) {
     $Id_story_choosed = $_GET["story_id"];
     // $Title_story_choosed = $_GET["story_title"];
@@ -28,24 +31,32 @@ if (empty($row)) {
     header("location: my_stories.php");
 } else {
     $menu["title"] = "Mes histoires";
-    $dir2 = "../user_handling/";
-    include("../secondary_header.php");
+    $dir1 = "../"; $dir2 = "../";
+    include("../main_header.php");
 
     $query_first_step="SELECT * FROM step LEFT JOIN story ON step.id_story = story.id WHERE story.id = ? AND step.id_choice = 0 ";
     $response_first_step=$pdo->prepare($query_first_step);
     $response_first_step->execute(array($Id_story_choosed));
     $first_step = $response_first_step->fetchall(PDO::FETCH_ASSOC);
     // print_r($first_step);
+?>
+<section style="margin-right:100px;">
+    <article class="card">
+        <div>
+            <?php echo "<h2 style='text_align:center;'>".$row[0]["title"]."</h2><hr>";
 
-    echo "<h1 style='text-align: center'>".$row[0]["title"]."</h1>";
-
-    if($first_step == NULL){
+        if($first_step == NULL){
         ?>
         <form action="create_step.php" method="post">
             <input type="hidden" name="id_story" value="<?php echo $Id_story_choosed ?>">
             <input type="submit" name="new_step" value="Nouvelle étape">
         </form>
-    <?php } 
+    <?php } ?>
+        </div>
+    </article>
+</section>
+
+    <?php
     include("../footer.php");
 }
 ?>

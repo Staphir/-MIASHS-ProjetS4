@@ -7,8 +7,17 @@ $result = $pdo->prepare($query);
 $result->execute(array($search));
 $row = $result->fetchAll(PDO::FETCH_ASSOC);
 
+
 if (!empty($row) && count($row[0])>0) {
-    ?><section style="margin-right:100px;"><?php
+    ?>
+    <div class="search">
+        <div>
+            <h2 style="margin-left:20px;">Résultats de la recherche pour  '<?php echo $search; ?>' ...</h2>
+        </div>
+    </div>
+        <section style="margin-right:100px;">
+        <hr style="margin-bottom:130px; border:0px;">
+    <?php
     for ($i=0; $i<count($row); $i++) {
         $story = $row[$i];
         $story["short_Description"] = (strlen($story["description"])>=200)?substr($story["description"], 0, 200)."...":$story["description"];
@@ -27,8 +36,8 @@ if (!empty($row) && count($row[0])>0) {
     ?><section style="margin-right:100px;">
         <article class="card">
             <div>
-                <h2>Aucun résultats...</h2><hr>
-                <p>La recherche n'a retourné aucun résultats !</p>
+                <h2>Aucun résultat...</h2><hr>
+                <p>La recherche n'a retourné aucun résultat !</p>
             </div>
         </article>
     </section><?php

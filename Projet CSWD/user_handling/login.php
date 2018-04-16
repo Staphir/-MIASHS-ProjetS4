@@ -1,11 +1,12 @@
 <?php
-require_once("config.php");
-require_once("session.php");
+$dir1 = "../";
+$error = ""; $menu["title"] = "Connexion";
+include("../main_header.php");
+
 
 if (count($_SESSION) != 0) {
     header("location: ../index.php");
 }
-$error = ""; $menu["title"] = "Connexion";
 
 if($_SERVER["REQUEST_METHOD"] == "POST") {
     // username and password sent from form 
@@ -31,15 +32,21 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         $error = "Votre adresse mail ou mot de passe est invalide !";
     }
 }
-$dir1 = "../story_handling";
-include("../secondary_header.php");
+
 ?>
-<form action = "" method = "post">
-    <h1>Connexion</h1>
-    Adresse Email :<input type="email" name="email" placeholder="..." required>
-    Mot de passe :<input type="password" name="password" placeholder="..." required>
-    <input type="submit" value="Connexion">
-    Vous n'êtes toujours pas inscrit ? <a href="register.php">S'inscrire</a>
-    <p style="color: red;"><?php echo $error ?></p>
-</form>
+<section style="margin-right:100px;">
+    <article class="card">
+        <div>
+            <form action="" method="post">
+                <h2>Connexion</h2><hr>
+                <p>Adresse Email :</p><input type="email" name="email" placeholder="..." required>
+                <p>Mot de passe :</p><input type="password" name="password" placeholder="..." required>
+                <input type="submit" style="margin-top:20px" value="Connexion">
+                Vous n'êtes toujours pas inscrit ? <a href="register.php">S'inscrire</a>
+                <p style="color: red;"><?php echo $error ?></p>
+            </form>
+        </div>
+    </article>
+</section>
+    
 <?php include("../footer.php"); ?>
