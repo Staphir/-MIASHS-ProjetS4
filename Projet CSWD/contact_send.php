@@ -4,15 +4,6 @@ include("main_header.php");
 $alert = "Ce service n'est pas encore opérationnel. Adressez-vous directement à storystoire@gmail.com.";
 // include("vendor/phpmailer/phpmailer/PHPMailerAutoload.php");
 
-// $email = "devreese.martin@gmail.com";
-// $message = "hello" ;
-
-// // here we use the php mail function
-// // to send an email to:
-// // you@example.com
-// mail( "devreese.martin@gmail.com", "Test PHP mail natif",$message, "From: $email" );
-// echo "envoyé";
-
 // use PHPMailer\PHPMailer\PHPMailer;
 // use PHPMailer\PHPMailer\Exception;
 
@@ -25,14 +16,17 @@ if (0) {
     
     $mail = new \PHPMailer(true);
     try {
+        $mail->timeout = 5;
+        $mail->Debugoutput = 'html';
+        date_default_timezone_set('Etc/UTC');
+
         //Server settings
-        $mail->timeout = 1;
         $mail->isSMTP();
         $mail->Host = 'smtp.gmail.com';
-        $mail->SMTPAuth = true;
         $mail->Username = 'storystoire@gmail.com';
         $mail->Password = 'labichusdragibus';
         $mail->SMTPSecure = 'tls';
+        $mail->SMTPAuth = true;
         $mail->Port = 587;
 
         //Recipients
@@ -51,6 +45,10 @@ if (0) {
         // --------------------------
 
         $mail = new \PHPMailer(true);
+
+        $mail->timeout = 5;
+        $mail->Debugoutput = 'html';
+        date_default_timezone_set('Etc/UTC');
 
         //Server settings
         $mail->isSMTP();
@@ -88,8 +86,8 @@ if (0) {
             <h2>Nous contacter</h2><hr>
             <p class="alert"><?php echo $alert; ?></p>
             <p>L'un de nous vous répondra dans les plus brefs délais ! Dans l'espoir qu'on puisse vous aider, Maxime, Martin et Fannie.</p>
-            <p>Vous n'allez pas être redirigé vers la page d'accueil.</p>
-            <!-- <script>setTimeout(function () {window.location.href = 'index.php';},5000)</script> -->
+            <p>Vous allez être redirigé vers la page d'accueil.</p>
+            <script>setTimeout(function () {window.location.href = 'index.php';},5000)</script>
         </div>
     </article>
 </section>

@@ -2,7 +2,7 @@
 $menu["title"] = "S'inscrire";
 $dir1 = "../";
 include("../main_header.php");
-$error = "";
+$error = ""; $alert = "";
 
 include("../vendor/phpmailer/phpmailer/PHPMailerAutoload.php");
 
@@ -20,19 +20,8 @@ if (!empty($_POST)) {
     if (false) {
     // ($count == 1) {
         try {
-            $fp = stream_socket_client("tcp://smtp.gmail.com:587", $errno, $errstr, 30);
-            if (!$fp) {
-                echo "$errstr ($errno)<br />\n";
-            } else {
-                while (!feof($fp)) {
-                    echo fgets($fp, 1024);
-                }
-                fclose($fp);
-            }
 
             $mail = new \PHPMailer(true);
-            $mail->SMTPDebug = 4;
-            $mail->Timeout  = 10;
     
             //Server settings
             $mail->isSMTP();
@@ -50,6 +39,7 @@ if (!empty($_POST)) {
         
             //Content
             $mail->isHTML(true);
+            $mail->CharSet = 'utf-8';
             $mail->Subject = "Re-confirmation d'inscription";
             
             $body = "
@@ -68,16 +58,15 @@ if (!empty($_POST)) {
             $mail->Body = $body;
             $mail->send();
             
-            $result = "Un mail de confirmation vous a été envoyé !";
+            $alert = "Un mail de confirmation vous a été envoyé !";
         } catch (Exception $e) {
-            $result = "Une erreur s'est produite, à l'envoie du mail de confirmation";
+            $alert = "Une erreur s'est produite, à l'envoie du mail de confirmation";
         }
     } else {$error = "Cette adresse mail est déjà validé ou n'existe pas dans notre base de données !";}
 }
 ?><section><article class="card"><?php
 if ($_GET["reg"] == 0) {
     ?>
-    <!-- <div class="confirm"> -->
         <div>
             <h2>Activez votre compte grâce à votre email</h2><hr>
             <p>Votre compte n'est pas activé et vous ne pouvez pas vous connecter ? Avant de pouvoir vous connecter, vous devez valider votre inscription depuis le mail qui vous a été envoyé.</p>
@@ -85,16 +74,18 @@ if ($_GET["reg"] == 0) {
             <form method="post" action="">
                 <input type="email" name="email" placeholder="..." required>
                 <input type="submit" value="Renvoyer">
-                <p style="color:red"><?php echo $error; ?></p>
             </form>
+            <p class="alert"><?php echo $error; ?></p>
+            <p class="alert"><?php echo $alert; ?></p>
         </div>
     <?php
 } elseif ($_GET["reg"] == 1) {
     ?>
     <div>
         <h2>Confirmation d'inscritpion</h2><hr>
-        <p>Votre demande d'inscription a bien été prise en compte. Afin de valider et de terminer votre inscription à Storystoire merci de valider votre adresse email depuis le mail qui vous a été envoyé.</p>
-        <p>Si le mail ne vous est pas parvenu, tentez de vous connecter avec vos identifiants renseignés précédemment, vous aurez alors la possibilité de renvoyer le mail.</p>
+        <p>Vous êtes désormais inscrit sur Storystoire ! Profitez-en bien !
+        <!-- <p>Votre demande d'inscription a bien été prise en compte. Afin de valider et de terminer votre inscription à Storystoire merci de valider votre adresse email depuis le mail qui vous a été envoyé.</p>
+        <p>Si le mail ne vous est pas parvenu, tentez de vous connecter avec vos identifiants renseignés précédemment, vous aurez alors la possibilité de renvoyer le mail.</p> -->
         <p>À bientôt !</p>
     </div>
     <?php

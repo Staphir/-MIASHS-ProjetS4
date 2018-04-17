@@ -3,26 +3,15 @@ $menu["title"] = "Mes histoires";
 $dir1 = "../"; $dir2 = "../";
 include("../main_header.php");
 
-// ATTENTION :
-// Je pense retirer le $_GET["story_title"] et uniquement se servir de l'id
-// de l'histoire pour aussi récupérer le titre. Avec la méthode GET tu as
-// introduit une faille de sécurité.
-// Es-tu un agent double ? -_-
-// J'ai corrigé la faille et mis la condition suivante : si le user_id
-// associé à l'id de l'histoire n'est pas celui de la session ouverte
-// alors on renvoit vers my_stories.php
-
-if(isset($_GET["story_id"])) {
-    $Id_story_choosed = $_GET["story_id"];
-    // $Title_story_choosed = $_GET["story_title"];
-} else {
+if(!isset($_GET["story_id"]) or empty($_GET["story_id"])) {
     header("location: my_stories.php");
-}
-// print_r($_SESSION);
-$query="SELECT * FROM story INNER JOIN user ON story.user_id = user.id WHERE story.id = ? AND user.id = ? ";
-$result=$pdo->prepare($query);
-$result->execute(array($Id_story_choosed, $_SESSION["user_id"]));
-$row = $result->fetchall(PDO::FETCH_ASSOC);
+} else {
+    $Id_story_choosed = $_GET["story_id"];
+
+    $query="SELECT * FROM story WHERE story.id = ? AND user_id = ? ";
+    $result=$pdo->prepare($query);
+    $result->execute(array($Id_story_choosed, $_SESSION["user_id"]));
+    $row = $result->fetchall(PDO::FETCH_ASSOC);
 
     if (empty($row)) {
         header("location: my_stories.php");
@@ -75,7 +64,11 @@ $row = $result->fetchall(PDO::FETCH_ASSOC);
     <script src="../scripts_tree/gup.js"></script>
     <script src="../scripts_tree/texttotree.js"></script>
     <script src="../scripts_tree/demo.js"></script>
+    </div>
+    </article>
+    </section>
     <?php
     include("../footer.php");
+}
 }
 ?>

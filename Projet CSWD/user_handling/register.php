@@ -6,12 +6,14 @@ if (count($_SESSION) != 0) {
     header("location: ../index.php");
 }
 
+date_default_timezone_set('Etc/UTC');
 include("../vendor/phpmailer/phpmailer/PHPMailerAutoload.php");
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-$valid = false; $error = ""; $menu["title"] = "S'inscrire";
+$valid = false; $error = ""; $alert = "";
+$menu["title"] = "S'inscrire";
 
 if (isset($_POST) && (!empty($_POST))) {
     $newuser = array();
@@ -62,23 +64,27 @@ if ($valid) {
     $result->execute();
 
     // try {
+
     //     $mail = new \PHPMailer(true);
+    //     $mail->Timeout  = 15;
 
     //     //Server settings
     //     $mail->isSMTP();
+    //     // $mail->Host = gethostbyname('smtp.gmail.com');
     //     $mail->Host = 'smtp.gmail.com';
     //     $mail->SMTPAuth = true;
     //     $mail->Username = 'storystoire@gmail.com';
     //     $mail->Password = 'labichusdragibus';
     //     $mail->SMTPSecure = 'tls';
     //     $mail->Port = 587;
-    
+
     //     //Recipients
     //     $mail->setFrom('storystoire@gmail.com', 'Storystoire - Inscription');
     //     $mail->addAddress($email);
     
     //     //Content
     //     $mail->isHTML(true);
+    //     $mail->CharSet = 'utf-8';
     //     $mail->Subject = 'Votre inscription à Storystoire a bien été prise en compte !';
         
     //     $body = file_get_contents('../emails/email_confirmation.html');
@@ -93,9 +99,9 @@ if ($valid) {
     //     $mail->Body = $body;
     //     $mail->send();
         
-    //     $result = "Un mail de confirmation vous a été envoyé !";
+    //     $alert = "Un mail de confirmation vous a été envoyé !";
     // } catch (Exception $e) {
-    //     $result = "Une erreur s'est produite à l'envoie du mail de confirmation";
+    //     $alert = "Une erreur s'est produite à l'envoie du mail de confirmation !";
     // }
 
     $query_retrieve = "SELECT id, username FROM user WHERE email = ? and password = MD5(?)";
@@ -129,6 +135,7 @@ include("../main_header.php");
                 <p>Nom :</p><input type="text" name="lastname" placeholder="...">
                 <p style="font-size:11px;">Les champs précédés d'une étoile * sont indispensables.</p><input type="submit" value="Valider">
                 <p  class="alert"><?php echo $error ?></p>
+                <p  class="alert"><?php echo $alert ?></p>
             </form>
         </div>
     </article>

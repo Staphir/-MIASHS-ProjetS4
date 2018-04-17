@@ -1,7 +1,8 @@
 <?php
 require_once("config.php");
+$invalid_id = false; 
 
-if (!empty($_GET)) {
+if (isset($_GET) && !empty($_GET)) {
     $myemail = $_GET['email'];
     $query = "SELECT id FROM user WHERE email = ? and verified = '0'";
     $result=$pdo->prepare($query);
@@ -17,5 +18,7 @@ if (!empty($_GET)) {
         $result->execute(array($id));
 
         header("location: register_confirmation.php?reg=2");
-    }
-} else {header("location: ../index.php");}
+    } else {$invalid_id = true;}
+} else {$invalid_id = true;}
+
+if ($invalid_id) {header("location: ../index.php");}
