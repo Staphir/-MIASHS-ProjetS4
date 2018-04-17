@@ -26,7 +26,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION["user_verified"] = $row[0]["verified"];
 
         header("location: ../index.php");
-    } elseif (!$row[0]["verified"]) {
+    } elseif ($count == 1 && !$row[0]["verified"]) {
         header("location: register_confirmation.php?reg=0");
     } else {
         $error = "Votre adresse mail ou mot de passe est invalide !";
@@ -43,7 +43,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
                 <p>Mot de passe :</p><input type="password" name="password" placeholder="..." required>
                 <input type="submit" style="margin-top:20px" value="Connexion">
                 Vous n'êtes toujours pas inscrit ? <a href="register.php">S'inscrire</a>
-                <p style="color: red;"><?php echo $error ?></p>
+                <p  class="alert"><?php echo $error ?></p>
             </form>
         </div>
     </article>

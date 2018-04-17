@@ -128,7 +128,7 @@ include("../main_header.php");
                 <p>Prénom :</p><input type="text" name="firstname" placeholder="...">
                 <p>Nom :</p><input type="text" name="lastname" placeholder="...">
                 <p style="font-size:11px;">Les champs précédés d'une étoile * sont indispensables.</p><input type="submit" value="Valider">
-                <p style="color: red;"><?php echo $error ?></p>
+                <p  class="alert"><?php echo $error ?></p>
             </form>
         </div>
     </article>

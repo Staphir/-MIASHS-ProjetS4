@@ -12,18 +12,18 @@ if (!empty($row) && count($row[0])>0) {
     ?>
     <div class="search">
         <div>
-            <h2 style="margin-left:20px;">Résultats de la recherche pour  '<?php echo $search; ?>' ...</h2>
+            <h2 style="margin-left:20px">Résultats de la recherche pour  '<?php echo $search; ?>' :</h2>
         </div>
     </div>
-        <section>
+    <section>
         <hr style="margin-bottom:130px; border:0px;">
-    <?php
-    for ($i=0; $i<count($row); $i++) {
-        $story = $row[$i];
-        $story["short_Description"] = (strlen($story["description"])>=200)?substr($story["description"], 0, 200)."...":$story["description"];
-        $story["FormalDate"] = date('M j Y g:i A', strtotime($story["publishedon"]));
-
-        ?><article class="card">
+        <?php
+        for ($i=0; $i<count($row); $i++) {
+            $story = $row[$i];
+            $story["short_Description"] = (strlen($story["description"])>=200)?substr($story["description"], 0, 200)."...":$story["description"];
+            $story["FormalDate"] = date('M j Y g:i A', strtotime($story["publishedon"]));
+        ?>
+        <article class="card">
             <div>
                 <h2><a href=<?php echo "read.php?id=".$story["id"]; ?>><?php echo $story["title"] ?></a></h2><hr>
                 <p><?php echo $story["short_Description"] ?></p>
