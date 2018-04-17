@@ -12,6 +12,8 @@ include("../main_header.php");
             <h2>Rédiger une étape</h2><hr>
             <form action="save_step.php" method="post">
                 <input type="hidden" name="id_story" value="<?php echo $_POST["id_story"] ?>">
+                <input type="hidden" name="choice_parent" value="<?php echo $_POST["choice_parent"] ?>">
+                <input type="hidden" id="nb_choix" name="nb_choix" value="0">
                 <textarea name="step" type="comment" id="step_area" cols="100" rows="14" placeholder="Ecrire ici la nouvelle étape" required></textarea>
                 <!-- <input type="submit" name="end" value="Déclarer cette étape comme la dernière de l'histoire"> -->
         </div>
@@ -19,8 +21,8 @@ include("../main_header.php");
 </section>
 <section>
     <article class="card">
-        <div>   
-                <h2>Ajouter des choix</h2><hr>             
+        <div>
+                <h2>Ajouter des choix</h2><hr>
                 <div id="choix" style="background-color:transparent;">
                 </div>
                 <button type="button" class="ajt_chps" id="btn_ajout_champs" onclick="ajout_champ()">Ajouter un choix</button>
