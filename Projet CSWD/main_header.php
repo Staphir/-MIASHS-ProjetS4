@@ -81,10 +81,10 @@ $full_header = in_array($menu["title"], array("Accueil", "À propos", "Contact",
                     <?php
                     if(!isset($_SESSION['login_user'])){
                         ?><li class="menuitem"><?php
-                        if (in_array($menu["title"], array("Connexion", "S'inscrire"))) {
+                        if (in_array($menu["title"], array("Connexion"))) {
                             ?><p class="noselect">Se connecter</p><?php
                         } else {
-                            ?><a href="user_handling/login.php">Se connecter</a><?php
+                            ?><a href=<?php echo $dir1."user_handling/login.php" ?>>Se connecter</a><?php
                         } ?></li><?php
                     } else { ?>
                     <li>

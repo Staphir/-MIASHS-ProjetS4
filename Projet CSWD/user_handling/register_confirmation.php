@@ -4,12 +4,14 @@ $dir1 = "../";
 include("../main_header.php");
 $error = ""; $alert = "";
 
+if (empty($_GET)) {header("location: ../index.php");}
+
 include("../vendor/phpmailer/phpmailer/PHPMailerAutoload.php");
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-if (!empty($_POST)) {
+if (!empty($_POST) && isset($_POST['email'])) {
     $myemail = $_POST['email'];
     $query = "SELECT id FROM user WHERE email = ? and verified = 0";
     $result=$pdo->prepare($query);
@@ -73,7 +75,7 @@ if ($_GET["reg"] == 0) {
     <div>
         <h2>Confirmation d'inscritpion</h2><hr>
         <p class="alert">Votre demande d'inscription a bien été prise en compte !</p>
-        <p>Afin de valider et de terminer votre inscription à Storystoire merci de valider votre adresse email depuis le mail qui vous a été envoyé.</p>
+        <p>Afin de valider et de terminer votre inscription à <strong>Storystoire</strong> merci de valider votre adresse email depuis le mail qui vous a été envoyé.</p>
         <p>Si le mail ne vous est pas parvenu, tentez de vous connecter avec vos identifiants renseignés précédemment, vous aurez alors la possibilité de renvoyer le mail.</p>
         <p>À bientôt !</p>
     </div>
