@@ -1,13 +1,107 @@
 <?php
-$menu["title"] = "Contact";
+$menu["title"] = "Contact"; $alert = "";
 include("main_header.php");
+// require 'vendor/autoload.php';
+// include("emails/smtpvalidateclass.php");
+include("vendor/phpmailer/phpmailer/PHPMailerAutoload.php");
+
+
 if (!empty($_SESSION)) {
-    $email = "value=".$_SESSION["user_email"];
-    $username = "value=".$_SESSION["login_user"];
+    $user_email = $_SESSION["user_email"];
+    $user_username = $_SESSION["login_user"];
 } else {
-    $email = "";
-    $username = "";
+    $user_email = "";
+    $user_username = "";
 }
+
+$user_comment = "";
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+if (isset($_POST) && (!empty($_POST))) {
+    $user_comment = $_POST["comment"];
+
+    // **** SMTP & FORMAT VALIDATION ****
+    $valid_email = \PHPMailer::ValidateAddress($_POST["email"]);
+    // $ve = new hbattat\VerifyEmail($_POST["email"], 'storystoire@gmail.com');
+    // $exists = $ve->verify();
+    // if ($format && $exists) {
+    //     $valid_email= true;
+    // } else {$valid_email=false;}
+    // *****
+    
+    if ($valid_email) {
+        $user_email = $_POST["email"];
+        try {
+            $mail = new \PHPMailer(true);
+            
+            $mail->timeout = 5;
+            $mail->Debugoutput = 'html';
+
+            //Server settings
+            $mail->isSMTP();
+            $mail->Host = 'smtp.gmail.com';
+            $mail->Username = 'storystoire@gmail.com';
+            $mail->Password = 'labichusdragibus';
+            $mail->SMTPSecure = 'tls';
+            $mail->SMTPAuth = true;
+            $mail->Port = 587;
+
+            //Recipients
+            $mail->setFrom('storystoire@gmail.com', 'Commentaires Utilisateurs');
+            $mail->addAddress('storystoire@gmail.com');
+
+            //Content
+            $mail->isHTML(true);
+            $mail->CharSet = 'utf-8';
+            $mail->Subject = 'Commentaire de '.$user_username;
+            $mail->Body    = "
+            <body>
+                <p><strong>Nom d'utilisateur : </strong>".$user_username."</p>
+                <p><strong>Adresse email : </strong>".$user_email."</p>
+                <p><strong>Commentaire :  </strong>".$user_comment."</p>
+            </body>";
+
+            $mail->send();
+            unset($mail);
+
+            // --------------------------
+
+            $mail = new \PHPMailer(true);
+
+            $mail->timeout = 5;
+            $mail->Debugoutput = 'html';
+
+            //Server settings
+            $mail->isSMTP();
+            $mail->Host = 'smtp.gmail.com';
+            $mail->SMTPAuth = true;
+            $mail->Username = 'storystoire@gmail.com';
+            $mail->Password = 'labichusdragibus';
+            $mail->SMTPSecure = 'tls';
+            $mail->Port = 587;
+        
+            //Recipients
+            $mail->setFrom('storystoire@gmail.com', 'Storystoire - Support');
+            $mail->addAddress($user_email);
+        
+            //Content
+            $mail->isHTML(true);
+            $mail->CharSet = 'utf-8';
+            $mail->Subject = 'Commentez Storystoire !';
+            $body = file_get_contents('emails/contact_confirmation.html');
+
+            $mail->Body = $body;
+            $mail->send();
+            
+            header("location: contact_sent.php");
+        } catch (Exception $e) {
+            $alert = "Une erreur s'est produite, veuillez réessayer ou nous contacter directement à l'adresse storystoire@gmail.com";
+        }
+    } else {$alert = "Adresse email invalide !";}
+}
+
 ?>
 <section>
     <article class="card">
@@ -19,13 +113,16 @@ if (!empty($_SESSION)) {
     </article>
     <article class="card">
         <div>
-            <form method="post" action="contact_send.php">
+            <form method="post" action="">
                 <h2>Remplir le formulaire</h2><hr>
-                <p>Nom d'utilisateur : </p><input type="text" name="username" placeholder="..." required <?php echo $username; ?>></br>
-                <p>Adresse Email : </p><input type="email" name="email" placeholder="..." required <?php echo $email; ?>></br>
-                <p>Votre commentaire ici : </p><textarea type="comment" id="contact" name="comment" placeholder="..." required></textarea></br>
-                <input type="submit" value="Envoyer">
+                <?php
+                echo "<p>Nom d'utilisateur : </p><input type='text' name='username' placeholder='...' value=".$user_username." required></br>";
+                echo "<p>Adresse Email : </p><input type='email' name='email' placeholder='...' value=".$user_email." required></br>";
+                echo "<p>Votre commentaire ici : </p><textarea type='comment' id='contact' name='comment' placeholder='...' value=".$user_comment." required></textarea></br>";
+                echo "<input type='submit' value='Envoyer'>"
+                ?>
             </form>
+            <p class="alert"><?php echo $alert; ?></p>
         </div>
     </article>
 </section>
