@@ -1,46 +1,5 @@
 [
     {
-        "name": "hbattat/verifyemail",
-        "version": "v1.0.8",
-        "version_normalized": "1.0.8.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/hbattat/verifyEmail.git",
-            "reference": "4ec9ae613aee2be33239b9b7efb8de5383ae0c98"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/hbattat/verifyEmail/zipball/4ec9ae613aee2be33239b9b7efb8de5383ae0c98",
-            "reference": "4ec9ae613aee2be33239b9b7efb8de5383ae0c98",
-            "shasum": ""
-        },
-        "require": {
-            "php": ">= 5"
-        },
-        "require-dev": {
-            "phpunit/phpunit": "^4.8.27"
-        },
-        "time": "2017-10-28T09:39:30+00:00",
-        "type": "library",
-        "installation-source": "source",
-        "autoload": {
-            "psr-4": {
-                "hbattat\\": "./src"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "Apache"
-        ],
-        "authors": [
-            {
-                "name": "Sam Battat",
-                "email": "hbattat@msn.com"
-            }
-        ],
-        "description": "PHP class that can be easily used to verify an email address and make sure it is valid and does exist on the mail server."
-    },
-    {
         "name": "phpmailer/phpmailer",
         "version": "v5.2.26",
         "version_normalized": "5.2.26.0",

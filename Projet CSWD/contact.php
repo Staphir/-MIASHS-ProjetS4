@@ -1,8 +1,6 @@
 <?php
 $menu["title"] = "Contact"; $alert = "";
 include("main_header.php");
-// require 'vendor/autoload.php';
-// include("emails/smtpvalidateclass.php");
 include("vendor/phpmailer/phpmailer/PHPMailerAutoload.php");
 
 
@@ -22,15 +20,8 @@ use PHPMailer\PHPMailer\Exception;
 if (isset($_POST) && (!empty($_POST))) {
     $user_comment = $_POST["comment"];
 
-    // **** SMTP & FORMAT VALIDATION ****
     $valid_email = \PHPMailer::ValidateAddress($_POST["email"]);
-    // $ve = new hbattat\VerifyEmail($_POST["email"], 'storystoire@gmail.com');
-    // $exists = $ve->verify();
-    // if ($format && $exists) {
-    //     $valid_email= true;
-    // } else {$valid_email=false;}
-    // *****
-    
+
     if ($valid_email) {
         $user_email = $_POST["email"];
         try {
@@ -116,9 +107,9 @@ if (isset($_POST) && (!empty($_POST))) {
             <form method="post" action="">
                 <h2>Remplir le formulaire</h2><hr>
                 <?php
-                echo "<p>Nom d'utilisateur : </p><input type='text' name='username' placeholder='...' value=".$user_username." required></br>";
-                echo "<p>Adresse Email : </p><input type='email' name='email' placeholder='...' value=".$user_email." required></br>";
-                echo "<p>Votre commentaire ici : </p><textarea type='comment' id='contact' name='comment' placeholder='...' value=".$user_comment." required></textarea></br>";
+                echo "<p>Nom d'utilisateur : </p><input type='text' name='username' placeholder='...' value='".$user_username."' required></br>";
+                echo "<p>Adresse Email : </p><input type='email' name='email' placeholder='...' value='".$user_email."' required></br>";
+                echo "<p>Votre commentaire ici : </p><textarea type='comment' id='contact' name='comment' placeholder='...' value='".$user_comment."' required></textarea></br>";
                 echo "<input type='submit' value='Envoyer'>"
                 ?>
             </form>

@@ -1,6 +1,5 @@
 {
     "require": {
-        "phpmailer/phpmailer": "^5.2",
-		"hbattat/verifyemail": "*"
+        "phpmailer/phpmailer": "~6.0"
     }
 }

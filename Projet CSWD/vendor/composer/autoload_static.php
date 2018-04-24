@@ -6,20 +6,6 @@ namespace Composer\Autoload;
 
 class ComposerStaticInitf88725f312d5aa5a8e6ed11229095957
 {
-    public static $prefixLengthsPsr4 = array (
-        'h' => 
-        array (
-            'hbattat\\' => 8,
-        ),
-    );
-
-    public static $prefixDirsPsr4 = array (
-        'hbattat\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/hbattat/verifyemail/src',
-        ),
-    );
-
     public static $classMap = array (
         'EasyPeasyICS' => __DIR__ . '/..' . '/phpmailer/phpmailer/extras/EasyPeasyICS.php',
         'PHPMailer' => __DIR__ . '/..' . '/phpmailer/phpmailer/class.phpmailer.php',
@@ -34,8 +20,6 @@ class ComposerStaticInitf88725f312d5aa5a8e6ed11229095957
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInitf88725f312d5aa5a8e6ed11229095957::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInitf88725f312d5aa5a8e6ed11229095957::$prefixDirsPsr4;
             $loader->classMap = ComposerStaticInitf88725f312d5aa5a8e6ed11229095957::$classMap;
 
         }, null, ClassLoader::class);
