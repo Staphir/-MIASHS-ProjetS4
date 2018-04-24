@@ -11,14 +11,13 @@ use PHPMailer\PHPMailer\Exception;
 
 if (!empty($_POST)) {
     $myemail = $_POST['email'];
-    $query = "SELECT id FROM user WHERE email = ? and verified = '0'";
+    $query = "SELECT id FROM user WHERE email = ? and verified = 0";
     $result=$pdo->prepare($query);
     $result->execute(array($myemail));
     $row = $result->fetchAll(PDO::FETCH_ASSOC);
     $count = count($row);
 
-    if (false) {
-    // ($count == 1) {
+    if ($count == 1) {
         try {
 
             $mail = new \PHPMailer(true);
@@ -42,18 +41,8 @@ if (!empty($_POST)) {
             $mail->CharSet = 'utf-8';
             $mail->Subject = "Re-confirmation d'inscription";
             
-            $body = "
-            <html>
-                <meta http-equiv='Content-Type' content='text/html' charset='utf-8' /> 
-                <title>Storystoire</title>
-                <body style='margin: 0px 0px 0px 0px; padding: 0px 0px 0px 0px; font-family: Trebuchet MS, Arial, Verdana, sans-serif;'>
-                    <p><strong>Bienvenue sur Storystoire!</strong> Vous pouvez confirmer votre inscription à Storystoire en cliquant <a href='https://pedagovic.uf-mi.u-bordeaux.fr/~mdevreese/cswd/projet2018/user_handling/confirm.php?email=".$myemail."'>ici</a>.</p>
-                    <p>Si vous rencontrez un problème lors de l'utilisation de notre site, vous pouvez nous contacter via la page dédiée sur Storystoire.</p>
-                    <p>Amusez-vous bien !</p>
-                    <p>L'équipe de Storystoire</p>
-                </body>
-            </html>
-            ";
+            $body = file_get_contents('../emails/email_confirmation2.html');
+            $body = str_replace('%email%', $myemail, $body);
     
             $mail->Body = $body;
             $mail->send();
@@ -83,9 +72,9 @@ if ($_GET["reg"] == 0) {
     ?>
     <div>
         <h2>Confirmation d'inscritpion</h2><hr>
-        <p>Vous êtes désormais inscrit sur Storystoire ! Profitez-en bien !
-        <!-- <p>Votre demande d'inscription a bien été prise en compte. Afin de valider et de terminer votre inscription à Storystoire merci de valider votre adresse email depuis le mail qui vous a été envoyé.</p>
-        <p>Si le mail ne vous est pas parvenu, tentez de vous connecter avec vos identifiants renseignés précédemment, vous aurez alors la possibilité de renvoyer le mail.</p> -->
+        <p class="alert">Votre demande d'inscription a bien été prise en compte !</p>
+        <p>Afin de valider et de terminer votre inscription à Storystoire merci de valider votre adresse email depuis le mail qui vous a été envoyé.</p>
+        <p>Si le mail ne vous est pas parvenu, tentez de vous connecter avec vos identifiants renseignés précédemment, vous aurez alors la possibilité de renvoyer le mail.</p>
         <p>À bientôt !</p>
     </div>
     <?php

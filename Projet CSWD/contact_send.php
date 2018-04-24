@@ -2,13 +2,12 @@
 $menu["title"] = "Contact";
 include("main_header.php");
 $alert = "Ce service n'est pas encore opérationnel. Adressez-vous directement à storystoire@gmail.com.";
-// include("vendor/phpmailer/phpmailer/PHPMailerAutoload.php");
+include("vendor/phpmailer/phpmailer/PHPMailerAutoload.php");
 
-// use PHPMailer\PHPMailer\PHPMailer;
-// use PHPMailer\PHPMailer\Exception;
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
 
-if (0) {
-    // (isset($_POST) && (!empty($_POST))) {
+if (isset($_POST) && (!empty($_POST))) {
     
     $user_comment = $_POST["comment"];
     $user_username = $_POST["username"];
@@ -18,7 +17,6 @@ if (0) {
     try {
         $mail->timeout = 5;
         $mail->Debugoutput = 'html';
-        date_default_timezone_set('Etc/UTC');
 
         //Server settings
         $mail->isSMTP();
@@ -64,20 +62,19 @@ if (0) {
         $mail->addAddress($user_email);
     
         //Content
-        $mail->isHTML(false);
+        $mail->isHTML(true);
         $mail->CharSet = 'utf-8';
         $mail->Subject = 'Commentez Storystoire !';
-        $mail->Body = "Votre commentaire nous est parvenu et nous allons faire de notre mieux pour vous répondre dans les plus brefs délais. \r\n Merci de votre compréhension, 
-        \r\n L'équipe de Storystoire
-        \r\n\r\n Ceci est un mail automatique, merci de ne pas y répondre.";
-    
+        $body = file_get_contents('emails/contact_confirmation.html');
+
+        $mail->Body = $body;
         $mail->send();
 
     } catch (Exception $e) {
         $alert = "Une erreur s'est produite, veuillez réessayer ou contactez nous directement à l'aide de l'adresse storystoire@gmail.com";
     }
 } else {
-    // header("location: contact.php");
+    header("location: contact.php");
 }
 ?>
 <section>

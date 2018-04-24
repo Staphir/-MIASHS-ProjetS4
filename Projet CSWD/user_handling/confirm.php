@@ -4,7 +4,7 @@ $invalid_id = false;
 
 if (isset($_GET) && !empty($_GET)) {
     $myemail = $_GET['email'];
-    $query = "SELECT id FROM user WHERE email = ? and verified = '0'";
+    $query = "SELECT id FROM user WHERE email = ? and verified = 0";
     $result=$pdo->prepare($query);
     $result->execute(array($myemail));
     $row = $result->fetchAll(PDO::FETCH_ASSOC);
@@ -13,7 +13,7 @@ if (isset($_GET) && !empty($_GET)) {
     $id = $row[0]["id"];
 
     if ($count == 1) {
-        $query = "UPDATE user SET verified = '1' WHERE id = ?";
+        $query = "UPDATE user SET verified = 1 WHERE id = ?";
         $result=$pdo->prepare($query);
         $result->execute(array($id));
 

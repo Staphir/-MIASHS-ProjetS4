@@ -59,57 +59,56 @@ if ($valid) {
     $email = $newuser['Email']; $firstname = $newuser['Firstname'];
     $lastname = $newuser['Lastname'];
     $query_create = "INSERT INTO user (id, username, password, email, verified, firstname, lastname, likes, joinedon)
-            VALUES (NULL, '$username', MD5('$password'), '$email', '1', '$firstname', '$lastname', '0', NOW())";
+            VALUES (NULL, '$username', MD5('$password'), '$email', 0, '$firstname', '$lastname', 0, NOW())";
     $result = $pdo->prepare($query_create);
     $result->execute();
 
-    // try {
+    try {
 
-    //     $mail = new \PHPMailer(true);
-    //     $mail->Timeout  = 15;
+        $mail = new \PHPMailer(true);
+        $mail->Timeout  = 15;
 
-    //     //Server settings
-    //     $mail->isSMTP();
-    //     // $mail->Host = gethostbyname('smtp.gmail.com');
-    //     $mail->Host = 'smtp.gmail.com';
-    //     $mail->SMTPAuth = true;
-    //     $mail->Username = 'storystoire@gmail.com';
-    //     $mail->Password = 'labichusdragibus';
-    //     $mail->SMTPSecure = 'tls';
-    //     $mail->Port = 587;
+        //Server settings
+        $mail->isSMTP();
+        $mail->Host = 'smtp.gmail.com';
+        $mail->SMTPAuth = true;
+        $mail->Username = 'storystoire@gmail.com';
+        $mail->Password = 'labichusdragibus';
+        $mail->SMTPSecure = 'tls';
+        $mail->Port = 587;
 
-    //     //Recipients
-    //     $mail->setFrom('storystoire@gmail.com', 'Storystoire - Inscription');
-    //     $mail->addAddress($email);
+        //Recipients
+        $mail->setFrom('storystoire@gmail.com', 'Storystoire - Inscription');
+        $mail->addAddress($email);
     
-    //     //Content
-    //     $mail->isHTML(true);
-    //     $mail->CharSet = 'utf-8';
-    //     $mail->Subject = 'Votre inscription à Storystoire a bien été prise en compte !';
+        //Content
+        $mail->isHTML(true);
+        $mail->CharSet = 'utf-8';
+        $mail->Subject = 'Votre inscription à Storystoire a bien été prise en compte !';
         
-    //     $body = file_get_contents('../emails/email_confirmation.html');
-    //     $body = str_replace('%username%', $username, $body); 
-    //     $body = str_replace('%password%', $password, $body);
-    //     $body = str_replace('%email%', $email, $body);
-    //     $firstname = (empty($firstname))?"Non renseigné":$firstname;
-    //     $lastname = (empty($lastname))?"Non renseigné":$lastname;
-    //     $body = str_replace('%firstname%', $firstname, $body);
-    //     $body = str_replace('%lastname%', $lastname, $body); 
+        $body = file_get_contents('../emails/email_confirmation.html');
+        $body = str_replace('%username%', $username, $body); 
+        $body = str_replace('%password%', $password, $body);
+        $body = str_replace('%email%', $email, $body);
+        $firstname = (empty($firstname))?"Non renseigné":$firstname;
+        $lastname = (empty($lastname))?"Non renseigné":$lastname;
+        $body = str_replace('%firstname%', $firstname, $body);
+        $body = str_replace('%lastname%', $lastname, $body); 
 
-    //     $mail->Body = $body;
-    //     $mail->send();
+        $mail->Body = $body;
+        $mail->send();
         
-    //     $alert = "Un mail de confirmation vous a été envoyé !";
-    // } catch (Exception $e) {
-    //     $alert = "Une erreur s'est produite à l'envoie du mail de confirmation !";
-    // }
+        $alert = "Un mail de confirmation vous a été envoyé !";
+    } catch (Exception $e) {
+        $alert = "Une erreur s'est produite à l'envoie du mail de confirmation !";
+    }
 
-    $query_retrieve = "SELECT id, username FROM user WHERE email = ? and password = MD5(?)";
-    $result = $pdo->prepare($query_retrieve);
-    $result->execute(array($email, $password));
-    $row = $result->fetchAll(PDO::FETCH_ASSOC);
-    $_SESSION['user_id'] = $row[0]['id'];
-    $_SESSION['login_user'] = $row[0]['username'];
+    // $query_retrieve = "SELECT id, username FROM user WHERE email = ? and password = MD5(?)";
+    // $result = $pdo->prepare($query_retrieve);
+    // $result->execute(array($email, $password));
+    // $row = $result->fetchAll(PDO::FETCH_ASSOC);
+    // $_SESSION['user_id'] = $row[0]['id'];
+    // $_SESSION['login_user'] = $row[0]['username'];
     // header("location: ../index.php");
     header("location: register_confirmation.php?reg=1");
 }
