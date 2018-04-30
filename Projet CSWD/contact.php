@@ -48,11 +48,14 @@ if (isset($_POST) && (!empty($_POST))) {
             $mail->CharSet = 'utf-8';
             $mail->Subject = 'Commentaire de '.$user_username;
             $mail->Body    = "
-            <body>
-                <p><strong>Nom d'utilisateur : </strong>".$user_username."</p>
-                <p><strong>Adresse email : </strong>".$user_email."</p>
-                <p><strong>Commentaire :  </strong>".$user_comment."</p>
-            </body>";
+            <!DOCTYPE html>
+            <html>
+                <body>
+                    <p><strong>Nom d'utilisateur : </strong>".$user_username."</p>
+                    <p><strong>Adresse email : </strong>".$user_email."</p>
+                    <p><strong>Commentaire :  </strong>".$user_comment."</p>
+                </body>
+            </html>";
 
             $mail->send();
             unset($mail);
@@ -81,12 +84,10 @@ if (isset($_POST) && (!empty($_POST))) {
             $mail->isHTML(true);
             $mail->CharSet = 'utf-8';
             $mail->Subject = 'Commentez Storystoire !';
-            $body = file_get_contents('emails/contact_confirmation.html');
-
-            $mail->Body = $body;
+            $mail->Body = file_get_contents('emails/contact_confirmation.html');
             $mail->send();
             
-            header("location: contact_sent.php");
+            // header("location: contact_sent.php");
         } catch (Exception $e) {
             $alert = "Une erreur s'est produite, veuillez réessayer ou nous contacter directement à l'adresse storystoire@gmail.com";
         }
@@ -100,6 +101,13 @@ if (isset($_POST) && (!empty($_POST))) {
             <h2>Nous contacter</h2><hr>
             <p>Si vous avez un problème, une question ou si vous voulez simplement nous dire à quel point notre travail est impressionnant vous êtes au bon endroit ! Vous pouvez nous joindre grâce à ce formulaire !</p>
             <p>L'un de nous vous répondra dans les plus brefs délais ! Dans l'espoir qu'on puisse vous aider, Maxime, Martin et Fannie.</p>
+        </div>
+    </article>
+    <article class="card">
+        <div>
+            <h2>Attention !</h2><hr>
+            <p>Ne pas renseigner de faux emails, ça ne fait que spammer les serveurs de mails avec de fausses requêtes inutiles. De plus, ça nous spam avec des Mail Delivery Subsystem Failure...</p>
+            <p>Cordialement - L'équipe</p>
         </div>
     </article>
     <article class="card">
