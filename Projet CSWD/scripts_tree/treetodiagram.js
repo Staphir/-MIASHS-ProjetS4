@@ -139,7 +139,7 @@ function treeToDiagram(tree, diagramSvg, diagramGroup, options) {
   }
 
   var maxWidth = Math.max(widths[fixedLevel],
-          options.minimumBreadth * (1 + options.levelsGap))
+          options.minimumBreadth * (1 + options.levelsGap));
 
   // Position and make elements
   var level = levels[fixedLevel];
@@ -262,6 +262,7 @@ function treeToDiagram(tree, diagramSvg, diagramGroup, options) {
         rect.setAttribute(yAttribute, Math.floor(yValue * yMultiplier) + "px");
         rect.setAttribute(widthAttribute, Math.floor(xMultiplier) + "px");
         rect.setAttribute(heightAttribute, Math.floor(yMultiplier) + "px");
+        rect.setAttribute("onclick", "window.location.href='../story_handling/create_step.php'");
         if (options.cornerRounding) {
           rect.setAttribute("rx", options.cornerRounding + "px");
           rect.setAttribute("ry", options.cornerRounding + "px");

@@ -39,13 +39,11 @@ if(!isset($_GET["story_id"]) or empty($_GET["story_id"])) {
                         $response_steps=$pdo->prepare($query_steps);
                         $response_steps->execute(array($Id_story_choosed));
                         $table_steps = $response_steps->fetchall(PDO::FETCH_ASSOC);
-                        //$table_steps_bis = $table_steps;
 
                         $query_choices="SELECT * FROM choice WHERE id_story = ? ORDER BY choice.id_step";
                         $response_choices=$pdo->prepare($query_choices);
                         $response_choices->execute(array($Id_story_choosed));
                         $table_choices = $response_choices->fetchall(PDO::FETCH_ASSOC);
-                        //$table_choices_bis = $table_choices;
                         //------------------------------------------------------------
                         class Choice {
                             //proprietes

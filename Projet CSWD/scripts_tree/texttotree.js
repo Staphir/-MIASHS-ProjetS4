@@ -2,7 +2,12 @@
 
 function textToTree(text) {
 
+  var tabLines = [];
   var lines = text.split(/\n/);
+  for (var key in lines){
+
+  }
+  //récupération info1%info2%
 
   var rootNode = {label: "root",
     parent: "",

@@ -6,7 +6,7 @@
   "width": 1000,
   "height": 800,
   "labelLineSpacing": 15,
-  "cornerRounding": 0,
+  "cornerRounding": 5,
   "labelPadding": 2,
   "arrowHeadSize": 5,
   "arrowsUp": 0,
@@ -31,7 +31,7 @@ text {
 
 rect {
   fill: #ba0000;
-  stroke: black;
+  <!--stroke: black;-->
   stroke-width: 1.5;
 }
 
