@@ -2,7 +2,7 @@
 <label for="options"></label>
 <textarea hidden id="options">
 {
-  "flipXY": 0,
+  "flipXY": 1,
   "width": 1000,
   "height": 800,
   "labelLineSpacing": 15,
@@ -30,9 +30,8 @@ text {
 }
 
 rect {
-  fill: red;
+  fill: #ba0000;
   stroke: black;
-  <!--  opacity: 0.7;-->
   stroke-width: 1.5;
 }
 
