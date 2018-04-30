@@ -60,7 +60,8 @@ if ($_GET["reg"] == 0) {
     ?>
         <div>
             <h2>Activez votre compte grâce à votre email</h2><hr>
-            <p>Votre compte n'est pas activé et vous ne pouvez pas vous connecter ? Avant de pouvoir vous connecter, vous devez valider votre inscription depuis le mail qui vous a été envoyé.</p>
+            <p class="alert">Votre compte n'est pas encore activé !</p>
+            <p>Avant de pouvoir vous connecter, vous devez valider votre inscription depuis le mail qui vous a été envoyé.</p>
             <p>Si le mail ne vous est toujours pas parvenu, vous pouvez renvoyer le mail ci-dessous en entrant votre adresse mail :</p>
             <form method="post" action="">
                 <input type="email" name="email" placeholder="..." required>
@@ -84,7 +85,7 @@ if ($_GET["reg"] == 0) {
     ?>
     <div>
         <h2>Confirmation d'inscritpion</h2><hr>
-        <p>Votre compte est vérifié vous pouvez vous connecter !</p>
+        <p class="alert">Votre compte est vérifié vous pouvez désormais vous connecter !</p>
         <p>À bientôt !</p>
     </div>
     <?php
