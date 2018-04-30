@@ -12,7 +12,7 @@ include("main_header.php");
     </article>
     <article class="card">
         <div>
-            <p>Ce site est un projet de CSWD (Conception de Site Web Dynamiques) réalisé dans le cadre de la Licence MIASHS de Bordeaux - en souffrance à cause de l'occupation actuelle de son merveilleux site de la Victoire - conçu par trois étudiants fan de fan-fictions (ou pas) !</p>
+            <p>Ce site est un projet de CSWD (Conception de Site Web Dynamiques) réalisé dans le cadre de la Licence MIASHS de Bordeaux conçu par trois étudiants fan de fan-fictions (ou pas) !</p>
             <p>Fannie Lothaire, Maxime Dulieu et Martin Devreese vous accueillent alors sur leur site avec grand plaisir et vous invite à les rejoindre et à faire vivre ce projet !</p>
             <hr><p>Bonne lecture de la part de l'équipe !</p>
         </div>
