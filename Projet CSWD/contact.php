@@ -39,7 +39,7 @@ if (isset($_POST) && (!empty($_POST))) {
             $mail->isSMTP();
             $mail->Host = 'smtp.gmail.com';
             $mail->Username = 'storystoire@gmail.com';
-            $mail->Password = 'labichusdragibus';
+            $mail->Password = 'storystoirepassword';
             $mail->SMTPSecure = 'tls';
             $mail->SMTPAuth = true;
             $mail->Port = 587;
@@ -77,7 +77,7 @@ if (isset($_POST) && (!empty($_POST))) {
             $mail->Host = 'smtp.gmail.com';
             $mail->SMTPAuth = true;
             $mail->Username = 'storystoire@gmail.com';
-            $mail->Password = 'labichusdragibus';
+            $mail->Password = 'storystoirepassword';
             $mail->SMTPSecure = 'tls';
             $mail->Port = 587;
         
