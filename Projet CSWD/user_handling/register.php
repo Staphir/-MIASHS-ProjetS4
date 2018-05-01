@@ -63,7 +63,7 @@ if (isset($_POST) && (!empty($_POST))) {
         }
     } else {
         $error = "Cette adresse mail est invalide !";
-        $valid = false; break;
+        $valid = false;
     } 
     if ($valid) {
         $username = $newuser['Username']; $password = $newuser['Password'];
@@ -84,7 +84,7 @@ if (isset($_POST) && (!empty($_POST))) {
             $mail->Host = 'smtp.gmail.com';
             $mail->SMTPAuth = true;
             $mail->Username = 'storystoire@gmail.com';
-            $mail->Password = 'labichusdragibus';
+            $mail->Password = 'gdckhyhzsobirurz';
             $mail->SMTPSecure = 'tls';
             $mail->Port = 587;
 

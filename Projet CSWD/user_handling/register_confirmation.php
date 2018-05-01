@@ -29,7 +29,7 @@ if (!empty($_POST) && isset($_POST['email'])) {
             $mail->Host = 'tls://smtp.gmail.com:587';
             $mail->SMTPAuth = true;
             $mail->Username = 'storystoire@gmail.com';
-            $mail->Password = 'labichusdragibus';
+            $mail->Password = 'gdckhyhzsobirurz';
             $mail->SMTPSecure = 'tls';
             $mail->SMTPAutoTLS = false;
             $mail->Port = 587;

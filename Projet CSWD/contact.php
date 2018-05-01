@@ -39,7 +39,7 @@ if (isset($_POST) && (!empty($_POST))) {
             $mail->isSMTP();
             $mail->Host = 'smtp.gmail.com';
             $mail->Username = 'storystoire@gmail.com';
-            $mail->Password = 'storystoirepassword';
+            $mail->Password = 'gdckhyhzsobirurz';
             $mail->SMTPSecure = 'tls';
             $mail->SMTPAuth = true;
             $mail->Port = 587;
@@ -77,7 +77,7 @@ if (isset($_POST) && (!empty($_POST))) {
             $mail->Host = 'smtp.gmail.com';
             $mail->SMTPAuth = true;
             $mail->Username = 'storystoire@gmail.com';
-            $mail->Password = 'storystoirepassword';
+            $mail->Password = 'gdckhyhzsobirurz';
             $mail->SMTPSecure = 'tls';
             $mail->Port = 587;
         
@@ -92,7 +92,7 @@ if (isset($_POST) && (!empty($_POST))) {
             $mail->Body = file_get_contents('emails/contact_confirmation.html');
             $mail->send();
             
-            // header("location: contact_sent.php");
+            header("location: contact_sent.php");
         } catch (Exception $e) {
             $alert = "Une erreur s'est produite, veuillez réessayer ou nous contacter directement à l'adresse storystoire@gmail.com";
         }
