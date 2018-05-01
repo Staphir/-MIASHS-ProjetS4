@@ -2,6 +2,7 @@
 $menu["title"] = "Contact"; $alert = "";
 include("main_header.php");
 include("vendor/phpmailer/phpmailer/PHPMailerAutoload.php");
+// require_once("emails/validation/smtp_validateEmail.class.php");
 
 
 if (!empty($_SESSION)) {
@@ -21,6 +22,10 @@ if (isset($_POST) && (!empty($_POST))) {
     $user_comment = $_POST["comment"];
 
     $valid_email = \PHPMailer::ValidateAddress($_POST["email"]);
+    // $SMTP_Validator = new SMTP_validateEmail();
+    // $SMTP_Validator->debug = true;
+    // $valid_email = $SMTP_Validator->validate(array($user_email), "storystoire@gmail.com");
+
 
     if ($valid_email) {
         $user_email = $_POST["email"];

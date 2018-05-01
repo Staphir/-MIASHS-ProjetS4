@@ -1,7 +1,6 @@
 <?php
 require_once("config.php");
 require_once("session.php");
-// require_once("../emails/validation/smtp_validateEmail.class.php");
 
 if (count($_SESSION) != 0) {
     header("location: ../index.php");
@@ -9,6 +8,7 @@ if (count($_SESSION) != 0) {
 
 date_default_timezone_set('Etc/UTC');
 include("../vendor/phpmailer/phpmailer/PHPMailerAutoload.php");
+// require_once("../emails/validation/smtp_validateEmail.class.php");
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
@@ -29,39 +29,41 @@ if (isset($_POST) && (!empty($_POST))) {
         $newuser["Lastname"] = $_POST["lastname"];
     } else {$newuser["Lastname"] = "";}
 
+    $valid_email = \PHPMailer::ValidateAddress($_POST["email"]);
     // $SMTP_Validator = new SMTP_validateEmail();
     // $SMTP_Validator->debug = true;
     // $valid_email = $SMTP_Validator->validate(array($newuser["Email"]), "storystoire@gmail.com");
 
-
-    foreach ($newuser as $key => $value) {
-        if ($key == "Email" or $key == "Username") {
-            $result = $pdo->prepare("SELECT id FROM user WHERE ".$key." = ?");
-            $result->execute(array($value));
-            $row = $result->fetchAll(PDO::FETCH_ASSOC); 
-            $count = count($row);
-        } if ($key == "Username" && !(strlen($value) < 13 && strlen($value) > 4)) {
-            $error = "Le nom d'utilisateur doit contenir entre 5 et 12 caractères !";
-            $newuser["Username"] = "";
-            $valid = false; break;
-        } if ($key == "Email" && $count > 0) { // > 0 ou ==1 mais ici on travaille avec un accès direct à la base de données alors les erreurs arrivent facilement
-            $error = "Cette adresse mail est déjà utilisée !";
-            $newuser["Email"] = "";
-            $valid = false; break;
-        } if ($key == "Username" && $count > 0) {
-            $error = "Ce pseudo est déjà utilisé !";
-            $newuser["Username"] = "";
-            $valid = false; break;
-        } if ($key == "Password" && !(strlen($value) > 7)) {
-            $error = "Le mot de passe doit contenir au moins 8 caractères !";
-            $valid = false; break;
-        } if ($key == "Password" && $value != $_POST["c_password"]) {
-            $error = "Les mots de passe ne correspondent pas !";
-            $valid = false; break;
-        // } elseif (!$valid_email) {
-        //     $error = "Cette adresse mail est invalide !";
-        //     $valid = false; break;
+    if ($valid_email) {
+        foreach ($newuser as $key => $value) {
+            if ($key == "Email" or $key == "Username") {
+                $result = $pdo->prepare("SELECT id FROM user WHERE ".$key." = ?");
+                $result->execute(array($value));
+                $row = $result->fetchAll(PDO::FETCH_ASSOC); 
+                $count = count($row);
+            } if ($key == "Username" && !(strlen($value) < 13 && strlen($value) > 4)) {
+                $error = "Le nom d'utilisateur doit contenir entre 5 et 12 caractères !";
+                $newuser["Username"] = "";
+                $valid = false; break;
+            } if ($key == "Email" && $count > 0) { // > 0 ou ==1 mais ici on travaille avec un accès direct à la base de données alors les erreurs arrivent facilement
+                $error = "Cette adresse mail est déjà utilisée !";
+                $newuser["Email"] = "";
+                $valid = false; break;
+            } if ($key == "Username" && $count > 0) {
+                $error = "Ce pseudo est déjà utilisé !";
+                $newuser["Username"] = "";
+                $valid = false; break;
+            } if ($key == "Password" && !(strlen($value) > 7)) {
+                $error = "Le mot de passe doit contenir au moins 8 caractères !";
+                $valid = false; break;
+            } if ($key == "Password" && $value != $_POST["c_password"]) {
+                $error = "Les mots de passe ne correspondent pas !";
+                $valid = false; break;
+            }
         }
+    } else {
+        $error = "Cette adresse mail est invalide !";
+        $valid = false; break;
     } 
     if ($valid) {
         $username = $newuser['Username']; $password = $newuser['Password'];
