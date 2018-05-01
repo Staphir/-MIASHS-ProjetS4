@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e63e8aed-b771-4d23-a69e-4eebb2d8dc59" name="Default" comment="Début des liens sur l'arbre">
+    <list default="true" id="e63e8aed-b771-4d23-a69e-4eebb2d8dc59" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/Projet CSWD/scripts_tree/texttotree.js" afterPath="$PROJECT_DIR$/Projet CSWD/scripts_tree/texttotree.js" />
-      <change beforePath="$PROJECT_DIR$/Projet CSWD/scripts_tree/tree_style.php" afterPath="$PROJECT_DIR$/Projet CSWD/scripts_tree/tree_style.php" />
       <change beforePath="$PROJECT_DIR$/Projet CSWD/scripts_tree/treetodiagram.js" afterPath="$PROJECT_DIR$/Projet CSWD/scripts_tree/treetodiagram.js" />
       <change beforePath="$PROJECT_DIR$/Projet CSWD/story_handling/story_display.php" afterPath="$PROJECT_DIR$/Projet CSWD/story_handling/story_display.php" />
     </list>
@@ -47,75 +46,74 @@
     <select />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.5">
+    <splitter split-orientation="horizontal" split-proportion="0.50511074">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="story_display.php" pinned="false" current-in-tab="false">
+          <file leaf-file-name="story_display.php" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/Projet CSWD/story_handling/story_display.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="680">
-                  <caret line="40" column="83" lean-forward="false" selection-start-line="40" selection-start-column="83" selection-end-line="40" selection-end-column="83" />
+                <state relative-caret-position="969">
+                  <caret line="146" column="53" lean-forward="true" selection-start-line="146" selection-start-column="53" selection-end-line="146" selection-end-column="53" />
                   <folding>
-                    <element signature="e#2373#3090#0#PHP" expanded="false" />
-                    <element signature="e#4255#6057#0#PHP" expanded="false" />
-                    <element signature="e#6083#7215#0#PHP" expanded="false" />
-                    <marker date="1525106767742" expanded="true" signature="267:321" ph="SELECT * FRO... story" />
-                    <marker date="1525106767742" expanded="true" signature="586:690" ph="SELECT * FRO... step" />
-                    <marker date="1525106767742" expanded="true" signature="1056:1074" ph="..." />
-                    <marker date="1525106767742" expanded="true" signature="1630:1667" ph="SELECT * FRO... step" />
-                    <marker date="1525106767742" expanded="true" signature="1630:1684" ph="SELECT * FRO... step" />
-                    <marker date="1525106767742" expanded="true" signature="1957:1996" ph="SELECT * FRO... choice" />
-                    <marker date="1525106767742" expanded="true" signature="1957:2020" ph="SELECT * FRO... choice" />
+                    <element signature="e#2439#3156#0#PHP" expanded="false" />
+                    <element signature="e#3181#3896#0#PHP" expanded="false" />
+                    <element signature="e#4384#6186#0#PHP" expanded="false" />
+                    <element signature="e#6260#7345#0#PHP" expanded="false" />
+                    <marker date="1525201611318" expanded="true" signature="267:321" ph="SELECT * FRO... story" />
+                    <marker date="1525201611318" expanded="true" signature="586:690" ph="SELECT * FRO... step" />
+                    <marker date="1525201611318" expanded="true" signature="1056:1074" ph="..." />
+                    <marker date="1525201611318" expanded="true" signature="1630:1667" ph="SELECT * FRO... step" />
+                    <marker date="1525201611318" expanded="true" signature="1630:1684" ph="SELECT * FRO... step" />
+                    <marker date="1525201611318" expanded="true" signature="1957:1996" ph="SELECT * FRO... choice" />
+                    <marker date="1525201611318" expanded="true" signature="1957:2020" ph="SELECT * FRO... choice" />
                   </folding>
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="treetodiagram.js" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/Projet CSWD/scripts_tree/treetodiagram.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1921">
-                  <caret line="113" column="22" lean-forward="false" selection-start-line="113" selection-start-column="9" selection-end-line="113" selection-end-column="22" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="script.js" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/Projet CSWD/story_handling/script.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="391">
-                  <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="texttotree.js" pinned="false" current-in-tab="true">
+          <file leaf-file-name="texttotree.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/Projet CSWD/scripts_tree/texttotree.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="204">
-                  <caret line="12" column="15" lean-forward="true" selection-start-line="12" selection-start-column="15" selection-end-line="12" selection-end-column="15" />
+                <state relative-caret-position="442">
+                  <caret line="41" column="0" lean-forward="true" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="gup.js" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/Projet CSWD/scripts_tree/gup.js">
+          <file leaf-file-name="create_step.php" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/Projet CSWD/story_handling/create_step.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="85">
-                  <caret line="5" column="33" lean-forward="false" selection-start-line="5" selection-start-column="33" selection-end-line="5" selection-end-column="33" />
+                <state relative-caret-position="238">
+                  <caret line="14" column="44" lean-forward="false" selection-start-line="14" selection-start-column="44" selection-end-line="14" selection-end-column="44" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="listExtractor.js" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/Projet CSWD/scripts_tree/listExtractor.js">
+          <file leaf-file-name="save_step.php" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/Projet CSWD/story_handling/save_step.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="374">
-                  <caret line="22" column="23" lean-forward="false" selection-start-line="22" selection-start-column="23" selection-end-line="22" selection-end-column="23" />
+                <state relative-caret-position="51">
+                  <caret line="3" column="51" lean-forward="false" selection-start-line="3" selection-start-column="51" selection-end-line="3" selection-end-column="51" />
+                  <folding>
+                    <marker date="1523963011393" expanded="true" signature="473:535" ph="INSERT INTO step... " />
+                    <marker date="1523963011393" expanded="true" signature="659:696" ph="SELECT id FR... step" />
+                    <marker date="1523963011393" expanded="true" signature="896:958" ph="INSERT INTO choice... " />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf>
+          <file leaf-file-name="treetodiagram.js" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/Projet CSWD/scripts_tree/treetodiagram.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="223">
+                  <caret line="264" column="16" lean-forward="true" selection-start-line="264" selection-start-column="0" selection-end-line="265" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
@@ -124,22 +122,8 @@
           <file leaf-file-name="demo.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/Projet CSWD/scripts_tree/demo.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="425">
-                  <caret line="25" column="19" lean-forward="false" selection-start-line="25" selection-start-column="19" selection-end-line="25" selection-end-column="19" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-first>
-      <split-second>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="demo.js" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/Projet CSWD/scripts_tree/demo.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="243">
-                  <caret line="25" column="19" lean-forward="false" selection-start-line="25" selection-start-column="19" selection-end-line="25" selection-end-column="19" />
+                <state relative-caret-position="374">
+                  <caret line="25" column="20" lean-forward="false" selection-start-line="25" selection-start-column="16" selection-end-line="25" selection-end-column="20" />
                   <folding />
                 </state>
               </provider>
@@ -176,6 +160,7 @@
       <find>array_keys</find>
       <find>rect</find>
       <find>treeToDiagram</find>
+      <find>textToTree</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -214,10 +199,10 @@
         <option value="$PROJECT_DIR$/Projet CSWD/secondary_header.php" />
         <option value="$PROJECT_DIR$/Projet CSWD/scripts_tree/index.php" />
         <option value="$PROJECT_DIR$/Projet CSWD/scripts_tree/tree_style.php" />
-        <option value="$PROJECT_DIR$/Projet CSWD/scripts_tree/treetodiagram.js" />
         <option value="$PROJECT_DIR$/Projet CSWD/scripts_tree/gup.js" />
-        <option value="$PROJECT_DIR$/Projet CSWD/story_handling/story_display.php" />
         <option value="$PROJECT_DIR$/Projet CSWD/scripts_tree/texttotree.js" />
+        <option value="$PROJECT_DIR$/Projet CSWD/story_handling/story_display.php" />
+        <option value="$PROJECT_DIR$/Projet CSWD/scripts_tree/treetodiagram.js" />
       </list>
     </option>
   </component>
@@ -238,9 +223,8 @@
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-7" />
-    <option name="y" value="364" />
     <option name="width" value="697" />
-    <option name="height" value="371" />
+    <option name="height" value="735" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -276,6 +260,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -292,12 +277,6 @@
               <item name="-MIASHS-ProjetS4" type="b2602c69:ProjectViewProjectNode" />
               <item name="-MIASHS-ProjetS4" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="Projet CSWD" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="css" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="-MIASHS-ProjetS4" type="b2602c69:ProjectViewProjectNode" />
-              <item name="-MIASHS-ProjetS4" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Projet CSWD" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="scripts_tree" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
@@ -306,12 +285,17 @@
               <item name="Projet CSWD" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="story_handling" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
+            <path>
+              <item name="-MIASHS-ProjetS4" type="b2602c69:ProjectViewProjectNode" />
+              <item name="-MIASHS-ProjetS4" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Projet CSWD" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="user_handling" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
       <pane id="Scope" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -383,7 +367,8 @@
       <workItem from="1524925433934" duration="8805000" />
       <workItem from="1525018450066" duration="9518000" />
       <workItem from="1525097738552" duration="8987000" />
-      <workItem from="1525123975309" duration="300000" />
+      <workItem from="1525123975309" duration="1039000" />
+      <workItem from="1525186797254" duration="14384000" />
     </task>
     <task id="LOCAL-00001" summary="Petits changements">
       <created>1522257804250</created>
@@ -483,19 +468,25 @@
       <option name="project" value="LOCAL" />
       <updated>1525102135071</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Début des liens sur l'arbre">
+      <created>1525124287548</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1525124287548</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="177212000" />
+    <option name="totallyTimeSpent" value="192335000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13615733" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.11195159" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32894737" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23903178" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -506,6 +497,7 @@
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32894737" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -561,14 +553,14 @@
     <MESSAGE value="Sauvegarde des nouvelles étapes ET l'arbre de l'affichage d'histoire arrive !!!" />
     <MESSAGE value="YOUPI !!!!!!!!!!!!!!!!!! L'ARBRE EST LA :)" />
     <MESSAGE value="Début des liens sur l'arbre" />
-    <option name="LAST_COMMIT_MESSAGE" value="Début des liens sur l'arbre" />
+    <MESSAGE value="Passage des paramètres id_story et les id_parent du php au js" />
+    <option name="LAST_COMMIT_MESSAGE" value="Passage des paramètres id_story et les id_parent du php au js" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Projet CSWD/a.php" />
     <entry file="file://$PROJECT_DIR$/Projet CSWD/connect_database.php" />
     <entry file="file://$PROJECT_DIR$/instructions">
       <provider selected="true" editor-type-id="text-editor">
@@ -693,13 +685,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Projet CSWD/user_handling/login.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="629">
-          <caret line="37" column="22" lean-forward="false" selection-start-line="37" selection-start-column="22" selection-end-line="37" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Projet CSWD/user_handling/register.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-510">
@@ -707,31 +692,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Projet CSWD/story_handling/my_stories.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="119" lean-forward="false" selection-start-line="18" selection-start-column="119" selection-end-line="18" selection-end-column="119" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Projet CSWD/story_handling/save_step.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="51" lean-forward="false" selection-start-line="3" selection-start-column="51" selection-end-line="3" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Projet CSWD/footer.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
           <caret line="2" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="3" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Projet CSWD/story_handling/create_step.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="44" lean-forward="false" selection-start-line="14" selection-start-column="44" selection-end-line="14" selection-end-column="44" />
         </state>
       </provider>
     </entry>
@@ -767,41 +731,25 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Projet CSWD/scripts_tree/layoutText.js">
+    <entry file="file://$PROJECT_DIR$/Projet CSWD/story_handling/script.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1139">
-          <caret line="67" column="4" lean-forward="false" selection-start-line="67" selection-start-column="3" selection-end-line="67" selection-end-column="4" />
+        <state relative-caret-position="391">
+          <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Projet CSWD/scripts_tree/tree_style.php">
+    <entry file="file://$PROJECT_DIR$/Projet CSWD/about.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="8" column="21" lean-forward="false" selection-start-line="8" selection-start-column="21" selection-end-line="8" selection-end-column="21" />
-          <folding />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Projet CSWD/scripts_tree/listExtractor.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
+        <state relative-caret-position="39">
           <caret line="22" column="23" lean-forward="false" selection-start-line="22" selection-start-column="23" selection-end-line="22" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Projet CSWD/scripts_tree/demo.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="25" column="19" lean-forward="false" selection-start-line="25" selection-start-column="19" selection-end-line="25" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Projet CSWD/story_handling/script.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -814,37 +762,102 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Projet CSWD/scripts_tree/treetodiagram.js">
+    <entry file="file://$PROJECT_DIR$/Projet CSWD/scripts_tree/demo.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1921">
-          <caret line="113" column="22" lean-forward="false" selection-start-line="113" selection-start-column="9" selection-end-line="113" selection-end-column="22" />
+        <state relative-caret-position="374">
+          <caret line="25" column="20" lean-forward="false" selection-start-line="25" selection-start-column="16" selection-end-line="25" selection-end-column="20" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Projet CSWD/story_handling/story_display.php">
+    <entry file="file://$PROJECT_DIR$/Projet CSWD/user_handling/login.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="680">
-          <caret line="40" column="83" lean-forward="false" selection-start-line="40" selection-start-column="83" selection-end-line="40" selection-end-column="83" />
+        <state relative-caret-position="629">
+          <caret line="37" column="22" lean-forward="false" selection-start-line="37" selection-start-column="22" selection-end-line="37" selection-end-column="22" />
           <folding>
-            <element signature="e#2373#3090#0#PHP" expanded="false" />
-            <element signature="e#4255#6057#0#PHP" expanded="false" />
-            <element signature="e#6083#7215#0#PHP" expanded="false" />
-            <marker date="1525106767742" expanded="true" signature="267:321" ph="SELECT * FRO... story" />
-            <marker date="1525106767742" expanded="true" signature="586:690" ph="SELECT * FRO... step" />
-            <marker date="1525106767742" expanded="true" signature="1056:1074" ph="..." />
-            <marker date="1525106767742" expanded="true" signature="1630:1667" ph="SELECT * FRO... step" />
-            <marker date="1525106767742" expanded="true" signature="1630:1684" ph="SELECT * FRO... step" />
-            <marker date="1525106767742" expanded="true" signature="1957:1996" ph="SELECT * FRO... choice" />
-            <marker date="1525106767742" expanded="true" signature="1957:2020" ph="SELECT * FRO... choice" />
+            <marker date="1523963009438" expanded="true" signature="344:428" ph="SELECT id, u... user" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Projet CSWD/scripts_tree/texttotree.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="15" lean-forward="true" selection-start-line="12" selection-start-column="15" selection-end-line="12" selection-end-column="15" />
+        <state relative-caret-position="442">
+          <caret line="41" column="0" lean-forward="true" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Projet CSWD/story_handling/save_step.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="51" lean-forward="false" selection-start-line="3" selection-start-column="51" selection-end-line="3" selection-end-column="51" />
+          <folding>
+            <marker date="1523963011393" expanded="true" signature="473:535" ph="INSERT INTO step... " />
+            <marker date="1523963011393" expanded="true" signature="659:696" ph="SELECT id FR... step" />
+            <marker date="1523963011393" expanded="true" signature="896:958" ph="INSERT INTO choice... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Projet CSWD/story_handling/my_stories.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" column="16" lean-forward="true" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="16" />
+          <folding>
+            <marker date="1523962646044" expanded="true" signature="204:241" ph="SELECT * FRO... story" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Projet CSWD/story_handling/create_step.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="44" lean-forward="false" selection-start-line="14" selection-start-column="44" selection-end-line="14" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Projet CSWD/story_handling/story_display.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="969">
+          <caret line="146" column="53" lean-forward="true" selection-start-line="146" selection-start-column="53" selection-end-line="146" selection-end-column="53" />
+          <folding>
+            <element signature="e#2439#3156#0#PHP" expanded="false" />
+            <element signature="e#3181#3896#0#PHP" expanded="false" />
+            <element signature="e#4384#6186#0#PHP" expanded="false" />
+            <element signature="e#6260#7345#0#PHP" expanded="false" />
+            <marker date="1525201611318" expanded="true" signature="267:321" ph="SELECT * FRO... story" />
+            <marker date="1525201611318" expanded="true" signature="586:690" ph="SELECT * FRO... step" />
+            <marker date="1525201611318" expanded="true" signature="1056:1074" ph="..." />
+            <marker date="1525201611318" expanded="true" signature="1630:1667" ph="SELECT * FRO... step" />
+            <marker date="1525201611318" expanded="true" signature="1630:1684" ph="SELECT * FRO... step" />
+            <marker date="1525201611318" expanded="true" signature="1957:1996" ph="SELECT * FRO... choice" />
+            <marker date="1525201611318" expanded="true" signature="1957:2020" ph="SELECT * FRO... choice" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Projet CSWD/scripts_tree/layoutText.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="520">
+          <caret line="67" column="4" lean-forward="false" selection-start-line="67" selection-start-column="3" selection-end-line="67" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Projet CSWD/scripts_tree/tree_style.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="8" column="21" lean-forward="false" selection-start-line="8" selection-start-column="21" selection-end-line="8" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Projet CSWD/scripts_tree/treetodiagram.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="223">
+          <caret line="264" column="16" lean-forward="true" selection-start-line="264" selection-start-column="0" selection-end-line="265" selection-end-column="0" />
           <folding />
         </state>
       </provider>

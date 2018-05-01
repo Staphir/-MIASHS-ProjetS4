@@ -44,6 +44,8 @@ if(!isset($_GET["story_id"]) or empty($_GET["story_id"])) {
                         $response_choices=$pdo->prepare($query_choices);
                         $response_choices->execute(array($Id_story_choosed));
                         $table_choices = $response_choices->fetchall(PDO::FETCH_ASSOC);
+
+                        $id_story = $table_steps[0]["id_story"];
                         //------------------------------------------------------------
                         class Choice {
                             //proprietes
@@ -85,6 +87,7 @@ if(!isset($_GET["story_id"]) or empty($_GET["story_id"])) {
                         //remplissage listes choices et steps
                         array_push($stepsList, new Step($table_steps[0]["id"], $table_steps[0]["content"], $table_steps[0]["id_choice"], 0));
                         array_splice($table_steps,0,1);
+                        //remplissage choicesList et stepsList
                         while(count($table_choices) != 0 || count($table_steps) != 0){
                             $listToDel = array();
                             for($i=0; $i<count($table_choices); $i++){
@@ -112,7 +115,8 @@ if(!isset($_GET["story_id"]) or empty($_GET["story_id"])) {
                             $table_steps = array_values($table_steps);
                         }
 
-                        function dfs($finalList, $choicesList, $stepsList, $node) /*use ($finalList, $choicesList, $stepsList)*/ {
+                        //remplissage finalList
+                        function dfs($finalList, $choicesList, $stepsList, $node) {
                             $node->visited = 1;
                             array_push($finalList, $node);
                             if(is_a($node, "Step")){
@@ -130,11 +134,26 @@ if(!isset($_GET["story_id"]) or empty($_GET["story_id"])) {
                             }
                             return $finalList;
                         }
-
                         $finalList = dfs($finalList, $choicesList, $stepsList, $stepsList[0]);
 
+                        $id_parents_list = array();
+                        $id_parents_list[0] = 0;
+                        for($i=1; $i<count($finalList); $i++){
+                            array_push($id_parents_list, $finalList[$i]->parent->id);
+                        }
+                        ?>
+
+                        <script type="text/javascript">
+                            //variables pouvant etres recupere dans les js
+                            var id_story = <?php echo json_encode($id_story); ?>;
+                            var id_parents = <?php echo json_encode($id_parents_list); ?>;
+                        </script>
+
+                        <?php
                         echo "<textarea id='treeEntry' hidden>";
+//                        echo $id_story."%0%".$finalList[0]->content;
                         for($i=0;$i<count($finalList);$i++){
+//                            echo "\n".$id_story."%".$finalList[$i]->parent->id."%";
                             for($j=0;$j<$finalList[$i]->deep;$j++){
                                 echo " ";
                             }
