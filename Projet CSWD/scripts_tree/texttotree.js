@@ -2,12 +2,25 @@
 
 function textToTree(text) {
 
-  var tabLines = [];
+  var linesArray = [];
+  var i = 0;
   var lines = text.split(/\n/);
-  for (var key in lines){
-
+  for (var stringLine in lines){
+    var str = lines[stringLine];
+    linesArray[i] = {};
+    linesArray[i].id_story = str.split("%")[0];
+    linesArray[i].id_parent = str.split("%")[1];
+    linesArray[i].content = str.split("%")[2];
+    i++;
   }
+  //textToTree("1%3% salut\n2%5%   coucou") -> 
+  //linesArray = [
+  //    { id_story: "1", id_parent: "3", content: " salut" }, 
+  //    { id: "2", parent: "5", content: "   coucou" }
+  // ]
+  ​
   //récupération info1%info2%
+
 
   var rootNode = {label: "root",
     parent: "",
@@ -15,8 +28,9 @@ function textToTree(text) {
 
   var stackParents = [rootNode];
   var stackIndents = [-1];
-  for (var idx = 0; idx != lines.length; idx++) {
-    var line = lines[idx];
+  for (var idx = 0; idx != linesArray.length; idx++) {
+    
+    var line = linesArray[idx].content;
     var content = line.trim();
     if (!content.length)
       continue;
