@@ -20,8 +20,6 @@ function textToTree(text) {
   // ]
   ​
   //récupération info1%info2%
-
-
   var rootNode = {label: "root",
     parent: "",
     children: []};
