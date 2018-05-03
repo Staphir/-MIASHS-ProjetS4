@@ -4,6 +4,13 @@
     <include_path>
       <path value="$PROJECT_DIR$/Projet CSWD/vendor/phpmailer/phpmailer" />
       <path value="$PROJECT_DIR$/Projet CSWD/vendor/composer" />
+      <path value="$PROJECT_DIR$/Projet CSWD/vendor/guzzlehttp/psr7" />
+      <path value="$PROJECT_DIR$/Projet CSWD/vendor/guzzlehttp/promises" />
+      <path value="$PROJECT_DIR$/Projet CSWD/vendor/paragonie/random_compat" />
+      <path value="$PROJECT_DIR$/Projet CSWD/vendor/guzzlehttp/guzzle" />
+      <path value="$PROJECT_DIR$/Projet CSWD/vendor/league/oauth2-client" />
+      <path value="$PROJECT_DIR$/Projet CSWD/vendor/league/oauth2-google" />
+      <path value="$PROJECT_DIR$/Projet CSWD/vendor/psr/http-message" />
     </include_path>
   </component>
 </project>

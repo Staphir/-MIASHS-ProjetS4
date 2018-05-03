@@ -327,6 +327,7 @@ function treeToDiagram(tree, diagramSvg, diagramGroup, options) {
 }
 
 function rectonclick(evt) {
+
       var svgobj = evt.target;
       if(svgobj.style.opacity != 0){
           svgobj.style.opacity=0;

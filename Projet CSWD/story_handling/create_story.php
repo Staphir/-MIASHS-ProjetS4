@@ -3,8 +3,8 @@ require_once("../user_handling/config.php");
 require_once("../user_handling/session.php");
 // require_once("../connect_database.php");
 if(isset($_POST["story_name"]) && isset($_POST["story_description"])){
-    $name = $_POST["story_name"];
-    $description = $_POST["story_description"];
+    $name = htmlspecialchars($_POST["story_name"], ENT_QUOTES);
+    $description = htmlspecialchars($_POST["story_description"], ENT_QUOTES);
     $requete="INSERT INTO story (title, description, createdon, likes, lastmodifiedon, user_id, published) VALUES (?,?,NOW(),0,NOW(),?,0)";
     $reponse=$pdo->prepare($requete);
     $reponse->execute(array($name, $description, $_SESSION["user_id"]));

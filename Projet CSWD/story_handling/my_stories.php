@@ -11,34 +11,47 @@ $reponse=$pdo->prepare($requete);
 $reponse->execute(array($_SESSION["user_id"]));
 $array_stories = $reponse->fetchAll(PDO::FETCH_ASSOC);
 ?>
-<section>
-    <article class="card">
-        <div>
-            <h2>Vos histoires</h2><hr>
-            <table id="customers">
-            <tr>
-                <th>Titre</th>
-                <th>Date de création</th>
-                <th>Publiée</th>
-                <th>Date de publication</th>
-                <th>Likes</th>
-                <th>Dernière modification</th>
-            </tr>
-            <?php
-            for ($i=0; $i<count($array_stories); $i++) {
-                $createdon = date('M j Y g:i A', strtotime($array_stories[$i]["createdon"]));
-                $publishedon = date('M j Y g:i A', strtotime($array_stories[$i]["publishedon"]));
-                $lastmodifiedon = date('M j Y g:i A', strtotime($array_stories[$i]["lastmodifiedon"]));
-                echo "<tr onclick=window.location='story_display.php?story_id=".$array_stories[$i]["id"]."'>";
-                echo "<td>".$array_stories[$i]["title"]."</td>";
-                echo "<td>".$createdon."</td>";
-                echo "<td>".($array_stories[$i]["published"]?"Oui":"Non")."</td>";
-                echo "<td>".$publishedon."</td>";
-                echo "<td>".$array_stories[$i]["likes"]."</td>";
-                echo "<td>".$lastmodifiedon."</td></tr>";
-            } ?>
-        </table>
-        </div>
-    </article>
-</section>
+    <section>
+        <article class="card">
+            <div>
+                <h2>Vos histoires</h2><hr>
+                <form method="post" action="story_display.php" id="form_display">
+                    <table id="customers">
+                        <tr>
+                            <th>Titre</th>
+                            <th>Date de création</th>
+                            <th>Publiée</th>
+                            <th>Date de publication</th>
+                            <th>Likes</th>
+                            <th>Dernière modification</th>
+                        </tr>
+                        <?php
+                        for ($i=0; $i<count($array_stories); $i++) {
+                            $createdon = date('M j Y g:i A', strtotime($array_stories[$i]["createdon"]));
+                            $publishedon = date('M j Y g:i A', strtotime($array_stories[$i]["publishedon"]));
+                            $lastmodifiedon = date('M j Y g:i A', strtotime($array_stories[$i]["lastmodifiedon"]));
+                            $story = $array_stories[$i]["id"];
+                            echo "<tr onclick='choiceStory($story)'>";
+                            echo "<td>".$array_stories[$i]["title"]."</td>";
+                            echo "<td>".$createdon."</td>";
+                            echo "<td>".($array_stories[$i]["published"]?"Oui":"Non")."</td>";
+                            echo "<td>".$publishedon."</td>";
+                            echo "<td>".$array_stories[$i]["likes"]."</td>";
+                            echo "<td>".$lastmodifiedon."</td></tr>";
+                        } ?>
+                    </table>
+                </form>
+            </div>
+        </article>
+    </section>
+    <script>
+        function choiceStory(id_story){
+            var input_id_story = document.createElement("input");
+            input_id_story.type = "hidden";
+            input_id_story.name = "story_id";
+            input_id_story.value = id_story;
+            document.getElementById("form_display").appendChild(input_id_story);
+            document.getElementById("form_display").submit();
+        }
+    </script>
 <?php include("../footer.php"); ?>

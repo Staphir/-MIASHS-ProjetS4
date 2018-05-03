@@ -3,14 +3,14 @@ $menu["title"] = "Mes histoires";
 $dir1 = "../"; $dir2 = "../";
 include("../main_header.php");
 
-if(!isset($_GET["story_id"]) or empty($_GET["story_id"])) {
+if(!isset($_POST["story_id"]) or empty($_POST["story_id"])) {
     header("location: my_stories.php");
 } else {
-    $Id_story_choosed = $_GET["story_id"];
+    $id_story_choosed = $_POST['story_id'];
 
     $query="SELECT * FROM story WHERE story.id = ? AND user_id = ? ";
     $result=$pdo->prepare($query);
-    $result->execute(array($Id_story_choosed, $_SESSION["user_id"]));
+    $result->execute(array($id_story_choosed, $_SESSION["user_id"]));
     $row = $result->fetchall(PDO::FETCH_ASSOC);
 
     if (empty($row)) {
@@ -18,9 +18,8 @@ if(!isset($_GET["story_id"]) or empty($_GET["story_id"])) {
     } else {
         $query_first_step="SELECT * FROM step LEFT JOIN story ON step.id_story = story.id WHERE story.id = ? AND step.id_choice = 0 ";
         $response_first_step=$pdo->prepare($query_first_step);
-        $response_first_step->execute(array($Id_story_choosed));
+        $response_first_step->execute(array($id_story_choosed));
         $first_step = $response_first_step->fetchall(PDO::FETCH_ASSOC);
-        // print_r($first_step);
         ?>
         <section>
             <article class="card">
@@ -30,19 +29,19 @@ if(!isset($_GET["story_id"]) or empty($_GET["story_id"])) {
                     if($first_step == NULL){
                         ?>
                         <form action="create_step.php" method="post">
-                            <input type="hidden" name="id_story" value="<?php echo $Id_story_choosed ?>">
+                            <input type="hidden" name="id_story" value="<?php echo $id_story_choosed ?>">
                             <input type="hidden" name="choice_parent" value="0">
                             <input type="submit" name="new_step" value="Nouvelle étape">
                         </form>
                     <?php }else{
                         $query_steps="SELECT * FROM step WHERE id_story = ? ORDER BY step.id";
                         $response_steps=$pdo->prepare($query_steps);
-                        $response_steps->execute(array($Id_story_choosed));
+                        $response_steps->execute(array($id_story_choosed));
                         $table_steps = $response_steps->fetchall(PDO::FETCH_ASSOC);
 
                         $query_choices="SELECT * FROM choice WHERE id_story = ? ORDER BY choice.id_step";
                         $response_choices=$pdo->prepare($query_choices);
-                        $response_choices->execute(array($Id_story_choosed));
+                        $response_choices->execute(array($id_story_choosed));
                         $table_choices = $response_choices->fetchall(PDO::FETCH_ASSOC);
 
                         $id_story = $table_steps[0]["id_story"];
@@ -144,8 +143,7 @@ if(!isset($_GET["story_id"]) or empty($_GET["story_id"])) {
                         ?>
 
                         <script type="text/javascript">
-                            //variables pouvant etres recupere dans les js
-                            var id_story = <?php echo json_encode($id_story); ?>;
+                            //variable pouvant etre recupere dans les js
                             var id_parents = <?php echo json_encode($id_parents_list); ?>;
                         </script>
 
@@ -167,15 +165,21 @@ if(!isset($_GET["story_id"]) or empty($_GET["story_id"])) {
                     <?php
                     include("../scripts_tree/tree_style.php");
                     ?>
-                    <script src="../scripts_tree/treetodiagram.js"></script>
-                    <script src="../scripts_tree/layoutText.js"></script>
-                    <script src="../scripts_tree/gup.js"></script>
-                    <script src="../scripts_tree/texttotree.js"></script>
-                    <script src="../scripts_tree/demo.js"></script>
                 </div>
             </article>
         </section>
+        <form method="post" action="create_step.php" id="infos_click">
+            <input type="hidden" name="story_id" value="<?php echo $id_story_choosed; ?>">
+            <input type="hidden" id="parent" name="parent" value="0">
+            <input type="hidden" id="step_or_choice" name="step_or_choice" value="step">
+        </form>
+        <script src="../scripts_tree/treetodiagram.js"></script>
+        <script src="../scripts_tree/layoutText.js"></script>
+        <script src="../scripts_tree/gup.js"></script>
+        <script src="../scripts_tree/texttotree.js"></script>
+        <script src="../scripts_tree/demo.js"></script>
         <?php
+
         include("../footer.php");
     }
 }
