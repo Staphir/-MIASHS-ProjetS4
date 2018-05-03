@@ -38,7 +38,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
             <form action="" method="post">
                 <h2>Connexion</h2><hr>
                 <p>Le système de mots de passe ayant changé le 03/05/2018, vos mots de passe datant d'avant cette date ne sont plus valides.</p>
-                <a href="update_password.php" class="pwdch">Mettre à jour du mot de passe</a>
+                <a href="update_password.php" class="pwdch">Mettre à jour le mot de passe</a>
                 <p>Adresse Email :</p><input type="email" name="email" placeholder="..." required>
                 <p>Mot de passe :</p><input type="password" name="password" placeholder="..." required>
                 <input type="submit" style="margin-top:20px" value="Connexion">
