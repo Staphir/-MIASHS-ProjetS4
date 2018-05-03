@@ -33,6 +33,7 @@ if (!$isConnected) {
                 echo "<li><p class='red'>Date d'inscription : </p><p>".$row[0]["joinedon"]."</p></li>";
             ?>
             </ul></p></div>
+            <a class='pwdch' href="user_handling/change_password.php">Changer de mot de passe</a>
         </div>
     </article>
 </section>

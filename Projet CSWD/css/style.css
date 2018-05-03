@@ -318,6 +318,18 @@ input[name=end]:hover {
     color: var(--nav-but-hover);
 }
 
+a.pwdch {
+    text-decoration:none;
+    color: var(--header-color);    
+}
+
+a.pwdch:hover {
+    color: black
+}
+
+a.pwdch:active {
+    color: var(--bg-accent)
+}
 
 section article div form p {
     margin-bottom:0px;
@@ -382,36 +394,6 @@ aside.top10 li a {
     text-align: left;
 }
 
-@media screen and (max-width: 640px) {
-    ul.menu {
-        flex-flow: column;
-    }
-    section article.card {
-        margin: 30px 16px 0px 16px;
-    }
-    #home {
-        margin-right:0px
-    }
-    .menu {
-        flex-flow: column;
-    }
-    aside {
-        display: none
-    }
-    #top10_card {
-        display: block;
-    }
-
-}
-@media screen and (min-width: 641px) {
-    .menu {
-        flex-flow: row;
-    }
-    #top10_card {
-        display: none;
-    }
-}
-
 .dropdown {
     position: relative;
     display: inline-block;
@@ -453,4 +435,34 @@ input[type="search"]:focus {
 
 p.alert {
     color: var(--header-color);
+}
+
+@media screen and (max-width: 640px) {
+    ul.menu {
+        flex-flow: column;
+    }
+    section article.card {
+        margin: 30px 16px 0px 16px;
+    }
+    #home {
+        margin-right:0px
+    }
+    .menu {
+        flex-flow: column;
+    }
+    aside {
+        display: none
+    }
+    #top10_card {
+        display: block;
+    }
+
+}
+@media screen and (min-width: 641px) {
+    .menu {
+        flex-flow: row;
+    }
+    #top10_card {
+        display: none;
+    }
 }

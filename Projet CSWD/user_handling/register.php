@@ -66,11 +66,11 @@ if (isset($_POST) && (!empty($_POST))) {
         $valid = false;
     } 
     if ($valid) {
-        $username = $newuser['Username']; $password = $newuser['Password'];
+        $username = $newuser['Username']; $password = password_hash($newuser['Password'], PASSWORD_BCRYPT);
         $email = $newuser['Email']; $firstname = $newuser['Firstname'];
         $lastname = $newuser['Lastname'];
         $query_create = "INSERT INTO user (id, username, password, email, verified, firstname, lastname, likes, joinedon)
-                VALUES (NULL, '$username', MD5('$password'), '$email', 0, '$firstname', '$lastname', 0, NOW())";
+                VALUES (NULL, '$username', '$password', '$email', 0, '$firstname', '$lastname', 0, NOW())";
         $result = $pdo->prepare($query_create);
         $result->execute();
 
