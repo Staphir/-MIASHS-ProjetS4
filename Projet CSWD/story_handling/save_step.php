@@ -1,14 +1,25 @@
 <?php require_once("../user_handling/config.php");
+include("vendor/autoload.php");
+
+$config = HTMLPurifier_Config::createDefault();
+$config->set('Core.Encoding', 'ISO-8859-1');
+$config->set('Cache.DefinitionImpl', null); // TODO: remove this later!
+$config->set('HTML.Allowed', 'a[href],i,b,img[src],font[style|size],ol,ul,li,br');
+$purifier = new HTMLPurifier($config);
+// $ = $purifier->purify();
 
 //Probleme quand il y a des "entrer" dans le textarea
-$step = htmlspecialchars($_POST["step"], ENT_QUOTES);
+//Tu sais d'où ça vient ?
+$step = $purifier->purify($_POST["step"]);
 $is_story = $_POST["id_story"];
 $choice_parent = $_POST["parent"];
 $nb_choice = $_POST["nb_choix"];
 $tab_choices = array();
+
+$config->set('HTML.Allowed', 'b,font[style|size],ol,ul,li,br');
 for($i=1; $i<=$nb_choice; $i++){
     if (isset($_POST["choix".$i])){
-        array_push($tab_choices, $_POST["choix".$i]);
+        array_push($tab_choices, $purifier->purify($_POST["choix".$i]));
     }
 }
 $query_step = "INSERT INTO step (content, id_choice, id_story) VALUES (?,?,?);";

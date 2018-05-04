@@ -23,7 +23,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION["user_email"] = $row[0]["email"];
         $_SESSION["user_verified"] = $row[0]["verified"];
 
-        header("location: ../index.php");
+        header("location: ".$_SESSION["current_url"]);
     } elseif ($count == 1 && !$row[0]["verified"]) {
         header("location: register_confirmation.php?reg=0");
     } else {

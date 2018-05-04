@@ -8,7 +8,13 @@ if (!isset($dir2)) {
 
 if (isset($_GET) && !empty($_GET)) {
     if (isset($_GET["search"])) {
-        $search = $_GET["search"];
+        $config = HTMLPurifier_Config::createDefault();
+        $config->set('Core.Encoding', 'ISO-8859-1');
+        $config->set('Cache.DefinitionImpl', null); // TODO: remove this later!
+        $config->set('HTML.Allowed', '');
+     
+        $purifier = new HTMLPurifier($config);
+        $search = $purifier->purify($_GET["search"]);
     } else {$search = "";}
 } else {$search = "";}
 

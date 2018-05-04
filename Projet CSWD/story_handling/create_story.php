@@ -1,10 +1,19 @@
 <?php
 require_once("../user_handling/config.php");
 require_once("../user_handling/session.php");
-// require_once("../connect_database.php");
+include("vendor/autoload.php");
+
+$config = HTMLPurifier_Config::createDefault();
+$config->set('Core.Encoding', 'ISO-8859-1');
+$config->set('Cache.DefinitionImpl', null); // TODO: remove this later!
+$config->set('HTML.Allowed', 'i,b,font[style|size]');
+$purifier = new HTMLPurifier($config);
+// $ = $purifier->purify();
+
 if(isset($_POST["story_name"]) && isset($_POST["story_description"])){
-    $name = htmlspecialchars($_POST["story_name"], ENT_QUOTES);
-    $description = htmlspecialchars($_POST["story_description"], ENT_QUOTES);
+    $name = $purifier->purify($_POST["story_name"]);
+    $config->set('HTML.Allowed', 'a[href],i,b,img[src],font[style|size],ol,ul,li,br');
+    $description = $purifier->purify($_POST["story_description"]);
     $requete="INSERT INTO story (title, description, createdon, likes, lastmodifiedon, user_id, published) VALUES (?,?,NOW(),0,NOW(),?,0)";
     $reponse=$pdo->prepare($requete);
     $reponse->execute(array($name, $description, $_SESSION["user_id"]));

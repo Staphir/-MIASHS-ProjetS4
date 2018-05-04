@@ -7,6 +7,7 @@ if (count($_SESSION) != 0) {
 }
 
 date_default_timezone_set('Etc/UTC');
+include("../vendor/autoload.php");
 include("../vendor/phpmailer/phpmailer/PHPMailerAutoload.php");
 // require_once("../emails/validation/smtp_validateEmail.class.php");
 
@@ -17,17 +18,21 @@ $valid = true; $error = ""; $alert = "";
 $menu["title"] = "S'inscrire";
 
 if (isset($_POST) && (!empty($_POST))) {
+    $config = HTMLPurifier_Config::createDefault();
+    $config->set('Core.Encoding', 'ISO-8859-1');
+    $config->set('Cache.DefinitionImpl', null); // TODO: remove this later!
+    $config->set('HTML.Allowed', '');
+ 
+    $purifier = new HTMLPurifier($config);
+    $user_comment = $purifier->purify($_POST['comment']);
+
     $newuser = array();
     $newuser["Password"] = $_POST["password"];
     $newuser["Email"] = $_POST["email"];
-    $newuser["Username"] = $_POST["username"];
+    $newuser["Username"] = $purifier->purify($_POST["username"]);
 
-    if (isset($_POST["firstname"])) {
-        $newuser["Firstname"] = $_POST["firstname"];
-    } else {$newuser["Firstname"] = "";}
-    if (isset($_POST["lastname"])) {
-        $newuser["Lastname"] = $_POST["lastname"];
-    } else {$newuser["Lastname"] = "";}
+    $newuser["Firstname"] = (isset($_POST["firstname"]))?$purifier->purify($_POST["firstname"]):"";
+    $newuser["Lastname"] = (isset($_POST["lastname"]))?$purifier->purify($_POST["lastname"]):"";
 
     $valid_email = \PHPMailer::ValidateAddress($_POST["email"]);
     // $SMTP_Validator = new SMTP_validateEmail();
