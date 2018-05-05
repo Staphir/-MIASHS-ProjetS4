@@ -2,19 +2,11 @@
 
 function textToTree(text) {
 
-    // var linesArray = [];
-    // var i = 0;
     var lines = text.split(/\n/);
-    // for (var stringLine in lines){
-    //     var str = lines[stringLine];
-    //     linesArray[i] = {};
-    //     linesArray[i].id_story = str.split("%")[0];
-    //     linesArray[i].id_parent = str.split("%")[1];
-    //     linesArray[i].content = str.split("%")[2];
-    //     i++;
-    // }
 
     var rootNode = {label: "root",
+        type: "",//ajout
+        id_parent: "",//ajout
         parent: "",
         children: []};
 
@@ -23,6 +15,8 @@ function textToTree(text) {
     for (var idx = 0; idx != lines.length; idx++) {
 
         var line = lines[idx];
+        var step_or_choice = type[idx];//ajout
+        var id = id_parents[idx];//ajout
         var content = line.trim();
         if (!content.length)
             continue;
@@ -33,6 +27,8 @@ function textToTree(text) {
         }
         var parent = stackParents[stackParents.length - 1];
         var node = {label: content,
+            type: step_or_choice,//ajout
+            id_parent: id,//ajout
             parent: parent,
             children: []};
         parent.children.push(node);

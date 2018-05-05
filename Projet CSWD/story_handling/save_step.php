@@ -1,10 +1,13 @@
-<?php require_once("../user_handling/config.php");
+<?php
+require_once("../user_handling/config.php");
+require_once("../user_handling/session.php");
 
 //Probleme quand il y a des "entrer" dans le textarea
 $step = htmlspecialchars($_POST["step"], ENT_QUOTES);
 $is_story = $_POST["id_story"];
 $choice_parent = $_POST["parent"];
 $nb_choice = $_POST["nb_choix"];
+$_SESSION["id_story"] = $is_story;
 $tab_choices = array();
 for($i=1; $i<=$nb_choice; $i++){
     if (isset($_POST["choix".$i])){

@@ -2,9 +2,13 @@
 require_once("../user_handling/config.php");
 require_once("../user_handling/session.php");
 
-$menu["title"] = "Mes histoires";
+$menu["title"] = "Création";
 $dir1 = "../"; $dir2 = "../";
 include("../main_header.php");
+
+//vérifier si parent récup a un fils :
+//non : création d'une étape
+//oui : edition d'une étape
 ?>
     <form action="save_step.php" method="post">
         <section style="margin-right:-150px;">
@@ -26,7 +30,6 @@ include("../main_header.php");
                     </div>
                     <button type="button" class="ajt_chps" id="btn_ajout_champs" onclick="ajout_champ()">Ajouter un choix</button>
                     <input type="submit" name="valid_step" value="Créer">
-
                 </div>
             </article>
         </section>

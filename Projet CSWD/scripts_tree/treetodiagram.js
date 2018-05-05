@@ -245,6 +245,7 @@ function treeToDiagram(tree, diagramSvg, diagramGroup, options) {
     var yMultiplier = diagramHeight / height;
 
     // Add visual elements.
+    var i = 0;
     var namespace = "http://www.w3.org/2000/svg";
     for (var levelIdx = 0; levelIdx != levels.length; levelIdx++) {
         var level = levels[levelIdx];
@@ -258,11 +259,21 @@ function treeToDiagram(tree, diagramSvg, diagramGroup, options) {
 
                 var yValue = levelIdx * (1 + options.levelsGap);
 
-                rect.setAttribute(xAttribute, Math.floor(node.x * xMultiplier) + "px");
-                rect.setAttribute(yAttribute, Math.floor(yValue * yMultiplier) + "px");
-                rect.setAttribute(widthAttribute, Math.floor(xMultiplier) + "px");
-                rect.setAttribute(heightAttribute, Math.floor(yMultiplier) + "px");
-                // rect.setAttribute("onclick", 'rectonclick(evt)');
+                var xCoord = Math.floor(node.x * xMultiplier) + "px";
+                var yCoord = Math.floor(yValue * yMultiplier) + "px";
+                var widthRect = Math.floor(xMultiplier) + "px";
+                var heightRect = Math.floor(yMultiplier) + "px";
+
+                rect.setAttribute(xAttribute, xCoord);
+                rect.setAttribute(yAttribute, yCoord);
+                rect.setAttribute(widthAttribute, widthRect);
+                rect.setAttribute(heightAttribute, heightRect);
+
+                var rectId = node.id_parent+"_"+node.type;
+                rect.setAttribute("id", rectId);
+                rect.addEventListener("click", rectonclick);
+                i++;
+
                 if (options.cornerRounding) {
                     rect.setAttribute("rx", options.cornerRounding + "px");
                     rect.setAttribute("ry", options.cornerRounding + "px");
@@ -326,14 +337,12 @@ function treeToDiagram(tree, diagramSvg, diagramGroup, options) {
 
 }
 
-function rectonclick(evt) {
+function rectonclick(e) {
+    var rectTarget = e.target;
+    var idSplit = rectTarget.id.split("_");
+    console.log(idSplit);
 
-      var svgobj = evt.target;
-      if(svgobj.style.opacity != 0){
-          svgobj.style.opacity=0;
-      }else{
-          svgobj.style.opacity=1;
-      }
-
-     //document.location.href("create_step.php");
+    document.getElementById("parent").value = idSplit[0];
+    document.getElementById("step_or_choice").value = idSplit[1];
+    document.getElementById("infos_click").submit();
 }
