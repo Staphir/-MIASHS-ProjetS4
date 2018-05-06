@@ -27,7 +27,7 @@ if(!isset($_POST["story_id"]) or empty($_POST["story_id"])) {
         $result = $pdo->prepare($query);
         $result->execute(array($description, $_POST["story_id"]));
     }
-
+}
 
 //Affichage direct après enregistrement step qui ne fonctionne pas...
 //test si variable de session (si on est passé par une création de step
