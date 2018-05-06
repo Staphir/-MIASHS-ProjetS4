@@ -1,16 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e63e8aed-b771-4d23-a69e-4eebb2d8dc59" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/Projet CSWD/vendor/ezyang/htmlpurifier" />
-      <change beforePath="$PROJECT_DIR$/.idea/-MIASHS-ProjetS4.iml" afterPath="$PROJECT_DIR$/.idea/-MIASHS-ProjetS4.iml" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" afterPath="$PROJECT_DIR$/.idea/php.xml" />
+    <list default="true" id="e63e8aed-b771-4d23-a69e-4eebb2d8dc59" name="Default" comment="oupsi">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/Projet CSWD/scripts_tree/texttotree.js" afterPath="$PROJECT_DIR$/Projet CSWD/scripts_tree/texttotree.js" />
-      <change beforePath="$PROJECT_DIR$/Projet CSWD/scripts_tree/treetodiagram.js" afterPath="$PROJECT_DIR$/Projet CSWD/scripts_tree/treetodiagram.js" />
-      <change beforePath="$PROJECT_DIR$/Projet CSWD/story_handling/create_step.php" afterPath="$PROJECT_DIR$/Projet CSWD/story_handling/create_step.php" />
       <change beforePath="$PROJECT_DIR$/Projet CSWD/story_handling/script.js" afterPath="$PROJECT_DIR$/Projet CSWD/story_handling/script.js" />
-      <change beforePath="$PROJECT_DIR$/Projet CSWD/story_handling/story_display.php" afterPath="$PROJECT_DIR$/Projet CSWD/story_handling/story_display.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -65,21 +58,35 @@
     <select />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.5116279">
+    <splitter split-orientation="horizontal" split-proportion="0.4650561">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="create_step.php" pinned="false" current-in-tab="true">
+          <file leaf-file-name="create_step.php" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/Projet CSWD/story_handling/create_step.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="323">
+                <state relative-caret-position="274">
                   <caret line="64" column="11" lean-forward="false" selection-start-line="64" selection-start-column="11" selection-end-line="64" selection-end-column="11" />
                   <folding>
-                    <marker date="1525642621151" expanded="true" signature="330:366" ph="SELECT * FRO... choice" />
-                    <marker date="1525642621151" expanded="true" signature="330:381" ph="SELECT * FRO... choice" />
-                    <marker date="1525642621151" expanded="true" signature="565:616" ph="SELECT * FRO... step" />
-                    <marker date="1525642621151" expanded="true" signature="828:872" ph="SELECT * FRO... step" />
-                    <marker date="1525642621151" expanded="true" signature="2312:2340" ph="..." />
-                    <marker date="1525642621151" expanded="true" signature="2369:2449" ph="..." />
+                    <marker date="1525642860803" expanded="true" signature="330:381" ph="SELECT * FRO... choice" />
+                    <marker date="1525642860803" expanded="true" signature="565:616" ph="SELECT * FRO... step" />
+                    <marker date="1525642860803" expanded="true" signature="828:872" ph="SELECT * FRO... step" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="story_display.php" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/Projet CSWD/story_handling/story_display.php">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="-306">
+                  <caret line="6" column="30" lean-forward="true" selection-start-line="6" selection-start-column="30" selection-end-line="6" selection-end-column="30" />
+                  <folding>
+                    <marker date="1525642845846" expanded="true" signature="962:1007" ph="UPDATE story... " />
+                    <marker date="1525642845846" expanded="true" signature="1879:1933" ph="SELECT * FRO... story" />
+                    <marker date="1525642845846" expanded="true" signature="2198:2302" ph="SELECT * FRO... step" />
+                    <marker date="1525642845846" expanded="true" signature="2635:2653" ph="..." />
+                    <marker date="1525642845846" expanded="true" signature="4989:5043" ph="SELECT * FRO... step" />
+                    <marker date="1525642845846" expanded="true" signature="5300:5363" ph="SELECT * FRO... choice" />
                   </folding>
                 </state>
               </provider>
@@ -92,28 +99,9 @@
           <file leaf-file-name="script.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/Projet CSWD/story_handling/script.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="340">
-                  <caret line="41" column="24" lean-forward="false" selection-start-line="41" selection-start-column="24" selection-end-line="41" selection-end-column="24" />
+                <state relative-caret-position="274">
+                  <caret line="41" column="16" lean-forward="true" selection-start-line="41" selection-start-column="16" selection-end-line="41" selection-end-column="21" />
                   <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="story_display.php" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/Projet CSWD/story_handling/story_display.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="121">
-                  <caret line="186" column="22" lean-forward="false" selection-start-line="186" selection-start-column="22" selection-end-line="186" selection-end-column="22" />
-                  <folding>
-                    <element signature="e#3917#4572#0#PHP" expanded="false" />
-                    <marker date="1525635682064" expanded="true" signature="943:997" ph="SELECT * FRO... story" />
-                    <marker date="1525635682064" expanded="true" signature="1262:1366" ph="SELECT * FRO... step" />
-                    <marker date="1525635682064" expanded="true" signature="1699:1717" ph="..." />
-                    <marker date="1525635682064" expanded="true" signature="2470:2507" ph="SELECT * FRO... step" />
-                    <marker date="1525635682064" expanded="true" signature="2470:2524" ph="SELECT * FRO... step" />
-                    <marker date="1525635682064" expanded="true" signature="2781:2820" ph="SELECT * FRO... choice" />
-                    <marker date="1525635682064" expanded="true" signature="2781:2844" ph="SELECT * FRO... choice" />
-                  </folding>
                 </state>
               </provider>
             </entry>
@@ -121,12 +109,24 @@
           <file leaf-file-name="save_step.php" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/Projet CSWD/story_handling/save_step.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="119">
-                  <caret line="7" column="34" lean-forward="false" selection-start-line="7" selection-start-column="34" selection-end-line="7" selection-end-column="34" />
+                <state relative-caret-position="17">
+                  <caret line="16" column="34" lean-forward="false" selection-start-line="16" selection-start-column="34" selection-end-line="16" selection-end-column="34" />
                   <folding>
-                    <marker date="1525443644009" expanded="true" signature="511:573" ph="INSERT INTO step... " />
-                    <marker date="1525443644009" expanded="true" signature="697:734" ph="SELECT id FR... step" />
-                    <marker date="1525443644009" expanded="true" signature="917:979" ph="INSERT INTO choice... " />
+                    <marker date="1525642845799" expanded="true" signature="1091:1153" ph="INSERT INTO step... " />
+                    <marker date="1525642845799" expanded="true" signature="1277:1314" ph="SELECT id FR... step" />
+                    <marker date="1525642845799" expanded="true" signature="1497:1559" ph="INSERT INTO choice... " />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="create_story.php" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/Projet CSWD/story_handling/create_story.php">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="102">
+                  <caret line="6" column="44" lean-forward="true" selection-start-line="6" selection-start-column="44" selection-end-line="6" selection-end-column="44" />
+                  <folding>
+                    <marker date="1525642845795" expanded="true" signature="879:1002" ph="INSERT INTO story... " />
                   </folding>
                 </state>
               </provider>
@@ -216,8 +216,8 @@
         <option value="$PROJECT_DIR$/Projet CSWD/scripts_tree/texttotree.js" />
         <option value="$PROJECT_DIR$/Projet CSWD/story_handling/story_display.php" />
         <option value="$PROJECT_DIR$/Projet CSWD/scripts_tree/treetodiagram.js" />
-        <option value="$PROJECT_DIR$/Projet CSWD/story_handling/script.js" />
         <option value="$PROJECT_DIR$/Projet CSWD/story_handling/create_step.php" />
+        <option value="$PROJECT_DIR$/Projet CSWD/story_handling/script.js" />
       </list>
     </option>
   </component>
@@ -283,7 +283,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -312,7 +312,7 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -395,7 +395,8 @@
       <workItem from="1525438551514" duration="948000" />
       <workItem from="1525442763433" duration="13735000" />
       <workItem from="1525510677135" duration="12116000" />
-      <workItem from="1525628480509" duration="13122000" />
+      <workItem from="1525628480509" duration="13923000" />
+      <workItem from="1525645548174" duration="820000" />
     </task>
     <task id="LOCAL-00001" summary="Petits changements">
       <created>1522257804250</created>
@@ -523,29 +524,36 @@
       <option name="project" value="LOCAL" />
       <updated>1525536310676</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Page de création/modification presque fini + ajout HTMLPurifier">
+      <created>1525642719831</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1525642719831</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="254579000" />
+    <option name="totallyTimeSpent" value="256200000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12178517" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.123298034" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32894737" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26480263" sideWeight="0.5030257" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23903178" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26480263" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26480263" sideWeight="0.4969743" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24962178" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32894737" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -605,7 +613,9 @@
     <MESSAGE value="Passage des paramètres id_story et les id_parent du php au js" />
     <MESSAGE value="Changement create step" />
     <MESSAGE value="Récupération parent + type(step ou choice) quand on click sur l'arbre et envoie sur la page de création/édition d'une étape. Il faut maintenant faire le formulaire et la sauvegarde pour l'édition." />
-    <option name="LAST_COMMIT_MESSAGE" value="Récupération parent + type(step ou choice) quand on click sur l'arbre et envoie sur la page de création/édition d'une étape. Il faut maintenant faire le formulaire et la sauvegarde pour l'édition." />
+    <MESSAGE value="Page de création/modification presque fini + ajout HTMLPurifier" />
+    <MESSAGE value="oupsi" />
+    <option name="LAST_COMMIT_MESSAGE" value="oupsi" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -801,9 +811,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
           <caret line="13" column="2" lean-forward="false" selection-start-line="13" selection-start-column="2" selection-end-line="13" selection-end-column="2" />
-          <folding>
-            <marker date="1523797588096" expanded="true" signature="147:191" ph="SELECT usern... user" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -818,13 +825,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1171">
           <caret line="11" column="21" lean-forward="true" selection-start-line="11" selection-start-column="21" selection-end-line="11" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Projet CSWD/story_handling/create_story.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="76" lean-forward="false" selection-start-line="6" selection-start-column="76" selection-end-line="6" selection-end-column="76" />
         </state>
       </provider>
     </entry>
@@ -860,55 +860,60 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Projet CSWD/story_handling/create_step.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="274">
+          <caret line="64" column="11" lean-forward="false" selection-start-line="64" selection-start-column="11" selection-end-line="64" selection-end-column="11" />
+          <folding>
+            <marker date="1525642860803" expanded="true" signature="330:381" ph="SELECT * FRO... choice" />
+            <marker date="1525642860803" expanded="true" signature="565:616" ph="SELECT * FRO... step" />
+            <marker date="1525642860803" expanded="true" signature="828:872" ph="SELECT * FRO... step" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Projet CSWD/story_handling/story_display.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="121">
-          <caret line="186" column="22" lean-forward="false" selection-start-line="186" selection-start-column="22" selection-end-line="186" selection-end-column="22" />
+        <state relative-caret-position="-306">
+          <caret line="6" column="30" lean-forward="true" selection-start-line="6" selection-start-column="30" selection-end-line="6" selection-end-column="30" />
           <folding>
-            <element signature="e#3917#4572#0#PHP" expanded="false" />
-            <marker date="1525635682064" expanded="true" signature="943:997" ph="SELECT * FRO... story" />
-            <marker date="1525635682064" expanded="true" signature="1262:1366" ph="SELECT * FRO... step" />
-            <marker date="1525635682064" expanded="true" signature="1699:1717" ph="..." />
-            <marker date="1525635682064" expanded="true" signature="2470:2507" ph="SELECT * FRO... step" />
-            <marker date="1525635682064" expanded="true" signature="2470:2524" ph="SELECT * FRO... step" />
-            <marker date="1525635682064" expanded="true" signature="2781:2820" ph="SELECT * FRO... choice" />
-            <marker date="1525635682064" expanded="true" signature="2781:2844" ph="SELECT * FRO... choice" />
+            <marker date="1525642845846" expanded="true" signature="962:1007" ph="UPDATE story... " />
+            <marker date="1525642845846" expanded="true" signature="1879:1933" ph="SELECT * FRO... story" />
+            <marker date="1525642845846" expanded="true" signature="2198:2302" ph="SELECT * FRO... step" />
+            <marker date="1525642845846" expanded="true" signature="2635:2653" ph="..." />
+            <marker date="1525642845846" expanded="true" signature="4989:5043" ph="SELECT * FRO... step" />
+            <marker date="1525642845846" expanded="true" signature="5300:5363" ph="SELECT * FRO... choice" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Projet CSWD/story_handling/save_step.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="34" lean-forward="false" selection-start-line="7" selection-start-column="34" selection-end-line="7" selection-end-column="34" />
+        <state relative-caret-position="17">
+          <caret line="16" column="34" lean-forward="false" selection-start-line="16" selection-start-column="34" selection-end-line="16" selection-end-column="34" />
           <folding>
-            <marker date="1525443644009" expanded="true" signature="511:573" ph="INSERT INTO step... " />
-            <marker date="1525443644009" expanded="true" signature="697:734" ph="SELECT id FR... step" />
-            <marker date="1525443644009" expanded="true" signature="917:979" ph="INSERT INTO choice... " />
+            <marker date="1525642845799" expanded="true" signature="1091:1153" ph="INSERT INTO step... " />
+            <marker date="1525642845799" expanded="true" signature="1277:1314" ph="SELECT id FR... step" />
+            <marker date="1525642845799" expanded="true" signature="1497:1559" ph="INSERT INTO choice... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Projet CSWD/story_handling/create_story.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="44" lean-forward="true" selection-start-line="6" selection-start-column="44" selection-end-line="6" selection-end-column="44" />
+          <folding>
+            <marker date="1525642845795" expanded="true" signature="879:1002" ph="INSERT INTO story... " />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Projet CSWD/story_handling/script.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="41" column="24" lean-forward="false" selection-start-line="41" selection-start-column="24" selection-end-line="41" selection-end-column="24" />
+        <state relative-caret-position="274">
+          <caret line="41" column="16" lean-forward="true" selection-start-line="41" selection-start-column="16" selection-end-line="41" selection-end-column="21" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Projet CSWD/story_handling/create_step.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="64" column="11" lean-forward="false" selection-start-line="64" selection-start-column="11" selection-end-line="64" selection-end-column="11" />
-          <folding>
-            <marker date="1525642621151" expanded="true" signature="330:366" ph="SELECT * FRO... choice" />
-            <marker date="1525642621151" expanded="true" signature="330:381" ph="SELECT * FRO... choice" />
-            <marker date="1525642621151" expanded="true" signature="565:616" ph="SELECT * FRO... step" />
-            <marker date="1525642621151" expanded="true" signature="828:872" ph="SELECT * FRO... step" />
-            <marker date="1525642621151" expanded="true" signature="2312:2340" ph="..." />
-            <marker date="1525642621151" expanded="true" signature="2369:2449" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
