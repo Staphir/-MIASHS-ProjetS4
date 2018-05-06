@@ -4,7 +4,7 @@ include("vendor/autoload.php");
 $config = HTMLPurifier_Config::createDefault();
 $config->set('Core.Encoding', 'ISO-8859-1');
 $config->set('Cache.DefinitionImpl', null); // TODO: remove this later!
-$config->set('HTML.Allowed', 'a[href],i,b,img[src],font[style|size],ol,ul,li,br');
+$config->set('HTML.Allowed', $HTMLAllowed_Step);
 $purifier = new HTMLPurifier($config);
 // $ = $purifier->purify();
 
@@ -16,7 +16,11 @@ $choice_parent = $_POST["parent"];
 $nb_choice = $_POST["nb_choix"];
 $tab_choices = array();
 
-$config->set('HTML.Allowed', 'b,font[style|size],ol,ul,li,br');
+$config = HTMLPurifier_Config::createDefault();
+$config->set('Core.Encoding', 'ISO-8859-1');
+$config->set('Cache.DefinitionImpl', null);
+$config->set('HTML.Allowed', $HTMLAllowed_Choice);
+$purifier = new HTMLPurifier($config);
 for($i=1; $i<=$nb_choice; $i++){
     if (isset($_POST["choix".$i])){
         array_push($tab_choices, $purifier->purify($_POST["choix".$i]));

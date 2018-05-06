@@ -40,3 +40,41 @@ function supp_champ(nbChoix) {
 }
 
 ajout_champ();
+
+function modifyDescription() {
+    //création nouveau champs
+    var obj = document.getElementById('description');
+    var editBtn = document.getElementById("editImg");
+    var inputContainer = document.getElementById("descriptionContainer");
+
+    if (!obj) {
+        var text = inputContainer.innerHTML;
+        inputContainer.innerHTML = '';
+        var newObj = document.createElement("textarea");
+        
+        newObj.type = "comment";
+        newObj.id = 'description';
+        newObj.placeholder = "...";
+        newObj.value = text.trim();
+        newObj.name = 'stream';
+        newObj.style = "resize:vertical; width:100%; height:100%; box-sizing:border-box; -moz-box-sizing:border-box; -webkit-box-sizing: border-box; border:none;"
+
+        document.getElementById("descriptionContainer").appendChild(newObj);
+        editBtn.src = "../images/editActive.png";
+    } else {
+        var text = obj.value;
+        obj.outerHTML = "";
+        inputContainer.innerHTML = text;
+        editBtn.src = "../images/edit.png";
+    }
+}
+
+function getDesc() {
+    var hiddenInput = document.getElementById('hiddenDesc');
+    var visibleInput = document.getElementById('description');
+    if (!visibleInput) {
+        hiddenInput.value = document.getElementById('descriptionContainer').innerHTML;
+    } else {
+        hiddenInput.value = document.getElementById('description').value;
+    }
+}

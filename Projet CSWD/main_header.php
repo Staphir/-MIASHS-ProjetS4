@@ -1,4 +1,6 @@
 <?php 
+include("vendor/autoload.php");
+
 if (!isset($dir1)) {
     $dir1 = "";
 } 
@@ -15,10 +17,10 @@ if (isset($_GET) && !empty($_GET)) {
      
         $purifier = new HTMLPurifier($config);
         $search = $purifier->purify($_GET["search"]);
-    } else {$search = "";}
-} else {$search = "";}
+    }
+}
 
-$search_value = "value=".$search;
+$search_value = (!empty($search))?"value=".$search:"value=''";
 $full_header = in_array($menu["title"], array("Accueil", "À propos", "Contact", "Mon compte"));
 ?>
 <!DOCTYPE html>
@@ -32,8 +34,8 @@ $full_header = in_array($menu["title"], array("Accueil", "À propos", "Contact",
         <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,300i" rel="stylesheet">
         <link rel="shortcut icon" href=<?php echo $dir1."images/icon.png" ?>>
         <?php 
-        require_once($dir1."user_handling/config.php");
-        require_once($dir1."user_handling/session.php");
+        require_once("user_handling/config.php");
+        require_once("user_handling/session.php");
         ?>
     </head>
     <body>
@@ -44,7 +46,7 @@ $full_header = in_array($menu["title"], array("Accueil", "À propos", "Contact",
             <nav class="navbar">
                 <ul class="menu">
                     <li>
-                        <a href=<?php echo $dir1."index.php" ?>><img id="mainicon" src=<?php echo $dir1."images/icon.png"; ?>
+                        <a href=<?php echo $dir1."index.php" ?>><img id="mainicon" alt="Icon Storystoire" src=<?php echo $dir1."images/icon.png"; ?>
                         width=40 height=40></a>
                     </li>
                     <li>

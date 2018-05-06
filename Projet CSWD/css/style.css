@@ -34,7 +34,7 @@ html, body, div {
 	margin: 0;
 	padding: 0;
 	border: 0;
-    font-size: 1em;
+    font-size: 0.985em;
     font-family: 'Roboto', sans-serif;
     vertical-align: baseline;
     background-color: var(--main-bg);
@@ -236,6 +236,11 @@ article {
     width: auto;
 }
 
+code {
+    background-color: beige;
+    font-size: 1.2em;
+}
+
 article.card, aside {
     border-radius: var(--card-border-radius);
     background-color: var(--card-bg);
@@ -319,8 +324,9 @@ input[name=end]:hover {
 }
 
 a.pwdch {
-    text-decoration:none;
-    color: var(--header-color);    
+    /* text-decoration:none; */
+    color: var(--header-color); 
+    font-weight: bold;  
 }
 
 a.pwdch:hover {

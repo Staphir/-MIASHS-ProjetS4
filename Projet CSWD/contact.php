@@ -24,9 +24,9 @@ if (empty($_SESSION)) {
         $config = HTMLPurifier_Config::createDefault();
         $config->set('Core.Encoding', 'ISO-8859-1');
         $config->set('Cache.DefinitionImpl', null); // TODO: remove this later!
-        $config->set('HTML.Allowed', 'a[href],i,b,img[src],font[style|size],ol,ul,li,br');
-     
+        $config->set('HTML.Allowed', $HTMLAllowed_Description);
         $purifier = new HTMLPurifier($config);
+        
         $user_comment = $purifier->purify($_POST['comment']);
 
         $valid_email = \PHPMailer::ValidateAddress($_POST["email"]);

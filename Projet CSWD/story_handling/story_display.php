@@ -3,10 +3,28 @@ $menu["title"] = "Mes histoires";
 $dir1 = "../"; $dir2 = "../";
 include("../main_header.php");
 
+$config = HTMLPurifier_Config::createDefault();
+$config->set('Core.Encoding', 'ISO-8859-1');
+$config->set('Cache.DefinitionImpl', null); // TODO: remove this later!
+$config->set('HTML.Allowed', $HTMLAllowed_Description);
+$purifier = new HTMLPurifier($config);
+
 if(!isset($_POST["story_id"]) or empty($_POST["story_id"])) {
     header("location: my_stories.php");
 } else {
     $id_story_choosed = $_POST['story_id'];
+
+    if (!empty($_POST['bkpDesc'])) { // Les infos sur la description sont présentes
+        if (!empty($_POST['stream'])) { // On prend en priorité le code dans l'input visible
+            $description = $purifier->purify($_POST['stream']);
+        } else {
+            $description = $purifier->purify($_POST['bkpDesc']);
+        }
+        $query = "UPDATE story SET description = ? WHERE id = ? ;";
+        $result = $pdo->prepare($query);
+        $result->execute(array($description, $_POST["story_id"]));
+    }
+
 
     $query="SELECT * FROM story WHERE story.id = ? AND user_id = ? ";
     $result=$pdo->prepare($query);
@@ -24,8 +42,28 @@ if(!isset($_POST["story_id"]) or empty($_POST["story_id"])) {
         <section>
             <article class="card">
                 <div>
-                    <?php echo "<h2 style='text_align:center;'>".$row[0]["title"]."</h2><hr>";
-
+                    <?php echo "<h2 style='text_align:center;'>".$row[0]["title"]."</h2><hr>"; ?>
+                    <form method='post'>
+                        <?php 
+                        echo "<input type='hidden' name='story_id' value=".$_POST["story_id"].">"; 
+                        echo "<input type='hidden' name='bkpDesc' value='' id='hiddenDesc'>";
+                        ?>
+                        <fieldset style='padding:0px; border-radius:5px; border:1px solid black;'>
+                                <legend style='margin-left:10px;'>Description <img id='editImg' alt='Edit' src='../images/edit.png' width=17 onclick="modifyDescription();getDesc();" >
+                                <input type='image' src='../images/save.png' width=15 onmouseout="this.src='../images/save.png'" onmouseover="this.src='../images/saveActive.png'"></legend>
+                                <div style='margin:10px; padding:0px;'><div id='descriptionContainer' style='padding:0px; margin:0px;'>
+                                    <?php echo $row[0]["description"]; ?>
+                                </div></div>
+                                
+                        </fieldset>
+                    </form>
+                    <div style='font-size:0.60em; margin:5px; padding:0px;'>
+                    <p style='margin:0px;'>
+                        Storystoire prend en charge le code HTML pour la mise en forme des textes ! 
+                        <a style='margin:0px; color:grey' target="_blank" href='../rules.php?#formatage' >Voir les règles d'écriture et de formatage d'histoire</a>
+                    </p>
+                    <div>
+                    <?php 
                     if($first_step == NULL){
                         ?>
                         <form action="create_step.php" method="post">
@@ -173,6 +211,7 @@ if(!isset($_POST["story_id"]) or empty($_POST["story_id"])) {
             <input type="hidden" id="parent" name="parent" value="0">
             <input type="hidden" id="step_or_choice" name="step_or_choice" value="step">
         </form>
+        <script src="script.js"></script>
         <script src="../scripts_tree/treetodiagram.js"></script>
         <script src="../scripts_tree/layoutText.js"></script>
         <script src="../scripts_tree/gup.js"></script>
