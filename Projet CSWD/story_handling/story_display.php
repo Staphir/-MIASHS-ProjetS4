@@ -12,10 +12,10 @@ $config->set('Cache.DefinitionImpl', null); // TODO: remove this later!
 $config->set('HTML.Allowed', $HTMLAllowed_Description);
 $purifier = new HTMLPurifier($config);
 
-if(!isset($_POST["story_id"]) or empty($_POST["story_id"])) {
+if(!isset($_POST["id_story"]) or empty($_POST["id_story"])) {
     header("location: my_stories.php");
 } else {
-    $id_story_choosed = $_POST['story_id'];
+    $id_story_choosed = $_POST['id_story'];
 
     if (!empty($_POST['bkpDesc'])) { // Les infos sur la description sont présentes
         if (!empty($_POST['stream'])) { // On prend en priorité le code dans l'input visible
@@ -25,7 +25,7 @@ if(!isset($_POST["story_id"]) or empty($_POST["story_id"])) {
         }
         $query = "UPDATE story SET description = ? WHERE id = ? ;";
         $result = $pdo->prepare($query);
-        $result->execute(array($description, $_POST["story_id"]));
+        $result->execute(array($description, $_POST["id_story"]));
     }
 }
 
@@ -65,7 +65,7 @@ if(!isset($_POST["id_story"]) or empty($_POST["id_story"])){
                     <?php echo "<h2 style='text_align:center;'>".$row[0]["title"]."</h2><hr>"; ?>
                     <form method='post'>
                         <?php 
-                        echo "<input type='hidden' name='story_id' value=".$_POST["story_id"].">"; 
+                        echo "<input type='hidden' name='id_story' value=".$_POST["id_story"].">"; 
                         echo "<input type='hidden' name='bkpDesc' value='' id='hiddenDesc'>";
                         ?>
                         <fieldset style='padding:0px; border-radius:5px; border:1px solid black;'>
