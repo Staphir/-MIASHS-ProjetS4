@@ -6,6 +6,7 @@
     },
     "require": {
         "phpmailer/phpmailer": "5.2.26",
-        "league/oauth2-google": "^2.0"
+        "league/oauth2-google": "^2.0",
+        "ezyang/htmlpurifier":"dev-master"
     }
 }

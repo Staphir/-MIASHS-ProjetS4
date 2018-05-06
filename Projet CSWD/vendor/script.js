@@ -32,16 +32,6 @@ function ajout_champ() {
 
 }
 
-function ajout_champ_enfant(text) {
-    ajout_champ();
-    var nbChoix = document.getElementById("choix").childNodes.length;
-    var idChoix = "choix"+(nbChoix-1);
-    var champEnfant = document.getElementById(idChoix);
-    console.log(text);
-    champEnfant.placeholder = "";
-    champEnfant.value = text;
-}
-
 function supp_champ(nbChoix) {
     var li = document.getElementById("div"+nbChoix);
     li.outerHTML = "";

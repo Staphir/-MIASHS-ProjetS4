@@ -4,13 +4,14 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit5b8a9daed1ad0f0c9a747ec28101ac97
+class ComposerStaticInita303411df15ff62a24662ab65fce32ac
 {
     public static $files = array (
         'c964ee0ededf28c96ebd9db5099ef910' => __DIR__ . '/..' . '/guzzlehttp/promises/src/functions_include.php',
         'a0edc8309cc5e1d60e3047b5df6b7052' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/functions_include.php',
         '37a3dc5111fe8f707ab4c132ef1dbc62' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/functions_include.php',
         '5255c38a0faeba867671b61dfda6d864' => __DIR__ . '/..' . '/paragonie/random_compat/lib/random.php',
+        '2cffec82183ee1cea088009cef9a6fc3' => __DIR__ . '/..' . '/ezyang/htmlpurifier/library/HTMLPurifier.composer.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -54,6 +55,16 @@ class ComposerStaticInit5b8a9daed1ad0f0c9a747ec28101ac97
         ),
     );
 
+    public static $prefixesPsr0 = array (
+        'H' => 
+        array (
+            'HTMLPurifier' => 
+            array (
+                0 => __DIR__ . '/..' . '/ezyang/htmlpurifier/library',
+            ),
+        ),
+    );
+
     public static $classMap = array (
         'EasyPeasyICS' => __DIR__ . '/..' . '/phpmailer/phpmailer/extras/EasyPeasyICS.php',
         'PHPMailer' => __DIR__ . '/..' . '/phpmailer/phpmailer/class.phpmailer.php',
@@ -68,9 +79,10 @@ class ComposerStaticInit5b8a9daed1ad0f0c9a747ec28101ac97
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit5b8a9daed1ad0f0c9a747ec28101ac97::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit5b8a9daed1ad0f0c9a747ec28101ac97::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInit5b8a9daed1ad0f0c9a747ec28101ac97::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInita303411df15ff62a24662ab65fce32ac::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInita303411df15ff62a24662ab65fce32ac::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInita303411df15ff62a24662ab65fce32ac::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInita303411df15ff62a24662ab65fce32ac::$classMap;
 
         }, null, ClassLoader::class);
     }

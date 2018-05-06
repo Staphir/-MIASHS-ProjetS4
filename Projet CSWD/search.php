@@ -2,6 +2,7 @@
 $menu["title"] = "Rechercher";
 include("main_header.php");
 
+
 $query = "SELECT title, story.likes, username, story.id, description, publishedon FROM story INNER JOIN user ON story.user_id = user.id WHERE title like '%".$search."%' AND published = 1 ORDER BY `story`.`likes` DESC";
 $result = $pdo->prepare($query);
 $result->execute(array($search));
