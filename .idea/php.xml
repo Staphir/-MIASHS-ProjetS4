@@ -11,6 +11,7 @@
       <path value="$PROJECT_DIR$/Projet CSWD/vendor/league/oauth2-client" />
       <path value="$PROJECT_DIR$/Projet CSWD/vendor/league/oauth2-google" />
       <path value="$PROJECT_DIR$/Projet CSWD/vendor/psr/http-message" />
+      <path value="$PROJECT_DIR$/Projet CSWD/vendor/ezyang/htmlpurifier" />
     </include_path>
   </component>
 </project>

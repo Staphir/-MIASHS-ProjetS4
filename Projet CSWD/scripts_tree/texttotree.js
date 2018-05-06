@@ -7,6 +7,7 @@ function textToTree(text) {
     var rootNode = {label: "root",
         type: "",//ajout
         id_parent: "",//ajout
+        id_element: "",//ajout
         parent: "",
         children: []};
 
@@ -16,7 +17,8 @@ function textToTree(text) {
 
         var line = lines[idx];
         var step_or_choice = type[idx];//ajout
-        var id = id_parents[idx];//ajout
+        var id_par = id_parents[idx];//ajout
+        var id_elem = id_element[idx];//ajout
         var content = line.trim();
         if (!content.length)
             continue;
@@ -28,7 +30,8 @@ function textToTree(text) {
         var parent = stackParents[stackParents.length - 1];
         var node = {label: content,
             type: step_or_choice,//ajout
-            id_parent: id,//ajout
+            id_parent: id_par,//ajout
+            id_element: id_elem,//ajout
             parent: parent,
             children: []};
         parent.children.push(node);

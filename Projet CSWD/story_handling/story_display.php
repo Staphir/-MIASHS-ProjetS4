@@ -20,7 +20,6 @@ if(!isset($_POST["id_story"]) or empty($_POST["id_story"])){
     }else{
         $id_story_choosed = $_POST['id_story'];
     }
-//    echo $id_story_choosed;
     $query="SELECT * FROM story WHERE story.id = ? AND user_id = ? ";
     $result=$pdo->prepare($query);
     $result->execute(array($id_story_choosed, $_SESSION["user_id"]));
@@ -29,7 +28,6 @@ if(!isset($_POST["id_story"]) or empty($_POST["id_story"])){
     if (empty($row)) {
         header("location: my_stories.php");
     } else {
-//        echo "WHAT !!!!";
         $query_first_step="SELECT * FROM step LEFT JOIN story ON step.id_story = story.id WHERE story.id = ? AND step.id_choice = 0 ";
         $response_first_step=$pdo->prepare($query_first_step);
         $response_first_step->execute(array($id_story_choosed));
@@ -45,6 +43,8 @@ if(!isset($_POST["id_story"]) or empty($_POST["id_story"])){
                         <form action="create_step.php" method="post">
                             <input type="hidden" name="id_story" value="<?php echo $id_story_choosed ?>">
                             <input type="hidden" name="parent" value="0">
+                            <input type="hidden" id="step_or_choice" name="step_or_choice" value="Step">
+                            <input type="hidden" name="id" value="<?php echo $first_step[0]["id"] ?>">
                             <input type="submit" name="new_step" value="Nouvelle étape">
                         </form>
                     <?php }else{
@@ -150,24 +150,26 @@ if(!isset($_POST["id_story"]) or empty($_POST["id_story"])){
 
                     $id_parents_list = array();
                     $step_or_choice = array();
+                    $id_list = array();
                     $id_parents_list[0] = 0;
                     $step_or_choice[0] = "Step";
+                    $id_list[0] = $finalList[0]->id;
                     for($i=1; $i<count($finalList); $i++){
                         array_push($id_parents_list, $finalList[$i]->parent->id);
                         array_push($step_or_choice, get_class($finalList[$i]));
+                        array_push($id_list, $finalList[$i]->id);
                     }
                     ?>
 
                         <script type="text/javascript">
                             var id_parents = <?php echo json_encode($id_parents_list); ?>;
                             var type = <?php echo json_encode($step_or_choice); ?>;
+                            var id_element = <?php echo json_encode($id_list); ?>;
                         </script>
 
                         <?php
                         echo "<textarea id='treeEntry' hidden>";
-//                        echo $id_story."%0%".$finalList[0]->content;
                         for($i=0;$i<count($finalList);$i++){
-//                            echo "\n".$id_story."%".$finalList[$i]->parent->id."%";
                             for($j=0;$j<$finalList[$i]->deep;$j++){
                                 echo " ";
                             }
@@ -188,6 +190,7 @@ if(!isset($_POST["id_story"]) or empty($_POST["id_story"])){
             <input type="hidden" name="id_story" value="<?php echo $id_story_choosed; ?>">
             <input type="hidden" id="parent" name="parent" value="0">
             <input type="hidden" id="step_or_choice" name="step_or_choice" value="Step">
+            <input type="hidden" id= "id" name="id" value="<?php echo $first_step[0]["id"] ?>">
         </form>
         <script src="../scripts_tree/treetodiagram.js"></script>
         <script src="../scripts_tree/layoutText.js"></script>

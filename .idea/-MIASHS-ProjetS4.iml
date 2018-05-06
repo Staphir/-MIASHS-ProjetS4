@@ -3,6 +3,7 @@
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$">
       <excludeFolder url="file://$MODULE_DIR$/Projet CSWD/vendor/composer" />
+      <excludeFolder url="file://$MODULE_DIR$/Projet CSWD/vendor/ezyang/htmlpurifier" />
       <excludeFolder url="file://$MODULE_DIR$/Projet CSWD/vendor/guzzlehttp/guzzle" />
       <excludeFolder url="file://$MODULE_DIR$/Projet CSWD/vendor/guzzlehttp/promises" />
       <excludeFolder url="file://$MODULE_DIR$/Projet CSWD/vendor/guzzlehttp/psr7" />

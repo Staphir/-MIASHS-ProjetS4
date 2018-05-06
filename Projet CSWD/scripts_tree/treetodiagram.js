@@ -269,7 +269,7 @@ function treeToDiagram(tree, diagramSvg, diagramGroup, options) {
                 rect.setAttribute(widthAttribute, widthRect);
                 rect.setAttribute(heightAttribute, heightRect);
 
-                var rectId = node.id_parent+"_"+node.type;
+                var rectId = node.id_parent+"_"+node.type+"_"+node.id_element;
                 rect.setAttribute("id", rectId);
                 rect.addEventListener("click", rectonclick);
                 i++;
@@ -344,5 +344,6 @@ function rectonclick(e) {
 
     document.getElementById("parent").value = idSplit[0];
     document.getElementById("step_or_choice").value = idSplit[1];
+    document.getElementById("id").value = idSplit[2];
     document.getElementById("infos_click").submit();
 }
