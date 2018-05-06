@@ -1,7 +1,7 @@
 <?php 
 require_once("../user_handling/config.php");
 require_once("../user_handling/session.php");
-include("vendor/autoload.php");
+include('../vendor/autoload.php');
 
 $config = HTMLPurifier_Config::createDefault();
 $config->set('Core.Encoding', 'ISO-8859-1');

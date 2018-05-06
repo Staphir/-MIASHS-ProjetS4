@@ -13,7 +13,7 @@ include("main_header.php");
     <article class="card">
         <div>
             <h2>Charte d'utilisation</h2><hr>
-            <p>Il est important d'avoir lu et d'accepter la charte d'utilisation du site Storystoire pour pouvoir l'utiliser. Vous trouverez aussi avec des informations assez importantes quant l'utilisation du site.</p>
+            <p>Il est important d'avoir lu et d'accepter la charte d'utilisation du site Storystoire pour pouvoir l'utiliser. Vous y trouverez avec des informations assez importantes quant à l'utilisation du site.</p>
             <p><a class='pwdch' href='rules.php'>Accéder à la charte d'utilisation</a></p>
         </div>
     </article>
