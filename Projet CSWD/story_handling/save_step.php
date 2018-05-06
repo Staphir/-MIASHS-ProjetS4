@@ -1,4 +1,6 @@
-<?php require_once("../user_handling/config.php");
+<?php 
+require_once("../user_handling/config.php");
+require_once("../user_handling/session.php");
 include("vendor/autoload.php");
 
 $config = HTMLPurifier_Config::createDefault();
@@ -14,6 +16,7 @@ $step = $purifier->purify($_POST["step"]);
 $is_story = $_POST["id_story"];
 $choice_parent = $_POST["parent"];
 $nb_choice = $_POST["nb_choix"];
+$_SESSION["id_story"] = $is_story;
 $tab_choices = array();
 
 $config = HTMLPurifier_Config::createDefault();

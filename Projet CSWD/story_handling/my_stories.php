@@ -5,7 +5,7 @@ require_once("../user_handling/session.php");
 $menu["title"] = "Mes histoires";
 $dir1 = "../"; $dir2 = "../";
 include("../main_header.php");
-
+$_SESSION["id_story"] = null;
 $requete="SELECT * FROM story WHERE user_id = ?";
 $reponse=$pdo->prepare($requete);
 $reponse->execute(array($_SESSION["user_id"]));
@@ -48,7 +48,7 @@ $array_stories = $reponse->fetchAll(PDO::FETCH_ASSOC);
         function choiceStory(id_story){
             var input_id_story = document.createElement("input");
             input_id_story.type = "hidden";
-            input_id_story.name = "story_id";
+            input_id_story.name = "id_story";
             input_id_story.value = id_story;
             document.getElementById("form_display").appendChild(input_id_story);
             document.getElementById("form_display").submit();
