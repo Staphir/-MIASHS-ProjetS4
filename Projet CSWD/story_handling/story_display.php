@@ -40,22 +40,12 @@ if(!isset($_POST["id_story"]) or empty($_POST["id_story"])){
         $response_first_step->execute(array($id_story_choosed));
         $first_step = $response_first_step->fetchall(PDO::FETCH_ASSOC);
         ?>
-        <section>
+        <section style='margin-left:-60px;'>
             <article class="card">
                 <div>
                     <?php echo "<h2 style='text_align:center;'>".$row[0]["title"]."</h2>"; ?><hr>
-                    <div style='display:inline-block;margin:0px; padding:0px;width:auto'>
-                        <p class='alert' style='font-size:1.4em;padding:0px;margin:0px;'>Publier</p><label class="switch">
-                            <input type="checkbox" <?php echo ($row[0]['published'])?'checked':''; ?> id='publishedCheckbox'>
-                            <span class="slider round"></span>
-                        </label>
-                    </div>
-                    <div style='display:inline-block;margin:0px; padding:0px;width:auto'>
-                        <!-- <p class='alert' style='font-size:1.35em;padding:0px;margin:0px;'>Supprimer</p> -->
-                        <img alt='Supprimer' style='margin-left:15px;' src="../images/trash.png" width=40 id="deleteStory" onmouseover="this.src='../images/trash_hover.png'" onmouseout="this.src='../images/trash.png'" onmousedown="this.src='../images/trash_down.png'">
-                    </div><hr>
-                    <fieldset style='padding:0px; border-radius:5px; border:1px solid black;'>
-                        <legend style='margin-left:10px;'>Description <img id='editDescImg' alt='Edit' src='../images/edit.png' width=17 onclick='modifyDescription();getDesc();'>
+                    <fieldset style='padding:0px; border-radius:5px; border:1px solid black;margin-top:20px'>
+                        <legend style='margin-left:20px;'>Description <img id='editDescImg' alt='Edit' src='../images/edit.png' width=17 onclick='modifyDescription();getDesc();'>
                         <img id='saveDesc' src='../images/save.png' alt='save' width=15></legend>
                         <div style='margin:10px; padding:0px;'>
                             <style>
@@ -77,12 +67,6 @@ if(!isset($_POST["id_story"]) or empty($_POST["id_story"])){
                             </div>
                         </div>
                     </fieldset>
-                    <div style='font-size:0.60em; margin:5px; padding:0px;'>
-                    <p style='margin:0px;'>
-                        Storystoire prend en charge le code HTML pour la mise en forme des textes ! 
-                        <a style='margin:0px; color:grey' target="_blank" href='../rules.php?#formatage' >Voir les règles d'écriture et de formatage d'histoire</a>
-                    </p>
-                    <div style='padding:0px;margin:0px;'>
                     <?php 
                     if($first_step == NULL){
                         ?>
@@ -232,6 +216,26 @@ if(!isset($_POST["id_story"]) or empty($_POST["id_story"])){
                 </div>
             </article>
         </section>
+        <aside class='storyParam' style='text-align:center'>
+            <div>
+                <label class="switch">
+                    <input type="checkbox" <?php echo ($row[0]['published'])?'checked':''; ?> id='publishedCheckbox'>
+                    <span class="slider round"></span>
+                </label>
+                <p class='alert' style='font-size:1.4em;padding:0px;margin:0px;'>Publier</p>
+            </div><hr>
+            <div>
+                <img alt='Supprimer' src="../images/trash.png" width=40 id="deleteStory" onmouseover="this.src='../images/trash_hover.png'" onmouseout="this.src='../images/trash.png'" onmousedown="this.src='../images/trash_down.png'">
+                <p class='alert' style='font-size:1.2em;padding:0px;margin:10px 0px;'>Supprimer</p>
+            </div><hr>
+            <div>
+                <a href='../rules.php#formatage' target='_blank'>
+                    <img alt='Règles HTML' src="../images/html.png" width=50 >
+                </a>
+                <p class='alert' style='font-size:1em;padding:0px;margin:0px;'>Règles HTML</p>
+            </div>
+        </aside>
+
         <form method="post" action="create_step.php" id="infos_click">
             <input type="hidden" name="id_story" value="<?php echo $id_story_choosed; ?>">
             <input type="hidden" id="parent" name="parent" value="0">

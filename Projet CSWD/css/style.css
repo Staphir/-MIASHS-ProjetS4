@@ -398,6 +398,21 @@ aside.top10 li a {
     text-align: left;
 }
 
+aside.storyParam {
+    width: 100px;
+    top:90px;
+    height:380px;
+}
+
+aside.storyParam div {
+    display:inline-block;
+    margin:20px 0px 10px 0px;
+    padding:0px;
+    width:auto;
+    background-color:inherit;
+    text-align:center;
+}
+
 .dropdown {
     position: relative;
     display: inline-block;
