@@ -13,7 +13,7 @@ $array_stories = $reponse->fetchAll(PDO::FETCH_ASSOC);
 ?>
     <section>
         <article class="card">
-            <div>
+            <div style='overflow:auto;'>
                 <h2>Vos histoires</h2><hr>
                 <form method="post" action="story_display.php" id="form_display">
                     <table id="customers">
