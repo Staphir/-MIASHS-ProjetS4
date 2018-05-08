@@ -33,6 +33,8 @@ $full_header = in_array($menu["title"], array("Accueil", "À propos", "Contact",
         <link href=<?php echo $dir1."css/style.css" ?> rel="stylesheet" type="text/css" media="all"/>
         <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,300i" rel="stylesheet">
         <link rel="shortcut icon" href=<?php echo $dir1."images/icon.png" ?>>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src=<?php echo $dir1."jquery/myJQueryFunctions.js"; ?>></script>
         <?php 
         require_once("user_handling/config.php");
         require_once("user_handling/session.php");

@@ -41,6 +41,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
                 <a href="update_password.php" class="pwdch">Mettre à jour le mot de passe</a>
                 <p>Adresse Email :</p><input type="email" name="email" placeholder="..." required>
                 <p>Mot de passe :</p><input type="password" name="password" placeholder="..." required>
+                Rester connecter
                 <input type="submit" style="margin-top:20px" value="Connexion">
                 Vous n'êtes toujours pas inscrit ? <a href="register.php">S'inscrire</a>
                 <p  class="alert"><?php echo $error ?></p>

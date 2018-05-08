@@ -1,6 +1,6 @@
-<!-- https://www.tutorialspoint.com/php/php_mysql_login.htm -->
-
-<?php //Codes de connexion à la base de données
+<?php 
+// https://www.tutorialspoint.com/php/php_mysql_login.htm
+//Codes de connexion à la base de données
 
 $HTMLAllowed_Choice = 'i,b,font[style|size|color]';
 $HTMLAllowed_Description = 'p[style],a[href],i,b,img[src],font[style|size|color],ol,ul,li,br';

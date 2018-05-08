@@ -52,7 +52,7 @@ div#saveData input {
 
 <section>
     <article class="card">
-        <div><form method='post'>
+        <div>
             <h2>Mon compte</h2><hr>
             <p>Vous trouverez ici les informations liées à votre compte</p>
             <div style="padding-top:0px"><ul class="spacedLi">
@@ -60,26 +60,35 @@ div#saveData input {
                 $img = "<a href=><img src=></a>";
                 echo "<li><p class='red'>Nom d'utilisateur : </p><p>".$row[0]['username']."</p></li>";
                 echo "<li><p class='red'>Adresse email : </p><p>".$row[0]['email']."</p></li>";
-
-                echo "<li id=firstnameContainer><p class='red'>Prenom : </p><p id='firstname'>".$row[0]['firstname']."</p>
-                    <img id='firstnameImg' alt='Edit' src='images/edit.png' width=17 onclick=modifyData('firstname')></li>";
-                echo "<li id=lastnameContainer><p class='red'>Nom : </p><p id='lastname'>".$row[0]['lastname']."</p>
-                    <img id='lastnameImg' alt='Edit' src='images/edit.png' width=17 onclick=modifyData('lastname')></li>";
-                
+                ?>
+                <li>
+                    <p class='red'>Prenom : </p>
+                    <img id='firstnameImg' alt='Edit' src='images/edit.png' width=17>
+                    <?php 
+                    echo "<p id='firstname'>".$row[0]['firstname']."</p>";
+                    echo "<input id='firstname' value='".$row[0]['firstname']."' placeholder='...' type='text' style='display:none;'>";
+                    ?>
+                </li>
+                <li>
+                    <p class='red'>Nom : </p>
+                    <img id='lastnameImg' alt='Edit' src='images/edit.png' width=17>
+                    <?php 
+                    echo "<p id='lastname'>".$row[0]['lastname']."</p>";
+                    echo "<input id='lastname' value='".$row[0]['lastname']."' placeholder='...' type='text' style='display:none;'>";
+                    ?>
+                </li>
+                <?php
                 $row[0]["joinedon"] = date('M j Y g:i A', strtotime($row[0]["joinedon"]));
                 echo "<li><p class='red'>Date d'inscription : </p><p>".$row[0]['joinedon']."</p></li>";
                 echo "<li><a class='pwdch' href='user_handling/change_password.php'>Changer de mot de passe</a></li>";
                 
-                echo "<input id='constantFirstname' type='hidden' value=".$row[0]['firstname'].">";
-                echo "<input id='constantLastname' type='hidden' value=".$row[0]['lastname'].">"
-
                 ?>
             </ul></div>
-            <div id='saveData'></div>
-        </form></div>
+            <?php echo "<input type='hidden' id='accountId' value='".$_SESSION['user_id']."'>"; ?>
+            <input value="Enregister les modification" id='submitAccountData' type="submit" style='width:auto;'>
+        </div>
     </article>
 </section>
-<script type="text/javascript" src="accountDataModify.js"></script>
 <?php }
 include('footer.php');
 ?>
