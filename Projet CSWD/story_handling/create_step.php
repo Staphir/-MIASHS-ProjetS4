@@ -29,8 +29,9 @@ if ($step_or_choice == "Step"){
 }
 
 ?>
-    <form action="save_step.php" method="post">
-        <section style="margin-right:-150px;">
+    
+    <section>
+        <form action="save_step.php" method="post">
             <article class="card">
                 <div>
                     <h2>Rédiger une étape</h2><hr>
@@ -50,26 +51,24 @@ if ($step_or_choice == "Step"){
                     ?>
                 </div>
             </article>
-        </section>
-        <section>
             <article class="card">
                 <div>
                     <h2>Ajouter des choix</h2><hr>
                     <div id="choix" style="background-color:transparent;">
                     </div>
                     <button type="button" class="ajt_chps" id="btn_ajout_champs" onclick="ajout_champ()">Ajouter un choix</button>
-                    <input type="submit" name="valid_step" value="Créer">
+                    <input type="button" name="valid_step" value="Créer - Ne fonctionne pas encore">
                 </div>
             </article>
-        </section>
-    </form>
+        </form>
+    </section>
     <script type="text/javascript" src="script.js"></script>
-<?php if ($step_or_choice == "Step" && $steps_childs != null) {
-    for ($i = 0; $i < count($choices_childs); $i++) {
-        ?>
-        <script type='text/javascript'> ajout_champ_enfant(<?php echo $choices_childs[$i]["content"]; ?>); </script>
-        <?php
+    <?php
+    if ($step_or_choice == "Step" && $steps_childs != null) {
+        for ($i = 0; $i < count($choices_childs); $i++) {
+            ?>
+            <script type='text/javascript'> ajout_champ_enfant(<?php echo $choices_childs[$i]["content"]; ?>); </script>
+            <?php
+        }
     }
-}
-?>
-<?php include("../footer.php"); ?>
+    include("../footer.php"); ?>
