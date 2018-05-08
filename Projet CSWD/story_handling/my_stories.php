@@ -41,7 +41,10 @@ $array_stories = $reponse->fetchAll(PDO::FETCH_ASSOC);
                         } ?>
                     </table>
                 </form>
-            </div>
+                <form action='create_story.php'>
+                    <input type=submit value='Créer une nouvelle histoire' style='margin-top:20px;width:auto;float:right;'>
+                </form>
+            </div><div  style='clear:both;'></div>
         </article>
     </section>
     <script>

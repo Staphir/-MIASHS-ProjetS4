@@ -19,6 +19,7 @@ $(document).ready(function(){
                 $('#textAreaDesc').hide();
                 $('#container').show();
 
+                $('img#editDescImg').attr('src', '../images/edit.png');
                 alert('Description mise à jour.');
             }
         });
@@ -70,11 +71,49 @@ $(document).ready(function(){
                 $('p#firstname').show();
                 $('p#lastname').show();
 
+                $('img#firstnameImg').attr('src', 'images/edit.png');
+                $('img#lastnameImg').attr('src', 'images/edit.png');
+
                 alert('Nom, Prénom mis à jour !');
             }
         });
     });
+    // ***
 
+    // Publish story
+    $('#publishedCheckbox').click(function () {
+        var published = $('#publishedCheckbox').prop('checked')?1:0;
+        StoryId = $('input#idStory').val();
+        $.ajax({
+            type: "POST",
+            url: "../jquery/publish.php",   
+            data: {
+                id:StoryId,
+                published:published
+            }
+        });
+    });
+    // ***
+
+    // Delete story
+    $('img#deleteStory').click(function () {
+        if (confirm("Etes-vous sûr(e) de vouloir supprimer cette histoire ? Une fois l'opération effectuée vous ne pourrez plus la récupérer.")) {
+            StoryId = $('input#idStory').val();
+            $.ajax({
+                type: "POST",
+                url: "../jquery/deleteStory.php",   
+                data: {
+                    id:StoryId
+                },
+                success: function () {
+                    window.location.replace("my_stories.php");
+                }
+            });
+        }
+        
+
+    });
+    // ***
 });
 
 function imgSrcAlternate(img, src1, src2) {

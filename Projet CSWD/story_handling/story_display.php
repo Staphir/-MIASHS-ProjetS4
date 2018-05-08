@@ -43,7 +43,17 @@ if(!isset($_POST["id_story"]) or empty($_POST["id_story"])){
         <section>
             <article class="card">
                 <div>
-                    <?php echo "<h2 style='text_align:center;'>".$row[0]["title"]."</h2><hr>"; ?>
+                    <?php echo "<h2 style='text_align:center;'>".$row[0]["title"]."</h2>"; ?><hr>
+                    <div style='display:inline-block;margin:0px; padding:0px;width:auto'>
+                        <p class='alert' style='font-size:1.4em;padding:0px;margin:0px;'>Publier</p><label class="switch">
+                            <input type="checkbox" <?php echo ($row[0]['published'])?'checked':''; ?> id='publishedCheckbox'>
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+                    <div style='display:inline-block;margin:0px; padding:0px;width:auto'>
+                        <!-- <p class='alert' style='font-size:1.35em;padding:0px;margin:0px;'>Supprimer</p> -->
+                        <img alt='Supprimer' style='margin-left:15px;' src="../images/trash.png" width=40 id="deleteStory" onmouseover="this.src='../images/trash_hover.png'" onmouseout="this.src='../images/trash.png'" onmousedown="this.src='../images/trash_down.png'">
+                    </div><hr>
                     <fieldset style='padding:0px; border-radius:5px; border:1px solid black;'>
                         <legend style='margin-left:10px;'>Description <img id='editDescImg' alt='Edit' src='../images/edit.png' width=17 onclick='modifyDescription();getDesc();'>
                         <img id='saveDesc' src='../images/save.png' alt='save' width=15></legend>
@@ -72,7 +82,7 @@ if(!isset($_POST["id_story"]) or empty($_POST["id_story"])){
                         Storystoire prend en charge le code HTML pour la mise en forme des textes ! 
                         <a style='margin:0px; color:grey' target="_blank" href='../rules.php?#formatage' >Voir les règles d'écriture et de formatage d'histoire</a>
                     </p>
-                    <div>
+                    <div style='padding:0px;margin:0px;'>
                     <?php 
                     if($first_step == NULL){
                         ?>
@@ -81,7 +91,7 @@ if(!isset($_POST["id_story"]) or empty($_POST["id_story"])){
                             <input type="hidden" name="parent" value="0">
                             <input type="hidden" id="step_or_choice" name="step_or_choice" value="Step">
                             <input type="hidden" name="id" value="<?php echo $first_step[0]["id"] ?>">
-                            <input type="submit" name="new_step" value="Nouvelle étape">
+                            <input type="submit" name="new_step" style='width:auto;margin-top:10px;' value="Démarrer l'écriture">
                         </form>
                     <?php }else{
                     $query_steps="SELECT * FROM step WHERE id_story = ? ORDER BY step.id";
