@@ -27,9 +27,9 @@ $array_stories = $reponse->fetchAll(PDO::FETCH_ASSOC);
                         </tr>
                         <?php
                         for ($i=0; $i<count($array_stories); $i++) {
-                            $createdon = date('M j Y g:i A', strtotime($array_stories[$i]["createdon"]));
-                            $publishedon = date('M j Y g:i A', strtotime($array_stories[$i]["publishedon"]));
-                            $lastmodifiedon = date('M j Y g:i A', strtotime($array_stories[$i]["lastmodifiedon"]));
+                            $createdon = date('M j Y G:i ', strtotime($array_stories[$i]["createdon"]));
+                            $publishedon = date('M j Y G:i', strtotime($array_stories[$i]["publishedon"]));
+                            $lastmodifiedon = date('M j Y G:i', strtotime($array_stories[$i]["lastmodifiedon"]));
                             $story = $array_stories[$i]["id"];
                             echo "<tr onclick='choiceStory($story)'>";
                             echo "<td>".$array_stories[$i]["title"]."</td>";

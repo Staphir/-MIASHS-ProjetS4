@@ -10,7 +10,7 @@ $purifier = new HTMLPurifier($config);
 
 $description = $purifier->purify($_POST['description']);
 
-$query = "UPDATE story SET description = ? WHERE id = ? ;";
+$query = "UPDATE story SET description = ?, lastmodifiedon = NOW() WHERE id = ? ;";
 $result = $pdo->prepare($query);
 $result->execute(array($description, $_POST["id"]));
 echo $description;
