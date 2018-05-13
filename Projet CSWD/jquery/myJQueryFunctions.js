@@ -1,18 +1,20 @@
 $(document).ready(function(){
+    var path = $('#mainicon').attr('src');
+    path = path.replace('icon.png', '');
     function showSideBar() {
-        $('.sideBar').css('width', '230');
-        $('div#layer').fadeIn('fast');
+        $('.sideBar').css('width', '226');
+        $('div.layer').css('width', '100%');
         $('#hamburger').fadeOut('fast');
         $('#hamburger').finish();
-        $('#hamburger').html('&times');
+        $('#hamburger').attr('src', path+'close.png');
         $('#hamburger').fadeIn('fast');
     };
     function hideSideBar(){
         $('.sideBar').css('width', '0');
-        $('div#layer').fadeOut('fast');
+        $('div.layer').css('width', '0%');
         $('#hamburger').fadeOut('fast');
         $('#hamburger').finish();
-        $('#hamburger').html('☰');
+        $('#hamburger').attr('src', path+'sideBarMenu.png');
         $('#hamburger').fadeIn('fast');
     }
     $('#hamburger').click(function(){
@@ -23,11 +25,10 @@ $(document).ready(function(){
         }
     });
     $(document).click(function(event){
-        if (event.target.id == 'layer') {
+        if (event.target.className == 'layer') {
             hideSideBar();
         }
     })
-
     $('#mainHeaderTitle').click(function(){
         var path = $('#mainicon').attr('src');
         path = path.replace('images/icon.png', 'index.php');
