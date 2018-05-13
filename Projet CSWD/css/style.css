@@ -125,6 +125,7 @@ ul.menu li.menuitem a, ul.menu li.menuitem p, .userbtn, .log_b {
     color: white;
     margin: 0px 7px 0px 7px; /*H D B G*/
     background-color: var(--nav-but-bg);
+    font-size:1.05em;
 }
 
 ul.menu li.bef{
