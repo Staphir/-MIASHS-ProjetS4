@@ -48,5 +48,3 @@ function supp_champ(nbChoix) {
 
     document.getElementById("nb_choix").value--;
 }
-
-ajout_champ();

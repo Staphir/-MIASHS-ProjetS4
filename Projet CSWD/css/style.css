@@ -6,7 +6,7 @@
     --nav-search-accent: rgba(194, 3, 3, 0.815);
     --nav-bg: white;
     --nav-but-bg: transparent;
-    --nav-but-hover: rgba(175, 0, 0);
+    --nav-but-hover: rgb(175, 0, 0);
     --nav-but-hover-fg: rgb(255, 255, 255);
     --nav-but-active-bg: rgb(160, 0, 0);
     --nav-but-active-fg: rgb(255, 255, 255);
@@ -416,7 +416,7 @@ div.search div{
     border:none;
     margin:0px;
     /* padding-bottom:5px;  */
-    padding-top:5px 0px 5px 0px;
+    padding-top:5px;
     white-space: nowrap;
     overflow:hidden;
     text-overflow:ellipsis;
@@ -599,7 +599,7 @@ div.layer {
     top:0px; bottom:0px; 
     left:0px; 
     right:0px; 
-    width:0%; 
+    width:0%;
     height:100%; 
     z-index:0; 
     background-color:rgba(0, 0, 0, 0.097);
@@ -743,4 +743,8 @@ input:checked + .slider:before {
     aside.storyParam{
         right:18px;
     }
+}
+
+#treeEntry, #options, #styles{
+    display: none;
 }
