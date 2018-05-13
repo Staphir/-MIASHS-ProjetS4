@@ -3,7 +3,7 @@ $dir1 = "../";
 $error = ""; $menu["title"] = "Connexion";
 include("../main_header.php");
 
-if (count($_SESSION) != 0) {
+if (isset($_SESSION) && count($_SESSION) != 0) {
     header("location: ../index.php");
 }
 

@@ -4,8 +4,8 @@
         <title>Storystoire</title>
     </head>
     <body>
-        <p>Site en maintenance pour des raisons de sécurité.</p>
-        <p>Merci de votre compréhension. - L'équipe</p>
+        <?php echo count($_SESSION), '  ', empty($_SESSION)?'true':'false'; ?>
+        <p>Merci de patienter. - L'équipe</p>
         <p>Version PHP : <?php echo phpversion() ?></p>
     </body>
 </html>

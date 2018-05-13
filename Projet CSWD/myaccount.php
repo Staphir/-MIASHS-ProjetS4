@@ -166,7 +166,7 @@ if (!$isConnected) {
             <div style='display:inline-flex; margin:0px;padding:0px;'>
                 <?php
                 $img = (file_exists($path = "images/users/".$_SESSION['user_id'].".png"))?$path:'images/addPic.png';
-                echo "<img id='AccountImgModalBtn' alt='Ajouter une image' src='".$img."' style='cursor:pointer;border-radius:100px;margin:10px 10px 0px 0px;' height=40>";
+                echo "<img id='AccountImgModalBtn' alt='Ajouter une image' src='".$img."' style='cursor:pointer;border-radius:100px;margin:10px 10px 0px 0px;' width=40 height=40>";
                 ?>
                 <h2 style='padding-top: 15px;margin-bottom: 0px;'>Mon compte</h2>
             </div>
