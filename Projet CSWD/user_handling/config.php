@@ -3,7 +3,7 @@
 //Codes de connexion à la base de données
 
 $HTMLAllowed_Choice = 'i,b,font[style|size|color]';
-$HTMLAllowed_Description = 'p[style],a[href],i,b,img[src],font[style|size|color],ol,ul,li,br';
+$HTMLAllowed_Description = 'p[style],a[href],i,b,font[style|size|color],br';
 $HTMLAllowed_Step = 'p[style],i,b,img[src|alt],font[style|size|color],ol,ul,li,br';
 $HTMLAllowed_Title = 'i,b,font[style|size|color]';
 
@@ -18,6 +18,9 @@ $config_base['nom_base']    = "projet_cswd";
 // $config_base['utilisateur'] = "mdevreese";
 // $config_base['motdepasse']  = "riEa#U%0";
 // $config_base['nom_base']    = "mdevreese";
+
+$cookie_path = ($config_base['hote']=="127.0.0.1")?'/-MIASHS-ProjetS4/Projet%20CSWD/':'/~mdevreese/cswd/projet2018/';
+
 
 // connexion a la base de donnees
 try
