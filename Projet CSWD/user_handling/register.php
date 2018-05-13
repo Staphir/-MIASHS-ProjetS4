@@ -24,7 +24,6 @@ if (isset($_POST) && (!empty($_POST))) {
     $config->set('HTML.Allowed', '');
  
     $purifier = new HTMLPurifier($config);
-    $user_comment = $purifier->purify($_POST['comment']);
 
     $newuser = array();
     $newuser["Password"] = $_POST["password"];
@@ -129,15 +128,15 @@ if (isset($_POST) && (!empty($_POST))) {
 $dir1 = "../";
 include("../main_header.php");
 ?>
+<form method="post">
 <section style="margin-right:-150px;">
-    <article class="card">
+    <article class="card" style='margin-top:70px'>
         <div>
-            <form action="" method="post">
-                <h2>Inscription</h2><hr>
-                <p>* Nom d'utilisateur :</p><input type="text" name="username" placeholder="..." required <?php echo 'value='.$newuser['Username']; ?>>
-                <p>* Adresse Email :</p><input type="email" name="email" placeholder="..." required <?php echo "value=".$newuser["Email"]; ?>>
-                <p>* Mot de passe :</p><input type="password" name="password" placeholder="..." required>
-                <p>* Confirmation de mot de passe :</p><input type="password" name="c_password" placeholder="..." required>
+            <h2>Inscription</h2><hr>
+            <p>* Nom d'utilisateur :</p><input type="text" name="username" placeholder="..." required <?php echo 'value='.($newuser['Username'])?$newuser['Username']:""; ?>>
+            <p>* Adresse Email :</p><input type="email" name="email" placeholder="..." required <?php echo "value=".($newuser["Email"])?$newuser["Email"]:""; ?>>
+            <p>* Mot de passe :</p><input type="password" name="password" placeholder="..." required>
+            <p>* Confirmation de mot de passe :</p><input type="password" name="c_password" placeholder="..." required>
         </div>
     </article>
 </section>
@@ -150,13 +149,14 @@ include("../main_header.php");
     </article>
     <article class="card">
         <div>
-                <p>Prénom :</p><input type="text" name="firstname" placeholder="...">
-                <p>Nom :</p><input type="text" name="lastname" placeholder="...">
-                <p style="font-size:11px;">Les champs précédés d'une étoile * sont indispensables.</p><input type="submit" value="Valider">
-                <p  class="alert"><?php echo $error ?></p>
-                <p  class="alert"><?php echo $alert ?></p>
-            </form>
+            <p>Prénom :</p><input type="text" name="firstname" placeholder="...">
+            <p>Nom :</p><input type="text" name="lastname" placeholder="...">
+            <p style="font-size:11px;">Les champs précédés d'une étoile * sont indispensables.</p><input type="submit" value="Valider">
+            <p  class="alert"><?php echo $error ?></p>
+            <p  class="alert"><?php echo $alert ?></p>
         </div>
     </article>
 </section>
+</form>
+
 <?php include("../footer.php"); ?>

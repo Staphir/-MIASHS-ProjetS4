@@ -13,7 +13,7 @@ if (empty($_GET)) {
 
 if (!empty($row) && count($row[0])>0) {
     $story = $row[0];
-    $story["FormalDate"] = date('M j Y g:i A', strtotime($story["publishedon"]));
+    $story["FormalDate"] = date('M j Y G:i', strtotime($story["publishedon"]));
     ?>
     <section>
         <article class="card">

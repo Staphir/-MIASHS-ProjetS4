@@ -34,9 +34,9 @@ include("../main_header.php");
     <article class="card">
         <div>
             <h2>Créer une histoire</h2><hr>
-            <form action="" method="post">
+            <form method="post">
                 <p>Nom de l'histoire :</p><input type="text" name="story_name" placeholder="..." required><br>
-                <p>Description :</p><textarea name="story_description" type="comment" placeholder="..." rows="5" required></textarea>
+                <p>Description :</p><textarea name="story_description" placeholder="..." rows="5" required></textarea>
                 <input type="submit" value="Créer">
             </form>
         </div>

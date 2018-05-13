@@ -125,12 +125,12 @@ if ($displayForm) { ?>
     </article>
     <article class="card">
         <div>
-            <form method="post" action="">
+            <form method="post">
                 <h2>Remplir le formulaire</h2><hr>
                 <?php
-                echo "<p>Nom d'utilisateur : </p><input type='text' name='username' placeholder='...' value='".$user_username."' required></br>";
-                echo "<p>Adresse Email : </p><input type='email' name='email' placeholder='...' value='".$user_email."' required></br>";
-                echo "<p>Votre commentaire ici : </p><textarea type='comment' id='contact' name='comment' placeholder='...' value='".$user_comment."' required></textarea></br>";
+                echo "<p>Nom d'utilisateur : </p><input type='text' name='username' placeholder='...' value='".$user_username."' required><br>";
+                echo "<p>Adresse Email : </p><input type='email' name='email' placeholder='...' value='".$user_email."' required><br>";
+                echo "<p>Votre commentaire ici : </p><textarea id='contact' name='comment' placeholder='...' required>".(($user_comment)?$user_comment:'')."</textarea><br>";
                 echo "<input type='submit' value='Envoyer'>"
                 ?>
             </form>
