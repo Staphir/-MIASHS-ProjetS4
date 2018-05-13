@@ -1,4 +1,59 @@
 $(document).ready(function(){
+    function showSideBar() {
+        $('.sideBar').css('width', '230');
+        $('div#layer').fadeIn('fast');
+        $('#hamburger').fadeOut('fast');
+        $('#hamburger').finish();
+        $('#hamburger').html('&times');
+        $('#hamburger').fadeIn('fast');
+    };
+    function hideSideBar(){
+        $('.sideBar').css('width', '0');
+        $('div#layer').fadeOut('fast');
+        $('#hamburger').fadeOut('fast');
+        $('#hamburger').finish();
+        $('#hamburger').html('☰');
+        $('#hamburger').fadeIn('fast');
+    }
+    $('#hamburger').click(function(){
+        if ($('.sideBar').css('width') == '0px') {
+            showSideBar();
+        } else {
+            hideSideBar();
+        }
+    });
+    $(document).click(function(event){
+        if (event.target.id == 'layer') {
+            hideSideBar();
+        }
+    })
+
+    $('#mainHeaderTitle').click(function(){
+        var path = $('#mainicon').attr('src');
+        path = path.replace('images/icon.png', 'index.php');
+        window.location.replace(path);
+    });
+
+    // User Account Modal Window for Image Import
+    $('#AccountImgModalBtn').click(function(){
+        $('#AccountImgModal').show();
+    });
+    $('#closeImgModal').click(function(){
+        $('#AccountImgModal').hide();
+    });
+    $(document).click(function(event){
+        if (event.target.id == 'AccountImgModal') {
+            $('#AccountImgModal').fadeOut('fast');
+        }
+    });
+    $('#AccountImgUpload').change( function(e) {
+        var img = URL.createObjectURL(e.target.files[0]);
+        $('#AccountImg').attr('src', img);
+        $('#AccountImg').show();
+    });
+    // ***
+
+
     // Story description
     //// description save button
     imgEnterLeave($('img#saveDesc'), '../images/save.png', '../images/saveActive.png')
@@ -45,11 +100,11 @@ $(document).ready(function(){
     // ***
 
     // Account data
-    modifyAccountData('img#firstnameImg', 'input#firstname', 'p#firstname');
-    modifyAccountData('img#lastnameImg', 'input#lastname', 'p#lastname');
+    modifyAccountData('img#firstnameImg', 'input.firstname', 'p.firstname');
+    modifyAccountData('img#lastnameImg', 'input.lastname', 'p.lastname');
     $('input#submitAccountData').click(function(){
-        firstname = $('input#firstname').val();
-        lastname = $('input#lastname').val();
+        firstname = $('input.firstname').val();
+        lastname = $('input.lastname').val();
         user_id = $('input#accountId').val();
         $.ajax({
             type: "POST",
@@ -61,15 +116,15 @@ $(document).ready(function(){
             },
             success: function(result) {
                 var data = JSON.parse(result);
-                $('input#firstname').val(data[0]);
-                $('input#lastname').val(data[1]);
-                $('p#firstname').text(data[0]);
-                $('p#lastname').text(data[1]);
+                $('input.firstname').val(data[0]);
+                $('input.lastname').val(data[1]);
+                $('p.firstname').text(data[0]);
+                $('p.lastname').text(data[1]);
 
-                $('input#firstname').hide();
-                $('input#lastname').hide();
-                $('p#firstname').show();
-                $('p#lastname').show();
+                $('input.firstname').hide();
+                $('input.lastname').hide();
+                $('p.firstname').show();
+                $('p.lastname').show();
 
                 $('img#firstnameImg').attr('src', 'images/edit.png');
                 $('img#lastnameImg').attr('src', 'images/edit.png');
@@ -92,6 +147,13 @@ $(document).ready(function(){
                 published:published
             }
         });
+        $('p#publishText').fadeOut(1);
+        if (published) {
+            $('p#publishText').text('Publiée');
+        } else {
+            $('p#publishText').text('Publier');
+        }
+        $('p#publishText').fadeIn();
     });
     // ***
 
@@ -110,10 +172,15 @@ $(document).ready(function(){
                 }
             });
         }
-        
-
     });
     // ***
+
+    // Search automatic
+    // $('#searchBox').on('input', function () {
+    //     if (document.title == 'Storystoire - Rechercher') {
+    //         // Do things
+    //     }
+    // });
 });
 
 function imgSrcAlternate(img, src1, src2) {
