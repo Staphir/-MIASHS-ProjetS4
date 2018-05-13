@@ -67,7 +67,7 @@ if ($step_or_choice == "Step"){
     if ($step_or_choice == "Step" && $steps_childs != null) {
         for ($i = 0; $i < count($choices_childs); $i++) {
             ?>
-            <script type='text/javascript'> ajout_champ_enfant(<?php echo $choices_childs[$i]["content"]; ?>); </script>
+            <script type='text/javascript'> ajout_champ_enfant(<?php echo json_encode($choices_childs[$i]["content"]); ?>); </script>
             <?php
         }
     }

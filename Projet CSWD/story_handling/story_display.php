@@ -198,7 +198,7 @@ if(!isset($_POST["id_story"]) or empty($_POST["id_story"])){
                         </script>
 
                         <?php
-                        echo "<textarea id='treeEntry' hidden>";
+                        echo "<textarea id='treeEntry' >";
                         for($i=0;$i<count($finalList);$i++){
                             for($j=0;$j<$finalList[$i]->deep;$j++){
                                 echo " ";
