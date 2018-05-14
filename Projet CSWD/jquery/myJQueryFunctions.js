@@ -113,7 +113,7 @@ $(document).ready(function(){
             data: {
                 id:user_id,
                 firstname:firstname,
-                lastname:lastname,
+                lastname:lastname
             },
             success: function(result) {
                 var data = JSON.parse(result);

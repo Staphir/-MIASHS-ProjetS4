@@ -1,4 +1,4 @@
-function ajout_champ() {
+function ajout_champ(supp) {
     //création nouveau champs
     var newLi = document.createElement("div");
     var newInput = document.createElement("input");
@@ -16,24 +16,25 @@ function ajout_champ() {
 
     //insertion dans le html
     document.getElementById("choix").appendChild(newLi);
+    if (supp === true) {
+        var newImg = document.createElement("img");
+        newImg.src = "../images/trash.png";
 
-    var newImg = document.createElement("img");
-    newImg.src = "../images/trash.png";
+        newImg.id = "supp" + nbChoix;
+        newImg.classList = "inner";
+        newImg.setAttribute("onclick", "supp_champ(" + nbChoix + ")");
+        newImg.setAttribute("onmouseover", "this.src='../images/trash_hover.png'");
+        newImg.setAttribute("onmouseout", "this.src='../images/trash.png'");
+        newImg.setAttribute("onmousedown", "this.src='../images/trash_down.png'");
 
-    newImg.id = "supp"+nbChoix;
-    newImg.classList = "inner";
-    newImg.setAttribute("onclick", "supp_champ("+nbChoix+")");
-    newImg.setAttribute("onmouseover", "this.src='../images/trash_hover.png'");
-    newImg.setAttribute("onmouseout", "this.src='../images/trash.png'");
-    newImg.setAttribute("onmousedown", "this.src='../images/trash_down.png'");
-    newLi.appendChild(newImg);
-
+        newLi.appendChild(newImg);
+    }
     document.getElementById("nb_choix").value++;
 
 }
 
-function ajout_champ_enfant(text) {
-    ajout_champ();
+function ajout_champ_enfant(text, supp) {
+    ajout_champ(supp);
     var nbChoix = document.getElementById("choix").childNodes.length;
     var idChoix = "choix"+(nbChoix-1);
     var champEnfant = document.getElementById(idChoix);
