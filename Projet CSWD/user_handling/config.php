@@ -12,14 +12,14 @@ $config_base['hote']        = "127.0.0.1";
 $config_base['utilisateur'] = "root";
 $config_base['motdepasse']  = "";
 $config_base['nom_base']    = "projet_cswd";
+$cookie_path = '/-MIASHS-ProjetS4/Projet%20CSWD/';
 
 //Connexion Pedago
 // $config_base['hote']        = "127.0.0.1";
 // $config_base['utilisateur'] = "mdevreese";
 // $config_base['motdepasse']  = "riEa#U%0";
 // $config_base['nom_base']    = "mdevreese";
-
-$cookie_path = ($config_base['hote']=="127.0.0.1")?'/-MIASHS-ProjetS4/Projet%20CSWD/':'/~mdevreese/cswd/projet2018/';
+// $cookie_path = '/~mdevreese/cswd/projet2018/';
 
 
 // connexion a la base de donnees
