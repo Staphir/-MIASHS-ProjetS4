@@ -812,6 +812,3 @@ input:checked + .slider:before {
     background-color:beige;
     cursor:pointer;
 }
-#treeDiv{
-    overflow: auto;
-}
