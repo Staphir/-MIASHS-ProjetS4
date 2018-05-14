@@ -176,12 +176,91 @@ $(document).ready(function(){
     });
     // ***
 
-    // Search automatic
-    // $('#searchBox').on('input', function () {
-    //     if (document.title == 'Storystoire - Rechercher') {
-    //         // Do things
-    //     }
-    // });
+    // Read Story
+    function getStep (data) {
+        var HTMLstep = '';
+        var HTMLchoices = '';
+        console.log(data);
+        if (!data[0].length) {
+            HTMLchoices = "<article class='card'><div><p>Bravo ! Vous avez fini cette histoire !</p></div></article>";
+        } else {
+            HTMLstep = "<article class='card'><div><p>"+data[0][0]['content']+"</p></div></article>";
+            if (!data[1].length) {
+                HTMLchoices = "<article class='card'><div><p>Bravo ! Vous avez fini cette histoire !</p></div></article>";
+            } else {
+                for (var i = 0; i < data[1].length; i++) {
+                    HTMLchoices += "<article class='card choice'><div><input type='hidden' value='"+(data[1][i]['id'])+"'><p>"+data[1][i]['content']+"</p></div></article>";
+                }
+            }
+        }
+        return HTMLstep+HTMLchoices;
+    }
+    //// Start button
+    $('button#read').click(function() {
+        var id = $('input#readStoryId').val();
+        $.ajax({
+            type: "POST",
+            url: "jquery/get_step.php",   
+            data: {
+                id:id,
+                parent:0
+            },
+            success: function (result) {
+                var data = JSON.parse(result);
+                // var count = $('#storyContent').children().length;
+                var HTML = getStep(data);
+                // console.log(data[1]);
+                $('div#storyContent').append(HTML);
+                $('button#read').attr('disabled', 'true');
+                $('button#read').css('height', '0px');
+                $('button#read').css('padding', '0px');
+                $('button#read').css('margin', '0px');
+                $('button#read').finish();
+                $('div#storyContent').fadeIn('fast');
+                $('button#read').fadeOut('fast');   
+            }
+        });
+    });
+    $(document).click(function (event) {
+        // console.log(event)
+    });
+    $('section div#storyContent').on('click', 'article.card.choice', function(){
+        // récupérer id du choix cliqué
+        var container = this;
+        var parent = $(container).parent();
+        var choice = container.firstChild.firstChild;
+        var id_story = $('input#readStoryId').val();
+        var id_choice = choice.value;
+        if ($(container).attr('id') != 'clicked') {
+            $(container).attr('id', 'clicked');
+            $(container).css('cursor', 'auto');
+            $(parent).children().each(function(){
+                if ($(this).attr('id')!='clicked' && $(this).attr('class')!='card') {
+                    $(this).attr('disabled', 'true');
+                    $(this).fadeOut('fast');
+                }
+            });  
+        }
+        $.ajax({
+            type: "POST",
+            url: "jquery/get_step.php",   
+            data: {
+                id:id_story,
+                parent:id_choice
+            },
+            success: function (result) {
+                var data = JSON.parse(result);
+                // var count = $('#storyContent').children().length;
+                var HTML = getStep(data);
+                // console.log(data[1]);
+                $('div#storyContent').append(HTML);
+            }
+        });
+
+        // chercher AJAX l'étape suivante
+
+        //afficher l'étape
+    });
 });
 
 function imgSrcAlternate(img, src1, src2) {

@@ -18,14 +18,20 @@ if (!empty($row) && count($row[0])>0) {
     <section>
         <article class="card">
             <div>
-                <h1 style="text-align:center; font-size:2em">
-                    <?php echo $story["title"] ?></h1>
+                <h1 style="text-align:center; font-size:2em"><?php echo $story["title"] ?></h1>
                 <p style="margin-top:0px;color:grey;font-size:11px; text-align:center;">
                     <?php echo " - Publiée par <strong>".$story["username"]."</strong> le ".
                     $story["FormalDate"]." - <strong>Likes : ".$story["likes"]."</strong> - " ?></p><hr>
                 <p><?php echo $story["description"] ?></p>
-                <button type="read">Démarrer la lecture</button>
+                <input id='readStoryId' type='hidden' value=<?php echo $_GET["id"]; ?>>
+                <button id="read">Démarrer la lecture</button>
             </div>
         </article>
+        <div id='storyContent'>
+            
+        </div>
     </section>
-<?php } ?>
+<?php } else {
+    header('location: search.php');
+}
+?>
