@@ -236,6 +236,7 @@ $(document).ready(function(){
             });  
         }
     });
+    // ***
 });
 
 function imgSrcAlternate(img, src1, src2) {

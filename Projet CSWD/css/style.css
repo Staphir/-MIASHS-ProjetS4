@@ -18,6 +18,10 @@
     --card-border-radius : 4px;
 }
 
+*:focus {
+    outline:none;
+}
+
 .noselect {
     -webkit-touch-callout: none; /* iOS Safari */
       -webkit-user-select: none; /* Safari */
@@ -37,7 +41,11 @@ html, body, div {
     font-family: 'Roboto', sans-serif;
     vertical-align: baseline;
     background-color: var(--main-bg);
-    transition: 1s;
+    transition: 0.2s;
+}
+
+img:focus {
+    outline:none;
 }
 
 header h1 {
@@ -441,6 +449,7 @@ div.search div{
 
 #floatingSearchBar {
     display:none;
+    overflow:hidden
 }
 
 section#home article img {
@@ -569,6 +578,7 @@ input[type="search"] {
     background-color:white;
     box-shadow: rgba(0, 0, 0, 0.111) 0px 1px 10px 5px;
     transition: 0.15s;
+    z-index:2;
 }
 .sideBar .navbar, .sideBar div {
     margin: 0px;
@@ -655,6 +665,7 @@ p.alert {
     background-color: #ccc;
     -webkit-transition: .4s;
     transition: .4s;
+    z-index:0;
 }
   
 .slider:before {
@@ -721,8 +732,11 @@ input:checked + .slider:before {
     #top10_card {
         display: block;
     }
+    section {
+        margin-top:10px;
+    }
     section article.card {
-        margin: 30px 16px 0px 16px;
+        margin: 20px 16px 18px 16px;
     }
     .topBar {
         display: none;
@@ -759,7 +773,7 @@ input:checked + .slider:before {
         min-width: auto;
     }
     section article.card {
-        margin: 30px 16px 0px 16px;
+        margin: 30px 16px 10px 16px;
     }
     #home {
         margin-right:0px

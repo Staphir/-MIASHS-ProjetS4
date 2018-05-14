@@ -2,14 +2,19 @@
 require_once("../user_handling/config.php");
 require_once("../user_handling/session.php");
 
-$menu["title"] = "Mes histoires";
-$dir1 = "../"; $dir2 = "../";
-include("../main_header.php");
-$_SESSION["id_story"] = null;
-$requete="SELECT * FROM story WHERE user_id = ?";
-$reponse=$pdo->prepare($requete);
-$reponse->execute(array($_SESSION["user_id"]));
-$array_stories = $reponse->fetchAll(PDO::FETCH_ASSOC);
+if (isset($_SESSION['user_id'])) {
+    $menu["title"] = "Mes histoires";
+    $dir1 = "../"; $dir2 = "../";
+    include("../main_header.php");
+    $_SESSION["id_story"] = null;
+    $requete="SELECT * FROM story WHERE user_id = ?";
+    $reponse=$pdo->prepare($requete);
+    $reponse->execute(array($_SESSION["user_id"]));
+    $array_stories = $reponse->fetchAll(PDO::FETCH_ASSOC);
+} else {
+    header('location: ../user_handling/login.php');
+}
+
 ?>
     <section>
         <article class="card">
@@ -42,7 +47,7 @@ $array_stories = $reponse->fetchAll(PDO::FETCH_ASSOC);
                     </table>
                 </form>
                 <form action='create_story.php'>
-                    <input type=submit value='Créer une nouvelle histoire' style='margin-top:20px;width:auto;float:right;'>
+                    <input type=submit value='Créer une nouvelle histoire' style='margin-top:20px;width:auto;t:right;'>
                 </form>
             </div><div  style='clear:both;'></div>
         </article>

@@ -40,12 +40,93 @@ if(!isset($_POST["id_story"]) or empty($_POST["id_story"])){
         $response_first_step->execute(array($id_story_choosed));
         $first_step = $response_first_step->fetchall(PDO::FETCH_ASSOC);
         ?>
-        <section style='margin-left:-60px;'>
-            <article class="card">
+        <style>
+            section {
+                margin-right:60px;
+            }
+            article.storyParam {
+                display:none;
+                background-color:transparent;
+                box-shadow:none;
+                margin-top:0px;
+                box-sizing: border-box;
+            }
+            article.storyParam div {
+                display:flex;
+                flex:1;
+                padding:0px;
+                /* border-radius:20px; */
+                background-color:white;
+                box-shadow:1px 1px 7px 0px rgba(0, 0, 0, 0.24);
+            }
+            article.storyParam div div {
+                vertical-align:middle;
+                box-shadow:none;
+            }
+            
+            article.storyParam div div div {
+                display:block;
+                text-align:center;
+                overflow:hidden;
+                margin: 0px;
+                box-shadow:none;
+            }
+            article.storyParam div div div img {
+                margin-top:10px;
+            }
+
+            article.storyParam div div p {
+                margin:10px 0px;
+            }
+            article.storyParam div hr {
+                margin:0px;
+                border:none;
+            }
+            @media screen and (max-width: 1160px) {
+                section {
+                    margin-right:0px;
+
+                }
+                article.storyParam {
+                    display:block;
+                }
+            }
+        </style>
+        <section>
+            <article class='card storyParam'>
+                <div>
+                    <div>
+                        <div>
+                            <label class="switch" style='margin-top:20px;width:60px;height:34px;'>
+                                <input type="checkbox" <?php echo ($row[0]['published'])?'checked':''; ?> id='publishedCheckbox'>
+                                <span class="slider round"></span>
+                            </label>
+                            <p class='alert' id='publishText'><?php echo ($row[0]['published'])?'Publiée':'Publier'; ?></p>
+                        </div>
+                    </div>
+                    <hr>
+                    <div>
+                        <div>
+                            <img alt='Supprimer' style='margin-top:12px' src="../images/trash.png" width=35 id="deleteStory">
+                            <p class='alert'>Supprimer</p>
+                        </div>
+                    </div>
+                    <hr>
+                    <div>
+                        <div>
+                            <a href='../rules.php#formatage' target='_blank' style=''>
+                                <img alt='Règles HTML' src="../images/html.png" style='border-radius:12px;' width=60>
+                            </a>
+                            <p class='alert' style='margin-top:-3px'>Règles HTML</p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+            <article class="card" style='overflow:auto;'>
                 <div>
                     <?php echo "<h2 style='text_align:center;'>".$row[0]["title"]."</h2>"; ?><hr>
                     <fieldset style='padding:0px; border-radius:5px; border:1px solid black;margin-top:20px'>
-                        <legend style='margin-left:20px;'>Description <img id='editDescImg' alt='Edit' src='../images/edit.png' width=17 onclick='modifyDescription();getDesc();'>
+                        <legend style='margin-left:20px;'>Description <img id='editDescImg' alt='Edit' src='../images/edit.png' width=17>
                         <img id='saveDesc' src='../images/save.png' alt='save' width=15></legend>
                         <div style='margin:10px; padding:0px;'>
                             <style>

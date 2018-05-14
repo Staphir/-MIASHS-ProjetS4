@@ -33,8 +33,8 @@ $search_value = '²'
     <article id='floatingSearchBar' class="card">
         <form method='get'>
             <div style='padding:0px;margin-right10px;display:flex;'>
-                <input type='text' name='search' value=<?php echo ($search=='')?'Toutes les histoires':$search; ?> placeholder='Rechercher un titre...' style='font-size:1.1em;margin-right:10px;'>
-                <input type='submit' value='Rechercher' style='width:auto;'>
+                <input type='text' name='search' <?php echo ($search=='')?"value='Toutes les histoires...'":"value='$search'"; ?> placeholder='Rechercher un titre...' style='font-size:1.1em;margin-right:10px;border:none'>
+                <input type='submit' value='Rechercher' style='width:auto; margin-right:10px;'>
             </div>
         </form>
     </article>

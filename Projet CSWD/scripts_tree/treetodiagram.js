@@ -235,7 +235,8 @@ function treeToDiagram(tree, diagramSvg, diagramGroup, options) {
         heightAttribute = "height";
     }
 
-    diagramSvg.style.width = options.width + "px";
+    diagramSvg.style.width = 'auto';
+    // diagramSvg.style.width = options.width + "px";
     diagramSvg.style.height = options.height + "px";
 
     var diagramWidth = options[widthAttribute];
