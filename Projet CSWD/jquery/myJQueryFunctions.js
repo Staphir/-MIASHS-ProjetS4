@@ -177,52 +177,45 @@ $(document).ready(function(){
     // ***
 
     // Read Story
-    function getStep (data) {
-        var HTMLstep = '';
-        var HTMLchoices = '';
-        console.log(data);
-        if (!data[0].length) {
-            HTMLchoices = "<article class='card'><div><p>Bravo ! Vous avez fini cette histoire !</p></div></article>";
-        } else {
-            HTMLstep = "<article class='card'><div><p>"+data[0][0]['content']+"</p></div></article>";
-            if (!data[1].length) {
-                HTMLchoices = "<article class='card'><div><p>Bravo ! Vous avez fini cette histoire !</p></div></article>";
-            } else {
-                for (var i = 0; i < data[1].length; i++) {
-                    HTMLchoices += "<article class='card choice'><div><input type='hidden' value='"+(data[1][i]['id'])+"'><p>"+data[1][i]['content']+"</p></div></article>";
-                }
-            }
-        }
-        return HTMLstep+HTMLchoices;
-    }
-    //// Start button
-    $('button#read').click(function() {
-        var id = $('input#readStoryId').val();
+    function insertStep (id, parent) {
         $.ajax({
             type: "POST",
             url: "jquery/get_step.php",   
             data: {
                 id:id,
-                parent:0
+                parent:parent
             },
             success: function (result) {
                 var data = JSON.parse(result);
-                // var count = $('#storyContent').children().length;
-                var HTML = getStep(data);
-                // console.log(data[1]);
-                $('div#storyContent').append(HTML);
-                $('button#read').attr('disabled', 'true');
-                $('button#read').css('height', '0px');
-                $('button#read').css('padding', '0px');
-                $('button#read').css('margin', '0px');
-                $('button#read').finish();
-                $('div#storyContent').fadeIn('fast');
-                $('button#read').fadeOut('fast');   
+                var HTMLstep = '';
+                var HTMLchoices = '';
+                if (!data[0].length) {
+                    HTMLchoices = "<article class='card'><div><p>Bravo ! Vous avez fini cette histoire !</p></div></article>";
+                } else {
+                    HTMLstep = "<article class='card'><div><p>"+data[0][0]['content']+"</p></div></article>";
+                    if (!data[1].length) {
+                        HTMLchoices = "<article class='card'><div><p>Bravo ! Vous avez fini cette histoire !</p></div></article>";
+                    } else {
+                        for (var i = 0; i < data[1].length; i++) {
+                            HTMLchoices += "<article class='card choice noselect'><div><input type='hidden' value='"+(data[1][i]['id'])+"'><p>"+data[1][i]['content']+"</p></div></article>";
+                        }
+                    }
+                }
+                $('div#storyContent').append(HTMLstep+HTMLchoices);
             }
         });
-    });
-    $(document).click(function (event) {
-        // console.log(event)
+    };
+    //// Start button
+    $('button#read').click(function() {
+        var id = $('input#readStoryId').val();
+        insertStep(id, 0);
+        $('button#read').attr('disabled', 'true');
+        $('button#read').css('height', '0px');
+        $('button#read').css('padding', '0px');
+        $('button#read').css('margin', '0px');
+        $('button#read').finish();
+        $('div#storyContent').fadeIn('fast');
+        $('button#read').fadeOut('fast');   
     });
     $('section div#storyContent').on('click', 'article.card.choice', function(){
         // récupérer id du choix cliqué
@@ -232,6 +225,7 @@ $(document).ready(function(){
         var id_story = $('input#readStoryId').val();
         var id_choice = choice.value;
         if ($(container).attr('id') != 'clicked') {
+            insertStep(id_story, id_choice);
             $(container).attr('id', 'clicked');
             $(container).css('cursor', 'auto');
             $(parent).children().each(function(){
@@ -241,25 +235,6 @@ $(document).ready(function(){
                 }
             });  
         }
-        $.ajax({
-            type: "POST",
-            url: "jquery/get_step.php",   
-            data: {
-                id:id_story,
-                parent:id_choice
-            },
-            success: function (result) {
-                var data = JSON.parse(result);
-                // var count = $('#storyContent').children().length;
-                var HTML = getStep(data);
-                // console.log(data[1]);
-                $('div#storyContent').append(HTML);
-            }
-        });
-
-        // chercher AJAX l'étape suivante
-
-        //afficher l'étape
     });
 });
 
