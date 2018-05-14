@@ -54,7 +54,7 @@ if ($step_or_choice == "Step"){
         <form action="save_step.php" method="post">
             <article class="card">
                 <div>
-                    <h2>Rédiger une étape</h2><hr>
+                    <h2>Rédiger une étape <img id='editDescImg' style='margin-left:10px;'alt='Edit' src='../images/edit.png' width=25></h2><hr>
                     <input type="hidden" name="id_story" value="<?php echo $id_story ?>">
                     <?php if (!isset($array_step) || empty($array_step)){
                         ?>

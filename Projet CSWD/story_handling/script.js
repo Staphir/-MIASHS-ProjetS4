@@ -22,6 +22,7 @@ function ajout_champ(supp) {
 
         newImg.id = "supp" + nbChoix;
         newImg.classList = "inner";
+        newImg.width = 30;
         newImg.setAttribute("onclick", "supp_champ(" + nbChoix + ")");
         newImg.setAttribute("onmouseover", "this.src='../images/trash_hover.png'");
         newImg.setAttribute("onmouseout", "this.src='../images/trash.png'");

@@ -21,6 +21,9 @@ $cookie_path = '/-MIASHS-ProjetS4/Projet%20CSWD/';
 // $config_base['nom_base']    = "mdevreese";
 // $cookie_path = '/~mdevreese/cswd/projet2018/';
 
+ini_set('session.cache_limiter','public');
+session_cache_limiter(false);
+
 
 // connexion a la base de donnees
 try
