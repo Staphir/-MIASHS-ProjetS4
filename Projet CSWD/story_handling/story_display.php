@@ -42,7 +42,7 @@ if(!isset($_POST["id_story"]) or empty($_POST["id_story"])){
         ?>
         <section style='margin-left:-60px;'>
             <article class="card">
-                <div>
+                <div id="treeDiv">
                     <?php echo "<h2 style='text_align:center;'>".$row[0]["title"]."</h2>"; ?><hr>
                     <fieldset style='padding:0px; border-radius:5px; border:1px solid black;margin-top:20px'>
                         <legend style='margin-left:20px;'>Description <img id='editDescImg' alt='Edit' src='../images/edit.png' width=17 onclick='modifyDescription();getDesc();'>
@@ -74,7 +74,7 @@ if(!isset($_POST["id_story"]) or empty($_POST["id_story"])){
                             <input type="hidden" name="id_story" value="<?php echo $id_story_choosed ?>">
                             <input type="hidden" name="parent" value="0">
                             <input type="hidden" id="step_or_choice" name="step_or_choice" value="Step">
-                            <input type="hidden" name="id" value="<?php echo $first_step[0]["id"] ?>">
+                            <input type="hidden" name="id" value="0">
                             <input type="submit" name="new_step" style='width:auto;margin-top:10px;' value="Démarrer l'écriture">
                         </form>
                     <?php }else{
@@ -198,14 +198,14 @@ if(!isset($_POST["id_story"]) or empty($_POST["id_story"])){
                         </script>
 
                         <?php
-                        echo "<textarea id='treeEntry' >";
+                        echo "<div><textarea id='treeEntry' >";
                         for($i=0;$i<count($finalList);$i++){
                             for($j=0;$j<$finalList[$i]->deep;$j++){
                                 echo " ";
                             }
                             echo $finalList[$i]->content."\n";
                         }
-                        echo "</textarea>";
+                        echo "</textarea></div>";
 
                         //------------------------------------------------------------
                     }

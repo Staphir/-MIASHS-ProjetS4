@@ -748,3 +748,7 @@ input:checked + .slider:before {
 #treeEntry, #options, #styles{
     display: none;
 }
+
+#treeDiv{
+    overflow: auto;
+}
