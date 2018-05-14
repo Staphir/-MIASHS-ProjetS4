@@ -7,22 +7,7 @@ if (!isset($dir1)) {
 if (!isset($dir2)) {
     $dir2 = "";
 }
-
-if (isset($_GET) && !empty($_GET)) {
-    if (isset($_GET["search"])) {
-        $config = HTMLPurifier_Config::createDefault();
-        $config->set('Core.Encoding', 'ISO-8859-1');
-        $config->set('Cache.DefinitionImpl', null); // TODO: remove this later!
-        $config->set('HTML.Allowed', '');
-     
-        $purifier = new HTMLPurifier($config);
-        $search = $purifier->purify($_GET["search"]);
-    }
-}
-
-$search_value = (!empty($search))?"value=".$search:"value=''";
 $full_header = false;
-//  in_array($menu["title"], array("Accueil", "À propos", "Contact", "Mon compte"));
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -50,4 +35,4 @@ $full_header = false;
             <h1 id='mainHeaderTitle' class="storystoire_header noselect">Storystoire</h1>
             <div class='topBar'><?php include('topbar.php'); ?></div>
         </div>
-        <div id="maincontent" <?php echo ($full_header)?"style=margin-top:130px":"style=margin-top:70px"; ?> >
+        <div id="maincontent">

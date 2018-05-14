@@ -17,6 +17,11 @@
     } else {
         ?><a href=<?php echo $dir1."contact.php"; ?>><img width=17 style='margin-right:10px;' src=<?php echo $dir1."images/contact.png"; ?>>Contact</a><?php
     }
+    if ($menu["title"] == "Rechercher") {
+        ?><p class="noselect"><img width=17 style='margin-right:10px;' src=<?php echo $dir1."images/search.png"; ?>>Rechercher</p><?php
+    } else {
+        ?><a href=<?php echo $dir1."search.php"; ?>><img width=17 style='margin-right:10px;' src=<?php echo $dir1."images/search.png"; ?>>Rechercher</a><?php
+    }
     if(!isset($_SESSION['login_user'])){
         if (in_array($menu["title"], array("Connexion"))) {
             ?><p class="noselect"><img width=17 style='margin-right:10px;' src=<?php echo $dir1."images/profil.png"; ?>>Se connecter</p><?php

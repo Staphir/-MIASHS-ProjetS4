@@ -6,7 +6,7 @@
         </li>
         <li class="menuitem">
             <form action=<?php echo $dir1."search.php" ?> method="get">
-                <input id='searchBox' size=50 type="search" name="search" placeholder="Rechercher un titre..." <?php echo $search_value; ?>>
+                <input id='searchBox' size=50 type="search" name="search" placeholder="Rechercher un titre...">
             </form>
         </li>
         <li class="menuitem">

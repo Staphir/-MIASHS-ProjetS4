@@ -2,26 +2,47 @@
 $menu["title"] = "Rechercher";
 include("main_header.php");
 
+if (isset($_GET) && !empty($_GET) && isset($_GET["search"])) {
+    $config = HTMLPurifier_Config::createDefault();
+    $config->set('Core.Encoding', 'ISO-8859-1');
+    $config->set('Cache.DefinitionImpl', null); // TODO: remove this later!
+    $config->set('HTML.Allowed', '');
+    
+    $purifier = new HTMLPurifier($config);
+    $search = $purifier->purify($_GET["search"]);
+} else {
+    $search = '';
+}
 
-$query = "SELECT title, story.likes, username, story.id, description, publishedon FROM story INNER JOIN user ON story.user_id = user.id WHERE title like '%".$search."%' AND published = 1 ORDER BY `story`.`likes` DESC";
+$query = "SELECT title, story.likes, username, story.id, description, publishedon FROM story INNER JOIN user ON story.user_id = user.id WHERE title like '%".$search."%' AND published = 1 ORDER BY `story`.`likes` DESC LIMIT 20";
 $result = $pdo->prepare($query);
 $result->execute(array($search));
 $row = $result->fetchAll(PDO::FETCH_ASSOC);
+
+$search_value = '²'
 ?>
 <div class="search">
     <div>
         <h2 style='font-size:15px;padding:0px'>Résultats de la recherche pour :</h2>
-        <?php echo ($search=='')?"Toutes les histoires":$search; ?>
+        <?php echo ($search=='')?'Toutes les histoires':$search; ?>
     </div>
 </div>
 <aside class='searchAttr'>
 </aside>
-<section style='margin-left:190px; margin-right:0px;margin-top:-20px;'>
+<section id='searchResults'>
+    <article id='floatingSearchBar' class="card">
+        <form method='get'>
+            <div style='padding:0px;margin-right10px;display:flex;'>
+                <input type='text' name='search' value=<?php echo ($search=='')?'Toutes les histoires':$search; ?> placeholder='Rechercher un titre...' style='font-size:1.1em;margin-right:10px;'>
+                <input type='submit' value='Rechercher' style='width:auto;'>
+            </div>
+        </form>
+    </article>
     <?php
     if (!empty($row) && count($row[0])>0) {
     ?>
-    <article class="card" style='margin-right:30px'>
-        <div style='padding:10px;margin-right:30px'>
+    <article class="card">
+        <div style='padding:20px;'>
         <?php
         for ($i=0; $i<count($row); $i++) {
             $story = $row[$i];
@@ -37,7 +58,7 @@ $row = $result->fetchAll(PDO::FETCH_ASSOC);
         </div>
     </article>
     <?php } else { ?>
-    <article class="card" style='padding:10px;margin-right:30px'>
+    <article class="card">
         <div>
             <h2>Aucun résultat...</h2><hr>
             <p>La recherche n'a retourné aucun résultat !</p>

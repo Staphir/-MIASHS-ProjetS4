@@ -10,8 +10,8 @@ if (isset($_COOKIE['id']) && empty($_SESSION)) {
 <!-- END OF TOP HEADER -->
 <section id="home">
     <article class="card">
-        <img src="images/main_pic_redim2.jpg" alt='Accueil' style='width:100%; height:100%'/>
         <div>
+        <img src="images/main_pic_redim2.jpg" alt='Accueil'/>
             <h2>Présentation</h2><hr>
             <p>Bonjour et bienvenue sur Storystoire, le site des histoires dont VOUS êtes le héros !</p>
             <p>Storystoire est un projet de CSWD (Conception de Sites Web Dynamiques) proposé en L2 de License MIASHS. Il a pour but de vous laisser créer des histoires à choix que vous pourrez ensuite publier sur ce site. Une fois votre histoire construite, vous pouvez décider de la publier et elle deviendra alors accesible à n'importe qui d'intéressé par votre travail. Ces personnes pourront consulter votre histoire à choix et la vivre !</p>
