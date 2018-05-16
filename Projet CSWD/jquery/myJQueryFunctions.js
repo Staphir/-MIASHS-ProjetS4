@@ -1,12 +1,13 @@
 $(document).ready(function(){
-    var path = $('#mainicon').attr('src');
-    path = path.replace('icon.png', '');
+    var root = $('#hamburger').attr('src');
+    root = root.replace('images/sideBarMenu.png', '');
+
     function showSideBar() {
         $('.sideBar').css('width', '226');
         $('div.layer').css('width', '100%');
         $('#hamburger').fadeOut('fast');
         $('#hamburger').finish();
-        $('#hamburger').attr('src', path+'close.png');
+        $('#hamburger').attr('src', root+'images/close.png');
         $('#hamburger').fadeIn('fast');
     };
     function hideSideBar(){
@@ -14,7 +15,7 @@ $(document).ready(function(){
         $('div.layer').css('width', '0%');
         $('#hamburger').fadeOut('fast');
         $('#hamburger').finish();
-        $('#hamburger').attr('src', path+'sideBarMenu.png');
+        $('#hamburger').attr('src', root+'images/sideBarMenu.png');
         $('#hamburger').fadeIn('fast');
     }
     $('#hamburger').click(function(){
@@ -30,9 +31,7 @@ $(document).ready(function(){
         }
     })
     $('#mainHeaderTitle').click(function(){
-        var path = $('#mainicon').attr('src');
-        path = path.replace('images/icon.png', 'index.php');
-        window.location.replace(path);
+        window.location.replace(root+'index.php');
     });
 
     // User Account Modal Window for Image Import
@@ -60,12 +59,11 @@ $(document).ready(function(){
     imgEnterLeave($('img#saveDesc'), '../images/save.png', '../images/saveActive.png')
     $('img#saveDesc').click(function(){
         HTMLText = $('textarea#textAreaDesc').val();
-        StoryId = $('input#idStory').val();
         $.ajax({
             type: "POST",
             url: "../jquery/saveDescription.php",   
             data: {
-                id:StoryId,
+                id:storyId,
                 description:HTMLText
             },
             success: function(result) {
@@ -89,10 +87,10 @@ $(document).ready(function(){
         
         if ($('#container').is(":visible")) {
             $('#container').hide();
-            $('#textAreaDesc').show();
+            $('#textAreaDesc').show('fast');
         } else {
             $('#container').html(curHTML);
-            $('#textAreaDesc').hide();
+            $('#textAreaDesc').hide('fast');
             $('#container').show();
         }
         imgSrcAlternate(this, '../images/edit.png', '../images/editActive.png')
@@ -137,36 +135,34 @@ $(document).ready(function(){
     // ***
 
     // Publish story
-    $('#publishedCheckbox').click(function () {
-        var published = $('#publishedCheckbox').prop('checked')?1:0;
-        StoryId = $('input#idStory').val();
+    $('input.publishCheckbox').click(function () {
+        var published = $(this).prop('checked')?1:0;
         $.ajax({
             type: "POST",
             url: "../jquery/publish.php",   
             data: {
-                id:StoryId,
+                id:storyId,
                 published:published
             }
         });
-        $('p#publishText').fadeOut(1);
+        $('.publishText').fadeOut(1);
         if (published) {
-            $('p#publishText').text('Publiée');
+            $('.publishText').text('Publiée');
         } else {
-            $('p#publishText').text('Publier');
+            $('.publishText').text('Publier');
         }
-        $('p#publishText').fadeIn();
+        $('.publishText').fadeIn();
     });
     // ***
 
     // Delete story
-    $('img#deleteStory').click(function () {
+    $('img.deleteStory').click(function () {
         if (confirm("Etes-vous sûr(e) de vouloir supprimer cette histoire ? Une fois l'opération effectuée vous ne pourrez plus la récupérer.")) {
-            StoryId = $('input#idStory').val();
             $.ajax({
                 type: "POST",
                 url: "../jquery/deleteStory.php",   
                 data: {
-                    id:StoryId
+                    id:storyId
                 },
                 success: function () {
                     window.location.replace("my_stories.php");
@@ -177,12 +173,12 @@ $(document).ready(function(){
     // ***
 
     // Read Story
-    function insertStep (id, parent) {
+    function insertStep(parent) {
         $.ajax({
             type: "POST",
             url: "jquery/get_step.php",   
             data: {
-                id:id,
+                id:storyId,
                 parent:parent
             },
             success: function (result) {
@@ -190,53 +186,199 @@ $(document).ready(function(){
                 var HTMLstep = '';
                 var HTMLchoices = '';
                 if (!data[0].length) {
-                    HTMLchoices = "<article class='card'><div><p>Bravo ! Vous avez fini cette histoire !</p></div></article>";
+                    HTMLchoices = "<div><article class='card'><div><p>Bravo ! Vous avez fini cette histoire !</p></div></article></div>";
                 } else {
-                    HTMLstep = "<article class='card'><div><p>"+data[0][0]['content']+"</p></div></article>";
+                    HTMLstep = "<div><article class='card step'><div><p>"+data[0][0]['content']+"</p></div></article>";
                     if (!data[1].length) {
-                        HTMLchoices = "<article class='card'><div><p>Bravo ! Vous avez fini cette histoire !</p></div></article>";
+                        HTMLchoices = "<article class='card'><div><p>Bravo ! Vous avez fini cette histoire !</p></div></article><div>";
                     } else {
                         for (var i = 0; i < data[1].length; i++) {
                             HTMLchoices += "<article class='card choice noselect'><div><input type='hidden' value='"+(data[1][i]['id'])+"'><p>"+data[1][i]['content']+"</p></div></article>";
                         }
+                        HTMLchoices += "</div>";
                     }
                 }
                 $('div#storyContent').append(HTMLstep+HTMLchoices);
             }
         });
     };
-    //// Start button
+
+    // Start button
     $('button#read').click(function() {
-        var id = $('input#readStoryId').val();
-        insertStep(id, 0);
+        insertStep(0);
         $('button#read').attr('disabled', 'true');
         $('button#read').css('height', '0px');
         $('button#read').css('padding', '0px');
         $('button#read').css('margin', '0px');
-        $('button#read').finish();
         $('div#storyContent').fadeIn('fast');
-        $('button#read').fadeOut('fast');   
+        $('button#read').fadeOut('fast');
+
     });
-    $('section div#storyContent').on('click', 'article.card.choice', function(){
+
+    // callback sur les choix
+    $('#storyContent').on('click', 'div article.choice', function(){
         // récupérer id du choix cliqué
         var container = this;
         var parent = $(container).parent();
         var choice = container.firstChild.firstChild;
-        var id_story = $('input#readStoryId').val();
         var id_choice = choice.value;
-        if ($(container).attr('id') != 'clicked') {
-            insertStep(id_story, id_choice);
-            $(container).attr('id', 'clicked');
+        if (!$(container).hasClass('clicked')) {
+            insertStep(id_choice);
+            $(container).addClass('clicked');
             $(container).css('cursor', 'auto');
             $(parent).children().each(function(){
-                if ($(this).attr('id')!='clicked' && $(this).attr('class')!='card') {
+                if (!$(this).hasClass('clicked') && $(this).attr('class')!='card step') {
                     $(this).attr('disabled', 'true');
-                    $(this).fadeOut('fast');
+                    $(this).fadeOut('fast')
                 }
             });  
         }
     });
+
+    function hideStartBtn() {
+        $('button#read').attr('disabled', 'true');
+        $('button#read').css('height', '0px');
+        $('button#read').css('padding', '0px');
+        $('button#read').css('margin', '0px');
+    }
+
+    // Recommencer l'histoire
+    function startOver (show=true) {
+        $('section div#storyContent').fadeOut('fast', function(){
+            $('section div#storyContent').empty();
+            insertStep(0);
+            $('section div#storyContent').fadeIn('fast');
+            hideStartBtn();
+        });
+    }
+
+    function isLoggedIn(){
+        if (userId != 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    $('.startOverDiv').click(function(){
+        if (confirm('Etes-vous sûr de vouloir recommancer cette histoire depuis le début ?')) {
+            startOver();
+        }
+    })
+
+    // Liker l'histoire
+    $('.likeStoryDiv').click(function(){
+        if (isLiked == 1) {isLiked = 0}
+        else {isLiked = 1;}
+        if (isLoggedIn()) {
+            $.ajax({
+                type: "POST",
+                url: "jquery/likeStory.php",   
+                data: {
+                    id_story:storyId,
+                    id_user:userId,
+                    value:isLiked
+                },
+                success: function(result) {
+                    newSrc = isLiked?'images/liked.png':'images/like.png'
+                    $('.likeStoryImg').attr('src', newSrc);
+                }
+            });
+        } else {
+            alert('Vous devez être connecté pour pouvoir aimer cette histoire !')
+        }
+    });
+
+    // Sauver progression
+    $('.saveProgressDiv').click(function(){
+        if (isLoggedIn()) {
+            var path = '';
+            $('section div#storyContent div').children('article').each(function(){
+                if ($(this).hasClass('clicked')) {
+                    path += $(this).find('div input').val() + '/';
+                }
+            });
+            $.ajax({
+                type: "POST",
+                url: "jquery/saveStory.php",   
+                data: {
+                    id_story:storyId,
+                    id_user:userId,
+                    path:path
+                }
+            });
+        } else {
+            alert('Vous devez être connecté pour pouvoir sauvegarder votre progrès !')
+        }
+    });
     // ***
+
+    // Charger progression
+    $('.loadProgressDiv').click(function(){
+        if (isLoggedIn()) {
+            if (confirm('Etes-vous sur de vouloir charger votre dernière progression ? Cela effacera votre avancée actuelle !')) {
+                $.ajax({
+                    type: "POST",
+                    url: "jquery/loadProgress.php",   
+                    data: {
+                        id_story:storyId,
+                        id_user:userId,
+                    },
+                    success: function(result){
+                        data = JSON.parse(result);
+                        if (data.length > 0 && data[0].path.length > 0) {
+                            $('section div#storyContent').empty();
+                            hideStartBtn();
+                            var path = data[0].path;
+                            var pathArray = path.split('/');
+                            var contentArray = [];
+                            for (var i=0; i<pathArray.length; i++) {
+                                if (pathArray[i] != '') {
+                                    var mainDiv = $('div#storyContent').append("<div id='"+pathArray[i]+"'><article class='card step'><div><p></p></div></article><article class='card choice noselect clicked'><div><input type='hidden' value='"+pathArray[i]+"'><p></p></div></article></div>");
+                                    var div = mainDiv.find('div#' + pathArray[i])
+                                    contentArray.push({'id':pathArray[i], 'div':div})
+                                }
+                            }
+                            for (var content of contentArray) {
+                                getText(content);
+                            }
+                            insertStep(contentArray[contentArray.length-1].id);
+                        } else {
+                            alert("Vous n'avez pas encore de sauvegarde pour cette histoire !");
+                        }
+                    }
+                });
+                $('section div#storyContent').show();
+            }
+        } else {
+            alert('Vous devez être connecté pour pouvoir faire ça !')
+        }
+    });
+
+    function getText(content){
+        $.ajax({
+            type: "POST",
+            url: "jquery/get_text.php",
+            data: {
+                id_choice:content.id,
+            },
+            success: function(result){
+                // console.log(result)
+                data = JSON.parse(result);
+                content.step = data[1][0].content;
+                content.choice = data[0][0].content;
+                insertText(content);
+            }
+        });
+    }
+
+    function insertText(content){
+        $($(content.div).find('article.choice')).css('cursor', 'auto');
+        var choiceP = $(content.div).find('article.choice p')
+        var stepP = $(content.div).find('article.step p ')
+        $(choiceP).text(content.choice);
+        $(stepP).text(content.step);
+    }
 });
 
 function imgSrcAlternate(img, src1, src2) {

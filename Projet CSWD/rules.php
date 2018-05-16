@@ -74,6 +74,7 @@ include("main_header.php");
                 <li>la balise <code>&lt;b&gt;</code> permettant de mettre du texte en gras.</li>
                 <li>la balise <code>&lt;i&gt;</code> permettant de mettre du texte en italique.</li>
                 <li>la balise <code>&lt;p&gt;</code> pour du text nécessitant une mise en forme, ainsi que sont attribut <code>style</code>.</li>
+                <li>la balise générique <code>&lt;span&gt;</code> permettant de styliser un contenu quelconque ainsi que son attribut <code>style</code>.</li>
                 <li>la balise <code>&lt;img&gt;</code> ainsi que ses attributs <code>src</code>, <code>alt</code>, <code>width</code>, <code>height</code> permettant d'insérer une image. (Nous ne prennons pas encore en charge l'importation d'images, vous ne pouvez donc insérer que des images déjà existantes sur le web.)</li>
                 <li>la balise <code>&lt;font&gt;</code> ainsi que ses attributs <code>style</code>, <code>size</code> et <code>color</code> pour changer la police.</li>
                 <li>la balise de liste ordonnée <code>&lt;ol&gt;</code> et non ordonnée <code>&lt;ul&gt;</code> avec bien évidemment la balise <code>&lt;li&gt;</code> pour ajouter un élément.</li>
@@ -83,8 +84,8 @@ include("main_header.php");
             <h3>Disponnibilité des balises en fonction des zones</h3>
             <ul>
                 <li>Rédaction d'un titre : <code>&lt;b&gt;</code>, <code>&lt;i&gt;</code>, <code>&lt;font&gt;</code></li>
-                <li>Rédaction d'étapes : <code>&lt;p&gt;</code>, <code>&lt;i&gt;</code>, <code>&lt;b&gt;</code>, <code>&lt;img&gt;</code>, <code>&lt;font&gt;</code>, <code>&lt;ol&gt;</code>, <code>&lt;ul&gt;</code>, <code>&lt;li&gt;</code>, <code>&lt;br&gt;</code></li>
-                <li>Rédaction de description : <code>&lt;p&gt;</code>, <code>&lt;i&gt;</code>, <code>&lt;b&gt;</code>, <code>&lt;font&gt;</code>, <code>&lt;br&gt;</code> et <code>&lt;a&gt;</code> (pour les liens externes, ici uniquement).</li>
+                <li>Rédaction d'étapes : <code>&lt;span&gt;</code>, <code>&lt;p&gt;</code>, <code>&lt;i&gt;</code>, <code>&lt;b&gt;</code>, <code>&lt;img&gt;</code>, <code>&lt;font&gt;</code>, <code>&lt;ol&gt;</code>, <code>&lt;ul&gt;</code>, <code>&lt;li&gt;</code>, <code>&lt;br&gt;</code></li>
+                <li>Rédaction de description : <code>&lt;span&gt;</code>, <code>&lt;p&gt;</code>, <code>&lt;i&gt;</code>, <code>&lt;b&gt;</code>, <code>&lt;font&gt;</code>, <code>&lt;br&gt;</code> et <code>&lt;a&gt;</code> (pour les liens externes, ici uniquement).</li>
                 <li>Rédaction de choix : <code>&lt;i&gt;</code>, <code>&lt;b&gt;</code>, <code>&lt;font&gt;</code></li>
             </ul>
             <p>

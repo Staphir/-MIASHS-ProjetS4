@@ -2,11 +2,11 @@
 // https://www.tutorialspoint.com/php/php_mysql_login.htm
 //Codes de connexion à la base de données
 
-$HTMLAllowed_Choice = 'i,b,font[style|size|color]';
-$HTMLAllowed_Description = 'p[style],a[href],i,b,font[style|size|color],br';
-$HTMLAllowed_Step = 'p[style],i,b,img[src|alt],font[style|size|color],ol,ul,li,br';
+$HTMLAllowed_Choice = 'span[style],i,b,font[style|size|color]';
+$HTMLAllowed_Description = 'span[style],p[style],a[href],i,b,font[style|size|color],br';
+$HTMLAllowed_Step = 'span[style],p[style],i,b,img[src|alt],font[style|size|color],ol,ul,li,br';
 $HTMLAllowed_Title = 'i,b,font[style|size|color]';
-
+$dateFormat = ' d/m/Y G:i ';
 //Connexion Locale
 $config_base['hote']        = "127.0.0.1";
 $config_base['utilisateur'] = "root";

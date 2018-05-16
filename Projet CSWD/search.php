@@ -27,7 +27,9 @@ $search_value = '²'
         <?php echo ($search=='')?'Toutes les histoires':$search; ?>
     </div>
 </div>
-<aside class='searchAttr'>
+<aside class='searchAttr' style='text-align:justify;'>
+    <h2 style='margin:10px 0px;'>Recherche avancée</h2><hr>
+    <p>Ici prochainement, un utilitaire de recherche par tags et catégories !</p>
 </aside>
 <section id='searchResults'>
     <article id='floatingSearchBar' class="card">
@@ -41,16 +43,28 @@ $search_value = '²'
     <?php
     if (!empty($row) && count($row[0])>0) {
     ?>
+    <style>
+        .linkAccount {
+            text-decoration:none;
+            margin:0px;
+            color:rgba(0, 0, 0, 0.33);
+            font-size:11px;
+            font-style:normal
+        }
+        .linkAccount:hover {
+            text-decoration:underline;
+        }
+    </style>
     <article class="card">
         <div style='padding:20px;'>
         <?php
         for ($i=0; $i<count($row); $i++) {
             $story = $row[$i];
-            $story["FormalDate"] = date('M j Y g:i A', strtotime($story["publishedon"])); ?>
+            $story["FormalDate"] = date($dateFormat, strtotime($story["publishedon"])); ?>
             <div class='searchStoryElemt' style='padding:0px;font-style:italic;'>
                 <h2 style='margin:0px;font-size:17px;;font-style:normal'><a href="<?php echo "read.php?id=".$story["id"]; ?>"><?php echo $story["title"] ?></a></h2>
                     <?php echo $story["description"] ?>
-                <p style="margin:0px;color:rgba(0, 0, 0, 0.33);font-size:11px;;font-style:normal"><?php echo "Publiée par <strong>".$story["username"]."</strong> le ".$story["FormalDate"]." - <strong>".$story["likes"]." Likes</strong>" ?></p>
+                <p style="margin:0px;color:rgba(0, 0, 0, 0.33);font-size:11px;font-style:normal"><?php echo "Publiée par <strong><a class='linkAccount' href='view_profile.php?u_n=".$story["username"]."'>".$story["username"]."</a></strong> le ".$story["FormalDate"]." - <strong>".$story["likes"]." Likes</strong>" ?></p>
             <?php
             if (!($i == count($row)-1)) { ?><hr style='color:rgba(230, 230, 230, 0.207)'><?php } ?>
             </div>

@@ -31,7 +31,7 @@ $full_header = false;
         <div class='layer'></div>
         <div class='sideBar'><?php include('sidebar.php'); ?></div>
         <div class="top_header">
-            <img width=40 height=40 src=<?php echo $dir1.'images/sideBarMenu.png'; ?> id='hamburger'>
+            <img alt='Hamburger' width=40 height=40 src=<?php echo $dir1.'images/sideBarMenu.png'; ?> id='hamburger'>
             <h1 id='mainHeaderTitle' class="storystoire_header noselect">Storystoire</h1>
             <div class='topBar'><?php include('topbar.php'); ?></div>
         </div>

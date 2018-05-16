@@ -1,10 +1,10 @@
 <?php 
 $menu["title"] = "Mon compte";
 include("main_header.php");
-include('tools/SimpleImage.php');
+// include('tools/SimpleImage.php');
 $isConnected = false;
 
-if (!empty($_SESSION)) {
+if (!empty($_SESSION['user_id'])) {
     $query = "SELECT * FROM user WHERE id = ?";
     $result = $pdo->prepare($query);
     $result->execute(array($_SESSION["user_id"]));
@@ -45,27 +45,30 @@ if (isset($_POST) && !empty($_FILES['fileUpload']['tmp_name']) && ($_FILES['file
         $res = "Format d'image non pris en charge !";
         $uploadOk = 0;
     }
-    // Check if $uploadOk is set to 0 by an error
-    if ($uploadOk) {
-        if (move_uploaded_file($_FILES["fileUpload"]["tmp_name"], $target_file)) {
-            $res = 'Image importée !';
-            $factor = (10000/$width)/100;
-            $new_width = $width*$factor;
-            $new_height = $height*$factor;
 
-            rename($target_file, $new_target = $target_dir.$_SESSION['user_id']."_full.png");
-            ///
-            $target_dir = "images/users/";
-            $resize_target_file = $target_dir.$_SESSION['user_id'].".png";
-        
-            $image = new SimpleImage();
-            $image->load($new_target);
-            $image->resize($new_width, $new_height);
-            $image->save($resize_target_file);
-            unlink($new_target);
-            ///
-        }
-    } else {echo '<script>alert("'.$res.'");</script>';}
+    $res = "Cette fonctionnalité n'est pas autorisée sur ce serveur, désolé !";
+
+    // Check if $uploadOk is set to 0 by an error
+    // if ($uploadOk) {
+        // $res = 'Image importée !';
+        // $factor = (10000/$width)/100;
+        // $new_width = $width*$factor;
+        // $new_height = $height*$factor;
+
+        // rename($_FILES["fileUpload"]["tmp_name"], $new_target = $target_dir.$_SESSION['user_id']."_full.png");
+        // ///
+        // $target_dir = "images/users/";
+        // $resize_target_file = $target_dir.$_SESSION['user_id'].".png";
+    
+        // $image = new SimpleImage();
+        // $image->load($new_target);
+        // $image->resize($new_width, $new_height);
+        // $image->save($resize_target_file);
+        // unlink($new_target);
+        // ///
+    // } else { 
+    echo '<script>alert("'.$res.'");</script>';
+    // }
 }
 
 if (!$isConnected) {
@@ -196,7 +199,7 @@ if (!$isConnected) {
                     ?>
                 </li>
                 <?php
-                $row[0]["joinedon"] = date('M j Y g:i A', strtotime($row[0]["joinedon"]));
+                $row[0]["joinedon"] = date($dateFormat, strtotime($row[0]["joinedon"]));
                 echo "<li><p class='red'>Date d'inscription : </p><p>".$row[0]['joinedon']."</p></li>";
                 echo "<li><a class='pwdch' href='user_handling/change_password.php'>Changer de mot de passe</a></li>";
                 

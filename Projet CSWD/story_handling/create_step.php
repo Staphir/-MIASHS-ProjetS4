@@ -49,7 +49,26 @@ if ($step_or_choice == "Step"){
 }
 
 ?>
-    
+<style>
+#textAreaDesc {
+    resize: vertical;
+    width: 100%;
+    height: 100%; 
+    box-sizing: border-box; 
+    border: medium none;
+    display: block;
+}
+#container {
+    display: none;
+}
+div#choix, div#choix div {
+    padding: 0px;
+    margin: 0px;
+}
+.ajt_chps {
+
+}
+</style>
     <section>
         <form action="save_step.php" method="post">
             <article class="card">
@@ -60,7 +79,11 @@ if ($step_or_choice == "Step"){
                         ?>
                         <input type="hidden" name="parent" value="<?php echo $id ?>">
                         <input type="hidden" name="newStep" value="yes">
-                        <textarea name="step" id="step_area" cols="100" rows="14" placeholder="Ecrire ici la nouvelle étape" required></textarea>
+                        <div style='padding:0px;margin:0px;'>
+                            <textarea id="textAreaDesc" cols="100" rows="14" placeholder="Ecrire ici la nouvelle étape..." name="step"></textarea>
+                            <div id='container' style='padding:0px;margin:0px;'></div>
+                        </div>
+                        <!-- <textarea name="step" id="step_area" cols="100" rows="14" placeholder="Ecrire ici la nouvelle étape" required></textarea> -->
                         <input type="hidden" id="nb_choix" name="nb_choix" value="0">
                         <?php
                     }else{
@@ -68,7 +91,11 @@ if ($step_or_choice == "Step"){
                         <input type="hidden" name="parent" value="<?php echo $array_step[0]["id_choice"]; ?>">
                         <input type="hidden" name="newStep" value="no">
                         <input type="hidden" name="stepId" value="<?php echo $array_step[0]["id"]; ?>">
-                        <textarea name="step" id="step_area" cols="100" rows="14" required><?php echo $array_step[0]["content"]; ?></textarea>
+                        <div style='padding:0px;margin:0px;'>
+                            <textarea id="textAreaDesc" cols="100" rows="14" placeholder="Ecrire ici la nouvelle étape..." name="step"><?php echo $array_step[0]["content"]; ?></textarea>
+                            <div id='container' style='padding:0px;margin:0px;'></div>
+                        </div>
+                        <!-- <textarea name="step" id="step_area" cols="100" rows="14" required><?php echo $array_step[0]["content"]; ?></textarea> -->
                         <input type="hidden" id="nb_choix" name="nb_choix" value="0">
                         <?php
                     }
@@ -78,9 +105,9 @@ if ($step_or_choice == "Step"){
             <article class="card">
                 <div>
                     <h2>Ajouter des choix</h2><hr>
-                    <div id="choix" style="background-color:transparent;">
+                    <div id="choix" style="background-color:transparent;padding-left:30px;">
                     </div>
-                    <button type="button" class="ajt_chps" id="btn_ajout_champs" onclick="ajout_champ(true)">Ajouter un choix</button>
+                    <button type="button" class="ajt_chps" id="btn_ajout_champs" style='text-decoration:underline;background-color:transparent;width:auto;border:none;color:grey;cursor:pointer' onclick="ajout_champ(true)">+ Ajouter un choix</button>
                     <input type="submit" name="valid_step" value="Créer - Ne fonctionne pas encore">
                 </div>
             </article>

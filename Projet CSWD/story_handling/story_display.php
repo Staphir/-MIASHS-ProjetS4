@@ -44,44 +44,6 @@ if(!isset($_POST["id_story"]) or empty($_POST["id_story"])){
             section {
                 margin-right:60px;
             }
-            article.storyParam {
-                display:none;
-                background-color:transparent;
-                box-shadow:none;
-                margin-top:0px;
-                box-sizing: border-box;
-            }
-            article.storyParam div {
-                display:flex;
-                flex:1;
-                padding:0px;
-                /* border-radius:20px; */
-                background-color:white;
-                box-shadow:1px 1px 7px 0px rgba(0, 0, 0, 0.24);
-            }
-            article.storyParam div div {
-                vertical-align:middle;
-                box-shadow:none;
-            }
-            
-            article.storyParam div div div {
-                display:block;
-                text-align:center;
-                overflow:hidden;
-                margin: 0px;
-                box-shadow:none;
-            }
-            article.storyParam div div div img {
-                margin-top:10px;
-            }
-
-            article.storyParam div div p {
-                margin:10px 0px;
-            }
-            article.storyParam div hr {
-                margin:0px;
-                border:none;
-            }
             @media screen and (max-width: 1160px) {
                 section {
                     margin-right:0px;
@@ -98,16 +60,16 @@ if(!isset($_POST["id_story"]) or empty($_POST["id_story"])){
                     <div>
                         <div>
                             <label class="switch" style='margin-top:20px;width:60px;height:34px;'>
-                                <input type="checkbox" <?php echo ($row[0]['published'])?'checked':''; ?> id='publishedCheckbox'>
+                                <input type="checkbox" <?php echo ($row[0]['published'])?'checked':''; ?> class='publishCheckbox'>
                                 <span class="slider round"></span>
                             </label>
-                            <p class='alert' id='publishText'><?php echo ($row[0]['published'])?'Publiée':'Publier'; ?></p>
+                            <p class='alert publishText'><?php echo ($row[0]['published'])?'Publiée':'Publier'; ?></p>
                         </div>
                     </div>
                     <hr>
                     <div>
                         <div>
-                            <img alt='Supprimer' style='margin-top:12px' src="../images/trash.png" width=35 id="deleteStory">
+                            <img alt='Supprimer' style='margin-top:12px' src="../images/trash.png" width=35 class="deleteStory">
                             <p class='alert'>Supprimer</p>
                         </div>
                     </div>
@@ -124,7 +86,7 @@ if(!isset($_POST["id_story"]) or empty($_POST["id_story"])){
             </article>
             <article class="card" style='overflow:auto;'>
                 <div>
-                    <?php echo "<h2 style='text_align:center;'>".$row[0]["title"]."</h2>"; ?><hr>
+                    <?php echo "<h2>".$row[0]["title"]."</h2>"; ?><hr>
                     <fieldset style='padding:0px; border-radius:5px; border:1px solid black;margin-top:20px'>
                         <legend style='margin-left:20px;'>Description <img id='editDescImg' alt='Edit' src='../images/edit.png' width=17>
                         <img id='saveDesc' src='../images/save.png' alt='save' width=15></legend>
@@ -140,7 +102,6 @@ if(!isset($_POST["id_story"]) or empty($_POST["id_story"])){
                             }
                             </style>
                             <div style='padding:0px;margin:0px;'>
-                                <?php echo "<input type='hidden' id='idStory' value='".$id_story_choosed."'>"; ?>
                                 <textarea id="textAreaDesc" placeholder="..." name="stream"><?php echo $row[0]["description"]; ?></textarea>
                                 <div id='container' style='padding:0px;margin:0px;'>
                                     <?php echo $row[0]["description"]; ?>
@@ -300,13 +261,14 @@ if(!isset($_POST["id_story"]) or empty($_POST["id_story"])){
         <aside class='storyParam' style='bottom:auto; text-align:center'>
             <div style='margin-top:20px;'>
                 <label class="switch">
-                    <input type="checkbox" <?php echo ($row[0]['published'])?'checked':''; ?> id='publishedCheckbox'>
+                    <?php echo $row[0]['published'] ;?>
+                    <input type="checkbox" <?php echo ($row[0]['published'])?'checked':''; ?> class='publishCheckbox'>
                     <span class="slider round"></span>
                 </label>
-                <p class='alert' id='publishText' style='font-size:1.4em;padding:0px;margin:0px;'><?php echo ($row[0]['published'])?'Publiée':'Publier'; ?></p>
+                <p class='alert publishText' style='font-size:1.4em;padding:0px;margin:0px;'><?php echo ($row[0]['published'])?'Publiée':'Publier'; ?></p>
             </div><hr>
             <div>
-                <img alt='Supprimer' src="../images/trash.png" width=40 id="deleteStory" onmouseover="this.src='../images/trash_hover.png'" onmouseout="this.src='../images/trash.png'" onmousedown="this.src='../images/trash_down.png'">
+                <img alt='Supprimer' src="../images/trash.png" width=40 class="deleteStory" onmouseover="this.src='../images/trash_hover.png'" onmouseout="this.src='../images/trash.png'" onmousedown="this.src='../images/trash_down.png'">
                 <p class='alert' style='font-size:1.2em;padding:0px;margin:10px 0px;'>Supprimer</p>
             </div><hr>
             <div>
@@ -329,6 +291,7 @@ if(!isset($_POST["id_story"]) or empty($_POST["id_story"])){
         <script src="../scripts_tree/gup.js"></script>
         <script src="../scripts_tree/texttotree.js"></script>
         <script src="../scripts_tree/demo.js"></script>
+        <script>var storyId = <?php echo $id_story_choosed; ?>;</script>
         <?php
 
         include("../footer.php");

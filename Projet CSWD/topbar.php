@@ -52,7 +52,7 @@
                     <a href=<?php echo $dir1."myaccount.php"; ?>>Mon compte</a>
                     <a href=<?php echo $dir2."story_handling/my_stories.php" ?>>Mes histoires</a>
                     <a href=<?php echo $dir2."story_handling/create_story.php" ?>>Créer une histoire</a>
-                    <a href=<?php echo $dir2."#" ?>>Favoris</a>
+                    <a href=<?php echo $dir2."favorites.php" ?>>Favoris</a>
                     <hr style="margin:10px; margin-top:1px; margin-bottom:1px;">
                     <a href=<?php echo $dir2."user_handling/logout.php" ?>>Se déconnecter</a>
                 </div>
