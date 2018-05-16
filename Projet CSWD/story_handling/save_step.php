@@ -77,6 +77,11 @@ if($new_step == "yes"){
         $reponse_choice = $pdo->prepare($query_choice);
         $reponse_choice->execute(array($tab_choices[$i], $_POST["stepId"], $is_story));
     }
+
+    //update date modification
+    $query = "UPDATE story SET lastmodifiedon = NOW() WHERE id = ? ;";
+    $result = $pdo->prepare($query);
+    $result->execute(array($is_story));
 }
 
 

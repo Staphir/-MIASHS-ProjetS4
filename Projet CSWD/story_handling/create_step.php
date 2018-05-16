@@ -49,7 +49,10 @@ if ($step_or_choice == "Step"){
 }
 
 ?>
-    
+    <script>
+        var idStory = <?php echo json_encode($id_story); ?>;
+    </script>
+
     <section>
         <form action="save_step.php" method="post">
             <article class="card">
@@ -80,7 +83,7 @@ if ($step_or_choice == "Step"){
                     <h2>Ajouter des choix</h2><hr>
                     <div id="choix" style="background-color:transparent;">
                     </div>
-                    <button type="button" class="ajt_chps" id="btn_ajout_champs" onclick="ajout_champ(true)">Ajouter un choix</button>
+                    <button type="button" class="ajt_chps" id="btn_ajout_champs" onclick="ajout_champ(null)">Ajouter un choix</button>
                     <input type="submit" name="valid_step" value="Créer - Ne fonctionne pas encore">
                 </div>
             </article>
@@ -92,7 +95,7 @@ if ($step_or_choice == "Step"){
         $_SESSION['choices_modified'] = $choices_childs;
         for ($i = 0; $i < count($choices_childs); $i++) {
             ?>
-            <script type='text/javascript'> ajout_champ_enfant(<?php echo json_encode($choices_childs[$i]["content"]); ?>,false); </script>
+            <script type='text/javascript'> ajout_champ_enfant(<?php echo json_encode($choices_childs[$i]["content"]).",". json_encode($choices_childs[$i]["id"]); ?>); </script>
             <?php
         }
     }

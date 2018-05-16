@@ -272,11 +272,7 @@ if(!isset($_POST["id_story"]) or empty($_POST["id_story"])){
                     }
                     ?>
 
-                        <script type="text/javascript">
-                            var id_parents = <?php echo json_encode($id_parents_list); ?>;
-                            var type = <?php echo json_encode($step_or_choice); ?>;
-                            var id_element = <?php echo json_encode($id_list); ?>;
-                        </script>
+
 
                         <?php
                         echo "<div><textarea id='treeEntry' >";
@@ -323,6 +319,13 @@ if(!isset($_POST["id_story"]) or empty($_POST["id_story"])){
             <input type="hidden" id="step_or_choice" name="step_or_choice" value="Step">
             <input type="hidden" id= "id" name="id" value="<?php echo $first_step[0]["id"] ?>">
         </form>
+        <script type="text/javascript">
+            var id_parents = <?php echo json_encode($id_parents_list); ?>;
+            var type = <?php echo json_encode($step_or_choice); ?>;
+            var id_element = <?php echo json_encode($id_list); ?>;
+            var choices = <?php echo json_encode($choicesList); ?>;
+            var steps = <?php echo json_encode($stepsList); ?>;
+        </script>
         <script src="script.js"></script>
         <script src="../scripts_tree/treetodiagram.js"></script>
         <script src="../scripts_tree/layoutText.js"></script>
