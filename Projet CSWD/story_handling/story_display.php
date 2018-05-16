@@ -6,159 +6,152 @@ $menu["title"] = "Mes histoires";
 $dir1 = "../"; $dir2 = "../";
 include("../main_header.php");
 
+
 if(!isset($_POST["id_story"]) or empty($_POST["id_story"])) {
-    header("location: my_stories.php");
+    if (!isset($_SESSION["id_story"]) or $_SESSION["id_story"] == null) {
+        header("location: my_stories.php");
+    }else{
+        $id_story_choosed = $_SESSION['id_story'];
+    }
 } else {
     $id_story_choosed = $_POST['id_story'];
+    $_SESSION['id_story'] = $id_story_choosed;
 }
 
-//Affichage direct après enregistrement step qui ne fonctionne pas...
-//test si variable de session (si on est passé par une création de step
-//ou si on vient juste du choix des histoires on a seulement un post et en session j'ai mis à null
-//if(!isset($_POST["story_id"]) or empty($_POST["story_id"]) and $_SESSION["story_id"] == null) {
-if(!isset($_POST["id_story"]) or empty($_POST["id_story"])){
-    if((!isset($_SESSION["id_story"]) or $_SESSION["id_story"] == null)){
-        header("location: my_stories.php");
-    }
-} else {
-    if(!isset($_POST["id_story"]) or empty($_POST["id_story"])){
-        echo "SESSION";
-        $id_story_choosed = $_SESSION["id_story"];
-    }else{
-        $id_story_choosed = $_POST['id_story'];
-    }
-    $query="SELECT * FROM story WHERE story.id = ? AND user_id = ? ";
-    $result=$pdo->prepare($query);
-    $result->execute(array($id_story_choosed, $_SESSION["user_id"]));
-    $row = $result->fetchall(PDO::FETCH_ASSOC);
 
-    if (empty($row)) {
-        header("location: my_stories.php");
-    } else {
-        $query_first_step="SELECT * FROM step LEFT JOIN story ON step.id_story = story.id WHERE story.id = ? AND step.id_choice = 0 ";
-        $response_first_step=$pdo->prepare($query_first_step);
-        $response_first_step->execute(array($id_story_choosed));
-        $first_step = $response_first_step->fetchall(PDO::FETCH_ASSOC);
-        ?>
-        <style>
+
+$query="SELECT * FROM story WHERE story.id = ? AND user_id = ? ";
+$result=$pdo->prepare($query);
+$result->execute(array($id_story_choosed, $_SESSION["user_id"]));
+$row = $result->fetchall(PDO::FETCH_ASSOC);
+
+if (empty($row)) {
+    header("location: my_stories.php");
+} else {
+    $query_first_step="SELECT * FROM step LEFT JOIN story ON step.id_story = story.id WHERE story.id = ? AND step.id_choice = 0 ";
+    $response_first_step=$pdo->prepare($query_first_step);
+    $response_first_step->execute(array($id_story_choosed));
+    $first_step = $response_first_step->fetchall(PDO::FETCH_ASSOC);
+    ?>
+    <style>
+        section {
+            margin-right:60px;
+        }
+        article.storyParam {
+            display:none;
+            background-color:transparent;
+            box-shadow:none;
+            margin-top:0px;
+            box-sizing: border-box;
+        }
+        article.storyParam div {
+            display:flex;
+            flex:1;
+            padding:0px;
+            /* border-radius:20px; */
+            background-color:white;
+            box-shadow:1px 1px 7px 0px rgba(0, 0, 0, 0.24);
+        }
+        article.storyParam div div {
+            vertical-align:middle;
+            box-shadow:none;
+        }
+
+        article.storyParam div div div {
+            display:block;
+            text-align:center;
+            overflow:hidden;
+            margin: 0px;
+            box-shadow:none;
+        }
+        article.storyParam div div div img {
+            margin-top:10px;
+        }
+
+        article.storyParam div div p {
+            margin:10px 0px;
+        }
+        article.storyParam div hr {
+            margin:0px;
+            border:none;
+        }
+        @media screen and (max-width: 1160px) {
             section {
-                margin-right:60px;
+                margin-right:0px;
+
             }
             article.storyParam {
-                display:none;
-                background-color:transparent;
-                box-shadow:none;
-                margin-top:0px;
-                box-sizing: border-box;
-            }
-            article.storyParam div {
-                display:flex;
-                flex:1;
-                padding:0px;
-                /* border-radius:20px; */
-                background-color:white;
-                box-shadow:1px 1px 7px 0px rgba(0, 0, 0, 0.24);
-            }
-            article.storyParam div div {
-                vertical-align:middle;
-                box-shadow:none;
-            }
-            
-            article.storyParam div div div {
                 display:block;
-                text-align:center;
-                overflow:hidden;
-                margin: 0px;
-                box-shadow:none;
             }
-            article.storyParam div div div img {
-                margin-top:10px;
-            }
-
-            article.storyParam div div p {
-                margin:10px 0px;
-            }
-            article.storyParam div hr {
-                margin:0px;
-                border:none;
-            }
-            @media screen and (max-width: 1160px) {
-                section {
-                    margin-right:0px;
-
-                }
-                article.storyParam {
-                    display:block;
-                }
-            }
-        </style>
-        <section>
-            <article class='card storyParam'>
+        }
+    </style>
+    <section>
+        <article class='card storyParam'>
+            <div>
                 <div>
                     <div>
-                        <div>
-                            <label class="switch" style='margin-top:20px;width:60px;height:34px;'>
-                                <input type="checkbox" <?php echo ($row[0]['published'])?'checked':''; ?> id='publishedCheckbox'>
-                                <span class="slider round"></span>
-                            </label>
-                            <p class='alert' id='publishText'><?php echo ($row[0]['published'])?'Publiée':'Publier'; ?></p>
-                        </div>
-                    </div>
-                    <hr>
-                    <div>
-                        <div>
-                            <img alt='Supprimer' style='margin-top:12px' src="../images/trash.png" width=35 id="deleteStory">
-                            <p class='alert'>Supprimer</p>
-                        </div>
-                    </div>
-                    <hr>
-                    <div>
-                        <div>
-                            <a href='../rules.php#formatage' target='_blank' style=''>
-                                <img alt='Règles HTML' src="../images/html.png" style='border-radius:12px;' width=60>
-                            </a>
-                            <p class='alert' style='margin-top:-3px'>Règles HTML</p>
-                        </div>
+                        <label class="switch" style='margin-top:20px;width:60px;height:34px;'>
+                            <input type="checkbox" <?php echo ($row[0]['published'])?'checked':''; ?> id='publishedCheckbox'>
+                            <span class="slider round"></span>
+                        </label>
+                        <p class='alert' id='publishText'><?php echo ($row[0]['published'])?'Publiée':'Publier'; ?></p>
                     </div>
                 </div>
-            </article>
-            <article class="card" style='overflow:auto;'>
+                <hr>
                 <div>
-                    <?php echo "<h2 style='text_align:center;'>".$row[0]["title"]."</h2>"; ?><hr>
-                    <fieldset style='padding:0px; border-radius:5px; border:1px solid black;margin-top:20px'>
-                        <legend style='margin-left:20px;'>Description <img id='editDescImg' alt='Edit' src='../images/edit.png' width=17>
+                    <div>
+                        <img alt='Supprimer' style='margin-top:12px' src="../images/trash.png" width=35 id="deleteStory">
+                        <p class='alert'>Supprimer</p>
+                    </div>
+                </div>
+                <hr>
+                <div>
+                    <div>
+                        <a href='../rules.php#formatage' target='_blank' style=''>
+                            <img alt='Règles HTML' src="../images/html.png" style='border-radius:12px;' width=60>
+                        </a>
+                        <p class='alert' style='margin-top:-3px'>Règles HTML</p>
+                    </div>
+                </div>
+            </div>
+        </article>
+        <article class="card" style='overflow:auto;'>
+            <div>
+                <?php echo "<h2 style='text_align:center;'>".$row[0]["title"]."</h2>"; ?><hr>
+                <fieldset style='padding:0px; border-radius:5px; border:1px solid black;margin-top:20px'>
+                    <legend style='margin-left:20px;'>Description <img id='editDescImg' alt='Edit' src='../images/edit.png' width=17>
                         <img id='saveDesc' src='../images/save.png' alt='save' width=15></legend>
-                        <div style='margin:10px; padding:0px;'>
-                            <style>
+                    <div style='margin:10px; padding:0px;'>
+                        <style>
                             #textAreaDesc {
                                 resize: vertical;
                                 width: 100%;
-                                height: 100%; 
-                                box-sizing: border-box; 
+                                height: 100%;
+                                box-sizing: border-box;
                                 border: medium none;
                                 display: none;
                             }
-                            </style>
-                            <div style='padding:0px;margin:0px;'>
-                                <?php echo "<input type='hidden' id='idStory' value='".$id_story_choosed."'>"; ?>
-                                <textarea id="textAreaDesc" placeholder="..." name="stream"><?php echo $row[0]["description"]; ?></textarea>
-                                <div id='container' style='padding:0px;margin:0px;'>
-                                    <?php echo $row[0]["description"]; ?>
-                                </div>
+                        </style>
+                        <div style='padding:0px;margin:0px;'>
+                            <?php echo "<input type='hidden' id='idStory' value='".$id_story_choosed."'>"; ?>
+                            <textarea id="textAreaDesc" placeholder="..." name="stream"><?php echo $row[0]["description"]; ?></textarea>
+                            <div id='container' style='padding:0px;margin:0px;'>
+                                <?php echo $row[0]["description"]; ?>
                             </div>
                         </div>
-                    </fieldset>
-                    <?php 
-                    if($first_step == NULL){
-                        ?>
-                        <form action="create_step.php" method="post">
-                            <input type="hidden" name="id_story" value="<?php echo $id_story_choosed ?>">
-                            <input type="hidden" name="parent" value="0">
-                            <input type="hidden" id="step_or_choice" name="step_or_choice" value="Step">
-                            <input type="hidden" name="id" value="0">
-                            <input type="submit" name="new_step" style='width:auto;margin-top:10px;' value="Démarrer l'écriture">
-                        </form>
-                    <?php }else{
+                    </div>
+                </fieldset>
+                <?php
+                if($first_step == NULL){
+                    ?>
+                    <form action="create_step.php" method="post">
+                        <input type="hidden" name="id_story" value="<?php echo $id_story_choosed ?>">
+                        <input type="hidden" name="parent" value="0">
+                        <input type="hidden" id="step_or_choice" name="step_or_choice" value="Step">
+                        <input type="hidden" name="id" value="0">
+                        <input type="submit" name="new_step" style='width:auto;margin-top:10px;' value="Démarrer l'écriture">
+                    </form>
+                <?php }else{
                     $query_steps="SELECT * FROM step WHERE id_story = ? ORDER BY step.id";
                     $response_steps=$pdo->prepare($query_steps);
                     $response_steps->execute(array($id_story_choosed));
@@ -274,67 +267,66 @@ if(!isset($_POST["id_story"]) or empty($_POST["id_story"])){
 
 
 
-                        <?php
-                        echo "<div><textarea id='treeEntry' >";
-                        for($i=0;$i<count($finalList);$i++){
-                            for($j=0;$j<$finalList[$i]->deep;$j++){
-                                echo " ";
-                            }
-                            echo $finalList[$i]->content."\n";
-                        }
-                        echo "</textarea></div>";
-
-                        //------------------------------------------------------------
-                    }
-                    ?>
                     <?php
-                    include("../scripts_tree/tree_style.php");
-                    ?>
-                </div>
-            </article>
-        </section>
-        <aside class='storyParam' style='bottom:auto; text-align:center'>
-            <div style='margin-top:20px;'>
-                <label class="switch">
-                    <input type="checkbox" <?php echo ($row[0]['published'])?'checked':''; ?> id='publishedCheckbox'>
-                    <span class="slider round"></span>
-                </label>
-                <p class='alert' id='publishText' style='font-size:1.4em;padding:0px;margin:0px;'><?php echo ($row[0]['published'])?'Publiée':'Publier'; ?></p>
-            </div><hr>
-            <div>
-                <img alt='Supprimer' src="../images/trash.png" width=40 id="deleteStory" onmouseover="this.src='../images/trash_hover.png'" onmouseout="this.src='../images/trash.png'" onmousedown="this.src='../images/trash_down.png'">
-                <p class='alert' style='font-size:1.2em;padding:0px;margin:10px 0px;'>Supprimer</p>
-            </div><hr>
-            <div>
-                <a href='../rules.php#formatage' target='_blank' style='margin:0px;padding:0px;'>
-                    <img alt='Règles HTML' src="../images/html.png" style='border-radius:12px;' width=70 onmouseover="this.src='../images/html_hover.png'" onmouseout="this.src='../images/html.png'" onmousedown="this.src='../images/html_down.png'">
-                </a>
-                <p class='alert' style='font-size:1em;padding:0px;margin:0px'>Règles HTML</p>
+                    echo "<div><textarea id='treeEntry' >";
+                    for($i=0;$i<count($finalList);$i++){
+                        for($j=0;$j<$finalList[$i]->deep;$j++){
+                            echo " ";
+                        }
+                        echo $finalList[$i]->content."\n";
+                    }
+                    echo "</textarea></div>";
+
+                    //------------------------------------------------------------
+                }
+                ?>
+                <?php
+                include("../scripts_tree/tree_style.php");
+                ?>
             </div>
-        </aside>
+        </article>
+    </section>
+    <aside class='storyParam' style='bottom:auto; text-align:center'>
+        <div style='margin-top:20px;'>
+            <label class="switch">
+                <input type="checkbox" <?php echo ($row[0]['published'])?'checked':''; ?> id='publishedCheckbox'>
+                <span class="slider round"></span>
+            </label>
+            <p class='alert' id='publishText' style='font-size:1.4em;padding:0px;margin:0px;'><?php echo ($row[0]['published'])?'Publiée':'Publier'; ?></p>
+        </div><hr>
+        <div>
+            <img alt='Supprimer' src="../images/trash.png" width=40 id="deleteStory" onmouseover="this.src='../images/trash_hover.png'" onmouseout="this.src='../images/trash.png'" onmousedown="this.src='../images/trash_down.png'">
+            <p class='alert' style='font-size:1.2em;padding:0px;margin:10px 0px;'>Supprimer</p>
+        </div><hr>
+        <div>
+            <a href='../rules.php#formatage' target='_blank' style='margin:0px;padding:0px;'>
+                <img alt='Règles HTML' src="../images/html.png" style='border-radius:12px;' width=70 onmouseover="this.src='../images/html_hover.png'" onmouseout="this.src='../images/html.png'" onmousedown="this.src='../images/html_down.png'">
+            </a>
+            <p class='alert' style='font-size:1em;padding:0px;margin:0px'>Règles HTML</p>
+        </div>
+    </aside>
 
-        <form method="post" action="create_step.php" id="infos_click">
-            <input type="hidden" name="id_story" value="<?php echo $id_story_choosed; ?>">
-            <input type="hidden" id="parent" name="parent" value="0">
-            <input type="hidden" id="step_or_choice" name="step_or_choice" value="Step">
-            <input type="hidden" id= "id" name="id" value="<?php echo $first_step[0]["id"] ?>">
-        </form>
-        <script type="text/javascript">
-            var id_parents = <?php echo json_encode($id_parents_list); ?>;
-            var type = <?php echo json_encode($step_or_choice); ?>;
-            var id_element = <?php echo json_encode($id_list); ?>;
-            var choices = <?php echo json_encode($choicesList); ?>;
-            var steps = <?php echo json_encode($stepsList); ?>;
-        </script>
-        <script src="script.js"></script>
-        <script src="../scripts_tree/treetodiagram.js"></script>
-        <script src="../scripts_tree/layoutText.js"></script>
-        <script src="../scripts_tree/gup.js"></script>
-        <script src="../scripts_tree/texttotree.js"></script>
-        <script src="../scripts_tree/demo.js"></script>
-        <?php
+    <form method="post" action="create_step.php" id="infos_click">
+        <input type="hidden" name="id_story" value="<?php echo $id_story_choosed; ?>">
+        <input type="hidden" id="parent" name="parent" value="0">
+        <input type="hidden" id="step_or_choice" name="step_or_choice" value="Step">
+        <input type="hidden" id= "id" name="id" value="<?php echo $first_step[0]["id"] ?>">
+    </form>
+    <script type="text/javascript">
+        var id_parents = <?php echo json_encode($id_parents_list); ?>;
+        var type = <?php echo json_encode($step_or_choice); ?>;
+        var id_element = <?php echo json_encode($id_list); ?>;
+        var choices = <?php echo json_encode($choicesList); ?>;
+        var steps = <?php echo json_encode($stepsList); ?>;
+    </script>
+    <script src="script.js"></script>
+    <script src="../scripts_tree/treetodiagram.js"></script>
+    <script src="../scripts_tree/layoutText.js"></script>
+    <script src="../scripts_tree/gup.js"></script>
+    <script src="../scripts_tree/texttotree.js"></script>
+    <script src="../scripts_tree/demo.js"></script>
+    <?php
 
-        include("../footer.php");
-    }
+    include("../footer.php");
 }
 ?>

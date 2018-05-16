@@ -18,7 +18,6 @@ $choice_parent = $_POST["parent"];
 $choices_modified = $_SESSION['choices_modified'];
 $nb_choice = $_POST["nb_choix"];
 $new_step = $_POST["newStep"];
-$_SESSION["id_story"] = $is_story;
 $tab_choices = array();
 
 $config = HTMLPurifier_Config::createDefault();
@@ -83,11 +82,6 @@ if($new_step == "yes"){
     $result = $pdo->prepare($query);
     $result->execute(array($is_story));
 }
-
-
-
-
-
 
 header("location: story_display.php");
 ?>

@@ -84,7 +84,7 @@ if ($step_or_choice == "Step"){
                     <div id="choix" style="background-color:transparent;">
                     </div>
                     <button type="button" class="ajt_chps" id="btn_ajout_champs" onclick="ajout_champ(null)">Ajouter un choix</button>
-                    <input type="submit" name="valid_step" value="Créer - Ne fonctionne pas encore">
+                    <input type="submit" name="valid_step" value="Créer / Modifier">
                 </div>
             </article>
         </form>
