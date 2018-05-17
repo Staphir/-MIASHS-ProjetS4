@@ -169,15 +169,7 @@ $first_step = $response_first_step->fetchall(PDO::FETCH_ASSOC);
             $table_choices = $response_choices->fetchall(PDO::FETCH_ASSOC);
 
             $id_story = $table_steps[0]["id_story"];
-            print_r($table_steps[0]["id"]);
-            print_r($table_steps[1]["id"]);
-            print_r($table_steps[2]["id"]);
-            print_r($table_steps[3]["id"]);
-            print_r($table_steps[4]["id"]);
-            print_r($table_steps[5]["id"]);
-            print_r($table_steps[6]["id"]);
-            print_r($table_steps[7]["id"]);
-            print_r($table_steps[8]["id"]);
+
             //------------------------------------------------------------
             class Choice {
                 //proprietes
