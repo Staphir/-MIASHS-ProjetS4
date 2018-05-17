@@ -19,7 +19,7 @@ $result = $pdo->prepare($query);
 $result->execute(array($search));
 $row = $result->fetchAll(PDO::FETCH_ASSOC);
 
-$search_value = '²'
+$search_value = '';
 ?>
 <div class="search">
     <div>
@@ -29,13 +29,14 @@ $search_value = '²'
 </div>
 <aside class='searchAttr' style='text-align:justify;'>
     <h2 style='margin:10px 0px;'>Recherche avancée</h2><hr>
+    <form method='get' action='search.php?search='><input type='submit' value='Voir toutes les histoires'></form>
     <p>Ici prochainement, un utilitaire de recherche par tags et catégories !</p>
 </aside>
 <section id='searchResults'>
     <article id='floatingSearchBar' class="card">
         <form method='get'>
             <div style='padding:0px;margin-right10px;display:flex;'>
-                <input type='text' name='search' <?php echo ($search=='')?"value='Toutes les histoires...'":"value='$search'"; ?> placeholder='Rechercher un titre...' style='font-size:1.1em;margin-right:10px;border:none'>
+                <input type='text' name='search' <?php echo ($search=='')?"value=''":"value='$search'"; ?> <?php echo ($search=='')?"placeholder='Toutes les histoires...'":"placeholder='...'"; ?> style='font-size:1.1em;margin-right:10px;border:none'>
                 <input type='submit' value='Rechercher' style='width:auto; margin-right:10px;'>
             </div>
         </form>
