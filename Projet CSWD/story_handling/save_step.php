@@ -40,9 +40,9 @@ if($new_step == "yes"){
     $reponse_step->execute(array($step, $choice_parent, $is_story));
 
     //recuperation id nouvelle etape
-    $query = "SELECT id FROM step WHERE id_choice = ?";
+    $query = "SELECT id FROM step WHERE id_choice = ? AND id_story = ?";
     $response = $pdo->prepare($query);
-    $response->execute(array($choice_parent));
+    $response->execute(array($choice_parent, $is_story));
     $id_step = $response->fetch(PDO::FETCH_ASSOC);
 
     //ajouts choix
