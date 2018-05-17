@@ -135,7 +135,6 @@ $(document).ready(function(){
 
     // Publish story
     $('input.publishCheckbox').click(function () {
-        console.log('salut');
         var published = $(this).prop('checked')?1:0;
         $.ajax({
             type: "POST",
