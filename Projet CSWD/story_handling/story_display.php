@@ -123,10 +123,10 @@ if (empty($row)) {
         </article>
         <article class="card">
             <div>
-                <?php echo "<h2 style='text_align:center;'>".$row[0]["title"]."</h2>"; ?><hr>
+                <?php echo "<h2 style='text-align:center;'>".$row[0]["title"]."</h2>"; ?><hr>
                 <fieldset style='padding:0px; border-radius:5px; border:1px solid black;margin-top:20px'>
                     <legend style='margin-left:20px;'>Description <img id='editDescImg' alt='Edit' src='../images/edit.png' width=17>
-                        <img id='saveDesc' src='../images/save.png' alt='save' width=15></legend>
+                    <img id='saveDesc' src='../images/save.png' alt='save' width=15></legend>
                     <div style='margin:10px; padding:0px;'>
                         <style>
                             #textAreaDesc {
@@ -143,12 +143,11 @@ if (empty($row)) {
                                 }
                                 
                             }
-                            </style>
-                            <div style='padding:0px;margin:0px;'>
-                                <textarea id="textAreaDesc" placeholder="..." name="stream"><?php echo $row[0]["description"]; ?></textarea>
-                                <div id='container' style='padding:0px;margin:0px;'>
-                                    <?php echo $row[0]["description"]; ?>
-                                </div>
+                        </style>
+                        <div style='padding:0px;margin:0px;'>
+                            <textarea id="textAreaDesc" placeholder="..." name="stream"><?php echo $row[0]["description"]; ?></textarea>
+                            <div id='container' style='padding:0px;margin:0px;'>
+                                <?php echo $row[0]["description"]; ?>
                             </div>
                         </div>
                     </div>
@@ -301,7 +300,7 @@ if (empty($row)) {
                 <input type="checkbox" <?php echo ($row[0]['published'])?'checked':''; ?> class='publishCheckbox'>
                 <span class="slider round"></span>
             </label>
-            <p class='alert' class='publishText' style='font-size:1.4em;padding:0px;margin:0px;'><?php echo ($row[0]['published'])?'Publiée':'Publier'; ?></p>
+            <p class='alert publishText' style='font-size:1.4em;padding:0px;margin:0px;'><?php echo ($row[0]['published'])?'Publiée':'Publier'; ?></p>
         </div><hr>
         <div>
             <img alt='Supprimer' src="../images/trash.png" width=40 class="deleteStory" onmouseover="this.src='../images/trash_hover.png'" onmouseout="this.src='../images/trash.png'" onmousedown="this.src='../images/trash_down.png'">
@@ -321,7 +320,7 @@ if (empty($row)) {
         <input type="hidden" id="step_or_choice" name="step_or_choice" value="Step">
         <input type="hidden" id= "id" name="id" value="<?php echo $first_step[0]["id"] ?>">
     </form>
-    <script type="text/javascript">
+    <script>
         var id_parents = <?php echo json_encode($id_parents_list); ?>;
         var type = <?php echo json_encode($step_or_choice); ?>;
         var id_element = <?php echo json_encode($id_list); ?>;

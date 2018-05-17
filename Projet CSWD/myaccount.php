@@ -46,7 +46,7 @@ if (isset($_POST) && !empty($_FILES['fileUpload']['tmp_name']) && ($_FILES['file
         $uploadOk = 0;
     }
 
-    $res = "Cette fonctionnalité n'est pas autorisée sur ce serveur, désolé !";
+    $res = "Cette fonctionnalité n'est pas encore active, le serveur ne nous le permet pas !";
 
     // Check if $uploadOk is set to 0 by an error
     // if ($uploadOk) {
@@ -151,7 +151,7 @@ if (!$isConnected) {
     .modal-header {
         padding: 2px 16px;
         background-color: white;
-        color: rgba(186, 0, 0);
+        color: rgb(186, 0, 0);
     }
 
     .modal-body {padding: 2px 16px;}
@@ -178,7 +178,6 @@ if (!$isConnected) {
             
             <div style="padding-top:0px"><ul class="spacedLi">
                 <?php 
-                $img = "<a href=><img src=></a>";
                 echo "<li><p class='red'>Nom d'utilisateur : </p><p>".$row[0]['username']."</p></li>";
                 echo "<li><p class='red'>Adresse email : </p><p>".$row[0]['email']."</p></li>";
                 ?>
@@ -218,7 +217,9 @@ if (!$isConnected) {
             <h2>Ajouter/modifier l'image de profil</h2>
         </div>
         <div class="modal-body">
-            <div id='AccountImgDiv'><img width=100 style='display:none;' id='AccountImg'></div>
+            <div id='AccountImgDiv'>
+                <?php echo "<img alt='Image de profil' width=100 style='display:none;' src='".$img."' id='AccountImg'>"; ?>
+            </div>
             Sélectionner une image à importer :
             <form method='post' enctype="multipart/form-data">
                 <input style='margin-left:10px;' type="file" name="fileUpload" id="AccountImgUpload">

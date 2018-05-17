@@ -76,7 +76,7 @@ div#choix, div#choix div {
         <form action="save_step.php" method="post">
             <article class="card">
                 <div>
-                    <h2>Rédiger une étape <img id='editDescImg' style='margin-left:10px;'alt='Edit' src='../images/edit.png' width=25></h2><hr>
+                    <h2>Rédiger une étape <img id='editDescImg' style='margin-left:10px;' alt='Edit' src='../images/edit.png' width=25></h2><hr>
                     <input type="hidden" name="id_story" value="<?php echo $id_story ?>">
                     <?php if (!isset($array_step) || empty($array_step)){
                         ?>
@@ -116,7 +116,7 @@ div#choix, div#choix div {
             </article>
         </form>
     </section>
-    <script type="text/javascript" src="script.js"></script>
+    <script src="script.js"></script>
     <?php
     if (isset($array_step)) {
         $_SESSION['choices_modified'] = $choices_childs;

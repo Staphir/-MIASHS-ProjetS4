@@ -35,7 +35,7 @@ $search_value = '';
 <section id='searchResults'>
     <article id='floatingSearchBar' class="card">
         <form method='get'>
-            <div style='padding:0px;margin-right10px;display:flex;'>
+            <div style='padding:0px;margin-right:0px;display:flex;'>
                 <input type='text' name='search' <?php echo ($search=='')?"value=''":"value='$search'"; ?> <?php echo ($search=='')?"placeholder='Toutes les histoires...'":"placeholder='...'"; ?> style='font-size:1.1em;margin-right:10px;border:none'>
                 <input type='submit' value='Rechercher' style='width:auto; margin-right:10px;'>
             </div>

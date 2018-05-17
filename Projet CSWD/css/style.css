@@ -18,10 +18,6 @@
     --card-border-radius : 4px;
 }
 
-*:focus {
-    outline:none;
-}
-
 .noselect {
     -webkit-touch-callout: none; /* iOS Safari */
       -webkit-user-select: none; /* Safari */

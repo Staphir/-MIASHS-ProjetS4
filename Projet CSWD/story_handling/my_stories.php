@@ -50,7 +50,7 @@ $_SESSION["id_story"] = null;
                     </form>
                 </div>
                 <form action='create_story.php'>
-                    <input type=submit value='Créer une nouvelle histoire' style='margin-top:20px;width:auto;t:right;'>
+                    <input type=submit value='Créer une nouvelle histoire' style='margin:20px 0px -10px 0px;width:auto;'>
                 </form>
             </div><div  style='clear:both;'></div>
         </article>
