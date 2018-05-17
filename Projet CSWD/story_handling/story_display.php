@@ -137,6 +137,12 @@ if (empty($row)) {
                                 border: medium none;
                                 display: none;
                             }
+                            @media screen and (max-width: 1160px) {
+                                input[value="Démarrer l'écriture"] {
+                                    /* width:100%; */
+                                }
+                                
+                            }
                             </style>
                             <div style='padding:0px;margin:0px;'>
                                 <textarea id="textAreaDesc" placeholder="..." name="stream"><?php echo $row[0]["description"]; ?></textarea>
@@ -155,7 +161,7 @@ if (empty($row)) {
                         <input type="hidden" name="parent" value="0">
                         <input type="hidden" id="step_or_choice" name="step_or_choice" value="Step">
                         <input type="hidden" name="id" value="0">
-                        <input type="submit" name="new_step" style='width:auto;margin-top:10px;' value="Démarrer l'écriture">
+                        <input type="submit" name="new_step" style='width:auto;margin:10px 0px 0px 20px;' value="Démarrer l'écriture">
                     </form>
                 <?php }else{
                     $query_steps="SELECT * FROM step WHERE id_story = ? ORDER BY step.id";
