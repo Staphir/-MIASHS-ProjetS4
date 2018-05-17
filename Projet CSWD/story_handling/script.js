@@ -57,7 +57,7 @@
         // }
 
     if (idChoice != null){
-        var confirme = confirm("êtes-vous sûr de vouloir supprimer ce choix et toute l'histoire qui lui est associé ?");
+        var confirme = confirm("Etes-vous sûr de vouloir supprimer ce choix et toute l'histoire qui lui est associé ?");
         if (confirme == true) {
             console.log("ok");
             var li = document.getElementById("div" + nbChoix);
