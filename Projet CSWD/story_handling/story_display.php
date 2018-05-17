@@ -298,13 +298,13 @@ if (empty($row)) {
     <aside class='storyParam' style='bottom:auto; text-align:center'>
         <div style='margin-top:20px;'>
             <label class="switch">
-                <input type="checkbox" <?php echo ($row[0]['published'])?'checked':''; ?> id='publishedCheckbox'>
+                <input type="checkbox" <?php echo ($row[0]['published'])?'checked':''; ?> class='publishCheckbox'>
                 <span class="slider round"></span>
             </label>
-            <p class='alert' id='publishText' style='font-size:1.4em;padding:0px;margin:0px;'><?php echo ($row[0]['published'])?'Publiée':'Publier'; ?></p>
+            <p class='alert' class='publishText' style='font-size:1.4em;padding:0px;margin:0px;'><?php echo ($row[0]['published'])?'Publiée':'Publier'; ?></p>
         </div><hr>
         <div>
-            <img alt='Supprimer' src="../images/trash.png" width=40 id="deleteStory" onmouseover="this.src='../images/trash_hover.png'" onmouseout="this.src='../images/trash.png'" onmousedown="this.src='../images/trash_down.png'">
+            <img alt='Supprimer' src="../images/trash.png" width=40 class="deleteStory" onmouseover="this.src='../images/trash_hover.png'" onmouseout="this.src='../images/trash.png'" onmousedown="this.src='../images/trash_down.png'">
             <p class='alert' style='font-size:1.2em;padding:0px;margin:10px 0px;'>Supprimer</p>
         </div><hr>
         <div>
