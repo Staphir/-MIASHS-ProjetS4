@@ -6,7 +6,7 @@ if (isset($_SESSION['user_id'])) {
     $menu["title"] = "Mes histoires";
     $dir1 = "../"; $dir2 = "../";
     include("../main_header.php");
-    $_SESSION["id_story"] = null;
+
     $requete="SELECT * FROM story WHERE user_id = ?";
     $reponse=$pdo->prepare($requete);
     $reponse->execute(array($_SESSION["user_id"]));
@@ -15,6 +15,7 @@ if (isset($_SESSION['user_id'])) {
     header('location: ../user_handling/login.php');
 }
 
+$_SESSION["id_story"] = null;
 ?>
     <section>
         <article class="card">

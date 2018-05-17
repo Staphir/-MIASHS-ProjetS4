@@ -104,7 +104,6 @@ $(document).ready(function(){
     $('input#submitAccountData').click(function(){
         firstname = $('input.firstname').val();
         lastname = $('input.lastname').val();
-        user_id = $('input#accountId').val();
         $.ajax({
             type: "POST",
             url: "jquery/saveAccountData.php",   
@@ -114,6 +113,7 @@ $(document).ready(function(){
                 lastname:lastname
             },
             success: function(result) {
+                console.log(result)
                 var data = JSON.parse(result);
                 $('input.firstname').val(data[0]);
                 $('input.lastname').val(data[1]);

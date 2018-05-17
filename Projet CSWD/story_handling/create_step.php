@@ -69,6 +69,9 @@ div#choix, div#choix div {
 
 }
 </style>
+<script>
+    var idStory = <?php echo json_encode($id_story); ?>;
+</script>
     <section>
         <form action="save_step.php" method="post">
             <article class="card">
@@ -107,8 +110,8 @@ div#choix, div#choix div {
                     <h2>Ajouter des choix</h2><hr>
                     <div id="choix" style="background-color:transparent;padding-left:30px;">
                     </div>
-                    <button type="button" class="ajt_chps" id="btn_ajout_champs" style='text-decoration:underline;background-color:transparent;width:auto;border:none;color:grey;cursor:pointer' onclick="ajout_champ(true)">+ Ajouter un choix</button>
-                    <input type="submit" name="valid_step" value="Créer - Ne fonctionne pas encore">
+                    <button type="button" class="ajt_chps" id="btn_ajout_champs" onclick="ajout_champ(null)" style='text-decoration:underline;background-color:transparent;width:auto;border:none;color:grey;cursor:pointer'>Ajouter un choix</button>
+                    <input type="submit" name="valid_step" value="Créer / Modifier">
                 </div>
             </article>
         </form>
@@ -119,7 +122,7 @@ div#choix, div#choix div {
         $_SESSION['choices_modified'] = $choices_childs;
         for ($i = 0; $i < count($choices_childs); $i++) {
             ?>
-            <script type='text/javascript'> ajout_champ_enfant(<?php echo json_encode($choices_childs[$i]["content"]); ?>,false); </script>
+            <script type='text/javascript'> ajout_champ_enfant(<?php echo json_encode($choices_childs[$i]["content"]).",". json_encode($choices_childs[$i]["id"]); ?>); </script>
             <?php
         }
     }

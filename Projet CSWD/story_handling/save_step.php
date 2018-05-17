@@ -18,7 +18,6 @@ $choice_parent = $_POST["parent"];
 $choices_modified = $_SESSION['choices_modified'];
 $nb_choice = $_POST["nb_choix"];
 $new_step = $_POST["newStep"];
-$_SESSION["id_story"] = $is_story;
 $tab_choices = array();
 
 $config = HTMLPurifier_Config::createDefault();
@@ -77,12 +76,12 @@ if($new_step == "yes"){
         $reponse_choice = $pdo->prepare($query_choice);
         $reponse_choice->execute(array($tab_choices[$i], $_POST["stepId"], $is_story));
     }
+
+    //update date modification
+    $query = "UPDATE story SET lastmodifiedon = NOW() WHERE id = ? ;";
+    $result = $pdo->prepare($query);
+    $result->execute(array($is_story));
 }
-
-
-
-
-
 
 header("location: story_display.php");
 ?>

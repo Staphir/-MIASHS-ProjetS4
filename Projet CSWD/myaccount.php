@@ -205,7 +205,7 @@ if (!$isConnected) {
                 
                 ?>
             </ul></div>
-            <?php echo "<input type='hidden' id='accountId' value='".$_SESSION['user_id']."'>"; ?>
+            <script> var user_id = <?php echo $_SESSION['user_id']; ?>; </script>
             <input value="Enregister les modification" id='submitAccountData' type="submit" style='width:auto;'>
         </div>
     </article>
