@@ -339,7 +339,6 @@ function treeToDiagram(tree, diagramSvg, diagramGroup, options) {
 function rectonclick(e) {
     var rectTarget = e.target;
     var idSplit = rectTarget.id.split("_");
-    alert(idSplit[0]);
 
     document.getElementById("parent").value = idSplit[0];
     document.getElementById("step_or_choice").value = idSplit[1];
