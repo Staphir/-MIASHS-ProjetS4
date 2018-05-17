@@ -164,7 +164,7 @@ if (empty($row)) {
                         <input type="submit" name="new_step" style='width:auto;margin:10px 0px 0px 20px;' value="Démarrer l'écriture">
                     </form>
                 <?php }else{
-                    $query_steps="SELECT * FROM step WHERE id_story = ? ORDER BY step.id";
+                    $query_steps="SELECT * FROM step WHERE id_story = ? ORDER BY step.id_choice";
                     $response_steps=$pdo->prepare($query_steps);
                     $response_steps->execute(array($id_story_choosed));
                     $table_steps = $response_steps->fetchall(PDO::FETCH_ASSOC);
