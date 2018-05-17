@@ -15,7 +15,7 @@ $result->execute(array($_POST["id_user"], $_POST["id_story"]));
 $row = $result->fetchAll();
 
 if(count($row)) {
-    $query = "UPDATE story_like SET val = ?, id_story = ?, id_user = ? ;";
+    $query = "UPDATE story_like SET val = ? WHERE id_story = ? AND id_user = ? ;";
 } else {
     $query = "INSERT INTO story_like (val, id_story, id_user) VALUES (?, ?, ?) ;";
 }

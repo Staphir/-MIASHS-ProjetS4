@@ -42,7 +42,8 @@ line {
 }
   </textarea>
 
-<div style='overflow:auto'><span>
+<div style='overflow:auto'>
+  <span>
     <svg id="diagramSvg" xmlns="http://www.w3.org/2000/svg">
       <style id="stylesheet"> </style>
       <defs>
@@ -54,4 +55,5 @@ line {
       </defs>
       <g id="diagramGroup"></g>
     </svg>
-  </span></div>
+  </span>
+</div>
