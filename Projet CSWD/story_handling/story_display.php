@@ -295,27 +295,6 @@ if (empty($row)) {
                 </div>
             </article>
         </section>
-        <aside class='storyParam' style='bottom:auto; text-align:center'>
-            <div style='margin-top:20px;'>
-                <label class="switch">
-                    <?php echo $row[0]['published'] ;?>
-                    <input type="checkbox" <?php echo ($row[0]['published'])?'checked':''; ?> class='publishCheckbox'>
-                    <span class="slider round"></span>
-                </label>
-                <p class='alert publishText' style='font-size:1.4em;padding:0px;margin:0px;'><?php echo ($row[0]['published'])?'Publiée':'Publier'; ?></p>
-            </div><hr>
-            <div>
-                <img alt='Supprimer' src="../images/trash.png" width=40 class="deleteStory" onmouseover="this.src='../images/trash_hover.png'" onmouseout="this.src='../images/trash.png'" onmousedown="this.src='../images/trash_down.png'">
-                <p class='alert' style='font-size:1.2em;padding:0px;margin:10px 0px;'>Supprimer</p>
-            </div><hr>
-            <div>
-                <a href='../rules.php#formatage' target='_blank' style='margin:0px;padding:0px;'>
-                    <img alt='Règles HTML' src="../images/html.png" style='border-radius:12px;' width=70 onmouseover="this.src='../images/html_hover.png'" onmouseout="this.src='../images/html.png'" onmousedown="this.src='../images/html_down.png'">
-                </a>
-                <p class='alert' style='font-size:1em;padding:0px;margin:0px'>Règles HTML</p>
-            </div>
-        </article>
-    </section>
     <aside class='storyParam' style='bottom:auto; text-align:center'>
         <div style='margin-top:20px;'>
             <label class="switch">
