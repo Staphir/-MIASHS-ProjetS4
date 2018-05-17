@@ -267,9 +267,10 @@ $(document).ready(function(){
 
     // Liker l'histoire
     $('.likeStoryDiv').click(function(){
-        if (isLiked == 1) {isLiked = 0}
-        else {isLiked = 1;}
         if (isLoggedIn()) {
+            if (isLiked == 1) {isLiked = 0}
+            else {isLiked = 1;}
+            $('.likeStoryImg').attr('src', 'images/loading.gif');
             $.ajax({
                 type: "POST",
                 url: "jquery/likeStory.php",   
