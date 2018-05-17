@@ -831,7 +831,7 @@ article.storyParam div hr {
         min-width: auto;
     }
     section article.card {
-        margin: 30px 16px 10px 16px;
+        /* margin: 30px 16px 10px 16px; */
     }
     #home {
         margin-right:0px

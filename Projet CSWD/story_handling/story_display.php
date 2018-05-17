@@ -121,7 +121,7 @@ if (empty($row)) {
                 </div>
             </div>
         </article>
-        <article class="card" style='overflow:auto;'>
+        <article class="card">
             <div>
                 <?php echo "<h2 style='text_align:center;'>".$row[0]["title"]."</h2>"; ?><hr>
                 <fieldset style='padding:0px; border-radius:5px; border:1px solid black;margin-top:20px'>

@@ -19,34 +19,36 @@ $_SESSION["id_story"] = null;
 ?>
     <section>
         <article class="card">
-            <div style='overflow:auto;'>
+            <div>
                 <h2>Vos histoires</h2><hr>
-                <form method="post" action="story_display.php" id="form_display">
-                    <table id="customers">
-                        <tr>
-                            <th>Titre</th>
-                            <th>Date de création</th>
-                            <th>Publiée</th>
-                            <th>Date de publication</th>
-                            <th>Likes</th>
-                            <th>Dernière modification</th>
-                        </tr>
-                        <?php
-                        for ($i=0; $i<count($array_stories); $i++) {
-                            $createdon = date('M j Y G:i ', strtotime($array_stories[$i]["createdon"]));
-                            $publishedon = date('M j Y G:i', strtotime($array_stories[$i]["publishedon"]));
-                            $lastmodifiedon = date('M j Y G:i', strtotime($array_stories[$i]["lastmodifiedon"]));
-                            $story = $array_stories[$i]["id"];
-                            echo "<tr onclick='choiceStory($story)'>";
-                            echo "<td>".$array_stories[$i]["title"]."</td>";
-                            echo "<td>".$createdon."</td>";
-                            echo "<td>".($array_stories[$i]["published"]?"Oui":"Non")."</td>";
-                            echo "<td>".$publishedon."</td>";
-                            echo "<td>".$array_stories[$i]["likes"]."</td>";
-                            echo "<td>".$lastmodifiedon."</td></tr>";
-                        } ?>
-                    </table>
-                </form>
+                <div style='padding:0px; overflow:auto;'>
+                    <form method="post" action="story_display.php" id="form_display">
+                        <table id="customers">
+                            <tr>
+                                <th>Titre</th>
+                                <th>Date de création</th>
+                                <th>Publiée</th>
+                                <th>Date de publication</th>
+                                <th>Likes</th>
+                                <th>Dernière modification</th>
+                            </tr>
+                            <?php
+                            for ($i=0; $i<count($array_stories); $i++) {
+                                $createdon = date('M j Y G:i ', strtotime($array_stories[$i]["createdon"]));
+                                $publishedon = date('M j Y G:i', strtotime($array_stories[$i]["publishedon"]));
+                                $lastmodifiedon = date('M j Y G:i', strtotime($array_stories[$i]["lastmodifiedon"]));
+                                $story = $array_stories[$i]["id"];
+                                echo "<tr onclick='choiceStory($story)'>";
+                                echo "<td>".$array_stories[$i]["title"]."</td>";
+                                echo "<td>".$createdon."</td>";
+                                echo "<td>".($array_stories[$i]["published"]?"Oui":"Non")."</td>";
+                                echo "<td>".$publishedon."</td>";
+                                echo "<td>".$array_stories[$i]["likes"]."</td>";
+                                echo "<td>".$lastmodifiedon."</td></tr>";
+                            } ?>
+                        </table>
+                    </form>
+                </div>
                 <form action='create_story.php'>
                     <input type=submit value='Créer une nouvelle histoire' style='margin-top:20px;width:auto;t:right;'>
                 </form>
