@@ -855,3 +855,7 @@ article.storyParam div hr {
         right:18px;
     }
 }
+
+tspan, rect{
+    cursor: pointer;
+}

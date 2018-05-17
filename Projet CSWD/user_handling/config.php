@@ -7,6 +7,7 @@ $HTMLAllowed_Description = 'span[style],p[style],a[href],i,b,font[style|size|col
 $HTMLAllowed_Step = 'span[style],p[style],i,b,img[src|alt],font[style|size|color],ol,ul,li,br';
 $HTMLAllowed_Title = 'i,b,font[style|size|color]';
 $dateFormat = ' d/m/Y G:i ';
+
 //Connexion Locale
 $config_base['hote']        = "127.0.0.1";
 $config_base['utilisateur'] = "root";

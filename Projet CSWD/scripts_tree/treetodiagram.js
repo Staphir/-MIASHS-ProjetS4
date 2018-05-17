@@ -290,14 +290,14 @@ function treeToDiagram(tree, diagramSvg, diagramGroup, options) {
                         Math.floor(yValue * yMultiplier) + "px");
 
                     layoutText(text, node.label, yMultiplier - options.labelPadding, yPos,
-                        xMultiplier, options.labelLineSpacing);
+                        xMultiplier, options.labelLineSpacing, rectId);
                 } else {
                     var xPos = Math.floor((node.x + 0.5) * xMultiplier);
                     text.setAttribute(xAttribute, xPos + "px");
                     text.setAttribute(yAttribute, Math.floor(yValue * yMultiplier) +
                         "px");
                     layoutText(text, node.label, xMultiplier - options.labelPadding, xPos,
-                        yMultiplier, options.labelLineSpacing);
+                        yMultiplier, options.labelLineSpacing, rectId);
                 }
 
                 if (levelIdx == 0)
@@ -339,6 +339,7 @@ function treeToDiagram(tree, diagramSvg, diagramGroup, options) {
 function rectonclick(e) {
     var rectTarget = e.target;
     var idSplit = rectTarget.id.split("_");
+    alert(idSplit[0]);
 
     document.getElementById("parent").value = idSplit[0];
     document.getElementById("step_or_choice").value = idSplit[1];
