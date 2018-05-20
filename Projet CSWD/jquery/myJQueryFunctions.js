@@ -67,11 +67,11 @@ $(document).ready(function(){
                 description:HTMLText
             },
             success: function(result) {
-                $('#container').html(result);
+                $('#descriptionContainer').html(result);
                 $('#textAreaDesc').val(result);
                 
                 $('#textAreaDesc').hide();
-                $('#container').show();
+                $('#descriptionContainer').show();
 
                 $('img#editDescImg').attr('src', '../images/edit.png');
                 alert('Description mise à jour.');
@@ -85,18 +85,63 @@ $(document).ready(function(){
         // modifyDescription();getDesc();
         var curHTML = $('#textAreaDesc').val();
         
-        if ($('#container').is(":visible")) {
-            $('#container').hide();
+        if ($('#descriptionContainer').is(":visible")) {
+            $('#descriptionContainer').hide();
             $('#textAreaDesc').show('fast');
         } else {
-            $('#container').html(curHTML);
+            $('#descriptionContainer').html(curHTML);
             $('#textAreaDesc').hide('fast');
-            $('#container').show();
+            $('#descriptionContainer').show();
         }
         imgSrcAlternate(this, '../images/edit.png', '../images/editActive.png')
     });
     //// ***
     // ***
+
+    // Story title
+    //// title save button
+    imgEnterLeave($('img#saveTitle'), '../images/save.png', '../images/saveActive.png')
+    $('img#saveTitle').click(function(){
+        HTMLText = $('textarea#textAreaTitle').val();
+        $.ajax({
+            type: "POST",
+            url: "../jquery/saveTitle.php",   
+            data: {
+                id:storyId,
+                title:HTMLText
+            },
+            success: function(result) {
+                $('#titleContainer').html(result);
+                $('#textAreaTitle').val(result);
+                
+                $('#textAreaTitle').hide();
+                $('#titleContainer').show();
+
+                $('img#editTitleImg').attr('src', '../images/edit.png');
+                alert('Titre mise à jour.');
+            }
+        });
+    });
+    //// ***
+
+    //// Title edit button
+    $('#editTitleImg').click(function(){
+        // modifyDescription();getDesc();
+        var curHTML = $('#textAreaTitle').val();
+        
+        if ($('#titleContainer').is(":visible")) {
+            $('#titleContainer').hide();
+            $('#textAreaTitle').show('fast');
+        } else {
+            $('#titleContainer').html(curHTML);
+            $('#textAreaTitle').hide('fast');
+            $('#titleContainer').show();
+        }
+        imgSrcAlternate(this, '../images/edit.png', '../images/editActive.png')
+    });
+    //// ***
+    // ***
+
 
     // Account data
     modifyAccountData('img#firstnameImg', 'input.firstname', 'p.firstname');

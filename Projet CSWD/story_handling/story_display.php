@@ -84,6 +84,22 @@ if (empty($row)) {
                 display:block;
             }
         }
+        #textAreaDesc {
+            resize: vertical;
+            width: 100%;
+            height: 100%;
+            box-sizing: border-box;
+            border: medium none;
+            display: none;
+        }
+        #textAreaTitle {
+            resize: vertical;
+            width: 100%;
+            height: 100%;
+            box-sizing: border-box;
+            border: medium none;
+            display: none;
+        }
     </style>
     <section>
         <script>var storyId = <?php echo $row[0]["id"]; ?>; </script>
@@ -123,36 +139,33 @@ if (empty($row)) {
         </article>
         <article class="card">
             <div>
-                <?php echo "<h2 style='text-align:center;'>".$row[0]["title"]."</h2>"; ?><hr>
-                <fieldset style='padding:0px; border-radius:5px; border:1px solid black;margin-top:20px'>
-                    <legend style='margin-left:20px;'>Description <img id='editDescImg' alt='Edit' src='../images/edit.png' width=17>
+                <fieldset style='padding:0px; border-radius:5px; border:1px solid black;margin-bottom:20px'>
+                    <legend style='margin-left:20px;font-size:1.5em;'>Titre <img id='editTitleImg' alt='Edit' src='../images/edit.png' width=20>
+                    <img id='saveTitle' src='../images/save.png' alt='save' width=18></legend>
+                    <div style='margin:10px; padding:0px;'>
+                        <div style='padding:0px;margin:0px;'>
+                            <textarea id="textAreaTitle" placeholder="..." name="stream" required><?php echo $row[0]["title"]; ?></textarea>
+                            <div id='titleContainer' style='padding:0px;margin:0px;'>
+                                <?php echo $row[0]["title"]; ?>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+                <hr>
+                <fieldset style='padding:0px; border-radius:5px; border:1px solid black;margin-top:10px'>
+                    <legend style='margin-left:20px;font-size:1.2em;'>Description <img id='editDescImg' alt='Edit' src='../images/edit.png' width=17>
                     <img id='saveDesc' src='../images/save.png' alt='save' width=15></legend>
                     <div style='margin:10px; padding:0px;'>
-                        <style>
-                            #textAreaDesc {
-                                resize: vertical;
-                                width: 100%;
-                                height: 100%;
-                                box-sizing: border-box;
-                                border: medium none;
-                                display: none;
-                            }
-                            @media screen and (max-width: 1160px) {
-                                input[value="Démarrer l'écriture"] {
-                                    /* width:100%; */
-                                }
-                                
-                            }
-                        </style>
                         <div style='padding:0px;margin:0px;'>
-                            <textarea id="textAreaDesc" placeholder="..." name="stream"><?php echo $row[0]["description"]; ?></textarea>
-                            <div id='container' style='padding:0px;margin:0px;'>
+                            <textarea id="textAreaDesc" placeholder="..." name="stream" required><?php echo $row[0]["description"]; ?></textarea>
+                            <div id='descriptionContainer' style='padding:0px;margin:0px;'>
                                 <?php echo $row[0]["description"]; ?>
                             </div>
                         </div>
                     </div>
                 </fieldset>
                 <?php
+                echo "<a href='../preview.php?id=".($row[0]["id"])."'>Prévisualiser l'histoire</a>";
                 if($first_step == NULL){
                     ?>
                     <form action="create_step.php" method="post">
@@ -160,7 +173,7 @@ if (empty($row)) {
                         <input type="hidden" name="parent" value="0">
                         <input type="hidden" id="step_or_choice" name="step_or_choice" value="Step">
                         <input type="hidden" name="id" value="0">
-                        <input type="submit" name="new_step" style='width:auto;margin:10px 0px 0px 20px;' value="Démarrer l'écriture">
+                        <input type="submit" name="new_step" style='width:auto;margin:10px 0px 0px 0px;' value="Démarrer l'écriture">
                     </form>
                 <?php }else{
                     $query_steps="SELECT * FROM step WHERE id_story = ? ORDER BY step.id_choice";
