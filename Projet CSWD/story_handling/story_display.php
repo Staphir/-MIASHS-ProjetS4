@@ -75,15 +75,6 @@ if (empty($row)) {
             margin:0px;
             border:none;
         }
-        @media screen and (max-width: 1160px) {
-            section {
-                margin-right:0px;
-
-            }
-            article.storyParam {
-                display:block;
-            }
-        }
         #textAreaDesc {
             resize: vertical;
             width: 100%;
@@ -99,6 +90,24 @@ if (empty($row)) {
             box-sizing: border-box;
             border: medium none;
             display: none;
+        }
+        .link {
+            font-size:0.80em;
+            color:grey;
+            text-decoration:none;
+        }
+        .link:hover {
+            color:rgb(151, 151, 151);
+            text-decoration:underline;
+        }
+        @media screen and (max-width: 1160px) {
+            section {
+                margin-right:0px;
+
+            }
+            article.storyParam {
+                display:block;
+            }
         }
     </style>
     <section>
@@ -164,8 +173,9 @@ if (empty($row)) {
                         </div>
                     </div>
                 </fieldset>
+
                 <?php
-                echo "<a href='../preview.php?id=".($row[0]["id"])."'>Prévisualiser l'histoire</a>";
+                echo "<a href='../preview.php?id=".($row[0]["id"])."' class='link'>Prévisualiser l'histoire</a>";
                 if($first_step == NULL){
                     ?>
                     <form action="create_step.php" method="post">

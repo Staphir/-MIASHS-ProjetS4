@@ -50,24 +50,20 @@ if ($step_or_choice == "Step"){
 
 ?>
 <style>
-#textAreaDesc {
-    resize: vertical;
-    width: 100%;
-    height: 100%; 
-    box-sizing: border-box; 
-    border: medium none;
-    display: block;
-}
-#container {
-    display: none;
-}
-div#choix, div#choix div {
-    padding: 0px;
-    margin: 0px;
-}
-.ajt_chps {
+    #textAreaDesc {
+        resize: vertical;
+        width: 100%;
+        height: 100%; 
+        box-sizing: border-box; 
+        border: medium none;
+    }
+    div#choix, div#choix div {
+        padding: 0px;
+        margin: 0px;
+    }
+    /* .ajt_chps {
 
-}
+    } */
 </style>
 <script>
     var idStory = <?php echo json_encode($id_story); ?>;
@@ -80,25 +76,41 @@ div#choix, div#choix div {
                     <input type="hidden" name="id_story" value="<?php echo $id_story ?>">
                     <?php if (!isset($array_step) || empty($array_step)){
                         ?>
+                        <style>
+                            #textAreaDesc {
+                                display: block;
+                            }
+                            #container {
+                                display: none;
+                            }
+                        </style>
                         <input type="hidden" name="parent" value="<?php echo $id ?>">
                         <input type="hidden" name="newStep" value="yes">
                         <div style='padding:0px;margin:0px;'>
                             <textarea id="textAreaDesc" cols="100" rows="14" placeholder="Ecrire ici la nouvelle étape..." name="step" required></textarea>
-                            <div id='container' style='padding:0px;margin:0px;'></div>
+                            <div id='descriptionContainer' style='padding:0px;margin:0px;'></div>
                         </div>
                         <!-- <textarea name="step" id="step_area" cols="100" rows="14" placeholder="Ecrire ici la nouvelle étape" required></textarea> -->
                         <input type="hidden" id="nb_choix" name="nb_choix" value="0">
                         <?php
                     }else{
                         ?>
+                        <style>
+                            #textAreaDesc {
+                                display: none;
+                            }
+                            #container {
+                                display: block;
+                            }
+                        </style>
                         <input type="hidden" name="parent" value="<?php echo $array_step[0]["id_choice"]; ?>">
                         <input type="hidden" name="newStep" value="no">
                         <input type="hidden" name="stepId" value="<?php echo $array_step[0]["id"]; ?>">
                         <div style='padding:0px;margin:0px;'>
                             <textarea id="textAreaDesc" cols="100" rows="14" placeholder="Ecrire ici la nouvelle étape..." name="step" required><?php echo $array_step[0]["content"]; ?></textarea>
-                            <div id='container' style='padding:0px;margin:0px;'></div>
+                            <div id='descriptionContainer' style='padding:0px;margin:0px;'><?php echo $array_step[0]["content"]; ?></div>
                         </div>
-                        <!-- <textarea name="step" id="step_area" cols="100" rows="14" required><?php echo $array_step[0]["content"]; ?></textarea> -->
+                        <!-- <textarea name="step" id="step_area" cols="100" rows="14" required><?php //echo $array_step[0]["content"]; ?></textarea> -->
                         <input type="hidden" id="nb_choix" name="nb_choix" value="0">
                         <?php
                     }
