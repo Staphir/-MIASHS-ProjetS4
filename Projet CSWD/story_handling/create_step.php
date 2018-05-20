@@ -83,7 +83,7 @@ div#choix, div#choix div {
                         <input type="hidden" name="parent" value="<?php echo $id ?>">
                         <input type="hidden" name="newStep" value="yes">
                         <div style='padding:0px;margin:0px;'>
-                            <textarea id="textAreaDesc" cols="100" rows="14" placeholder="Ecrire ici la nouvelle étape..." name="step"></textarea>
+                            <textarea id="textAreaDesc" cols="100" rows="14" placeholder="Ecrire ici la nouvelle étape..." name="step" required></textarea>
                             <div id='container' style='padding:0px;margin:0px;'></div>
                         </div>
                         <!-- <textarea name="step" id="step_area" cols="100" rows="14" placeholder="Ecrire ici la nouvelle étape" required></textarea> -->
@@ -95,7 +95,7 @@ div#choix, div#choix div {
                         <input type="hidden" name="newStep" value="no">
                         <input type="hidden" name="stepId" value="<?php echo $array_step[0]["id"]; ?>">
                         <div style='padding:0px;margin:0px;'>
-                            <textarea id="textAreaDesc" cols="100" rows="14" placeholder="Ecrire ici la nouvelle étape..." name="step"><?php echo $array_step[0]["content"]; ?></textarea>
+                            <textarea id="textAreaDesc" cols="100" rows="14" placeholder="Ecrire ici la nouvelle étape..." name="step" required><?php echo $array_step[0]["content"]; ?></textarea>
                             <div id='container' style='padding:0px;margin:0px;'></div>
                         </div>
                         <!-- <textarea name="step" id="step_area" cols="100" rows="14" required><?php echo $array_step[0]["content"]; ?></textarea> -->

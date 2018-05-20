@@ -5,11 +5,16 @@ include("main_header.php");
 $isConnected = false;
 
 if (!empty($_SESSION['user_id'])) {
-    $query = "SELECT * FROM user WHERE id = ?";
+    $query = "SELECT * FROM user WHERE id = ? ;";
     $result = $pdo->prepare($query);
     $result->execute(array($_SESSION["user_id"]));
     $row = $result->fetchAll(PDO::FETCH_ASSOC);
     if (count($row)) {$isConnected = true;}
+
+    $query = "SELECT * FROM story WHERE user_id = ? ;";
+    $result = $pdo->prepare($query);
+    $result->execute(array($_SESSION["user_id"]));
+    $storiesArray = $result->fetchAll(PDO::FETCH_ASSOC);
 }
 
 if (isset($_POST) && !empty($_FILES['fileUpload']['tmp_name']) && ($_FILES['fileUpload']['tmp_name'] != "")) {
@@ -206,6 +211,36 @@ if (!$isConnected) {
             </ul></div>
             <script> var user_id = <?php echo $_SESSION['user_id']; ?>; </script>
             <input value="Enregister les modification" id='submitAccountData' type="submit" style='width:auto;'>
+        </div>
+    </article>
+    <article class="card">
+        <div>
+            <h2>Mes histoires</h2><hr>
+            <?php
+            if (count($storiesArray)) {
+                for ($i=0; $i<count($storiesArray); $i++) {
+                    $story = $storiesArray[$i];
+                    $story["FormalDate"] = date($dateFormat, strtotime($story["publishedon"]));
+                    if ($story["published"]) {
+                        $publishedString = "Publiée le ".$story["FormalDate"];
+                        $linkString = "read.php?id=".$story["id"];
+                    } else {
+                        $publishedString = 'Non publiée';
+                        $linkString = 'story_handling/my_stories.php';
+                    }
+                    ?>
+                    <div class='searchStoryElemt' style='padding:0px;font-style:italic;'>
+                        <h2 style='margin:0px;font-size:17px;;font-style:normal'><a href="<?php echo $linkString; ?>"><?php echo $story["title"] ?></a></h2>
+                        <?php echo $story["description"] ?>
+                        <p style="margin:0px;color:rgba(0, 0, 0, 0.33);font-size:11px;font-style:normal"><?php echo $publishedString." - <strong>".$story["likes"]." Likes</strong>" ?></p>
+                        <?php
+                        if (!($i == count($storiesArray)-1)) { ?><hr style='color:rgba(230, 230, 230, 0.207)'><?php }} ?>
+                    </div>
+            <?php
+            } else {
+                echo "<p>Vous n'avez pas encore créé d'histoire</p>";
+            }
+            ?>
         </div>
     </article>
 </section>
